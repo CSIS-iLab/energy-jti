@@ -44,17 +44,7 @@
   line-height: 1.14;
 }
 
-%font-ui-text-md-bold {
-  @include font-size(16px);
-  line-height: 1.14;
-}
-
-%font-ui-text-lg-bold {
-  @include font-size(18px);
-  line-height:1.14;
-}
-
-%font-ui-text-xlg-bold {
+%font-ui-text-xlg {
 	font-family: $font-barlow;
 	font-weight: 700;
   @include font-clamp(20px, 22px);
@@ -101,7 +91,6 @@
   line-height:1.35;
 }
 
-
 %font-ui-text-emphasis {
 	font-family: $font-barlow;
 	font-weight: 600;
@@ -136,7 +125,6 @@
   @include font-size(17px);
   line-height: 1.14;
 }
-
 
 %font-ui-section-heading-md {
 	font-family: $font-barlow;
