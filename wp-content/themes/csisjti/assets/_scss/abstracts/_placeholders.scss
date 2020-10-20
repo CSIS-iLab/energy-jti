@@ -4,89 +4,236 @@
 /*==============================
 =          Placeholders        =
 ==============================*/
-%font-ui-text-sm {
-  @include font-size(12px);
-  line-height: 1.14;
+
+%font-ui-body-sm {
+	@include font-size(14px);
+  line-height:1.35;
 }
 
-%font-ui-text-md {
+%font-ui-body-md {
+  @include font-size(17px);
+  line-height:1.35;
+}
+
+%font-ui-body-sm-bold {
+  @include font-size(14px);
+  line-height:1.35;
+}
+
+%font-ui-body-md-bold {
+  @include font-size(16px);
+  line-height:1.35;
+}
+
+%font-ui-text-sm {
+  font-family:"Barlow";
+	font-weight: 400;
   @include font-size(14px);
   line-height: 1.14;
 }
 
-%font-ui-text-lg {
-  @include font-clamp(16px, 17px);
+%font-ui-text-md {
+  font-family:"Barlow";
+  font-weight: 700;
+  @include font-size(16px);
   line-height: 1.14;
 }
 
-%font-ui-text-md-semibold-mobile-nav {
+%font-ui-text-lg {
+  @include font-size(18px);
+  line-height: 1.14;
+}
+
+%font-ui-text-md-bold {
   @include font-size(16px);
+  line-height: 1.14;
+}
+
+%font-ui-text-lg-bold {
+  @include font-size(18px);
+  line-height:1.14;
+}
+
+%font-ui-text-xlg-bold {
+	font-family:"Barlow";
+	font-weight: 700;
+  @include font-clamp(20px, 22px);
+  line-height: 1.29;
+}
+
+%font-ui-text-sm-uppercase {
+  font-family:"Barlow";
+	font-weight: 500;
+	@include font-size(14px);
+  line-height:1.14;
+}
+
+%font-ui-text-sm-bold-uppercase {
+	font-family:"Barlow";
+	font-weight: 700;
+	@include font-size(14px);
   line-height: 1;
 }
 
-%font-ui-page-title-sm {
-  @include font-clamp(28px, 33px);
-  line-height: 1.14;
+%font-ui-text-md-bold-uppercase {
+  @include font-size(16px);
+	line-height:1.35;
 }
 
-%font-ui-page-title-md {
+%font-ui-text-lg-bold-uppercase {
+	font-family:"Barlow";
+	font-weight: 700;
+  @include font-size(18px);
+	line-height:1.14;
+}
+
+%font-ui-text-md-bold-barlow {
+  font-family:"Barlow";
+	font-weight: 700;
+	@include font-size(16px);
+	line-height:1.14;
+}
+
+%font-ui-text-md-bold-uppercase-barlow {
+	font-family:"Barlow";
+	font-weight: 700;
+  @include font-size(16px);
+  line-height:1.35;
+}
+
+
+%font-ui-text-emphasis {
+	font-family:"Barlow";
+	font-weight: 600;
+	@include font-size(56px);
+  line-height:8;
+}
+
+%font-ui-page-title-sm {
+  font-family:"Barlow";
+  font-weight: 400;
   @include font-clamp(36px, 42px);
   line-height: 1.14;
 }
 
 %font-ui-page-title-lg {
-  @include font-clamp(42px, 54px);
+  font-family:"Barlow";
+	font-weight: 700;
+  @include font-clamp(36px, 53px);
   line-height: 1.14;
 }
 
-%font-ui-heading-xs {
-  @include font-clamp(13px, 14px);
+%font-ui-section-heading-xsm-uppercase {
+	font-family:"Barlow";
+	font-weight: 400;
+  @include font-size(14px);
   line-height: 1.14;
 }
 
-%font-ui-heading-sm {
+%font-ui-section-heading-sm {
+	font-family:"Barlow";
+	font-weight: 400;
   @include font-size(17px);
   line-height: 1.14;
 }
 
-%font-ui-heading-md {
-  @include font-clamp(20px, 24px);
+
+%font-ui-section-heading-md {
+	font-family:"Barlow";
+	font-weight: 400;
+  @include font-size(24px);
   line-height: 1.14;
 }
 
-%font-ui-heading-lg {
-  @include font-clamp(22px, 26px);
+%font-ui-section-heading-lg {
+	font-family:"Barlow";
+	font-weight: 400;
+  @include font-size(30px);
+  line-height: 1.14;
+}
+
+%font-ui-headline-sm {
+  font-family:"Barlow Semi Condensed";
+	font-weight: 600;
+  @include font-size(17px);
   line-height: 1.14;
 }
 
 %font-ui-headline-md {
-  @include font-size(18px);
+  font-family:"Barlow Semi Condensed";
+	font-weight: 500;
+  @include font-clamp(22px, 24px);
   line-height: 1.14;
 }
 
 %font-ui-headline-lg {
-  @include font-clamp(20px, 24px);
+  font-family:"Barlow Semi Condensed";
+	font-weight: 600;
+  @include font-clamp(26px, 30px);
   line-height: 1.14;
 }
 
+%font-copy-body-short-md {
+	@include font-size(16px);
+	line-height:1.50;
+}
+
+%font-copy-body-short-lg {
+	@include font-size(17px);
+	line-height:1.35;
+}
+
+%font-copy-body-short-lede {
+	@include font-size(20px);
+	line-height:1.35;
+}
+
+%font-copy-body-long-lg {
+  @include font-size(19px);
+	line-height:1.60;
+}
+
+%font-copy-body-list-md {
+	@include font-size(16px);
+	line-height:1.14;
+}
+
+%font-copy-body-list-lg {
+	@include font-size(18px);
+	line-height:1.35;
+}
+
 %font-copy-quote-sm {
-  font-family: $font-source-serif;
+  font-family:"Barlow";
+	font-weight: 600;
   @include font-size(18px);
   line-height: 1.5;
 }
 
 %font-copy-quote-lg {
-  font-family: $font-source-serif;
-  @include font-clamp(20px, 24px);
+  font-family:"Barlow";
+	font-weight: 600;
+  @include font-size(20px);
   line-height: 1.35;
 }
 
 %font-copy-heading-2 {
-  @include font-clamp(28px, 32px);
+  font-family:"Barlow";
+	font-weight: 600;
+  @include font-clamp(30px, 40px);
   line-height: 1.14;
 }
 
 %font-copy-heading-3 {
+  font-family:"Barlow";
+	font-weight: 600;
+  @include font-clamp(26px, 32px);
+  line-height: 1.14;
+}
+
+%font-copy-heading-4 {
+	font-family:"Barlow";
+	font-weight: 400;
   @include font-clamp(24px, 28px);
   line-height: 1.14;
 }
@@ -103,50 +250,5 @@
 
 %font-body-short-sm {
   @include font-size(14px);
-  line-height: 1.35;
-}
-
-%font-body-short-md {
-  @include font-size(16px);
-  line-height: 1.35;
-}
-
-%font-body-short-md-serif {
-  font-family: $font-source-serif;
-  @include font-size(16px);
-  line-height: 1.35;
-}
-
-%font-body-short-lg {
-  @include font-size(17px);
-  line-height: 1.35;
-}
-
-%font-body-short-lg-serif {
-  font-family: $font-source-serif;
-  @include font-clamp(17px, 18px);
-  line-height: 1.35;
-}
-
-%font-body-short-lede {
-  font-family: $font-source-serif;
-  @include font-clamp(19px, 20px);
-  line-height: 1.35;
-}
-
-%font-body-long-lg {
-  font-family: $font-source-serif;
-  @include font-clamp(17px, 18px);
-  line-height: 1.6;
-}
-
-%font-body-list-md {
-  @include font-size(16px);
-  line-height: 1.14;
-}
-
-%font-body-list-lg {
-  font-family: $font-source-serif;
-  @include font-clamp(17px, 18px);
   line-height: 1.35;
 }
