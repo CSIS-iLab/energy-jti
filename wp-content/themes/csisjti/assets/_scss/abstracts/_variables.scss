@@ -71,6 +71,10 @@ $breakpoints: (
   'xxlarge': 87.5em,
 );
 
+$min-width: 30rem;
+$max-width: 87.5rem;
+$width-diff: 57.5rem; // Difference in rems between small & large breakpoints
+
 $size__container-max-width: 1400px;
 $size__content-max-width: 680px;
 $size__content-wide-max-width: 1120px;
