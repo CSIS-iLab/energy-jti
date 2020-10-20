@@ -3,59 +3,59 @@
 =================================*/
 
 /*----------  Colors  ----------*/
-$color-text-black-100: rgba(0,0,0,1);
-$color-text-black-140-placeholder: rgba(0,0,0,0.400);
-$color-text-black-155: rgba(0,0,0,0.550);
-$color-text-black-170: rgba(0,0,0,0.700);
-$color-text-black-190: rgba(0,0,0,0.900);
+$color-black-100: rgba(0, 0, 0, 1);
+$color-black-140: rgba(0, 0, 0, 0.4);
+$color-black-155: rgba(0, 0, 0, 0.55);
+$color-black-170: rgba(0, 0, 0, 0.7);
+$color-black-190: rgba(0, 0, 0, 0.9);
 
-$color-text-white-40: rgba(255,255,255,0.400);
-$color-text-white-55: rgba(255,255,255,0.550);
-$color-text-white-70: rgba(255,255,255,0.700);
-$color-text-white-90: rgba(255,255,255,0.900);
-$color-text-white-100: rgba(255,255,255,1);
+$color-white-100: rgba(255, 255, 255, 1);
+$color-white-125: rgba(255, 255, 255, 0.25);
+$color-white-140: rgba(255, 255, 255, 0.4);
+$color-white-155: rgba(255, 255, 255, 0.55);
+$color-white-170: rgba(255, 255, 255, 0.7);
+$color-white-190: rgba(255, 255, 255, 0.9);
 
-$color-primary-yellow-100: rgba(128,99,24,1);
-$color-primary-yellow-200: rgba(168,127,35,1);
-$color-primary-yellow-300: rgba(207,154,47,1);
-$color-primary-yellow-400: rgba(245,178,60,1);
-$color-primary-yellow-500: rgba(248,193,109,1);
-$color-primary-yellow-600: rgba(250,211,158,1);
-$color-primary-yellow-700: rgba(253,232,206,1);
+$color-primary-yellow-100: rgba(128, 99, 24, 1);
+$color-primary-yellow-200: rgba(168, 127, 35, 1);
+$color-primary-yellow-300: rgba(207, 154, 47, 1);
+$color-primary-yellow-400: rgba(245, 178, 60, 1);
+$color-primary-yellow-500: rgba(248, 193, 109, 1);
+$color-primary-yellow-600: rgba(250, 211, 158, 1);
+$color-primary-yellow-700: rgba(253, 232, 206, 1);
 
-$color-primary-green-100: rgba(51,70,4,1);
-$color-primary-green-200: rgba(62,92,7,1);
-$color-primary-green-300-text: rgba(71,113,11,1);
-$color-primary-green-400: rgba(77,133,15,1);
-$color-primary-green-500: rgba(134,176,63,1);
-$color-primary-green-600: rgba(169,194,135,1);
-$color-primary-green-700: rgba(213,225,195,1);
+$color-primary-green-100: rgba(51, 70, 4, 1);
+$color-primary-green-200: rgba(62, 92, 7, 1);
+$color-primary-green-300: rgba(71, 113, 11, 1);
+$color-primary-green-400: rgba(77, 133, 15, 1);
+$color-primary-green-500: rgba(134, 176, 63, 1);
+$color-primary-green-600: rgba(169, 194, 135, 1);
+$color-primary-green-700: rgba(213, 225, 195, 1);
 
-$color-primary-blue-100: rgba(0,62,71,1);
-$color-primary-blue-200: rgba(0,83,92,1);
-$color-primary-blue-300-text: rgba(0,106,113,1);
-$color-primary-blue-400: rgba(1,128,133,1);
-$color-primary-blue-500: rgba(62,154,155,1);
-$color-primary-blue-600: rgba(121,181,180,1);
-$color-primary-blue-700: rgba(177,208,208,1);
-$color-primary-blue-800: rgba(230,239,239,1);
+$color-primary-blue-100: rgba(0, 62, 71, 1);
+$color-primary-blue-200: rgba(0, 83, 92, 1);
+$color-primary-blue-300: rgba(0, 106, 113, 1);
+$color-primary-blue-400: rgba(1, 128, 133, 1);
+$color-primary-blue-500: rgba(62, 154, 155, 1);
+$color-primary-blue-600: rgba(121, 181, 180, 1);
+$color-primary-blue-700: rgba(177, 208, 208, 1);
+$color-primary-blue-800: rgba(230, 239, 239, 1);
 
-$color-gray-gray-100: rgba(220,223,224,1);
-$color-gray-gray-200: rgba(229,229,229,1);
-$color-gray-gray-300: rgba(233,235,236,1);
-$color-gray-gray-400: rgba(245,247,247,1);
+$color-gray-100: rgba(220, 223, 224, 1);
+$color-gray-200: rgba(229, 229, 229, 1);
+$color-gray-300: rgba(233, 235, 236, 1);
+$color-gray-400: rgba(245, 247, 247, 1);
 
-$color-gray-line: rgba(199,199,199,1);
-$color-gray-field: rgba(242,247,247,1);
+$color-gray-line: rgba(199, 199, 199, 1);
+$color-gray-field: rgba(242, 247, 247, 1);
 
-$color-gradient-green: rgba(66,139,81,1);
-$color-gradient-jade: rgba(1,128,133,1);
-$color-gradient-blue: rgba(2,186,198,1);
+$color-gradient-green: rgba(66, 139, 81, 1);
+$color-gradient-jade: rgba(1, 128, 133, 1);
+$color-gradient-blue: rgba(2, 186, 198, 1);
 
-$color-gradient-yellow: rgba(144,53,180,1);
-$color-gradient-purple: rgba(106,38,138,1);
+$color-gradient-yellow: rgba(144, 53, 180, 1);
+$color-gradient-purple: rgba(106, 38, 138, 1);
 
-$color-text-white-25: rgba(255,255,255,0.250);
 
 /*----------  Fonts  ----------*/
 $font-roboto: 'Roboto', sans-serif;
