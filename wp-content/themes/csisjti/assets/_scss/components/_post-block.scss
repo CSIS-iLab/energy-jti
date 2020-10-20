@@ -1,10 +1,9 @@
 @use 'abstracts' as *;
 
 .post-block {
-  margin: rem(40px) 0;
-  color: $color-text-dark-170;
   display: grid;
   grid-template-columns: 1fr;
+  margin: rem(40px) 0;
 
   &:first-of-type {
     margin: rem(24px) 0 rem(40px) 0;
@@ -13,8 +12,8 @@
   &__category {
     @extend %font-ui-text-sm;
     display: inline-block;
-    margin-bottom: rem(16px);
     grid-row: 1;
+    margin-bottom: rem(16px);
 
     a:not(:last-child) {
       margin-right: rem(4px);
@@ -22,10 +21,8 @@
   }
 
   &__title {
-    @extend %font-ui-headline-lg;
-    margin-bottom: rem(8px);
-    color: $color-text-dark-100;
     grid-row: 2;
+    margin-bottom: rem(8px);
   }
 
   .post-meta__date {
@@ -43,15 +40,13 @@
   }
 
   &__excerpt {
-    @extend %font-body-short-md-serif;
-    color: $color-text-dark-190;
     grid-row: 7;
   }
 
   @include breakpoint('medium') {
+    position: relative;
     grid-template-columns: 2fr 1fr;
     column-gap: rem(40px);
-    position: relative;
 
     &__category,
     &__title,
@@ -107,6 +102,7 @@
           position: initial;
         }
       }
+
       &__category,
       &__title,
       .post-meta__date,
@@ -133,8 +129,8 @@
       }
 
       .wp-post-image {
-        grid-column: 1 / span 1;
         position: absolute;
+        grid-column: 1 / span 1;
       }
     }
   }
