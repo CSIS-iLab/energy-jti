@@ -44,7 +44,17 @@
   line-height: 1.14;
 }
 
-%font-ui-text-xlg {
+%font-ui-text-md-bold {
+	@include font-size(16px);
+  line-height: 1.14;
+}
+
+%font-ui-text-lg-bold {
+  @include font-size(18px);
+  line-height: 1.14;
+}
+
+%font-ui-text-xlg-bold {
   font-family: $font-barlow;
   font-weight: 700;
   @include font-clamp(20px, 22px);
