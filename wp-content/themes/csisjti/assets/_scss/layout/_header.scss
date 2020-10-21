@@ -1,20 +1,47 @@
 @use 'abstracts' as *;
 
-.site-nav {
-    float: right;
-    padding-right: 80px;
+.header {
+  height: var(--header-height);
 
-    ul {
-        display: flex;
-
-        li {
-            padding: 12px;
-        }
-
-        li.search {
-            display: none;
-            visibility: hidden;
-        }  
+  &__logo {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    
+    svg {
+      width: auto;
+      height: var(--logo-height);
+      transition: filter 0.3s ease-in-out;
     }
+
+  }
 }
-      
+
+.site-nav {
+  float: right;
+  height: 100%;
+  padding-right: 80px;
+
+  ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    li {
+      display: flex;
+      align-content: center;
+      padding: 12px;
+      @extend %font-ui-text-lg-bold;
+      color: $color-black-155;
+
+      &:hover {
+        color: $color-black-100;
+      }
+    }
+
+    .search {
+      display: none;
+      visibility: hidden;
+    }  
+  }
+}    

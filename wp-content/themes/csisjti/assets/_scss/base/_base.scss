@@ -3,6 +3,13 @@
 :root {
   /* stylelint-disable-next-line*/
   --scrollbar: 0px;
+  --header-height: 72px;
+  --logo-height: 48px;
+
+  @include breakpoint('medium') {
+    --header-height: 96px;
+    --logo-height: 76px;
+  }
 }
 
 *:focus {
