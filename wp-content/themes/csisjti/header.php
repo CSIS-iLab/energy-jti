@@ -36,12 +36,11 @@
 
 			<header id="site-header" class="header" role="banner">
 
-				<!-- TODO: Add MT Logo -->
-				<!-- <a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home">
+				<a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home">
 				<?php
-					// include( get_template_directory() . '/assets/static/csisjti-logo.svg');
+					include( get_template_directory() . '/assets/static/csisjti-logo.svg');
 				?>
-				</a> -->
+				</a> 
 
 				<?php
 				if ( has_nav_menu( 'primary' ) ) {
