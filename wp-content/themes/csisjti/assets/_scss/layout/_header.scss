@@ -1,1 +1,20 @@
 @use 'abstracts' as *;
+
+.site-nav {
+    float: right;
+    padding-right: 80px;
+
+    ul {
+        display: flex;
+
+        li {
+            padding: 12px;
+        }
+
+        li.search {
+            display: none;
+            visibility: hidden;
+        }  
+    }
+}
+      

@@ -38,7 +38,7 @@
 
 				<a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home">
 				<?php
-					include( get_template_directory() . '/assets/static/csisjti-logo.svg');
+					include( get_template_directory() . '/assets/static/csisjti-logo-long.svg');
 				?>
 				</a> 
 
