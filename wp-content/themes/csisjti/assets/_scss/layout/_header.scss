@@ -48,13 +48,14 @@
       color: $color-black-155;
 
       &.active {
+        color: $color-black-100;
         border-top-width: 3px; 
         border-top-style: solid;
         border-top-color: var(--borderTopColor);
       }
 
       &:hover {
-        color: $color-black-100;
+        color: $color-black-190;
         border-top-width: 3px; 
         border-top-style: solid;
         border-top-color: $color-primary-blue-700;

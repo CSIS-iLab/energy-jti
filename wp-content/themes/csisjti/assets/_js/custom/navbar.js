@@ -1,8 +1,10 @@
 /**
- * An example of how to include a JS file to be bundled and included into the site.
+ * JS file for toggling classes on the navbar
  *
  */
 
+
+// dynamically change color of border-top element depending on which page user navigates to
 document.addEventListener('DOMContentLoaded', function () {
 
     const listItems = document.getElementsByClassName('primary-menu')[0].children
@@ -29,6 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
       case 'about-jti':
         activeEl.style.setProperty('--borderTopColor', 'var(--color-nav-jti)')
         break
-   }
+    }
   })
   
