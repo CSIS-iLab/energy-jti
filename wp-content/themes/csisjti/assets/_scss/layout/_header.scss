@@ -35,24 +35,24 @@
   }
 
   &__content {
-    position: absolute !important;
-    top: 20px;
+    position: fixed !important;
+    top: 0;
     right: 0;
-    z-index: -1;
-    padding: 1.5rem rem(20px) 1rem;
-    // background-color: var(--page-header-bg); 
+    bottom: 0;
+    // padding: 1.5rem rem(20px) 1rem;
+    width: 320px;
+    background-color: $color-gray-100;
     visibility: hidden;
     transition: clip-path 0.3s linear, visibility 0.3s linear;
     clip-path: inset(0 0 0 100%);
-    // @include full-width-background(var(--page-header-bg));
 
     @include breakpoint('large') {
       position: static !important;
-      height: 100%;
       top: unset;
       right: unset;
       left: unset;
       z-index: 1;
+      height: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -72,6 +72,7 @@
 
   &__trigger {
     position: relative;
+    z-index: 1;
     display: block;
     width: 40px;
     height: 40px;
@@ -141,34 +142,52 @@
   }
 
   ul {
+    position: relative;
+    top: 72px;
     height: 100%;
 
     @include breakpoint(large) {
+      position: static;
       display: flex;
+      top: 0;
     }
 
     li {
       position: relative;
       display: flex;
       align-items: flex-end;
-      height: 50%;
-      margin: 0 12px 12px;
+      margin: 12px 0;
+      padding: 12px 32px;
       @extend %font-ui-text-lg-bold;
       color: $color-black-155;
 
-      &.is-active {
+      @include breakpoint(large) {
+        margin: 0 12px 12px;
+        padding-left: 0;
+        height: 50%;
+      }
+
+      &.is-active,
+      &:hover {
         color: $color-black-100;
-        border-top-width: 4px; 
-        border-top-style: solid;
-        border-top-color: var(--borderTopColor);
+        border-left: 4px solid var(--borderTopColor);
+
+        @include breakpoint (large) {
+          border-top: 4px solid var(--borderTopColor);
+          border-left: none;
+        }
       }
 
       &:hover {
-        color: $color-black-190;
-        border-top-width: 4px; 
-        border-top-style: solid;
-        border-top-color: $color-primary-blue-700;
+        border-left-color: $color-primary-blue-700 !important;
+
+        @include breakpoint (large) {
+          border-top-color: $color-primary-blue-700 !important;
+          border-left: none;
+        }
       }
+
+     
     }
 
     .search {
