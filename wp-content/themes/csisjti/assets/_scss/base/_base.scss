@@ -12,7 +12,7 @@
   --color-nav-jti: #{$color-primary-green-600};
   --borderTopColor: var(--color-nav-resource);
 
-  @include breakpoint('medium') {
+  @include breakpoint('large') {
     --header-height: 96px;
     --logo-height: 76px;
   }

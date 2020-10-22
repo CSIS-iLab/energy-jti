@@ -34,3 +34,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
   
+  const trigger = document.querySelector('.site-nav__trigger')
+  const menu = document.querySelector('.site-nav__content')
+
+  trigger.addEventListener('click', function () {
+    if (menu.classList.contains('is-active')) {
+      this.setAttribute('aria-expanded', 'false')
+      this.classList.remove('is-active')
+      menu.classList.remove('is-active')
+    } else {
+      menu.classList.add('is-active')
+      this.setAttribute('aria-expanded', 'true')
+      this.classList.add('is-active')
+    }
+  })
+

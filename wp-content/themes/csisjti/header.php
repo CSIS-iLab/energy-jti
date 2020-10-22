@@ -48,22 +48,39 @@
 
 						<nav class="site-nav" aria-label="<?php esc_attr_e( 'Site Navigation', 'csisjti' ); ?>" role="navigation">
 
+							<button
+								class="site-nav__trigger"
+								aria-expanded="true"
+								aria-label="Toggle Menu"
+							>
+								<span class="line"></span>
+								<span class="line"></span>
+								<span class="line"></span>
+								<span class="line"></span>
+								<span class="visually-hidden">Menu</span>
+							</button>
+
+						<div class="site-nav__content">
+							
 							<ul class="primary-menu">
 
-							<?php
-							if ( has_nav_menu( 'primary' ) ) {
-								wp_nav_menu(
-									array(
-										'container'  => '',
-										'items_wrap' => '%3$s',
-										'theme_location' => 'primary',
-									)
-								);
-							}
-							?>
+								<?php
+								if ( has_nav_menu( 'primary' ) ) {
+									wp_nav_menu(
+										array(
+											'container'  => '',
+											'items_wrap' => '%3$s',
+											'theme_location' => 'primary',
+										)
+									);
+								}
+								?>
+								
 							</ul>
-
-						</nav><!-- .site-nav -->
+						
+						</div>
+						
+					</nav><!-- .site-nav -->
 
 					<?php
 				} ?>
