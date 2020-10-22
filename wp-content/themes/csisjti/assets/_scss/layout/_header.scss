@@ -43,6 +43,9 @@
 
       &:hover {
         color: $color-black-100;
+        border-top-width: 3px; 
+        border-top-style: solid;
+        border-top-color: $color-primary-blue-700;
       }
     }
 
