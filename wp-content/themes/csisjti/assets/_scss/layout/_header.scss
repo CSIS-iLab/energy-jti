@@ -25,14 +25,21 @@
   ul {
     display: flex;
     height: 100%;
-    align-items: center;
 
     li {
+      position: relative;
       display: flex;
-      align-content: center;
-      padding: 12px;
+      align-items: flex-end;
+      height: 50%;
+      margin: 0 12px 12px;
       @extend %font-ui-text-lg-bold;
       color: $color-black-155;
+
+      &.active {
+        border-top-width: 3px; 
+        border-top-style: solid;
+        border-top-color: var(--borderTopColor);
+      }
 
       &:hover {
         color: $color-black-100;
