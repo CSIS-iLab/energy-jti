@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!activeEl) {return}
 
-    activeEl.classList.add('active')
+    activeEl.classList.add('is-active')
 
     switch (activeEl.children[0].href.split('/')[3]) {
       case 'resource-library':

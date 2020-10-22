@@ -47,7 +47,7 @@
       @extend %font-ui-text-lg-bold;
       color: $color-black-155;
 
-      &.active {
+      &.is-active {
         color: $color-black-100;
         border-top-width: 4px; 
         border-top-style: solid;
