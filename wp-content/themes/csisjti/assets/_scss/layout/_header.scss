@@ -20,7 +20,19 @@
 .site-nav {
   float: right;
   height: 100%;
-  padding-right: 80px;
+  padding-right: 12px;
+
+  @include breakpoint(large) {
+    padding-right: 62px;
+  }
+
+  @include breakpoint(xlarge) {
+    padding-right: 72px;
+  }
+
+  @include breakpoint(xxlarge) {
+    padding-right: 80px;
+  }
 
   ul {
     display: flex;
