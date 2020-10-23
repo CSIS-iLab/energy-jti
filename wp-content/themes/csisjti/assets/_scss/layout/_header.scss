@@ -12,9 +12,14 @@
   justify-content: space-between;
   height: var(--header-height);
   z-index: 2;
+  background-color: $color-white-100;
+  max-width: $size__container-max-width;
 
   @include breakpoint(large) {
-    max-width: $size__container-max-width;
+    padding: 0 6vw;
+  }
+
+  @include breakpoint(xlarge) {
     padding: 0 rem(80px);
   }
 
@@ -163,6 +168,10 @@
         align-items: flex-end;
         height: 50%;
         margin: 0 0.75rem 0.75rem;
+      }
+
+      &:nth-last-child(2) {
+        margin-right: 0;
       }
 
       &.is-active,

@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', function () { 
   setActiveTab()
   toggleMenu()
-  checkMenuStatus()
+  closeMenu()
 })
 
 // checks href location to set active tab on navbar
@@ -40,14 +40,19 @@ const toggleMenu = () => {
   })
 }
 
-// persists menu modal on document reload 
-const checkMenuStatus = () => {
-  const trigger = document.querySelector('.site-nav__trigger')
-  const menu = document.querySelector('.site-nav__content')
-
-  if (sessionStorage.getItem('menuOpen') && window.location.href.split('/')[3].length > 0) {
-    menu.classList.add('is-active')
-    trigger.setAttribute('aria-expanded', 'true')
-    trigger.classList.add('is-active')
-  }
+const closeMenu = () => {
+  document.addEventListener('click', function (e) {
+    console.log(e)
+  })
 }
+// persists menu modal on document reload 
+// const checkMenuStatus = () => {
+//   const trigger = document.querySelector('.site-nav__trigger')
+//   const menu = document.querySelector('.site-nav__content')
+
+//   if (sessionStorage.getItem('menuOpen') && window.location.href.split('/')[3].length > 0) {
+//     menu.classList.add('is-active')
+//     trigger.setAttribute('aria-expanded', 'true')
+//     trigger.classList.add('is-active')
+//   }
+// }
