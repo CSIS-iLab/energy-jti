@@ -51,16 +51,16 @@
       right: unset;
       left: unset;
       z-index: 1;
-      height: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      height: 100%;
       padding: 0;
+      background-color: none;
       transform: none;
       visibility: visible;
       clip-path: none;
-      background-color: none;
     }
 
     &.is-active {
@@ -148,8 +148,8 @@
 
     @include breakpoint(large) {
       position: static;
-      display: flex;
       top: 0;
+      display: flex;
     }
 
     li {
@@ -162,9 +162,9 @@
       color: $color-black-155;
 
       @include breakpoint(large) {
+        height: 50%;
         margin: 0 12px 12px;
         padding: 0;
-        height: 50%;
       }
 
       &.is-active,
@@ -174,7 +174,7 @@
 
         @include breakpoint (large) {
           border-top: 4px solid var(--nav-border-color);
-          border-left: none;
+          border-left: unset;
         }
       }
 
@@ -183,7 +183,7 @@
 
         @include breakpoint (large) {
           border-top-color: $color-primary-blue-700 !important;
-          border-left: none;
+          border-left: unset;
         }
       }
 
