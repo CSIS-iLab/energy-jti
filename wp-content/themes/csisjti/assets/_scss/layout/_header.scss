@@ -187,8 +187,30 @@
           border-left: unset;
         }
       }
+    }
 
-     
+    .resource-library {
+      --nav-border-color: var(--color-nav-resource);
+    }
+
+    .jti-analysis {
+      --nav-border-color: var(--color-nav-analysis);
+    }
+
+    .events {
+      --nav-border-color: var(--color-nav-events);
+    }
+
+    .jti-analysis {
+      --nav-border-color: var(--color-nav-analysis);
+    }
+
+    .about-jti {
+      --nav-border-color: var(--color-nav-jti);
+    }
+
+    .about-just-transitions {
+      --nav-border-color: var(--color-nav-transitions);
     }
 
     .search {

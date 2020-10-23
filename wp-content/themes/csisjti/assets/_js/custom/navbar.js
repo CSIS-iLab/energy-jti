@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
   checkMenuStatus()
 })
 
-// dynamically change color of border element depending on which page user navigates to
-const setBorderColor = () => {
+// checks href location to set active tab on navbar
+const setActiveTab = () => {
     const listItems = document.getElementsByClassName('primary-menu')[0].children
 
     const activeEl = Array.from(listItems).find(el => el.children[0].href === window.location.href)
@@ -18,24 +18,6 @@ const setBorderColor = () => {
     if (!activeEl) {return}
 
     activeEl.classList.add('is-active')
-
-    switch (activeEl.children[0].href.split('/')[3]) {
-      case 'resource-library':
-        activeEl.style.setProperty('--nav-border-color', 'var(--color-nav-resource)')
-        break
-      case 'jti-analysis':
-        activeEl.style.setProperty('--nav-border-color', 'var(--color-nav-analysis)')
-        break
-      case 'events':
-        activeEl.style.setProperty('--nav-border-color', 'var(--color-nav-event)')
-        break
-      case 'about-just-transitions':
-        activeEl.style.setProperty('--nav-border-color', 'var(--color-nav-transition)')
-        break
-      case 'about-jti':
-        activeEl.style.setProperty('--nav-border-color', 'var(--color-nav-jti)')
-        break
-    }
   }
 
 // change the hamburger icon to close icon on mobile
