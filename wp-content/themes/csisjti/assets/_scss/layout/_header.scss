@@ -1,12 +1,13 @@
 @use 'abstracts' as *;
 
 .header {
+  display: flex;
+  justify-content: space-between;
   height: var(--header-height);
 
   &__logo {
     position: relative;
     width: fit-content;
-    margin: 0 auto;
     
     svg {
       width: auto;
@@ -18,7 +19,6 @@
 }
 
 .site-nav {
-  float: right;
   height: 100%;
 
   &__content {
@@ -27,7 +27,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: 320px;
+    width: rem(320px);
     background-color: $color-white-100;
     visibility: hidden;
     transition: clip-path 0.3s linear, visibility 0.3s linear;
@@ -144,14 +144,14 @@
       position: relative;
       display: flex;
       align-items: flex-end;
-      margin: 12px 0;
-      padding: 12px 32px;
+      margin: 0.75rem 0;
+      padding: 0.75rem 2rem;
       @extend %font-ui-text-lg-bold;
       color: $color-black-155;
 
       @include breakpoint(large) {
         height: 50%;
-        margin: 0 12px 12px;
+        margin: 0 0.75rem 0.75rem;
         padding: 0;
       }
 
