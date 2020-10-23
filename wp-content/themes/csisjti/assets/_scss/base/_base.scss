@@ -10,7 +10,7 @@
   --color-nav-event: #{$color-primary-yellow-400};
   --color-nav-transition: #{$color-gradient-purple};
   --color-nav-jti: #{$color-primary-green-600};
-  --borderTopColor: var(--color-nav-resource);
+  --nav-border-color: var(--color-nav-resource);
 
   @include breakpoint('large') {
     --header-height: 96px;

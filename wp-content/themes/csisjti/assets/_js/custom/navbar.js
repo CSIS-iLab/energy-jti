@@ -3,10 +3,14 @@
  *
  */
 
+document.addEventListener('DOMContentLoaded', function () { 
+  console.log('hey')
+  setBorderColor()
+  toggleMenu()
+})
 
-// dynamically change color of border-top element depending on which page user navigates to
-document.addEventListener('DOMContentLoaded', function () {
-
+// dynamically change color of border element depending on which page user navigates to
+const setBorderColor = () => {
     const listItems = document.getElementsByClassName('primary-menu')[0].children
 
     const activeEl = Array.from(listItems).find(el => el.children[0].href === window.location.href)
@@ -17,23 +21,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     switch (activeEl.children[0].href.split('/')[3]) {
       case 'resource-library':
-        activeEl.style.setProperty('--borderTopColor', 'var(--color-nav-resource)')
+        activeEl.style.setProperty('--nav-border-color', 'var(--color-nav-resource)')
         break
       case 'jti-analysis':
-        activeEl.style.setProperty('--borderTopColor', 'var(--color-nav-analysis)')
+        activeEl.style.setProperty('--nav-border-color', 'var(--color-nav-analysis)')
         break
       case 'events':
-        activeEl.style.setProperty('--borderTopColor', 'var(--color-nav-event)')
+        activeEl.style.setProperty('--nav-border-color', 'var(--color-nav-event)')
         break
       case 'about-just-transitions':
-        activeEl.style.setProperty('--borderTopColor', 'var(--color-nav-transition)')
+        activeEl.style.setProperty('--nav-border-color', 'var(--color-nav-transition)')
         break
       case 'about-jti':
-        activeEl.style.setProperty('--borderTopColor', 'var(--color-nav-jti)')
+        activeEl.style.setProperty('--nav-border-color', 'var(--color-nav-jti)')
         break
     }
-  })
-  
+  }
+
+  // change the hamburger icon to close icon on mobile
+const toggleMenu = () => {
+  console.log('o')
   const trigger = document.querySelector('.site-nav__trigger')
   const menu = document.querySelector('.site-nav__content')
 
@@ -48,4 +55,4 @@ document.addEventListener('DOMContentLoaded', function () {
       this.classList.add('is-active')
     }
   })
-
+}

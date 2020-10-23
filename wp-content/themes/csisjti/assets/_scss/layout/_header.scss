@@ -39,9 +39,8 @@
     top: 0;
     right: 0;
     bottom: 0;
-    // padding: 1.5rem rem(20px) 1rem;
     width: 320px;
-    background-color: $color-gray-100;
+    background-color: $color-white-100;
     visibility: hidden;
     transition: clip-path 0.3s linear, visibility 0.3s linear;
     clip-path: inset(0 0 0 100%);
@@ -61,6 +60,7 @@
       transform: none;
       visibility: visible;
       clip-path: none;
+      background-color: none;
     }
 
     &.is-active {
@@ -163,17 +163,17 @@
 
       @include breakpoint(large) {
         margin: 0 12px 12px;
-        padding-left: 0;
+        padding: 0;
         height: 50%;
       }
 
       &.is-active,
       &:hover {
         color: $color-black-100;
-        border-left: 4px solid var(--borderTopColor);
+        border-left: 4px solid var(--nav-border-color);
 
         @include breakpoint (large) {
-          border-top: 4px solid var(--borderTopColor);
+          border-top: 4px solid var(--nav-border-color);
           border-left: none;
         }
       }
