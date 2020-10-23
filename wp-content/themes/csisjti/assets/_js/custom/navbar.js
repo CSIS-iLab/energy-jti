@@ -4,9 +4,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () { 
-  console.log('hey')
   setBorderColor()
   toggleMenu()
+  checkMenuStatus()
 })
 
 // dynamically change color of border element depending on which page user navigates to
@@ -38,21 +38,35 @@ const setBorderColor = () => {
     }
   }
 
-  // change the hamburger icon to close icon on mobile
+// change the hamburger icon to close icon on mobile
 const toggleMenu = () => {
-  console.log('o')
   const trigger = document.querySelector('.site-nav__trigger')
   const menu = document.querySelector('.site-nav__content')
 
   trigger.addEventListener('click', function () {
     if (menu.classList.contains('is-active')) {
+    
+      sessionStorage.setItem('menuOpen', false)
       this.setAttribute('aria-expanded', 'false')
       this.classList.remove('is-active')
       menu.classList.remove('is-active')
     } else {
+      sessionStorage.setItem('menuOpen', true)
       menu.classList.add('is-active')
       this.setAttribute('aria-expanded', 'true')
       this.classList.add('is-active')
     }
   })
+}
+
+// persists menu modal on document reload 
+const checkMenuStatus = () => {
+  const trigger = document.querySelector('.site-nav__trigger')
+  const menu = document.querySelector('.site-nav__content')
+
+  if (sessionStorage.getItem('menuOpen') && window.location.href.split('/')[3].length > 0) {
+    menu.classList.add('is-active')
+    trigger.setAttribute('aria-expanded', 'true')
+    trigger.classList.add('is-active')
+  }
 }
