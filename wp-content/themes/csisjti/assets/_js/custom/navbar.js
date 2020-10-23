@@ -4,7 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () { 
-  setBorderColor()
+  setActiveTab()
   toggleMenu()
   checkMenuStatus()
 })
