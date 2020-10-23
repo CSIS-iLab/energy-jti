@@ -9,18 +9,35 @@
   a {
     display: flex !important;
     align-items: center;
+    color: var(--icon-fill);
 
     &:first-of-type {
       margin-left: -4px;
     }
 
-    &:hover path {
-      // fill: $color-text-gray-05;
+    &:hover {
+      color: var(--icon-fill-hover);
+
+      span {
+        opacity: 1 !important;
+      }
+
+      svg {
+        filter: $shadow--3;
+      }
+    }
+
+    &:focus {
+      outline: 1px solid var(--icon-fill);
+    }
+
+    svg {
+      filter: transition 0.3s ease-in-out;
     }
 
     path {
       transition: fill 0.3s ease-in-out;
-      // fill: $color-text-gray-70;
+      fill: currentColor !important;
     }
   }
 
@@ -37,7 +54,14 @@
     top: 3px;
   }
 
+  .single__header & {
+    --icon-fill: #{$color-white-170};
+    --icon-fill-hover: #{$color-white-100};
+  }
+
   .single__footer & {
+    --icon-fill: #{$color-primary-blue-400};
+    --icon-fill-hover: #{$color-primary-blue-200};
     margin-bottom: rem(16);
 
     @include breakpoint('small') {
@@ -50,34 +74,13 @@
       margin-top: rem(32);
     }
 
-    // &::before {
-    //   content: 'Share';
-    //   margin-right: rem(12);
-    //   color: $color-text-gray-50;
-    //   @extend %font-label-lg;
-    //   font-weight: 600;
-    //   text-transform: uppercase;
-    // }
-  }
-
-  .footer & {
-    @include breakpoint($break: 'medium', $dir: 'max-width') {
-      justify-content: center;
-    }
-
-    a {
-      flex: 1 1 auto;
-      max-width: fit-content;
-
-      /* stylelint-disable-next-line */
-      path {
-        // fill: $color-text-gray-10;
-      }
-
-      /* stylelint-disable-next-line */
-      &:hover path {
-        // fill: $color-white-100;
-      }
+    &::before {
+      content: 'Share';
+      margin-right: rem(12);
+      color: $color-black-140;
+      @extend %font-ui-text-sm;
+      font-weight: 500;
+      text-transform: uppercase;
     }
   }
 }

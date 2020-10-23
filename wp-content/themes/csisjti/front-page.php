@@ -41,6 +41,10 @@ get_header();
 	?>
 	</section>
 
+	<?php
+	echo csisjti_get_svg( 'videocam' );
+	?>
+
 </main><!-- #site-content -->
 
 <?php get_footer(); ?>
