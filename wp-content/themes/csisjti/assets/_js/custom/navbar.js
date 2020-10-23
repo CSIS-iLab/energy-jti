@@ -45,7 +45,6 @@ const toggleMenu = () => {
 
   trigger.addEventListener('click', function () {
     if (menu.classList.contains('is-active')) {
-    
       sessionStorage.setItem('menuOpen', false)
       this.setAttribute('aria-expanded', 'false')
       this.classList.remove('is-active')
