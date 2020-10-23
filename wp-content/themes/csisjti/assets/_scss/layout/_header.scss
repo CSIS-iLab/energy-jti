@@ -1,9 +1,22 @@
 @use 'abstracts' as *;
 
 .header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 0.75rem 0.75rem 0;
   display: flex;
   justify-content: space-between;
   height: var(--header-height);
+  z-index: 2;
+
+  @include breakpoint(large) {
+    max-width: $size__container-max-width;
+    padding: 0 rem(80px);
+  }
 
   &__logo {
     position: relative;
@@ -12,7 +25,6 @@
     svg {
       width: auto;
       height: var(--logo-height);
-      transition: filter 0.3s ease-in-out;
     }
 
   }
@@ -60,7 +72,7 @@
 
   &__trigger {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     display: block;
     width: 40px;
     height: 40px;
@@ -166,7 +178,7 @@
 
       &:hover {
         border-left-color: $color-primary-blue-700 !important;
-
+        
         @include breakpoint (large) {
           border-top-color: $color-primary-blue-700 !important;
           border-left: unset;
