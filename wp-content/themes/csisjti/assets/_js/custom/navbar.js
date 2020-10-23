@@ -42,17 +42,17 @@ const toggleMenu = () => {
 
 const closeMenu = () => {
   document.addEventListener('click', function (e) {
-    console.log(e)
+    const trigger = document.querySelector('.site-nav__trigger')
+    const menu = document.querySelector('.site-nav__content')
+    console.log(e.target)
+    const nav = document.getElementsByClassName('site-nav__content')[0] 
+    const buttonClicked = e.target === trigger || e.target.parentElement === trigger
+
+
+    if (!nav.contains(e.target) && !buttonClicked) {
+      trigger.setAttribute('aria-expanded', 'false')
+      trigger.classList.remove('is-active')
+      menu.classList.remove('is-active')
+    }
   })
 }
-// persists menu modal on document reload 
-// const checkMenuStatus = () => {
-//   const trigger = document.querySelector('.site-nav__trigger')
-//   const menu = document.querySelector('.site-nav__content')
-
-//   if (sessionStorage.getItem('menuOpen') && window.location.href.split('/')[3].length > 0) {
-//     menu.classList.add('is-active')
-//     trigger.setAttribute('aria-expanded', 'true')
-//     trigger.classList.add('is-active')
-//   }
-// }
