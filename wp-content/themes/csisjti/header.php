@@ -36,12 +36,11 @@
 
 			<header id="site-header" class="header" role="banner">
 
-				<!-- TODO: Add MT Logo -->
-				<!-- <a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home">
+				<a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home">
 				<?php
-					// include( get_template_directory() . '/assets/static/csisjti-logo.svg');
+					include( get_template_directory() . '/assets/static/csisjti-logo-long.svg');
 				?>
-				</a> -->
+				</a> 
 
 				<?php
 				if ( has_nav_menu( 'primary' ) ) {
@@ -49,22 +48,39 @@
 
 						<nav class="site-nav" aria-label="<?php esc_attr_e( 'Site Navigation', 'csisjti' ); ?>" role="navigation">
 
+							<button
+								class="site-nav__trigger"
+								aria-expanded="true"
+								aria-label="Toggle Menu"
+							>
+								<span class="line"></span>
+								<span class="line"></span>
+								<span class="line"></span>
+								<span class="line"></span>
+								<span class="visually-hidden">Menu</span>
+							</button>
+
+						<div class="site-nav__content">
+							
 							<ul class="primary-menu">
 
-							<?php
-							if ( has_nav_menu( 'primary' ) ) {
-								wp_nav_menu(
-									array(
-										'container'  => '',
-										'items_wrap' => '%3$s',
-										'theme_location' => 'primary',
-									)
-								);
-							}
-							?>
+								<?php
+								if ( has_nav_menu( 'primary' ) ) {
+									wp_nav_menu(
+										array(
+											'container'  => '',
+											'items_wrap' => '%3$s',
+											'theme_location' => 'primary',
+										)
+									);
+								}
+								?>
+								
 							</ul>
-
-						</nav><!-- .site-nav -->
+						
+						</div>
+						
+					</nav><!-- .site-nav -->
 
 					<?php
 				} ?>
