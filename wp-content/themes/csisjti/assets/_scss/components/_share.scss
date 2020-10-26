@@ -15,15 +15,16 @@
       margin-left: -4px;
     }
 
+    + a {
+      margin-left: 3px;
+    }
+
     &:hover {
+      --icon-fill: var(--icon-fill-hover);
       color: var(--icon-fill-hover);
 
-      span {
+      img {
         opacity: 1 !important;
-      }
-
-      svg {
-        filter: $shadow--3;
       }
     }
 
@@ -31,13 +32,9 @@
       outline: 1px solid var(--icon-fill);
     }
 
-    svg {
-      filter: transition 0.3s ease-in-out;
-    }
-
-    path {
-      transition: fill 0.3s ease-in-out;
-      fill: currentColor !important;
+    img {
+      filter: var(--icon-fill);
+      transition: filter 0.3s ease-in-out;
     }
   }
 
@@ -48,20 +45,23 @@
     transition: background 0.3s ease-in-out;
   }
 
-  /* stylelint-disable-next-line */
-  .a2a_button_youtube {
-    position: relative;
-    top: 3px;
+  /* stylelint-disable */
+  .a2a_button_linkedin,
+  .a2a_button_copy_link {
+    transform: scale(0.9);
   }
+  /* stylelint-enable */
 
   .single__header & {
-    --icon-fill: #{$color-white-170};
-    --icon-fill-hover: #{$color-white-100};
+    --icon-fill: invert(100%) opacity(0.7);
+    --icon-fill-hover: invert(100%) opacity(1) #{$shadow--3};
   }
 
   .single__footer & {
-    --icon-fill: #{$color-primary-blue-400};
-    --icon-fill-hover: #{$color-primary-blue-200};
+    --icon-fill: invert(36%) sepia(36%) saturate(1770%) hue-rotate(143deg)
+      brightness(95%) contrast(99%);
+    --icon-fill-hover: invert(22%) sepia(46%) saturate(1699%) hue-rotate(150deg)
+      brightness(98%) contrast(104%) #{$shadow--3};
     margin-bottom: rem(16);
 
     @include breakpoint('small') {
