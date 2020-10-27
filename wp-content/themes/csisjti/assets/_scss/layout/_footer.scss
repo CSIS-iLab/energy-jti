@@ -1,1 +1,148 @@
 @use 'abstracts' as *;
+
+.site-footer {
+  display: grid;
+  grid-template-areas:
+    'logos'
+    'desc'
+    'menu'
+    'contact'
+    'copyright';
+  padding-top: rem(32);
+  padding-bottom: rem(12);
+  row-gap: rem(24);
+  color: $color-black-100;
+  @extend %font-ui-body-md;
+  background: $color-gray-400;
+  @include full-width-background($color-gray-400);
+
+  @include breakpoint('small') {
+    grid-template-areas:
+      'logos logos'
+      'desc desc'
+      'menu contact'
+      'copyright copyright';
+    row-gap: rem(16);
+    column-gap: rem(32);
+  }
+
+  @include breakpoint('large') {
+    grid-template-areas:
+      'logos logos logos'
+      'desc menu contact'
+      'copyright copyright copyright';
+    grid-template-columns: minmax(auto, 600px) auto auto;
+  }
+
+  @include breakpoint('xlarge') {
+    column-gap: rem(40);
+  }
+
+  p + p {
+    margin-top: 1rem;
+  }
+
+  a {
+    color: $color-primary-blue-400;
+
+    &:hover {
+      color: $color-primary-blue-200;
+    }
+  }
+
+  &__copyright {
+    grid-area: copyright;
+    margin-top: rem(24);
+    @extend %font-ui-text-sm;
+  }
+
+  &__logos {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: logos;
+    row-gap: rem(16);
+    column-gap: rem(32);
+  }
+
+  &__logo {
+    display: flex;
+    align-items: flex-end;
+    color: $color-black-100 !important;
+  }
+
+  .widget {
+    &__title {
+      margin: 0 0 rem(12);
+      color: $color-black-170;
+      @extend %font-ui-section-heading-xsm-uppercase;
+    }
+
+    a {
+      display: block;
+    }
+
+    // Class name WP default.
+    &_text {
+      grid-area: desc;
+
+      @include breakpoint('small') {
+        margin-bottom: rem(8);
+      }
+
+      @include breakpoint('large') {
+        margin-bottom: 0;
+      }
+    }
+
+    // Class name WP default.
+    &_nav_menu {
+      grid-area: menu;
+      @extend %font-ui-text-md-bold;
+
+      @include breakpoint('large') {
+        margin-left: rem(8);
+        padding-left: rem(16);
+      }
+
+      @include breakpoint('xlarge') {
+        margin-left: rem(32);
+      }
+
+      li + li {
+        margin-top: rem(4);
+      }
+    }
+  }
+
+  &__contact {
+    grid-area: contact;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      @extend %font-ui-text-sm;
+      list-style: none;
+    }
+
+    li + li {
+      margin-top: rem(12);
+    }
+
+    a {
+      --icon-color: #{$color-primary-blue-400};
+      display: flex;
+      align-items: center;
+      color: $color-black-190;
+
+      &:hover {
+        --icon-color: #{$color-primary-blue-200};
+        color: $color-black-100;
+      }
+    }
+
+    .icon {
+      margin-right: rem(8);
+      color: var(--icon-color);
+    }
+  }
+}
