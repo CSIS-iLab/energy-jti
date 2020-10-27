@@ -243,3 +243,18 @@ if (! function_exists('csisjti_display_tags')) :
 		}
 	}
 endif;
+
+/**
+ * Displays the AddToAny Share Links.
+ *
+ *
+ * @return string $html The share links.
+ */
+if (! function_exists('csisjti_share')) :
+	function csisjti_share() {
+
+		if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) {
+			ADDTOANY_SHARE_SAVE_KIT();
+		}
+	}
+endif;

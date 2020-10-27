@@ -31,4 +31,6 @@ $entry_header_classes = '';
 
 	</div><!-- .entry-header-inner -->
 
+	<?php csisjti_share(); ?>
+
 </header><!-- .entry-header -->

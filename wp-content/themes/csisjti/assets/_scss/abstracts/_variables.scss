@@ -56,7 +56,6 @@ $color-gradient-blue: rgba(2, 186, 198, 1);
 $color-gradient-yellow: rgba(144, 53, 180, 1);
 $color-gradient-purple: rgba(106, 38, 138, 1);
 
-
 /*----------  Fonts  ----------*/
 $font-roboto: 'Roboto', sans-serif;
 $font-barlow: 'Barlow', sans-serif;
@@ -78,3 +77,9 @@ $width-diff: 57.5rem; // Difference in rems between small & large breakpoints
 $size__container-max-width: 1400px;
 $size__content-max-width: 680px;
 $size__content-wide-max-width: 1120px;
+
+/*----------  Shadows  ----------*/
+
+$shadow--3: drop-shadow(0 3px 4px rgba(2, 3, 3, 0.03))
+  drop-shadow(0 3px 3px rgba(2, 3, 3, 0.02))
+  drop-shadow(0 1px 8px rgba(2, 3, 3, 0.04));

@@ -111,6 +111,8 @@ Thumbs.db
 !wp-content/themes/csisjti/.eslintignore
 !wp-content/themes/csisjti/.eslintrc.js
 !wp-content/themes/csisjti/.stylelintrc.json
+!wp-content/themes/csisjti/assets/static/
+!wp-content/themes/csisjti/assets/static/icons/*.svg
 
 wp-content/themes/*/**/*.css
 wp-content/themes/csisjti/assets/images
