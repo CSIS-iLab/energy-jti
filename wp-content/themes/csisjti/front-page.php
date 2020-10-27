@@ -66,6 +66,16 @@ get_header();
 	echo csisjti_get_svg( 'arrow-down' );
 	?>
 	</button>
+	<br /><br />
+	<a href="" class="cta">What is "Just Transition"? <?php
+	echo csisjti_get_svg( 'arrow-right' );
+	?></a>
+	<br /><br />
+	<div style="background: #ccc;">
+		<a href="" class="cta cta--white">What is "Just Transition"? <?php
+	echo csisjti_get_svg( 'arrow-right' );
+	?></a>
+	</div>
 
 </main><!-- #site-content -->
 

@@ -10,6 +10,10 @@
 <path fill="none" stroke="#018085" style="stroke: var(--color1, #018085)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 21.333l5.333-5.333-5.333-5.333"></path>
 <path fill="none" stroke="#018085" style="stroke: var(--color1, #018085)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M10.667 16h10.667"></path>
 </symbol>
+<symbol id="icon-arrow-right" viewBox="0 0 32 32">
+<path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 21.333l5.333-5.333-5.333-5.333"></path>
+<path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M10.667 16h10.667"></path>
+</symbol>
 <symbol id="icon-info" viewBox="0 0 32 32">
 <path fill="#018085" style="fill: var(--color1, #018085)" d="M16 0c-8.822 0-16 7.178-16 16s7.178 16 16 16c8.822 0 16-7.178 16-16s-7.178-16-16-16zM16 28.8c-7.058 0-12.8-5.742-12.8-12.8s5.742-12.8 12.8-12.8c7.058 0 12.8 5.742 12.8 12.8s-5.742 12.8-12.8 12.8z"></path>
 <path fill="#018085" style="fill: var(--color1, #018085)" d="M14.4 14.4h3.2v9.6h-3.2v-9.6zM14.4 8h3.2v3.2h-3.2v-3.2z"></path>
