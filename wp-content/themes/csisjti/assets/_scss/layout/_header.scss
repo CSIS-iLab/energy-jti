@@ -5,15 +5,15 @@
   top: 0;
   right: 0;
   left: 0;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  padding: 0.75rem 0.75rem 0;
-  display: flex;
-  justify-content: space-between;
-  height: var(--header-height);
   z-index: 2;
-  background-color: $color-white-100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   max-width: $size__container-max-width;
+  height: var(--header-height);
+  margin: 0 auto;
+  padding: 0.75rem 0.75rem 0;
+  background-color: $color-white-100;
 
   @include breakpoint(large) {
     padding: 0 6vw;
@@ -40,10 +40,10 @@
 
   &__content {
     position: fixed !important;
-    z-index: 1;
     top: 0;
     right: 0;
     bottom: 0;
+    z-index: 1;
     width: rem(320px);
     background-color: $color-white-100;
     visibility: hidden;
@@ -174,7 +174,8 @@
         margin-right: 0;
       }
 
-      &.is-active,
+      /* stylelint-disable-next-line */
+      &.is-active/* stylelint-disable-next-line */,
       &:hover {
         color: $color-black-100;
         border-left: 4px solid var(--nav-border-color);
@@ -194,6 +195,7 @@
         }
       }
 
+      /* stylelint-disable-next-line */
       a {
         display: block;
         padding: 0.75rem 2rem;
