@@ -4,7 +4,7 @@
   position: relative;
   max-height: 400px;
   padding-top: var(--header-height);
-  padding-bottom: rem(64px);
+  padding-bottom: rem(64);
   color: $color-white-190;
   background: var(--page-header-bg);
   @include full-width-background(var(--page-header-bg));
@@ -18,7 +18,7 @@
   &-content {
     grid-column: 1;
     grid-row: 2;
-    margin-top: rem(40px);
+    margin-top: rem(40);
   }
 
   &-title {
@@ -27,7 +27,7 @@
     grid-column: 1;
     grid-row: 2;
     @extend %font-ui-page-title-lg;
-    margin-bottom: 0.25rem;
+    margin-bottom: rem(4);
   }
 
   &-subtitle {
@@ -35,21 +35,21 @@
     grid-column: 1;
     grid-row: 2;
     @extend %font-ui-text-xlg-bold;
-    margin-bottom: 1rem;
+    margin-bottom: rem(16);
   }
 
   &-description {
     grid-column: 1;
     grid-row: 2;
     @extend %font-ui-body-md;
-    margin-bottom: 0.75rem;
+    margin-bottom: rem(12);
   }
 
   &-excerpt {
     grid-column: 1;
     grid-row: 2;
     @extend %font-ui-body-md;
-    margin-bottom: 0.75rem;
+    margin-bottom: rem(12);
   }
 
   .post-meta__date {
@@ -69,7 +69,7 @@
   .featured-media {
     grid-column: 3;
     grid-row: 2;
-    margin: rem(40px) 0 0 rem(24px);
+    margin: rem(40) 0 0 rem(24);
 
     img {
       height: 300px;
