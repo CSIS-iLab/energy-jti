@@ -14,8 +14,8 @@
 ?>
 			<footer id="site-footer" class="site-footer" role="contentinfo">
 				<div class="site-footer__logos">
-					<a href="https://www.csis.org" class="site-footer__logo"><?php include( get_template_directory() . '/assets/static/csis-logo.svg'); ?></a>
-					<a href="https://www.climateinvestmentfunds.org/" class="site-footer__logo"><img src="/wp-content/themes/csisjti/assets/static/cif_logo.png" alt="Climate Investment Funds" /></a>
+					<a href="https://www.csis.org" class="site-footer__logo site-footer__logo--csis"><?php include( get_template_directory() . '/assets/static/csis-logo.svg'); ?></a>
+					<a href="https://www.climateinvestmentfunds.org/" class="site-footer__logo site-footer__logo--cif"><?php include( get_template_directory() . '/assets/static/cif-logo.svg'); ?></a>
 				</div>
 
 				<?php dynamic_sidebar( 'footer-1' ); ?>
