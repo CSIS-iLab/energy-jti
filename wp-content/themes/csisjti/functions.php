@@ -283,13 +283,13 @@ function csisjti_sidebar_registration() {
 
 	// Arguments used in all register_sidebar() calls.
 	$footer_shared_args = array(
-		'before_title'  => '',
-		'after_title'   => '',
+		'before_title'  => '<h2 class="widget__title">',
+		'after_title'   => '</h2>',
 		'before_widget' => '<div class="widget %2$s">',
 		'after_widget'  => '</div>',
 	);
 
-	// Footer #1.
+	// Footer #1: Description.
 	register_sidebar(
 		array_merge(
 			$footer_shared_args,
@@ -301,6 +301,7 @@ function csisjti_sidebar_registration() {
 		)
 	);
 
+	// Footer #2: Menu
 	register_sidebar(
 		array_merge(
 			$footer_shared_args,
@@ -312,38 +313,38 @@ function csisjti_sidebar_registration() {
 		)
 	);
 
-	// Newsletter.
+	// Social Share
 	register_sidebar(
 		array_merge(
 			$footer_shared_args,
 			array(
-				'name'        => __( 'About JTI', 'csisjti' ),
-				'id'          => 'about-jti',
-				'description' => __( 'Widgets in this area will be displayed in the "about JTI" section on the homepage.', 'csisjti' ),
-			)
-		)
-	);
-
-	// Social Share
-	register_sidebar(
-		array(
 				'name'        => __( 'Social Share', 'csisjti' ),
 				'id'          => 'social-share',
 				'description' => __( 'Social Share Widget', 'csisjti' ),
 				'before_widget' => '',
 				'after_widget' => ''
 			)
+		)
 	);
 
-	// Twitter Timeline
+	// About JTI on Homepage.
 	register_sidebar(
 		array(
-				'name'        => __( 'Explore Resource Library', 'csisjti' ),
-				'id'          => 'explore-resource-library',
-				'description' => __( 'This widget will be displayed on the homepage & contain the abbreviated search for the resource library.', 'csisjti' ),
-				'before_widget' => '',
-				'after_widget' => ''
-			)
+			'name'        => __( 'About JTI', 'csisjti' ),
+			'id'          => 'about-jti',
+			'description' => __( 'Widgets in this area will be displayed in the "about JTI" section on the homepage.', 'csisjti' ),
+		)
+	);
+
+	// Explore Resources form on homepage.
+	register_sidebar(
+		array(
+			'name'        => __( 'Explore Resource Library', 'csisjti' ),
+			'id'          => 'explore-resource-library',
+			'description' => __( 'This widget will be displayed on the homepage & contain the abbreviated search for the resource library.', 'csisjti' ),
+			'before_widget' => '',
+			'after_widget' => ''
+		)
 	);
 
 }
