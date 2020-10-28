@@ -13,27 +13,37 @@ $entry_header_classes = '';
 
 <header class="single__header<?php echo esc_attr( $entry_header_classes ); ?>">
 
-	<div class="single__header-wrapper">
+  <div class="single__header-wrapper">
+    
+    <?php csisjti_share(); ?>
+  
+    <div class="single__header-content">
+      <?php
 
-		<?php csisjti_share(); ?>
+        the_title( '<h1 class="single__header-title">', '</h1>' )?>
 
-		<?php
+        <p class="single__header-subtitle"><?php the_field('subtitle')?></p>
+        
+        <!-- <p class="single__header-description"><?php //the_field('description')?></p> -->
 
-			the_title( '<h1 class="single__header-title">', '</h1>' )?>
 
-      <p class="single__header-subtitle"><?php the_field('subtitle')?></p>
+        <?php
+        if ( has_excerpt() && is_singular() ) {
+          echo '<p class="single__header-excerpt">' . get_the_excerpt() . '</p>';
+        }
+
       
-      <p class="single__header-description"><?php the_field('description')?></p>
+
+    csisjti_posted_on();
+?>
+    </div>
 
       <?php
-			if ( has_excerpt() && is_singular() ) {
-				the_excerpt();
-			}
 
 			get_template_part( 'template-parts/featured-image' );
 			get_template_part( 'template-parts/featured-image-caption' );
 
-			csisjti_posted_on();
+			
 		?>
 
 	</div><!-- .entry-header-inner -->
