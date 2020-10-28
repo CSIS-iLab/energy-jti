@@ -19,7 +19,7 @@
 }
 
 *:focus {
-  outline: 1px solid #f00;
+  outline: 1px solid $color-primary-blue-500;
 }
 
 html,
@@ -42,4 +42,8 @@ body {
   @include breakpoint(xxlarge) {
     --container-padding: #{rem(80)};
   }
+}
+
+#site-content {
+  padding-top: var(--header-height);
 }

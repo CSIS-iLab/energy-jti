@@ -1,26 +1,23 @@
 @use '../abstracts' as *;
 
 .btn {
-  display: inline-block;
-  padding: rem(8) rem(12);
-  // @extend %font-button;
+  display: inline-flex;
+  padding: rem(8) rem(16);
+  @extend %font-ui-text-sm-uppercase;
+  color: $color-white-190;
   text-align: center;
   text-transform: uppercase;
-  background: transparent;
-  // border: 1px solid $color-primary-dark;
-  border-radius: 3px;
-  transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+  background: $color-primary-blue-400;
+  border: 1px solid $color-primary-blue-400;
+  border-radius: 2px;
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out,
+    border 0.3s ease-in-out, filter 0.3s ease-in-out;
 
-  // &:hover {
-  //   color: $color-text-gray-05;
-  //   background: $color-primary-dark-200;
-  //   border: 1px solid $color-primary-dark;
-  // }
-
-  // &:focus {
-  //   outline: none;
-  //   box-shadow: 0 0 0 2px $color-primary-light;
-  // }
+  &:hover {
+    color: $color-white-190;
+    background: $color-primary-blue-200;
+    filter: $shadow--3;
+  }
 
   &:not([disabled]) {
     cursor: pointer;
@@ -29,37 +26,38 @@
   &[disabled] {
     cursor: not-allowed;
   }
-}
 
-// .btn--solid {
-//   color: $color-text-gray-05;
-//   background: $color-primary-dark;
+  &--outline {
+    color: $color-primary-blue-300;
+    background: transparent;
+    border: 1px solid $color-primary-blue-500;
 
-//   &:focus {
-//     color: $color-text-gray-05;
-//   }
-// }
+    &:hover {
+      border-color: $color-primary-blue-200;
+    }
+  }
 
-// .btn--outline {
-//   color: $color-primary-dark;
-//   background: transparent;
-// }
+  &--round {
+    border-radius: 50px;
+  }
 
-// .btn--gray {
-//   color: $color-white-100;
-//   background: $color-primary-darkest;
+  &--circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+  }
 
-//   &:focus {
-//     color: $color-white-100;
-//   }
-// }
+  .icon {
+    &:first-child {
+      margin-right: rem(4);
+    }
 
-.btn--circle {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border-radius: 50%;
+    &:last-child {
+      margin-left: rem(4);
+    }
+  }
 }

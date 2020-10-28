@@ -45,6 +45,38 @@ get_header();
 	echo csisjti_get_svg( 'videocam' );
 	?>
 
+	<button class="btn">Default Button</button>
+	<button class="btn btn--round">Filled Round</button>
+	<button class="btn btn--round">
+		<?php
+	echo csisjti_get_svg( 'filter' );
+	?>
+		Text Icons
+		<?php
+	echo csisjti_get_svg( 'arrow-down' );
+	?>
+	</button>
+	<button class="btn btn--outline">Test Outline</button>
+	<button class="btn btn--outline btn--round">
+		<?php
+	echo csisjti_get_svg( 'filter' );
+	?>
+		Less Details
+		<?php
+	echo csisjti_get_svg( 'arrow-down' );
+	?>
+	</button>
+	<br /><br />
+	<a href="" class="cta">What is "Just Transition"? <?php
+	echo csisjti_get_svg( 'arrow-right' );
+	?></a>
+	<br /><br />
+	<div style="background: #ccc;">
+		<a href="" class="cta cta--white">What is "Just Transition"? <?php
+	echo csisjti_get_svg( 'arrow-right' );
+	?></a>
+	</div>
+
 </main><!-- #site-content -->
 
 <?php get_footer(); ?>
