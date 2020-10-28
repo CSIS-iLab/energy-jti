@@ -130,14 +130,20 @@ function csisjti_site_description( $echo = true ) {
  *
  * @return string $html The post date.
  */
-function csisjti_posted_on() {
+function csisjti_posted_on( $date_format = null ) {
 
 	// Require post ID.
 	if ( ! get_the_ID() ) {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__date">' . get_the_time( get_option( 'date_format' ) ) . '</div>';
+	$date = get_option( 'date_format' );
+
+	if  ( $date_format ) {
+		$date = $date_format;
+	}
+
+	echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
 }
 
 /**
@@ -210,8 +216,14 @@ endif;
 if (! function_exists('csisjti_display_categories')) :
 	function csisjti_display_categories() {
 
+		// Require post ID.
+		if ( ! get_the_ID() ) {
+			echo 'no idea';
+			return;
+		}
+
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list('<ul class="post-meta__categories"><li>', '</li><li>', '</li></ul>');
+		$categories_list = get_the_category_list(', ');
 
 		if ('Uncategorized' === $categories_list) {
 				return;
@@ -219,7 +231,7 @@ if (! function_exists('csisjti_display_categories')) :
 
 		if ( $categories_list ) {
 			/* translators: 1: list of categories. */
-			printf( '<div class="entry__categories">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<div class="post-meta post-meta__categories">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 endif;
