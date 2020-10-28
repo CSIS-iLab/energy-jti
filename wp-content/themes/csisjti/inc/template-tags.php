@@ -270,3 +270,89 @@ if (! function_exists('csisjti_share')) :
 		}
 	}
 endif;
+
+/**
+ * Displays Resource Authors.
+ *
+ *
+ * @return string $html The authors.
+ */
+if (! function_exists('csisjti_resource_authors')) :
+	function csisjti_resource_authors() {
+		$resource_author = get_field( 'resource_author' );
+
+		if ( !$resource_author ) {
+			return;
+		}
+
+		$authors = array();
+		foreach( $resource_author as $author ) {
+			$authors[] = $author->name;
+		}
+
+		/* translators: 1: list of tags. */
+		printf( '<div class="post-block__authors"><dt class="post-meta__label">By</dt><dd class="post-meta__value">' . esc_html__( '%1$s', 'csisjti' ) . '</dd></div>', implode(', ', $authors ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Organizations & Types.
+ *
+ *
+ * @return string $html The organizations & types.
+ */
+if (! function_exists('csisjti_resource_organization')) :
+	function csisjti_resource_organization() {
+		$publishing_organization = get_field( 'publishing_organization' );
+
+		if ( !$publishing_organization ) {
+			return;
+		}
+
+		$organizations = array();
+		foreach( $publishing_organization as $organization ) {
+			$organizations[] = $organization->name;
+		}
+
+		$publishing_organization_type = get_field( 'publishing_organization_type' );
+
+		if ( !$publishing_organization_type ) {
+			return;
+		}
+
+		$organizations_type = array();
+		foreach( $publishing_organization_type as $organization_type ) {
+			$organizations_type[] = $organization_type->name;
+		}
+
+		/* translators: 1: list of tags. */
+		printf( '<div class="post-block__organizations"><dt class="post-meta__label">Publishing Organization</dt><dd class="post-meta__value">' . esc_html__( '%1$s', 'csisjti' ) . '<div class="post-meta__subvalue">' . esc_html__( '%2$s', 'csisjti' ) . '</div></dd></div>', implode(', ', $organizations ), implode(', ', $organizations_type ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Format.
+ *
+ *
+ * @return string $html The format.
+ */
+if (! function_exists('csisjti_resource_format')) :
+	function csisjti_resource_format() {
+		$format = get_field( 'format' );
+
+		if ( !$format ) {
+			return;
+		}
+
+		$formats = array();
+		foreach( $format as $term ) {
+			$formats[] = $term->name;
+		}
+
+		/* translators: 1: list of tags. */
+		printf( '<div class="post-meta post-block__format">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', implode('/ ', $formats ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
