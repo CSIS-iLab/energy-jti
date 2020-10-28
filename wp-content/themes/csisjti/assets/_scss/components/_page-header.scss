@@ -1,0 +1,27 @@
+@use 'abstracts' as *;
+
+.single__header {
+  position: relative;
+  padding-top: var(--header-height);
+  padding-bottom: rem(64px);
+  color: $color-white-190;
+  background: var(--page-header-bg);
+  @include full-width-background(var(--page-header-bg));
+
+  &-title {
+    position: relative;
+    z-index: 2;
+    @extend %font-ui-page-title-lg;
+  }
+
+  &-subtitle {
+    z-index: 2;
+    @extend %font-ui-text-xlg-bold;
+  }
+
+  &-description {
+    @extend %font-ui-body-md;
+  }
+
+
+}

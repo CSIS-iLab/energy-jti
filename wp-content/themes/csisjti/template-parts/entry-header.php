@@ -15,22 +15,29 @@ $entry_header_classes = '';
 
 	<div class="single__header-wrapper">
 
+		<?php csisjti_share(); ?>
+
 		<?php
-			csisjti_posted_on();
 
-			the_title( '<h1 class="single__title">', '</h1>' );
+			the_title( '<h1 class="single__header-title">', '</h1>' )?>
 
+      <p class="single__header-subtitle"><?php the_field('subtitle')?></p>
+      
+      <p class="single__header-description"><?php the_field('description')?></p>
+
+      <?php
 			if ( has_excerpt() && is_singular() ) {
 				the_excerpt();
 			}
 
-			csisjti_authors();
-
 			get_template_part( 'template-parts/featured-image' );
+			get_template_part( 'template-parts/featured-image-caption' );
+
+			csisjti_posted_on();
 		?>
 
 	</div><!-- .entry-header-inner -->
 
-	<?php csisjti_share(); ?>
+	
 
 </header><!-- .entry-header -->
