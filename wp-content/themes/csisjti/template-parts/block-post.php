@@ -27,7 +27,7 @@
 
 	<?php
 
-	the_title( '<h2 class="post-block__title text--semibold"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
+	the_title( '<h2 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
 
 	csisjti_posted_on('M Y');
 
