@@ -1,1 +1,23 @@
 @use '../abstracts' as *;
+
+.home {
+  &__analysis {
+    .post-block:not(:first-of-type) .post-block__excerpt {
+      display: none;
+    }
+
+    .post-block:first-of-type {
+      grid-template-areas:
+        'img'
+        'category'
+        'title'
+        'date'
+        'excerpt';
+      grid-template-columns: 1fr;
+
+      .post-block__img {
+        margin-bottom: rem(24);
+      }
+    }
+  }
+}
