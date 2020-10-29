@@ -6,7 +6,8 @@
   padding-top: var(--header-height);
   padding-bottom: rem(64);
   color: $color-white-190;
-  background: var(--page-header-bg);
+  // background: var(--page-header-bg);
+  background: lightblue;
   @include full-width-background(var(--page-header-bg));
 
   &-wrapper {
@@ -74,6 +75,10 @@
     img {
       height: 300px;
     }
+  }
+
+  &-location {
+    color: blue;
   }
 
 }
