@@ -8,7 +8,6 @@
   }
 
   &__title {
-    margin-bottom: rem(8px);
     color: $color-black-100;
     @extend %font-ui-headline-lg;
     text-decoration: underline;
@@ -22,9 +21,5 @@
   &__excerpt {
     color: $color-black-190;
     @extend %font-ui-body-md;
-  }
-
-  .post-meta__date {
-    margin-bottom: rem(16);
   }
 }

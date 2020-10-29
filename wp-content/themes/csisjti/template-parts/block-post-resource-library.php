@@ -21,34 +21,51 @@
 ?>
 
 <article <?php post_class($classes); ?> id="post-<?php the_ID(); ?>">
-
+ <header class="post-block__header">
 	<?php
 		csisjti_resource_format();
+
+		csisjti_resource_date();
+
+		$url = get_field( 'url' );
+
+		if ( !$url ) {
+			the_title( '<h2 class="post-block__title">', '</h2>' );
+		} else {
+			the_title( '<h2 class="post-block__title"><a href="' . esc_url( $url ) . '">', '</a></h2>' );
+		}
 	?>
+	</header>
 
-	<?php
+	<?php csisjti_resource_description(); ?>
 
-	the_field( 'publication_date' );
+	<dl class="post-block__meta">
+		<?php
+			csisjti_resource_geographic_focus();
 
-	$url = get_field( 'url' );
+			csisjti_resource_sectors();
+		?>
 
-	if ( !$url ) {
-		the_title( '<h2 class="post-block__title">', '</h2>' );
-	} else {
-		the_title( '<h2 class="post-block__title"><a href="' . esc_url( $url ) . '">', '</a></h2>' );
-	}
+		<details class="post-block__details">
+			<summary class="btn btn--outline btn--round" data-close="Less Details">
+				<span class="post-block__details-label" data-open="More" data-close="Less"></span>Details
+				<?php echo csisjti_get_svg( 'arrow-down' ); ?>
+			</summary>
+			<div class="post-block__details-content">
 
+			<?php
+				csisjti_resource_focus_areas();
 
-	csisjti_resource_authors();
+				csisjti_resource_keywords();
 
-	csisjti_resource_organization();
+				csisjti_resource_authors();
 
-	the_field( 'description' );
+				csisjti_resource_organization();
 
-	the_field( 'summary' );
-
-	?>
-
-	<p class="post-block__excerpt"> <?php echo get_the_excerpt(); ?></p>
+				csisjti_resource_summary();
+			?>
+			</div>
+		</details>
+	</dl>
 
 </article>

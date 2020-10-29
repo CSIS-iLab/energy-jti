@@ -39,6 +39,7 @@
 
   #{$post}__title {
     grid-area: title;
+    margin-bottom: rem(8px);
   }
 
   #{$post}__img {
@@ -72,5 +73,6 @@
 
   .post-meta__date {
     grid-area: date;
+    margin-bottom: rem(16);
   }
 }
