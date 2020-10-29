@@ -20,6 +20,7 @@ $entry_header_classes = '';
 	<?php if (get_post_type() == 'event') { ?>
 
 		<?php echo '<h1>Events</h1>'?>
+		<!-- category -->
 		<?php the_title( '<h1 class="single__header-title">', '</h1>' ) ?>
   	  
 		<?php if ( is_null(the_field('subtitle')) ): ?>
@@ -39,22 +40,30 @@ $entry_header_classes = '';
 		<p class="single__header-time"><?php the_field('time')?></p> 
 		<p class="single__header-location"><?php the_field_without_wpautop('location')?></p> 
 
-		<p class="single__header-registration-link"><?php the_field('registration_link')?></p> 
-		<p class="single__header-registration-info"><?php the_field('additional_registration_info')?></p> 
-		<p class="single__header-sponsor"><?php the_field('sponsor_or_partners')?></p> 
 
-		<p class="single__header-video"><?php the_field('has_video_available')?></p> 
-		<p class="single__header-related-analysis"><?php the_field('related_analysis')?></p> 
-		<p class="single__header-related-resouces"><?php the_field('related_resource')?></p> 
+		<!-- post event  -->
+   <p class="single__header-related-analysis"><?php //the_field('related_analysis')?></p> 
 
 	  </div>
 
 		<?php 
 		
-	} else { ?>
+	} else if ( has_post_thumbnail() ) { ?>
+
+<?php echo '<h1>Posts with image</h1>'?>
+
+    <a href="<?php the_permalink(); ?>" class="post-block__img" title="<?php the_title_attribute(); ?>">
+      <?php
+			get_template_part( 'template-parts/featured-image' )
+			?>
+			</a>
+		<?php get_template_part( 'template-parts/featured-image-caption' ) ?>
+		
 		<?php the_title( '<h1 class="single__header-title">', '</h1>' ) ?>
-  
-		<p class="single__header-subtitle"><?php the_field('subtitle')?></p>
+	
+		<?php if ( is_null(the_field('subtitle')) ): ?>
+			<p class="single__header-subtitle"><?php the_field('subtitle')?></p>
+		<?php endif; ?>
 		  
 		<?php if ( is_null(the_field('description')) ): ?>
 		  <p class="single__header-description"><?php the_field('description')?></p> 
@@ -69,18 +78,22 @@ $entry_header_classes = '';
 	  </div>
 
 <?php
+		} else if ((get_post_type() == 'resource-library')) { ?>
+			<?php echo '<h1>resource</h1>'?>
+
+		<?php the_title( '<h1 class="single__header-title">', '</h1>' ) ?>
+			  
+		<?php if ( is_null(the_field('description')) ): ?>
+		  <p class="single__header-description"><?php the_field('description')?></p> 
+		<?php endif; ?>
+  
+	<?php
 		}
-		
-		
 		?>
 
  
 
-    <?php
-      get_template_part( 'template-parts/featured-image' );
-      get_template_part( 'template-parts/featured-image-caption' );
-		?>
-
+    
   </div><!-- .entry-header-inner -->
 
 </header><!-- .entry-header -->

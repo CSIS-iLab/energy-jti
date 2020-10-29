@@ -259,12 +259,3 @@ if (! function_exists('csisjti_share')) :
 	}
 endif;
 
-function the_field_without_wpautop( $field_name ) {
-	
-	remove_filter('acf_the_content', 'wpautop');
-	
-	the_field( $field_name );
-	
-	add_filter('acf_the_content', 'wpautop');
-	
-}
