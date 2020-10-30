@@ -473,10 +473,24 @@ if (! function_exists('csisjti_resource_geographic_focus')) :
 			return;
 		}
 
-		// Group by parent term
-		$html = csisjti_group_acf_tax_by_parent( $geographic_focus );
+		// Global term always goes first & only show child terms.
+		$terms = array();
+		$global = '';
+		foreach( $geographic_focus as $term ) {
+			if ( $term->term_id == 86 ) {
+				$global = $term->name;
+			} elseif ( $term->parent != 0 ) {
+				$terms[] = $term->name;
+			}
+		}
+		sort($terms);
 
-		printf( '<div class="post-block__geographic"><dt class="post-meta__label">Geographic Scope</dt><div class="post-meta__value">' . esc_html__( '%1$s', 'csisjti' ) . '</div></div>', $html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		if ($global) {
+			array_unshift($terms, $global);
+		}
+
+
+		printf( '<div class="post-block__geographic"><dt class="post-meta__label">Geographic Scope</dt><div class="post-meta__value">' . esc_html__( '%1$s', 'csisjti' ) . '</div></div>', implode( ', ', $terms ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;
