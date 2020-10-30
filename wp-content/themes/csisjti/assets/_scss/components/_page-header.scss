@@ -22,7 +22,9 @@
     '. right-content'
     '. caption';
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(8 auto);
+    // grid-template-rows: repeat(8 auto);
+    // grid-template-rows: repeat(auto-fill, minmax(10%));
+    grid-template-rows: max-content  minmax(0, max-content) max-content minmax(0, max-content) auto;
     width: 100%;
     column-gap: rem(24);
   // }
