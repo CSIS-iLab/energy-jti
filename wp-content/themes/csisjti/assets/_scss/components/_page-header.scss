@@ -5,13 +5,23 @@
   min-height: 300px;
   padding-top: var(--header-height);
   color: $color-white-190;
-  // background: var(--page-header-bg);
-  background: lightblue;
-  margin-bottom: rem(40);
+  background: var(--page-header-bg);
+  // background: lightblue;
+  margin-bottom: rem(64);
   @include full-width-background(var(--page-header-bg));
-
-  // &-wrapper {
-    display: grid;
+  display: grid;
+  grid-template-areas:
+  'social-share'
+  'category'
+  'title'
+  'subtitle'
+  'desc'
+  'date'
+  'right-content'
+  'caption';
+  width: 100%;
+    
+  @include breakpoint(large) {
     grid-template-areas:
     '. social-share'
     'category right-content'
@@ -22,28 +32,23 @@
     '. right-content'
     '. caption';
     grid-template-columns: 2fr 1fr;
-    // grid-template-rows: repeat(8 auto);
-    // grid-template-rows: repeat(auto-fill, minmax(10%));
-    grid-template-rows: max-content  minmax(0, max-content) max-content minmax(0, max-content) auto;
-    width: 100%;
     column-gap: rem(24);
-  // }
+    grid-template-rows: max-content  minmax(0, max-content) max-content minmax(0, max-content) auto;
+  }
 
-  &-category {
+  .post-meta__categories {
     grid-area: category;
     @extend %font-ui-text-md-bold-uppercase-barlow;
   }
 
   &-title {
     position: relative;
-    z-index: 2;
     grid-area: title;
     @extend %font-ui-page-title-lg;
     margin-bottom: rem(4);
   }
 
   &-subtitle {
-    z-index: 2;
     grid-area: subtitle;
     @extend %font-ui-text-xlg-bold;
     margin-bottom: rem(16);
@@ -69,8 +74,12 @@
   .a2a_kit {
     display: flex;
     grid-area: social-share;
-    justify-content: flex-end;
+    justify-content: center;
     margin: 0 0 rem(32) 0;
+
+    @include breakpoint(large) {
+      justify-content: flex-end;
+    }
   }
 
   .post-block__img {
@@ -87,6 +96,15 @@
 
   &-location {
     @extend %font-ui-text-md;
+    // grid-area: right-content;
+  }
+
+  &-time {
+    // grid-area: right-content;
+  }
+
+  &-date {
+    // grid-area: right-content;
   }
 
 }

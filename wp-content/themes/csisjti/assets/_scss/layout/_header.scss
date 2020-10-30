@@ -9,19 +9,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: $size__container-max-width;
   height: var(--header-height);
-  margin: 0 auto;
-  padding: 0.75rem 0.75rem 0;
   background-color: $color-white-100;
-
-  @include breakpoint(large) {
-    padding: 0 6vw;
-  }
-
-  @include breakpoint(xlarge) {
-    padding: 0 rem(80px);
-  }
 
   &__logo {
     position: relative;
@@ -31,7 +20,24 @@
       width: auto;
       height: var(--logo-height);
     }
+  }
 
+  &__wrapper {
+    display: flex;
+    max-width: $size__container-max-width;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.75rem 0.75rem 0;
+   
+  
+    @include breakpoint(large) {
+      padding: 0 6vw;
+    }
+
+    @include breakpoint(xlarge) {
+      padding: 0 rem(80px);
+    }
   }
 }
 

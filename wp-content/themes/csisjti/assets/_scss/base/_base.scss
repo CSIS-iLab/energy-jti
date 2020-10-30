@@ -11,6 +11,7 @@
   --color-nav-transitions: #{$color-gradient-purple};
   --color-nav-jti: #{$color-primary-green-600};
   --nav-border-color: var(--color-nav-resource);
+  --page-header-bg: #{$color-primary-blue-700};
 
   @include breakpoint('large') {
     --header-height: 96px;

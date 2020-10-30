@@ -89,7 +89,7 @@ $entry_header_classes = '';
 
 	<?php } else if ((get_post_type() == 'resource-library')) { ?>
 		
-		<?php echo '<p class="single__header-category">Category</p>'; ?>
+		<?php echo '<p class="single__header-category">' . csisjti_display_categories() . '</p>'; ?>
 
 		<?php the_title( '<h1 class="single__header-title">', '</h1>' ); ?>		  
 		<p class="single__header-description"><?php the_field('description');?></p> 
@@ -102,6 +102,6 @@ $entry_header_classes = '';
 
 	<?php } ?>
    
-  <!-- </div>.entry-header-inner -->
+  <!-- </div> .entry-header-inner -->
 
 </header><!-- .entry-header -->
