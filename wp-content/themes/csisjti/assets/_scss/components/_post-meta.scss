@@ -21,4 +21,9 @@
     background: $color-gray-200;
     border-radius: 30px;
   }
+
+  &__subvalue {
+    color: $color-black-155;
+    @extend %font-ui-body-sm;
+  }
 }

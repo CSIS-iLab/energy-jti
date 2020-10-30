@@ -323,7 +323,7 @@ if (! function_exists('csisjti_resource_summary')) :
 			return;
 		}
 
-		printf( '<div class="post-block__summary"><dt class="post-meta__label">Summary</dt><dd class="post-block__summary-content">' . esc_html__( '%1$s', 'csisjti' ) . '</dd></div>', $summary ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<div class="post-block__summary post-content"><dt class="post-meta__label">Summary</dt><dd class="post-block__summary-content">' . esc_html__( '%1$s', 'csisjti' ) . '</dd></div>', $summary ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;

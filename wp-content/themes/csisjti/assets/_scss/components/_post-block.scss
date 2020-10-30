@@ -4,17 +4,20 @@
 
 .post-block {
   + .post-block {
-    margin-top: rem(56);
+    margin-top: var(--margin-between, rem(56));
   }
 
   &__title {
     color: $color-black-100;
     @extend %font-ui-headline-lg;
-    text-decoration: underline;
 
-    &:hover {
-      color: $color-primary-blue-200;
-      text-decoration: none;
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-primary-blue-200;
+        text-decoration: none;
+      }
     }
   }
 
