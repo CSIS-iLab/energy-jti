@@ -7,98 +7,77 @@
   color: $color-white-190;
   // background: var(--page-header-bg);
   background: lightblue;
+  margin-bottom: rem(40);
   @include full-width-background(var(--page-header-bg));
 
   &-wrapper {
     display: grid;
-    // grid-template-areas:
-    // '. social-share'
-    // 'category right-content'
-    // 'title right-content'
-    // 'subtitle right-content'
-    // 'desc right-content'
-    // 'date right-content'
-    // '. right-content'
-    // '. caption';
+    grid-template-areas:
+    '. social-share'
+    'category right-content'
+    'title right-content'
+    'subtitle right-content'
+    'desc right-content'
+    'date right-content'
+    '. right-content'
+    '. caption';
     grid-template-columns: 2fr 1fr;
     grid-template-rows: repeat(8 auto);
     width: 100%;
     column-gap: rem(24);
-    // align-content: flex-end;
-
   }
 
   &-category {
-    // grid-area: category;
+    grid-area: category;
     @extend %font-ui-text-md-bold-uppercase-barlow;
-    grid-column: 1/ 1;
-    grid-row: 2;
   }
 
   &-title {
     position: relative;
     z-index: 2;
-    // grid-area: title;
-    grid-column: 1/ 1;
-    grid-column-end: 1;
-    grid-row: 3;
+    grid-area: title;
     @extend %font-ui-page-title-lg;
     margin-bottom: rem(4);
   }
 
   &-subtitle {
     z-index: 2;
-    // grid-area: subtitle;
-    grid-column: 1/ 1;
-    grid-row: 4;
+    grid-area: subtitle;
     @extend %font-ui-text-xlg-bold;
     margin-bottom: rem(16);
   }
 
   &-description {
-    // grid-area: desc;
-    grid-column: 1/ 1;
-    grid-row: 5;
+    grid-area: desc;;
     @extend %font-ui-body-md;
     margin-bottom: rem(12);
   }
 
   &-excerpt {
-    // grid-area: desc;
-    grid-column: 1/ 1;
-    grid-row: 5;
+    grid-area: desc;
     @extend %font-ui-body-md;
     margin-bottom: rem(12);
   }
 
   .post-meta__date {
-    // grid-area: date;
-    grid-column: 1/ 1;
-    grid-row: 6;
+    grid-area: date;
   }
 
   /* stylelint-disable-next-line */
   .a2a_kit {
     display: flex;
-    // grid-area: social-share;
-    grid-column: 2/ 2;
-    grid-row: 1/ 1;
+    grid-area: social-share;
     justify-content: flex-end;
     margin: rem(32) 0 rem(32) 0;
   }
 
   .post-block__img {
     position: relative;
-    // grid-area: right-content;
-    grid-column: 2/ 2;
-    grid-row: 2/ 6;
-    // display: flex;
-    // justify-self: flex-end;
-    // align-self: flex-end;
+    grid-area: right-content;
+    align-self: end;
+    margin-bottom: rem(-40);
 
     img {
-      position: relative;
-      top: 35px;
       width: 100%;
       height: 300px;
     }
