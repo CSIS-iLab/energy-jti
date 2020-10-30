@@ -101,6 +101,7 @@
   font-weight: 700;
   @include font-size(16px);
   line-height: 1.35;
+  text-transform: uppercase;
 }
 
 %font-ui-text-emphasis {
