@@ -2,12 +2,6 @@
 
 .single__header {
   position: relative;
-  min-height: 300px;
-  padding-top: var(--header-height);
-  color: $color-white-190;
-  background: var(--page-header-bg);
-  margin-bottom: rem(64);
-  @include full-width-background(var(--page-header-bg));
   display: grid;
   grid-template-areas:
     'social-share'
@@ -19,6 +13,12 @@
     'right-content'
     'caption';
   width: 100%;
+  min-height: 300px;
+  margin-bottom: rem(64);
+  padding-top: var(--header-height);
+  color: $color-white-190;
+  background: var(--page-header-bg);
+  @include full-width-background(var(--page-header-bg));
 
   @include breakpoint(large) {
     grid-template-areas:
@@ -31,10 +31,10 @@
       '. right-content'
       '. caption';
     grid-template-columns: 2fr 1fr;
-    column-gap: rem(24);
     grid-template-rows:
       max-content minmax(0, max-content) max-content minmax(0, max-content)
       auto;
+    column-gap: rem(24);
   }
 
   .post-meta__categories {
@@ -96,53 +96,6 @@
 
     img {
       height: 300px;
-    }
-  }
-
-  .event-block {
-    grid-area: right-content;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: repeat(auto-fit, minmax(10px, 100px));
-    height: var(--event-block-height);
-    column-gap: 32px;
-
-    &__date {
-      display: flex;
-      width: var(--event-block-height);
-      justify-content: center;
-      padding-left: rem(18);
-      flex-direction: column;
-      grid-column: 1;
-      grid-row: 1 / span 2;
-      @extend %font-ui-text-md;
-      background-color: $color-primary-green-500;
-    }
-
-    &__month {
-      @extend %font-ui-text-lg-bold;
-      text-transform: uppercase;
-    }
-
-    &__day {
-      @extend %font-ui-text-emphasis;
-      padding: rem(2) 0;
-    }
-
-    &__year {
-      @extend %font-ui-text-md-bold;
-    }
-
-    &__location {
-      grid-column: 2;
-      grid-row: 2;
-      @extend %font-ui-text-md;
-    }
-
-    &__time {
-      grid-column: 2;
-      grid-row: 1;
-      @extend %font-ui-section-heading-md;
     }
   }
 }

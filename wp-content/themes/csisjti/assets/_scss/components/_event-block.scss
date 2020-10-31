@@ -1,0 +1,48 @@
+@use 'abstracts' as *;
+
+.event-block {
+  display: grid;
+  grid-area: right-content;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: repeat(auto-fit, minmax(10px, 100px));
+  height: var(--event-block-height);
+  column-gap: 32px;
+
+  &__date {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    justify-content: center;
+    width: var(--event-block-height);
+    padding-left: rem(18);
+    @extend %font-ui-text-md;
+    background-color: $color-primary-green-500;
+  }
+
+  &__month {
+    @extend %font-ui-text-lg-bold;
+    text-transform: uppercase;
+  }
+
+  &__day {
+    @extend %font-ui-text-emphasis;
+    padding: rem(2) 0;
+  }
+
+  &__year {
+    @extend %font-ui-text-md-bold;
+  }
+
+  &__location {
+    grid-column: 2;
+    grid-row: 2;
+    @extend %font-ui-text-md;
+  }
+
+  &__time {
+    grid-column: 2;
+    grid-row: 1;
+    @extend %font-ui-section-heading-md;
+  }
+}
