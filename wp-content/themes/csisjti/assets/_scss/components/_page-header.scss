@@ -10,29 +10,31 @@
   @include full-width-background(var(--page-header-bg));
   display: grid;
   grid-template-areas:
-  'social-share'
-  'category'
-  'title'
-  'subtitle'
-  'desc'
-  'date'
-  'right-content'
-  'caption';
+    'social-share'
+    'category'
+    'title'
+    'subtitle'
+    'desc'
+    'date'
+    'right-content'
+    'caption';
   width: 100%;
-    
+
   @include breakpoint(large) {
     grid-template-areas:
-    '. social-share'
-    'category right-content'
-    'title right-content'
-    'subtitle right-content'
-    'desc right-content'
-    'date right-content'
-    '. right-content'
-    '. caption';
+      '. social-share'
+      'category right-content'
+      'title right-content'
+      'subtitle right-content'
+      'desc right-content'
+      'date right-content'
+      '. right-content'
+      '. caption';
     grid-template-columns: 2fr 1fr;
     column-gap: rem(24);
-    grid-template-rows: max-content  minmax(0, max-content) max-content minmax(0, max-content) auto;
+    grid-template-rows:
+      max-content minmax(0, max-content) max-content minmax(0, max-content)
+      auto;
   }
 
   .post-meta__categories {
@@ -54,7 +56,7 @@
   }
 
   &-description {
-    grid-area: desc;;
+    grid-area: desc;
     @extend %font-ui-body-md;
     margin-bottom: rem(12);
   }
@@ -99,30 +101,48 @@
 
   .event-block {
     grid-area: right-content;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: repeat(auto-fit, minmax(10px, 100px));
+    height: var(--event-block-height);
+    column-gap: 32px;
 
     &__date {
-      @extend %font-ui-text-md;  
+      display: flex;
+      width: var(--event-block-height);
+      justify-content: center;
+      padding-left: rem(18);
+      flex-direction: column;
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      @extend %font-ui-text-md;
+      background-color: $color-primary-green-500;
     }
 
     &__month {
-      color: blue;
+      @extend %font-ui-text-lg-bold;
+      text-transform: uppercase;
     }
 
     &__day {
-      color: blue;
+      @extend %font-ui-text-emphasis;
+      padding: rem(2) 0;
     }
 
     &__year {
-      color: blue;
+      @extend %font-ui-text-md-bold;
     }
 
     &__location {
+      grid-column: 2;
+      grid-row: 2;
       @extend %font-ui-text-md;
     }
-  
+
     &__time {
+      grid-column: 2;
+      grid-row: 1;
+      @extend %font-ui-section-heading-md;
     }
-
   }
-
 }

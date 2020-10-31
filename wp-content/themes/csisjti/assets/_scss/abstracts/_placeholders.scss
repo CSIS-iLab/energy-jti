@@ -33,8 +33,7 @@
 }
 
 %font-ui-text-md {
-  font-family: $font-barlow;
-  font-weight: 700;
+  font-weight: 400;
   @include font-size(16px);
   line-height: 1.14;
 }
@@ -108,7 +107,7 @@
   font-family: $font-barlow;
   font-weight: 600;
   @include font-size(56px);
-  line-height: 8;
+  line-height: 0.8;
 }
 
 %font-ui-page-title-sm {
