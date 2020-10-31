@@ -265,3 +265,16 @@ if (! function_exists('csisjti_share')) :
 	}
 endif;
 
+/**
+ * Splits date string to create date object
+ *
+ */
+
+function split_date($date) {
+
+	if ( strpos($date, "/") ) {
+	  return explode("/", $date);
+	} elseif ( strpos($date, "-") ) {
+	  return explode("-", $date);
+	}
+  }

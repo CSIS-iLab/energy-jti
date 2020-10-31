@@ -19,35 +19,27 @@ $entry_header_classes = '';
   
 	<?php if (get_post_type() == 'event') { ?>
 
-		<?php echo '<p class="single__header-category">' . csisjti_display_categories() . '</p>'; ?>
+		
+			<?php echo '<p class="single__header-category">' . csisjti_display_categories() . '</p>'; ?>
 
-		<?php the_title('<h1 class="single__header-title">', '</h1>'); ?>
-  	  
-		<?php if( get_field('subtitle') ): ?>
-			<p class="single__header-subtitle"><?php the_field('subtitle'); ?></p>
-		<?php endif; ?>
+			<?php the_title('<h1 class="single__header-title">', '</h1>'); ?>
+				
+			<?php if( get_field('subtitle') ): ?>
+				<p class="single__header-subtitle"><?php the_field('subtitle'); ?></p>
+			<?php endif; ?>
 
-		<p class="single__header-description"><?php the_field('description'); ?></p>
+			<p class="single__header-description"><?php the_field('description'); ?></p>
 
-		<?php
-		if ( has_excerpt() && is_singular() ) {
-			echo '<p class="single__header-excerpt">' . get_the_excerpt() . '</p>';
-		}	
-		csisjti_last_updated();
-		?>
+			<?php
+			if ( has_excerpt() && is_singular() ) {
+				echo '<p class="single__header-excerpt">' . get_the_excerpt() . '</p>';
+			}	
+			csisjti_last_updated();
+			?>
 
-		<?php if( get_field('date_of_event') ): ?>
-			<p class="single__header-date"><?php the_field('date_of_event'); ?></p>
-		<?php endif; ?>
-
-		<?php if( get_field('time') ): ?>
-			<p class="single__header-time"><?php the_field('time'); ?></p>
-		<?php endif; ?>
-
-		<?php if( get_field('location') ): ?>
-			<?php $location = get_field('location', false, false); ?>
-				<p class="single__header-location"><?php echo $location; ?></p>
-		<?php endif; ?>
+			<?php
+				get_template_part( 'template-parts/event-block-upcoming' );
+			?>
 
 		<!-- past event block -->
 		 
