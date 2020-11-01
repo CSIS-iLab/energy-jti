@@ -12,8 +12,6 @@ $entry_header_classes = '';
 ?>
 
 <header class="single__header<?php echo esc_attr( $entry_header_classes ); ?>">
-
-  <!-- <div class="single__header-wrapper"> -->
     
 	<?php csisjti_share(); ?>
   
@@ -96,7 +94,5 @@ $entry_header_classes = '';
 		<p class="single__header-description"><?php the_field('description'); ?></p>
 
 	<?php } ?>
-   
-  <!-- </div> .entry-header-inner -->
 
 </header><!-- .entry-header -->
