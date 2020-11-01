@@ -130,14 +130,20 @@ function csisjti_site_description( $echo = true ) {
  *
  * @return string $html The post date.
  */
-function csisjti_posted_on() {
+function csisjti_posted_on( $date_format = null ) {
 
 	// Require post ID.
 	if ( ! get_the_ID() ) {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__date">' . get_the_time( get_option( 'date_format' ) ) . '</div>';
+	$date = get_option( 'date_format' );
+
+	if  ( $date_format ) {
+		$date = $date_format;
+	}
+
+	echo '<div class="post-meta post-meta__date">' . get_the_time( $date ) . '</div>';
 }
 
 /**

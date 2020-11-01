@@ -1,9 +1,16 @@
 @use 'abstracts' as *;
 
 .post-meta {
+  --meta-date: #{$color-black-155};
   @extend %font-ui-text-md;
 
   &__date {
-    margin-bottom: rem(4px);
+    color: var(--meta-date);
+  }
+
+  &__categories {
+    margin-bottom: rem(4);
+    color: var(--meta-categories);
+    font-weight: bold;
   }
 }

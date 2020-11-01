@@ -11,7 +11,7 @@
 }
 
 %font-ui-body-md {
-  @include font-size(17px);
+  @include font-size(16px);
   line-height: 1.35;
 }
 
@@ -33,7 +33,7 @@
 }
 
 %font-ui-text-md {
-  font-weight: 400;
+  font-family: $font-barlow;
   @include font-size(16px);
   line-height: 1.14;
 }
@@ -46,7 +46,7 @@
 %font-ui-text-md-bold {
   @include font-size(16px);
   font-weight: 700;
-  line-height: 1.14;
+  line-height: 1.15;
 }
 
 %font-ui-text-lg-bold {
@@ -67,6 +67,7 @@
   font-weight: 500;
   @include font-size(14px);
   line-height: 1.14;
+  text-transform: uppercase;
 }
 
 %font-ui-text-sm-bold-uppercase {
@@ -126,9 +127,11 @@
 
 %font-ui-section-heading-xsm-uppercase {
   font-family: $font-barlow;
-  font-weight: 400;
+  font-weight: 500;
   @include font-size(14px);
-  line-height: 1.14;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 %font-ui-section-heading-sm {
