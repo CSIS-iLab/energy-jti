@@ -77,7 +77,9 @@
   }
 
   .post-meta__date {
+    --meta-date: #{$color-white-190};
     grid-area: date;
+    @extend %font-ui-text-md;
     margin-bottom: rem(24);
 
     @include breakpoint(large) {
@@ -132,6 +134,17 @@
       display: inline-block;
       margin-right: rem(12);
       fill: $color-white-100;
+    }
+  }
+
+  .cta {
+    grid-area: right-content;
+    padding-top: rem(32);
+
+    @include breakpoint(large) {
+      align-self: end;
+      justify-self: end;
+      padding-top: 0;
     }
   }
 }

@@ -86,6 +86,10 @@ $entry_header_classes = '';
 		<p class="single__header-description"><?php the_field('description');?></p> 
 
 		<p class="single__header-icon"><span><?php echo csisjti_get_svg('info'); ?></span>Classifications</p>
+
+		<a href="" class="cta cta--white">What is "Just Transition"? 
+			<?php echo csisjti_get_svg( 'arrow-right' );?>
+		</a>
 		
 	<?php } else { ?>
 
