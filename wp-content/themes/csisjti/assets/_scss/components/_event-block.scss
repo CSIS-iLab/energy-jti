@@ -8,6 +8,20 @@
   height: var(--event-block-height);
   column-gap: 32px;
 
+  &::before {
+    display: none;
+
+    @include breakpoint(large) {
+      position: absolute;
+      display: block;
+      content: '';
+      top: 115px;
+      left: 65%;
+      height: 100%;
+      border-left: 1px solid $color-white-155;
+    }
+  }
+
   &__date {
     display: flex;
     flex-direction: column;

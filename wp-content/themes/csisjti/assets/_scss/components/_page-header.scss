@@ -16,6 +16,7 @@
   min-height: 300px;
   margin-bottom: rem(64);
   padding-top: var(--header-height);
+  padding-bottom: rem(24);
   color: $color-white-190;
   background: var(--page-header-bg);
   @include full-width-background(var(--page-header-bg));
@@ -40,6 +41,13 @@
   .post-meta__categories {
     grid-area: category;
     @extend %font-ui-text-md-bold-uppercase-barlow;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 4%;
+      border-bottom: 3px solid $color-white-155;
+    }
   }
 
   &-title {
@@ -47,6 +55,7 @@
     grid-area: title;
     @extend %font-ui-page-title-lg;
     margin-bottom: rem(4);
+    padding-top: rem(12);
   }
 
   &-subtitle {
@@ -69,7 +78,7 @@
 
   .post-meta__date {
     grid-area: date;
-    margin-bottom: rem(12);
+    margin-bottom: rem(24);
 
     @include breakpoint(large) {
       margin-bottom: rem(40);
@@ -96,6 +105,33 @@
 
     img {
       height: 300px;
+    }
+
+    &::before {
+      display: none;
+
+      @include breakpoint(large) {
+        position: absolute;
+        display: block;
+        content: '';
+        left: -30px;
+        bottom: 0;
+        top: -40px;
+        border-left: 1px solid $color-white-155;
+      }
+    }
+  }
+
+  &-icon {
+    grid-area: date;
+
+    .icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      fill: $color-white-100;
+      stroke-width: 0;
+      stroke: $color-white-100;
     }
   }
 }

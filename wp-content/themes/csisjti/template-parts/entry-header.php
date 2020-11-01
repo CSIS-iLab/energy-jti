@@ -83,8 +83,11 @@ $entry_header_classes = '';
 		
 		<?php echo '<p class="single__header-category">' . csisjti_display_categories() . '</p>'; ?>
 
-		<?php the_title( '<h1 class="single__header-title">', '</h1>' ); ?>		  
+		<?php the_title( '<h1 class="single__header-title">', '</h1>' ); ?>	
+
 		<p class="single__header-description"><?php the_field('description');?></p> 
+
+		<p class="single__header-icon"><span><?php echo csisjti_get_svg('info'); ?></span>Classifications</p>
 		
 	<?php } else { ?>
 
