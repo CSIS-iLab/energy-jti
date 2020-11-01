@@ -13,10 +13,10 @@
 
     @include breakpoint(large) {
       position: absolute;
-      display: block;
-      content: '';
       top: 115px;
       left: 65%;
+      display: block;
+      content: '';
       height: 100%;
       border-left: 1px solid $color-white-155;
     }
