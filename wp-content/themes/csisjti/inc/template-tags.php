@@ -270,3 +270,283 @@ if (! function_exists('csisjti_share')) :
 		}
 	}
 endif;
+
+/**
+ * Displays Resource Publication Date.
+ *
+ *
+ * @return string $html The publication date.
+ */
+if (! function_exists('csisjti_resource_date')) :
+	function csisjti_resource_date() {
+		$publication_date = get_field( 'publication_date' );
+
+		if ( !$publication_date ) {
+			return;
+		}
+
+		printf( '<div class="post-meta post-meta__date">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $publication_date ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Description.
+ *
+ *
+ * @return string $html The description.
+ */
+if (! function_exists('csisjti_resource_description')) :
+	function csisjti_resource_description() {
+		$description = get_field( 'description' );
+
+		if ( !$description ) {
+			return;
+		}
+
+		printf( '<div class="post-block__desc">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Summary.
+ *
+ *
+ * @return string $html The summary.
+ */
+if (! function_exists('csisjti_resource_summary')) :
+	function csisjti_resource_summary() {
+		$summary = get_field( 'summary' );
+
+		if ( !$summary ) {
+			return;
+		}
+
+		printf( '<div class="post-block__summary post-content"><dt class="post-meta__label">Summary</dt><dd class="post-block__summary-content">' . esc_html__( '%1$s', 'csisjti' ) . '</dd></div>', $summary ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Authors.
+ *
+ *
+ * @return string $html The authors.
+ */
+if (! function_exists('csisjti_resource_authors')) :
+	function csisjti_resource_authors() {
+		$resource_author = get_field( 'resource_author' );
+
+		if ( !$resource_author ) {
+			return;
+		}
+
+		$authors = array();
+		foreach( $resource_author as $author ) {
+			$authors[] = $author->name;
+		}
+
+		printf( '<div class="post-block__authors"><dt class="post-meta__label">By</dt><dd class="post-meta__value">' . esc_html__( '%1$s', 'csisjti' ) . '</dd></div>', implode(', ', $authors ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Organizations & Types.
+ *
+ *
+ * @return string $html The organizations & types.
+ */
+if (! function_exists('csisjti_resource_organization')) :
+	function csisjti_resource_organization() {
+		$publishing_organization = get_field( 'publishing_organization' );
+
+		if ( !$publishing_organization ) {
+			return;
+		}
+
+		$organizations = array();
+		foreach( $publishing_organization as $organization ) {
+			$organizations[] = $organization->name;
+		}
+
+		$publishing_organization_type = get_field( 'publishing_organization_type' );
+
+		if ( !$publishing_organization_type ) {
+			return;
+		}
+
+		$organizations_type = array();
+		foreach( $publishing_organization_type as $organization_type ) {
+			$organizations_type[] = $organization_type->name;
+		}
+
+		printf( '<div class="post-block__organizations"><dt class="post-meta__label">Publishing Organization</dt><dd class="post-meta__value">' . esc_html__( '%1$s', 'csisjti' ) . '<div class="post-meta__subvalue">' . esc_html__( '%2$s', 'csisjti' ) . '</div></dd></div>', implode(', ', $organizations ), implode(', ', $organizations_type ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Format.
+ *
+ *
+ * @return string $html The format.
+ */
+if (! function_exists('csisjti_resource_format')) :
+	function csisjti_resource_format() {
+		$format = get_field( 'format' );
+
+		if ( !$format ) {
+			return;
+		}
+
+		$formats = array();
+		foreach( $format as $term ) {
+			$formats[] = $term->name;
+		}
+
+		printf( '<div class="post-meta post-meta__categories">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', implode('/ ', $formats ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Sectors.
+ *
+ *
+ * @return string $html The sectors.
+ */
+if (! function_exists('csisjti_resource_sectors')) :
+	function csisjti_resource_sectors() {
+		$sectors = get_field( 'sectors' );
+
+		if ( !$sectors ) {
+			return;
+		}
+
+		$items = '';
+		foreach( $sectors as $term ) {
+			$items .= '<dd class="post-meta__pill">' . $term->name . '</dd>';
+		}
+
+		printf( '<div class="post-block__sectors"><dt class="post-meta__label">Sectors</dt><div class="post-meta__value post-block__pill-container">' . esc_html__( '%1$s', 'csisjti' ) . '</div></div>', $items ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Keywords.
+ *
+ *
+ * @return string $html The keywords.
+ */
+if (! function_exists('csisjti_resource_keywords')) :
+	function csisjti_resource_keywords() {
+		$keywords = get_field( 'keywords' );
+
+		if ( !$keywords ) {
+			return;
+		}
+
+		$items = '';
+		foreach( $keywords as $term ) {
+			$items .= '<dd class="post-meta__pill">' . $term->name . '</dd>';
+		}
+
+		printf( '<div class="post-block__keywords"><dt class="post-meta__label">Keywords</dt><div class="post-meta__value post-block__pill-container">' . esc_html__( '%1$s', 'csisjti' ) . '</div></div>', $items ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Geographic Focus.
+ *
+ *
+ * @return string $html The geographic foci.
+ */
+if (! function_exists('csisjti_resource_geographic_focus')) :
+	function csisjti_resource_geographic_focus() {
+		$geographic_focus = get_field( 'geographic_focus' );
+
+		if ( !$geographic_focus ) {
+			return;
+		}
+
+		// Global term always goes first & only show child terms.
+		$terms = array();
+		$global = '';
+		foreach( $geographic_focus as $term ) {
+			if ( $term->term_id == 86 ) {
+				$global = $term->name;
+			} elseif ( $term->parent != 0 ) {
+				$terms[] = $term->name;
+			}
+		}
+		sort($terms);
+
+		if ($global) {
+			array_unshift($terms, $global);
+		}
+
+
+		printf( '<div class="post-block__geographic"><dt class="post-meta__label">Geographic Scope</dt><div class="post-meta__value">' . esc_html__( '%1$s', 'csisjti' ) . '</div></div>', implode( ', ', $terms ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Resource Focus Areas.
+ *
+ *
+ * @return string $html The focus areas.
+ */
+if (! function_exists('csisjti_resource_focus_areas')) :
+	function csisjti_resource_focus_areas() {
+		$focus_areas = get_field( 'focus_areas' );
+
+		if ( !$focus_areas ) {
+			return;
+		}
+
+		// Group by parent term
+		$html = csisjti_group_acf_tax_by_parent( $focus_areas );
+
+		/* translators: 1: list of tags. */
+		printf( '<div class="post-block__focus"><dt class="post-meta__label">Focus Areas</dt><div class="post-block__focus-content">' . esc_html__( '%1$s', 'csisjti' ) . '</div></div>', $html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Groups taxonomy terms made with ACF by their parent term. Specifically for the Resources Library post block.
+ *
+ *
+ * @return string $html The grouped terms in a defintion term.
+ */
+if (! function_exists('csisjti_group_acf_tax_by_parent')) :
+function csisjti_group_acf_tax_by_parent( $field ) {
+	// Group by parent term
+	$terms = array();
+	foreach( $field as $term ) {
+		if ($term->parent) {
+			$terms[$term->parent]['children'][] = $term->name;
+		} else {
+			$terms[$term->term_id]['parent'] = $term->name;
+		}
+	}
+
+	$html = '';
+	foreach( $terms as $term ) {
+		$html .= '<dd class="post-meta__value">' . $term['parent'];
+
+		if ($term['children']) {
+			$html .= ' > ' . implode(', ', $term['children']);
+		}
+
+		$html .='</dd>';
+	}
+
+	return $html;
+}
+endif;

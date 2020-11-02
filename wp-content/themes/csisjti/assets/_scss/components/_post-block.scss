@@ -1,103 +1,28 @@
 @use 'abstracts' as *;
+@use 'post-block-post';
+@use 'post-block-resource-library';
 
 .post-block {
   + .post-block {
-    margin-top: rem(56);
+    margin-top: var(--margin-between, rem(56));
   }
 
   &__title {
-    margin-bottom: rem(8px);
     color: $color-black-100;
     @extend %font-ui-headline-lg;
-    text-decoration: underline;
 
-    &:hover {
-      color: $color-primary-blue-200;
-      text-decoration: none;
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-primary-blue-200;
+        text-decoration: none;
+      }
     }
   }
 
   &__excerpt {
     color: $color-black-190;
     @extend %font-ui-body-md;
-  }
-
-  .post-meta__date {
-    margin-bottom: rem(16);
-  }
-}
-
-.post-block--post {
-  --meta-categories: #{$color-primary-green-300};
-
-  $post: '.post-block';
-
-  display: grid;
-  grid-template-areas:
-    'img'
-    'category'
-    'title'
-    'date'
-    'excerpt';
-  grid-template-columns: 1fr;
-  margin-right: auto;
-  margin-left: auto;
-
-  @include breakpoint('small') {
-    grid-template-areas:
-      'img category'
-      'img title'
-      'img date'
-      'img excerpt';
-    grid-template-columns: 25% minmax(min-content, 680px);
-    grid-template-rows: max-content max-content max-content auto;
-    width: fit-content;
-    column-gap: rem(32);
-  }
-
-  @include breakpoint('large') {
-    column-gap: rem(40);
-  }
-
-  #{$post}__category {
-    grid-area: category;
-    @extend %font-ui-text-sm;
-  }
-
-  #{$post}__title {
-    grid-area: title;
-  }
-
-  #{$post}__img {
-    display: block;
-    grid-area: img;
-    margin-bottom: rem(24);
-
-    @include breakpoint('small') {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-height: 180px;
-      object-fit: cover;
-
-      @include breakpoint('small') {
-        max-height: unset;
-        object-fit: unset;
-      }
-
-      @include breakpoint('large') {
-        width: 100%;
-        max-width: 320px;
-      }
-    }
-  }
-
-  #{$post}__excerpt {
-    grid-area: excerpt;
-  }
-
-  .post-meta__date {
-    grid-area: date;
   }
 }
