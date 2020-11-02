@@ -282,3 +282,23 @@ function split_date($date) {
 		return explode("-", $date);
 	}
 }
+
+/**
+ * Displays the header's description or excerpt depending on post type.
+ *
+ *
+ * @return string $html The description.
+ */
+if (! function_exists('csisjti_header_description')) :
+	function csisjti_header_description( ) {
+		$desc = '';
+
+		if( get_field('description') ) {
+			$desc = get_field('description');
+		} else if (has_excerpt()) {
+			$desc = get_the_excerpt();
+		}
+
+		printf('<div class="entry-header__desc">' . $desc . '</div>');
+	}
+endif;

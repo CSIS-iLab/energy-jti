@@ -63,17 +63,17 @@
     margin-bottom: rem(16);
   }
 
-  &__description {
+  &__desc {
     grid-area: desc;
     @extend %font-ui-body-md;
     margin-bottom: rem(12);
   }
 
-  &__excerpt {
-    grid-area: desc;
-    @extend %font-ui-body-md;
-    margin-bottom: rem(12);
-  }
+  // &__excerpt {
+  //   grid-area: desc;
+  //   @extend %font-ui-body-md;
+  //   margin-bottom: rem(12);
+  // }
 
   .post-meta__date {
     --meta-date: #{$color-white-190};
