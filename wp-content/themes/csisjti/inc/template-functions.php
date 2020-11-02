@@ -416,6 +416,10 @@ if ( class_exists( 'easyFootnotes' ) ) {
     add_filter('the_content', 'csisjti_remove_easy_footnotes', 20);
 }
 
+/**
+*
+* Strips additional p tags placed in html when using ACF wsywg
+*/
 function the_field_without_wpautop( $field_name ) {
 	
 	remove_filter('acf_the_content', 'wpautop');

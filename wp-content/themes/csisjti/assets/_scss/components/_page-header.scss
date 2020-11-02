@@ -1,6 +1,6 @@
 @use 'abstracts' as *;
 
-.single__header {
+.entry-header {
   position: relative;
   display: grid;
   grid-template-areas:
@@ -10,12 +10,11 @@
     'subtitle'
     'desc'
     'date'
-    'right-content'
+    'secondary-content'
     'caption';
   width: 100%;
   min-height: 300px;
   margin-bottom: rem(64);
-  padding-top: var(--header-height);
   padding-bottom: rem(24);
   color: $color-white-190;
   background: var(--page-header-bg);
@@ -24,12 +23,12 @@
   @include breakpoint(large) {
     grid-template-areas:
       '. social-share'
-      'category right-content'
-      'title right-content'
-      'subtitle right-content'
-      'desc right-content'
-      'date right-content'
-      '. right-content'
+      'category secondary-content'
+      'title secondary-content'
+      'subtitle secondary-content'
+      'desc secondary-content'
+      'date secondary-content'
+      '. secondary-content'
       '. caption';
     grid-template-columns: 2fr 1fr;
     grid-template-rows:
@@ -45,12 +44,12 @@
     &::after {
       content: '';
       display: block;
-      width: 4%;
+      width: rem(32);
       border-bottom: 3px solid $color-white-155;
     }
   }
 
-  &-title {
+  &__title {
     position: relative;
     grid-area: title;
     @extend %font-ui-page-title-lg;
@@ -58,19 +57,19 @@
     padding-top: rem(12);
   }
 
-  &-subtitle {
+  &__subtitle {
     grid-area: subtitle;
     @extend %font-ui-text-xlg-bold;
     margin-bottom: rem(16);
   }
 
-  &-description {
+  &__description {
     grid-area: desc;
     @extend %font-ui-body-md;
     margin-bottom: rem(12);
   }
 
-  &-excerpt {
+  &__excerpt {
     grid-area: desc;
     @extend %font-ui-body-md;
     margin-bottom: rem(12);
@@ -89,6 +88,8 @@
 
   /* stylelint-disable-next-line */
   .a2a_kit {
+    --icon-fill: invert(100%) opacity(0.7);
+    --icon-fill-hover: invert(100%) opacity(1) #{$shadow--3};
     display: flex;
     grid-area: social-share;
     justify-content: center;
@@ -101,7 +102,7 @@
 
   .post-block__img {
     position: relative;
-    grid-area: right-content;
+    grid-area: secondary-content;
     align-self: end;
     margin-bottom: rem(-40);
 
@@ -124,7 +125,15 @@
     }
   }
 
-  &-icon {
+  .featured-media__caption {
+    grid-area: caption;
+    align-self: end;
+    margin-bottom: rem(-70);
+    @include font-size(16);
+    color: $color-black-170;
+  }
+
+  &__icon {
     grid-area: date;
     @extend %font-ui-body-md;
 
@@ -138,7 +147,7 @@
   }
 
   .cta {
-    grid-area: right-content;
+    grid-area: secondary-content;
     padding-top: rem(32);
 
     @include breakpoint(large) {

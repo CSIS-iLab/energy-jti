@@ -2,7 +2,7 @@
 
 .event-block {
   display: grid;
-  grid-area: right-content;
+  grid-area: secondary-content;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: repeat(auto-fit, minmax(10px, 100px));
   height: var(--event-block-height);

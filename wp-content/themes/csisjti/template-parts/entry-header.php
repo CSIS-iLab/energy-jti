@@ -11,26 +11,26 @@ $entry_header_classes = '';
 
 ?>
 
-<header class="single__header<?php echo esc_attr( $entry_header_classes ); ?>">
+<header class="entry-header<?php echo esc_attr( $entry_header_classes ); ?>">
     
 	<?php csisjti_share(); ?>
   
 	<?php if (get_post_type() == 'event') { ?>
 
 		
-			<?php echo '<p class="single__header-category">' . csisjti_display_categories() . '</p>'; ?>
+			<?php echo '<p class="entry-header__category">' . csisjti_display_categories() . '</p>'; ?>
 
-			<?php the_title('<h1 class="single__header-title">', '</h1>'); ?>
+			<?php the_title('<h1 class="entry-header__title">', '</h1>'); ?>
 				
 			<?php if( get_field('subtitle') ): ?>
-				<p class="single__header-subtitle"><?php the_field('subtitle'); ?></p>
+				<p class="entry-header__subtitle"><?php the_field('subtitle'); ?></p>
 			<?php endif; ?>
 
-			<p class="single__header-description"><?php the_field('description'); ?></p>
+			<p class="entry-header__description"><?php the_field('description'); ?></p>
 
 			<?php
 			if ( has_excerpt() && is_singular() ) {
-				echo '<p class="single__header-excerpt">' . get_the_excerpt() . '</p>';
+				echo '<p class="entry-header__excerpt">' . get_the_excerpt() . '</p>';
 			}	
 			csisjti_last_updated();
 			?>
@@ -50,26 +50,25 @@ $entry_header_classes = '';
 		<?php endif; ?>
 
 	<?php } else if ( has_post_thumbnail() ) { ?>
-    <a href="<?php the_permalink(); ?>" class="post-block__img" title="<?php the_title_attribute(); ?>">
-      <?php the_post_thumbnail( 'large' ); ?>
-		</a>	
+		<div class="post-block__img"><?php the_post_thumbnail( 'large' ); ?></div>
+			
 		<?php get_template_part( 'template-parts/featured-image-caption' ); ?>
 
-		<?php echo '<p class="single__header-category">' . csisjti_display_categories() . '</p>'; ?>
+		<?php csisjti_display_categories(); ?>
 
-		<?php the_title( '<h1 class="single__header-title">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
 
 		<?php if( get_field('subtitle') ): ?>
-			<p class="single__header-subtitle"><?php the_field('subtitle'); ?></p>
+			<p class="entry-header__subtitle"><?php the_field('subtitle'); ?></p>
 		<?php endif; ?>
 
 		<?php if( get_field('description') ): ?>
-			<p class="single__header-description"><?php the_field('description'); ?></p>
+			<p class="entry-header__description"><?php the_field('description'); ?></p>
 		<?php endif; ?>
   
 		<?php
 		if ( has_excerpt() && is_singular() ) {
-			echo '<p class="single__header-excerpt">' . get_the_excerpt() . '</p>';
+			echo '<p class="entry-header__excerpt">' . get_the_excerpt() . '</p>';
 		}
 		?>
 
@@ -79,13 +78,13 @@ $entry_header_classes = '';
 
 	<?php } else if ((get_post_type() == 'resource-library')) { ?>
 		
-		<?php echo '<p class="single__header-category">' . csisjti_display_categories() . '</p>'; ?>
+		<?php echo '<p class="entry-header__category">' . csisjti_display_categories() . '</p>'; ?>
 
-		<?php the_title( '<h1 class="single__header-title">', '</h1>' ); ?>	
+		<?php the_title( '<h1 class="entry-header__title">', '</h1>' ); ?>	
 
-		<p class="single__header-description"><?php the_field('description');?></p> 
+		<p class="entry-header__description"><?php the_field('description');?></p> 
 
-		<p class="single__header-icon"><span><?php echo csisjti_get_svg('info'); ?></span>Classifications</p>
+		<p class="entry-header__icon"><span><?php echo csisjti_get_svg('info'); ?></span>Classifications</p>
 
 		<a href="" class="cta cta--white">What is "Just Transition"? 
 			<?php echo csisjti_get_svg( 'arrow-right' );?>
@@ -93,9 +92,9 @@ $entry_header_classes = '';
 		
 	<?php } else { ?>
 
-		<?php the_title( '<h1 class="single__header-title">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-header__title">', '</h1>' ); ?>
 
-		<p class="single__header-description"><?php the_field('description'); ?></p>
+		<p class="entry-header__description"><?php the_field('description'); ?></p>
 
 	<?php } ?>
 
