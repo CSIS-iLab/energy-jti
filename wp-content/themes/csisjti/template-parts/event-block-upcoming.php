@@ -23,14 +23,12 @@
 			<?php endif; ?>
 		</div>
 
-		<?php if( get_field('time') ): ?>
-			<div class="event-block__time"><?php the_field('time'); ?></div>
-		<?php endif; ?>
+		<?php 
+		csisjti_event_block_time();
 
-		<?php if( get_field('location') ): ?>
-			<?php $location = get_field('location', false, false); ?>
-				<address class="event-block__location"><?php echo $location; ?></address>
-		<?php endif; ?>
+		csisjti_event_block_loc();
+		
+		?>
     
   </div>
 

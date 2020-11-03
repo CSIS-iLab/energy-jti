@@ -302,3 +302,60 @@ if (! function_exists('csisjti_header_description')) :
 		printf('<div class="entry-header__desc">' . $desc . '</div>');
 	}
 endif;
+
+/**
+ * Displays Header Subtitle.
+ *
+ *
+ * @return string $html The subtitle.
+ */
+if (! function_exists('csisjti_header_subtitle')) :
+	function csisjti_header_subtitle() {
+		$subtitle = get_field( 'subtitle' );
+
+		if ( !$subtitle ) {
+			return;
+		}
+
+		printf( '<p class="entry-header__subtitle">' . esc_html__( '%1$s', 'csisjti' ) . '</p>', $subtitle ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Event Block Time.
+ *
+ *
+ * @return string $html The event block time.
+ */
+if (! function_exists('csisjti_event_block_time')) :
+	function csisjti_event_block_time() {
+		$time = get_field( 'time' );
+
+		if ( !$time ) {
+			return;
+		}
+
+		printf( '<div class="event-block__time">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $time ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Event Block Time.
+ *
+ *
+ * @return string $html The event block time.
+ */
+if (! function_exists('csisjti_event_block_loc')) :
+	function csisjti_event_block_loc() {
+		$loc = get_field( 'location', false, false );
+
+		if ( !$loc ) {
+			return;
+		}
+
+		printf( '<address class="event-block__loc">' . esc_html__( '%1$s', 'csisjti' ) . '</address>', $loc ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
