@@ -21,6 +21,8 @@ Pulls Database from: https://csisjtidev.wpengine.com/
 1. On your local install, go to Tools --> Migrate DB Pro --> Migrate
 2. Click "Pull" to replace this site's db with remote DB
 3. From the Development Dashboard, go to Tools --> Migrate DB Pro --> Settings, and copy the the "Connection Info" and paste it into the local "Connection Info" box.
+  - **Note:** If prompted to reset the connection information, you do so on your **local** environment only. Do not update it on the WPEngine Development environment without checking with the team first.
+
 4. It should update the Find & Replace values automatically. If it doesn't, follow this pattern (change as needed):
 
 - Find: `//csisjtidev.wpengine.com` replace with `//energy-jti.local`
