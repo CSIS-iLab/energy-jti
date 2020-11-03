@@ -75,11 +75,13 @@
   font-weight: 700;
   @include font-size(14px);
   line-height: 1;
+  text-transform: uppercase;
 }
 
 %font-ui-text-md-bold-uppercase {
   @include font-size(16px);
   line-height: 1.35;
+  text-transform: uppercase;
 }
 
 %font-ui-text-lg-bold-uppercase {
@@ -87,6 +89,7 @@
   font-weight: 700;
   @include font-size(18px);
   line-height: 1.14;
+  text-transform: uppercase;
 }
 
 %font-ui-text-md-bold-barlow {
