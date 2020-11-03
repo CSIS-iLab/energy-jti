@@ -33,7 +33,13 @@ $entry_header_classes = '';
 
 		<!-- past event block -->
 		 
-	
+		<?php $related_analysis = get_field( 'related_analysis' ); ?>
+		<?php if ( $related_analysis ) : ?>
+			<?php $post = $related_analysis; ?>
+			<?php setup_postdata( $post ); ?> 
+				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			<?php wp_reset_postdata(); ?>
+		<?php endif; ?>
 
 	<?php } else if ( has_post_thumbnail() ) { ?>
 		<div class="post-block__img"><?php the_post_thumbnail( 'large' ); ?></div>
