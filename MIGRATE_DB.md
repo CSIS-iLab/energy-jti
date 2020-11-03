@@ -8,9 +8,15 @@ If you don't have it on your local and remote environments, add and activate the
 
 The documentation below pertains to this specific project, but additional documentation is available on [their website](https://deliciousbrains.com/wp-migrate-db-pro/doc/quick-start-guide/).
 
+## Workflow
+
+When making changes in the WP Admin dashboard, you must make them on the WPEngine Development environment. This plugin allows other devs to pull down those changes to their local environments, ensuring you're testing and working off the same copy of the database.
+
 ## To Pull from Development
 
 Pulls Database from: https://csisjtidev.wpengine.com/
+
+**Warning:** Pulling the database from the WPEngine Development environment will overwrite any changes you have made to the database locally. Be very sure you don't have anything on your local machine you do not want to lose before pulling.
 
 1. On your local install, go to Tools --> Migrate DB Pro --> Migrate
 2. Click "Pull" to replace this site's db with remote DB
