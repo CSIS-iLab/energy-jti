@@ -272,6 +272,93 @@ if (! function_exists('csisjti_share')) :
 endif;
 
 /**
+ * Splits date string to create date object
+ *
+ */
+function split_date($date) {
+	if ( strpos($date, "/") ) {
+		return explode("/", $date);
+	} elseif ( strpos($date, "-") ) {
+		return explode("-", $date);
+	}
+}
+
+/**
+ * Displays the header's description or excerpt depending on post type.
+ *
+ *
+ * @return string $html The description.
+ */
+if (! function_exists('csisjti_header_description')) :
+	function csisjti_header_description( ) {
+		$desc = '';
+
+		if( get_field('description') ) {
+			$desc = get_field('description');
+		} else if (has_excerpt()) {
+			$desc = get_the_excerpt();
+		}
+
+		printf('<div class="entry-header__desc">' . $desc . '</div>');
+	}
+endif;
+
+/**
+ * Displays Header Subtitle.
+ *
+ *
+ * @return string $html The subtitle.
+ */
+if (! function_exists('csisjti_header_subtitle')) :
+	function csisjti_header_subtitle() {
+		$subtitle = get_field( 'subtitle' );
+
+		if ( !$subtitle ) {
+			return;
+		}
+
+		printf( '<p class="entry-header__subtitle">' . esc_html__( '%1$s', 'csisjti' ) . '</p>', $subtitle ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+endif;
+
+/**
+ * Displays Event Block Time.
+ *
+ *
+ * @return string $html The event block time.
+ */
+if (! function_exists('csisjti_event_block_time')) :
+	function csisjti_event_block_time() {
+		$time = get_field( 'time' );
+
+		if ( !$time ) {
+			return;
+		}
+
+		printf( '<div class="event-block__time">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $time ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+endif;
+
+/**
+ * Displays Event Block Location.
+ *
+ *
+ * @return string $html The event block location.
+ */
+if (! function_exists('csisjti_event_block_loc')) :
+	function csisjti_event_block_loc() {
+		$loc = get_field( 'location', false, false );
+
+		if ( !$loc ) {
+			return;
+		}
+
+		printf( '<address class="event-block__loc">' . esc_html__( '%1$s', 'csisjti' ) . '</address>', $loc ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
  * Displays Resource Publication Date.
  *
  *
@@ -289,9 +376,9 @@ if (! function_exists('csisjti_resource_date')) :
 
 	}
 endif;
-
+		
 /**
- * Displays Resource Description.
+ * Displays Resource Description. 
  *
  *
  * @return string $html The description.
@@ -435,7 +522,7 @@ if (! function_exists('csisjti_resource_sectors')) :
 	}
 endif;
 
-/**
+/** 
  * Displays Resource Keywords.
  *
  *
@@ -459,7 +546,7 @@ if (! function_exists('csisjti_resource_keywords')) :
 	}
 endif;
 
-/**
+/** 
  * Displays Resource Geographic Focus.
  *
  *
@@ -495,7 +582,7 @@ if (! function_exists('csisjti_resource_geographic_focus')) :
 	}
 endif;
 
-/**
+/** 
  * Displays Resource Focus Areas.
  *
  *

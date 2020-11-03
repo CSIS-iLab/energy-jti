@@ -5,12 +5,14 @@
   --scrollbar: 0px;
   --header-height: 72px;
   --logo-height: 48px;
+  --event-block-height: 112px;
   --color-nav-resource: #{$color-primary-blue-400};
   --color-nav-analysis: #{$color-primary-green-400};
   --color-nav-events: #{$color-primary-yellow-400};
   --color-nav-transitions: #{$color-gradient-purple};
   --color-nav-jti: #{$color-primary-green-600};
   --nav-border-color: var(--color-nav-resource);
+  --page-header-bg: #{$color-primary-blue-700};
 
   @include breakpoint('large') {
     --header-height: 96px;
