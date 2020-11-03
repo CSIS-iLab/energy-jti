@@ -60,5 +60,8 @@
     "translate": "gulp translate",
     "stylelint": "gulp stylelint",
     "stylelint-fix": "gulp stylelint --fix"
+  },
+  "dependencies": {
+    "a11y-dialog": "^5.4.2"
   }
 }
