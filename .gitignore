@@ -94,6 +94,7 @@ Thumbs.db
 !deploy-development.sh
 !deploy-staging.sh
 !csisjti_rsa.enc
+!MIGRATE_DB.md
 
 # track favicon files, if they exist
 !android-chrome-*.png
