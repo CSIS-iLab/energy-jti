@@ -62,6 +62,7 @@
     "stylelint-fix": "gulp stylelint --fix"
   },
   "dependencies": {
-    "a11y-dialog": "^5.4.2"
+    "a11y-dialog": "^5.4.2",
+    "tippy.js": "^6.2.7"
   }
 }
