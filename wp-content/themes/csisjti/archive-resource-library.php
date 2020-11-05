@@ -12,7 +12,10 @@
 get_header();
 ?>
 
+	
+
 <main id="site-content" role="main">
+	<?php get_template_part( 'template-parts/entry-header' ); ?>
 	This is the resource library.
 
 	<?php
@@ -29,5 +32,7 @@ get_header();
 	?>
 
 </main><!-- #site-content -->
+
+	<?php get_template_part( 'template-parts/a11y-dialog' ); ?>
 
 <?php get_footer(); ?>

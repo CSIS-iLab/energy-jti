@@ -52,7 +52,7 @@ $entry_header_classes = '';
 	} else if ((get_post_type() == 'resource-library')) {
 		
 	?>
-		<p class="entry-header__icon"><span><?php echo csisjti_get_svg('info'); ?></span>Classifications</p>
+		<p class="entry-header__icon"><button id="yo" data-a11y-dialog-show="my-accessible-dialog" ><?php echo csisjti_get_svg('info'); ?></button>Classifications</p>
 
 		<a href="" class="cta cta--white">What is "Just Transition"? 
 			<?php echo csisjti_get_svg( 'arrow-right' ); ?>
