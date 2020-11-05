@@ -3,22 +3,26 @@
  *
  */
 
-document.addEventListener('DOMContentLoaded', function () { 
+const Navigation = () => {
   setActiveTab()
   toggleMenu()
   closeMenu()
-})
+}
 
 // checks href location to set active tab on navbar
 const setActiveTab = () => {
-    const listItems = document.getElementsByClassName('primary-menu')[0].children
+  const listItems = document.getElementsByClassName('primary-menu')[0].children
 
-    const activeEl = Array.from(listItems).find(el => el.children[0].href === window.location.href)
+  const activeEl = Array.from(listItems).find(
+    (el) => el.children[0].href === window.location.href
+  )
 
-    if (!activeEl) {return}
-
-    activeEl.classList.add('is-active')
+  if (!activeEl) {
+    return
   }
+
+  activeEl.classList.add('is-active')
+}
 
 // change the hamburger icon to close icon on mobile
 const toggleMenu = () => {
@@ -45,9 +49,9 @@ const closeMenu = () => {
     const trigger = document.querySelector('.site-nav__trigger')
     const menu = document.querySelector('.site-nav__content')
     console.log(e.target)
-    const nav = document.getElementsByClassName('site-nav__content')[0] 
-    const buttonClicked = e.target === trigger || e.target.parentElement === trigger
-
+    const nav = document.getElementsByClassName('site-nav__content')[0]
+    const buttonClicked =
+      e.target === trigger || e.target.parentElement === trigger
 
     if (!nav.contains(e.target) && !buttonClicked) {
       trigger.setAttribute('aria-expanded', 'false')
@@ -56,3 +60,5 @@ const closeMenu = () => {
     }
   })
 }
+
+export { Navigation }
