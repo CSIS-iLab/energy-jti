@@ -2,13 +2,11 @@
 
 [data-a11y-dialog-native] > :first-child {
   display: none;
-  transition: display 2s ease-out linear;
 }
 
 /* stylelint-disable-next-line */
 dialog[open] {
   display: block;
-  transition: display 2s ease-in linear;
 }
 
 .dialog-container[aria-hidden='true'] {
@@ -16,13 +14,13 @@ dialog[open] {
 }
 
 .dialog-overlay {
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.66);
   position: fixed;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.66);
 }
 
 dialog::backdrop {
@@ -33,21 +31,19 @@ dialog::backdrop {
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 3;
+  // z-index: 3;
+  height: 600px;
+  max-height: 100%;
+  overflow: auto;
   background: $color-white-100;
   border: unset;
   box-shadow: 0 6px 8px 0 rgba(44, 8, 8, 0.5);
   transform: translate(-50%, -50%);
-  width: 1232px;
-  max-width: 100%;
-  height: 600px;
-  max-height: 100%;
-  padding: rem(24) 0 0;
-  overflow: auto;
 
-  @include breakpoint(large) {
-    padding: rem(24) rem(24) rem(40);
+  &[open] {
+    animation: appear 1s 1s 1 both;
   }
+
 }
 
 .dialog-close {
@@ -57,18 +53,28 @@ dialog::backdrop {
   border: unset;
 }
 
-.cls-modal__heading {
-  @extend %font-ui-section-heading-lg;
-  margin: rem(12) 0 rem(40);
-}
+.classification-modal {
+  width: 100%;
+  max-width: 680px;
+  margin: rem(24) 6vw;
 
-.cls-modal__desc {
-  @extend %font-copy-body-long-lg;
-  margin-bottom: rem(40);
+  @include breakpoint(xxlarge) {
+    --container-padding: #{rem(80)};
+  }
+
+  &__heading {
+    @extend %font-ui-section-heading-lg;
+    margin: rem(12) 0 rem(40);
+  }
+
+  &__desc {
+    @extend %font-copy-body-long-lg;
+    margin-bottom: rem(40);
+  }
+
 }
 
 .list-items {
-
   &__name {
     @extend %font-copy-heading-5;
     margin-bottom: rem(6);
@@ -82,12 +88,16 @@ dialog::backdrop {
 
 @keyframes fade-in {
   from { opacity: 0;  }
+
   to { opacity: 1;  }
 }
 
 @keyframes appear {
-  from { transform: translate(-50%, -40%); opacity: 0; }
-  to { transform: translate(-50%, -50%); opacity: 1; }
+  from { transform: translate(-50%, -40%);
+    opacity: 0; }
+
+  to { transform: translate(-50%, -50%);
+    opacity: 1; }
 }
 
 .dialog:not([aria-hidden='true']) > .dialog-overlay {
@@ -95,5 +105,5 @@ dialog::backdrop {
 }
 
 .dialog:not([aria-hidden='true']) > .dialog-content {
-  animation: appear 3s 1s 1 both;
+  animation: appear 2s 1s 1 both;
 }

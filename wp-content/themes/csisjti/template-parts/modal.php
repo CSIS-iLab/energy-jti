@@ -17,7 +17,7 @@
 
 ?>
 
-<div class="dialog-container" id="my-accessible-dialog" aria-hidden="true">
+<div class="dialog-container" id="accessible-dialog" aria-hidden="true">
 
   <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
 
@@ -27,6 +27,6 @@
     <?php echo csisjti_get_svg('close');   ?>
     </button>
 
-    <?php get_template_part( 'template-parts/cls-modal' ); ?>
+    <?php get_template_part( 'template-parts/classification-modal' ); ?>
   </dialog>
 </div>

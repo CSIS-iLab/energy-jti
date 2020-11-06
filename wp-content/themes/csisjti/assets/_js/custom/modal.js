@@ -5,7 +5,7 @@
 import A11yDialog from 'a11y-dialog'
 
 const Modal = () => {
-  const el = document.getElementById('my-accessible-dialog')
+  const el = document.getElementById('accessible-dialog')
   new A11yDialog(el)
 }
 

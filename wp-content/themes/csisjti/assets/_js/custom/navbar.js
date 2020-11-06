@@ -48,7 +48,6 @@ const closeMenu = () => {
   document.addEventListener('click', function (e) {
     const trigger = document.querySelector('.site-nav__trigger')
     const menu = document.querySelector('.site-nav__content')
-    console.log(e.target)
     const nav = document.getElementsByClassName('site-nav__content')[0]
     const buttonClicked =
       e.target === trigger || e.target.parentElement === trigger

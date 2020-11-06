@@ -127,25 +127,25 @@
     color: $color-black-170;
   }
 
-  #cls-btn {
-    border: unset;
+  #classification-btn {
+    color: $color-white-190;
     background-color: unset;
+    border: unset;
+    cursor: pointer;
   }
 
   &__icon {
     grid-area: date;
+    max-width: 150px;
+    padding-left: 0;
     @extend %font-ui-body-md;
+    color: $color-white-100;
 
     .icon {
       position: relative;
       top: 3px;
       display: inline-block;
       margin-right: rem(12);
-      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(650%);
-
-      &:hover {
-        filter: $shadow--3;
-      }
     }
   }
 
