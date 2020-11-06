@@ -17,17 +17,16 @@
 
 ?>
 
-<div class="dialog-container" id="my-accessible-dialog" aria-hidden="true">
+<div class="dialog-container" id="accessible-dialog" aria-hidden="true">
 
   <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
 
   <dialog class="dialog-content" aria-labelledby="dialog-title">
     
     <button class="dialog-close" type="button" data-a11y-dialog-hide aria-label="Close this dialog window">
-      &times;
+    <?php echo csisjti_get_svg('close');   ?>
     </button>
-    
-    <!-- <h1 id="dialog-title">Dialog Title</h1> -->
 
+    <?php get_template_part( 'template-parts/classification-modal' ); ?>
   </dialog>
 </div>

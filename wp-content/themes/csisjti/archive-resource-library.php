@@ -33,6 +33,6 @@ get_header();
 
 </main><!-- #site-content -->
 
-	<?php get_template_part( 'template-parts/a11y-dialog' ); ?>
+<?php get_template_part( 'template-parts/modal' ); ?>
 
 <?php get_footer(); ?>

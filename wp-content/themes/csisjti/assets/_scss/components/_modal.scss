@@ -4,10 +4,106 @@
   display: none;
 }
 
+/* stylelint-disable-next-line */
 dialog[open] {
   display: block;
 }
 
 .dialog-container[aria-hidden='true'] {
   display: none;
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.66);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.66);
+}
+
+.dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  // z-index: 3;
+  height: 600px;
+  max-height: 100%;
+  overflow: auto;
+  background: $color-white-100;
+  border: unset;
+  box-shadow: 0 6px 8px 0 rgba(44, 8, 8, 0.5);
+  transform: translate(-50%, -50%);
+
+  &[open] {
+    animation: appear 1s 1s 1 both;
+  }
+
+}
+
+.dialog-close {
+  display: flex;
+  margin-left: auto;
+  background-color: transparent;
+  border: unset;
+}
+
+.classification-modal {
+  width: 100%;
+  max-width: 680px;
+  margin: rem(24) 6vw;
+
+  @include breakpoint(xxlarge) {
+    --container-padding: #{rem(80)};
+  }
+
+  &__heading {
+    @extend %font-ui-section-heading-lg;
+    margin: rem(12) 0 rem(40);
+  }
+
+  &__desc {
+    @extend %font-copy-body-long-lg;
+    margin-bottom: rem(40);
+  }
+
+}
+
+.list-items {
+  &__name {
+    @extend %font-copy-heading-5;
+    margin-bottom: rem(6);
+  }
+
+  &__desc {
+    @extend %font-copy-body-long-lg;
+    margin-bottom: rem(40);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0;  }
+
+  to { opacity: 1;  }
+}
+
+@keyframes appear {
+  from { transform: translate(-50%, -40%);
+    opacity: 0; }
+
+  to { transform: translate(-50%, -50%);
+    opacity: 1; }
+}
+
+.dialog:not([aria-hidden='true']) > .dialog-overlay {
+  animation: fade-in 2s 1 both;
+}
+
+.dialog:not([aria-hidden='true']) > .dialog-content {
+  animation: appear 2s 1s 1 both;
 }
