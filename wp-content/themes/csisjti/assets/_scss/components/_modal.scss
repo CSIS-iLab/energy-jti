@@ -57,12 +57,12 @@ dialog::backdrop {
   border: unset;
 }
 
-.classification-heading {
+.cls-modal__heading {
   @extend %font-ui-section-heading-lg;
   margin: rem(12) 0 rem(40);
 }
 
-.classification-desc {
+.cls-modal__desc {
   @extend %font-copy-body-long-lg;
   margin-bottom: rem(40);
 }

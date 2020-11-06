@@ -16,11 +16,11 @@
  */
 
 ?>
-<h2 class="classification-heading" id="my-accessible-dialog" aria-hidden="true">Classifications</h2>
+<h2 class="cls-modal__heading">Classifications</h2>
 
-<div class="classification-desc">Optional description text</div>
+<div class="cls-modal__desc">Optional description text</div>
 
-<ul class="classification-list" aria-labelledby="dialog-title">
+<ul class="cls-modal__list">
   <li class="list-items">
     <p class="list-items__name">Name</p>
     <p class="list-items__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet diam at id cursus leo nunc. Malesuada nulla diam sit eu pretium dui ullamcorper a. Habitant dui eu sed consequat condimentum. </p>
