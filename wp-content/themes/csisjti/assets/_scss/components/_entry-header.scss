@@ -127,6 +127,11 @@
     color: $color-black-170;
   }
 
+  #classification-btn {
+    border: unset;
+    background-color: unset;
+  }
+
   &__icon {
     grid-area: date;
     @extend %font-ui-body-md;

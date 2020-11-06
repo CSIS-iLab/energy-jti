@@ -1,13 +1,65 @@
 @use 'abstracts' as *;
 
 [data-a11y-dialog-native] > :first-child {
-  display: none;
+  visibility: hidden;
 }
 
+/* stylelint-disable-next-line */
 dialog[open] {
-  display: block;
+  visibility: visible;
 }
 
 .dialog-container[aria-hidden='true'] {
-  display: none;
+  visibility: hidden;
+}
+
+.dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  background: $color-white-100;
+  border: unset;
+  box-shadow: 0 6px 8px 0 rgba(44, 8, 8, 0.5);
+  transform: translate(-50%, -50%);
+  width: 1232px;
+  max-width: 100%;
+  height: 600px;
+  max-height: 100%;
+  padding: rem(24) 0 0;
+  overflow: auto;
+
+  @include breakpoint(large) {
+    padding: rem(24) rem(24) rem(40);
+  }
+}
+
+.dialog-close {
+  display: flex;
+  margin-left: auto;
+  background-color: transparent;
+  border: unset;
+}
+
+.classification-heading {
+  @extend %font-ui-section-heading-lg;
+  margin: rem(12) 0 rem(40);
+}
+
+.classification-desc {
+  @extend %font-copy-body-long-lg;
+  margin-bottom: rem(40);
+}
+
+.list-items {
+
+  &__name {
+    @extend %font-copy-heading-5;
+    margin-bottom: rem(6);
+  }
+
+  &__desc {
+    @extend %font-copy-body-long-lg;
+    margin-bottom: rem(40);
+  }
 }
