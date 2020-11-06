@@ -3,3 +3,9 @@
 .post-type-archive-resource-library {
   background: $color-gray-100;
 }
+
+.resource-library {
+  &__secondary {
+    max-width: 33%;
+  }
+}

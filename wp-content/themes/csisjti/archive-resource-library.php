@@ -12,13 +12,30 @@
 get_header();
 ?>
 
-	
+
 
 <main id="site-content" role="main">
 	<?php get_template_part( 'template-parts/entry-header' ); ?>
-	This is the resource library.
+
+	<div class="resource-library__secondary">
+		<h2>Search &amp; Filter</h2>
+		<?php
+			echo facetwp_display( 'facet', 'search_input' );
+			echo facetwp_display( 'facet', 'analysis_type' );
+			echo facetwp_display( 'facet', 'geographic_focus' );
+			echo facetwp_display( 'facet', 'sectors' );
+			echo facetwp_display( 'facet', 'focus_areas' );
+			echo facetwp_display( 'facet', 'format' );
+		?>
+		More Filters<br />
+		Clear All
+	</div>
+
+	<div class="resource-library__results">
 
 	<?php
+
+	echo facetwp_display( 'sort' );
 
 	if ( have_posts() ) {
 
@@ -30,6 +47,7 @@ get_header();
 	}
 
 	?>
+	</div>
 
 </main><!-- #site-content -->
 
