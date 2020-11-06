@@ -1,16 +1,32 @@
 @use 'abstracts' as *;
 
 [data-a11y-dialog-native] > :first-child {
-  visibility: hidden;
+  display: none;
+  transition: display 2s ease-out linear;
 }
 
 /* stylelint-disable-next-line */
 dialog[open] {
-  visibility: visible;
+  display: block;
+  transition: display 2s ease-in linear;
 }
 
 .dialog-container[aria-hidden='true'] {
-  visibility: hidden;
+  display: none;
+}
+
+.dialog-overlay {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.66);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.66);
 }
 
 .dialog-content {
@@ -62,4 +78,22 @@ dialog[open] {
     @extend %font-copy-body-long-lg;
     margin-bottom: rem(40);
   }
+}
+
+@keyframes fade-in {
+  from { opacity: 0;  }
+  to { opacity: 1;  }
+}
+
+@keyframes appear {
+  from { transform: translate(-50%, -40%); opacity: 0; }
+  to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+.dialog:not([aria-hidden='true']) > .dialog-overlay {
+  animation: fade-in 2s 1 both;
+}
+
+.dialog:not([aria-hidden='true']) > .dialog-content {
+  animation: appear 3s 1s 1 both;
 }
