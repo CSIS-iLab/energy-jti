@@ -239,6 +239,9 @@ function csisjti_register_scripts() {
 	wp_enqueue_script( 'csisjti-js-bundle', get_template_directory_uri() . '/assets/js/bundle.min.js', array(), $theme_version, true );
 	wp_script_add_data( 'csisjti-js-bundle', 'defer', true );
 
+	wp_enqueue_script( 'csisjti-js-resource-library', get_template_directory_uri() . '/assets/js/resource-library.min.js', array(), $theme_version, true );
+	wp_script_add_data( 'csisjti-js-resource-library', 'defer', true );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'csisjti_register_scripts' );

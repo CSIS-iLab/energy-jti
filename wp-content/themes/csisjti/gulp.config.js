@@ -39,6 +39,7 @@ module.exports = {
       'vendor/vendor.js',
       'vendor/skip-link-focus-fix.js',
       'custom/bundle.js',
+      'custom/resource-library.js',
     ],
   },
 
