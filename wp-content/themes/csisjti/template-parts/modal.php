@@ -27,6 +27,7 @@
     <?php echo csisjti_get_svg('close');   ?>
     </button>
 
-    <?php get_template_part( 'template-parts/classification-modal' ); ?>
+    <?php //get_template_part( 'template-parts/classification-modal' ); ?>
+    <?php get_template_part( 'template-parts/filters-modal' ); ?>
   </dialog>
 </div>

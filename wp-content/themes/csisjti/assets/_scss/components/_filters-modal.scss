@@ -1,0 +1,53 @@
+@use 'abstracts' as *;
+
+.filters-modal {
+  margin: rem(12) rem(40) rem(40);
+
+  &__heading {
+    @extend %font-ui-section-heading-lg;
+    margin-bottom: rem(64);
+  }
+
+  &__subheading {
+    @extend %font-ui-section-heading-md;
+    margin-bottom: rem(24);
+  }
+
+  &__analysis-btn {
+    margin-bottom: rem(6);
+    color: $color-black-190;
+    @extend %font-ui-text-lg-bold;
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+  }
+
+  .icon {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    margin-right: rem(12);
+    color: $color-gradient-jade;
+  }
+
+  $facet: '.facetwp-facet';
+
+  #{$facet}-analysis_type_checkbox {
+    display: flex;
+  
+    .facetwp-checkbox {
+      background-color: $color-gray-field;
+      border-radius:4px;
+      border:1px solid $color-gray-300;
+      overflow:auto;
+      margin-right: rem(8);
+      padding: rem(8);
+      background-image: unset !important;
+
+      span {
+        display: none;
+      }
+    }
+  }    
+}
+
