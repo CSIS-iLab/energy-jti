@@ -430,3 +430,16 @@ function the_field_without_wpautop( $field_name ) {
 	
 }
 
+/**
+ * Modify the assets that are loaded on pages that use facets.
+ */
+add_filter( 'facetwp_assets', function( $assets ) {
+    $assets['custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets.js';
+    unset( $assets['fSelect.css'] );
+return $assets;
+});
+
+/**
+* Add accessibility JS for facets.
+*/
+add_filter( 'facetwp_load_a11y', '__return_true' );
