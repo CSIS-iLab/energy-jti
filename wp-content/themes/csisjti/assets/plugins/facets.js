@@ -1,10 +1,11 @@
 /* eslint no-undef: 0 */
 
 ;(function ($) {
+  const numFiltersApplied = document.getElementById('num_filters_applied')
+
   $(document).on('facetwp-loaded', function () {
     modifyFSelectFacet()
-
-    console.log('hello! world')
+    setNumFilters()
   })
 
   function modifyFSelectFacet() {
@@ -24,5 +25,16 @@
       const numSelected = FWP.facets[facet_name].length
       this.querySelector('.fs-label-wrap').setAttribute('data-num', numSelected)
     })
+  }
+
+  // Calculates the number of active filters applied.
+  function setNumFilters() {
+    const numFilters = Object.values(FWP.facets).reduce((acc, curr) => {
+      if (curr != '' && !Array.isArray(curr)) {
+        return acc + 1
+      }
+      return acc + curr.length
+    }, 0)
+    numFiltersApplied.innerHTML = numFilters
   }
 })(jQuery)

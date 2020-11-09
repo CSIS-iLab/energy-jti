@@ -22,16 +22,6 @@
     }
   }
 
-  &__filter-overview {
-    color: $color-black-155;
-    @extend %font-ui-text-md;
-
-    .is-highlighted {
-      color: $color-black-190;
-      @extend %font-ui-text-md-bold-barlow;
-    }
-  }
-
   &__secondary {
   }
 
@@ -40,6 +30,20 @@
     color: $color-black-170;
     @extend %font-ui-text-sm-bold-uppercase;
     letter-spacing: 0.5px;
+  }
+}
+
+.filters-overview {
+  color: $color-black-155;
+  @extend %font-ui-text-md;
+
+  .is-highlighted {
+    color: $color-black-190;
+    @extend %font-ui-text-md-bold-barlow;
+  }
+
+  &__totals {
+    display: flex;
   }
 }
 

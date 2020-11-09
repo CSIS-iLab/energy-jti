@@ -19,11 +19,13 @@ get_header();
 
 	Tabs go in header component.
 
-		<div class="resource-library__filter-overview">
+		<div class="filters-overview">
 			<?php echo facetwp_display( 'facet', 'pagination' ); ?>
 			Filters Button (Mobile)<br />
-			# of Filters Applied<br />
-			<?php echo facetwp_display( 'facet', 'total_entries' ); ?>
+			<div class="filters-overview__totals">
+				<strong class="is-highlighted" id="num_filters_applied">0</strong>&nbsp;filters applied,&nbsp;
+				<?php echo facetwp_display( 'facet', 'total_entries' ); ?>
+			</div>
 			<?php echo facetwp_display( 'sort' ); ?>
 		</div>
 
