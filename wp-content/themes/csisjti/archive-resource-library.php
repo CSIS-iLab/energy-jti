@@ -18,7 +18,7 @@ get_header();
 	<?php get_template_part( 'template-parts/entry-header' ); ?>
 
 	<div class="resource-library__secondary">
-		<h2>Search &amp; Filter</h2>
+		<h2 class="resource-library__subheading">Search &amp; Filter</h2>
 		<?php
 			echo facetwp_display( 'facet', 'search_input' );
 			echo facetwp_display( 'facet', 'analysis_type' );
@@ -27,15 +27,18 @@ get_header();
 			echo facetwp_display( 'facet', 'focus_areas' );
 			echo facetwp_display( 'facet', 'format' );
 		?>
-		More Filters<br />
-		Clear All
+		<button id="filters-btn" class="btn btn--outline btn--round btn--filters" data-a11y-dialog-show="accessible-dialog">
+			<?php
+				echo csisjti_get_svg( 'filter' );
+			?>
+			More Filters
+		</button>
+		<button id="filters-reset-btn" class="btn--reset" onclick="FWP.reset()">Clear All</button>
 	</div>
 
 	<div class="resource-library__results">
 
 	<?php
-
-	echo facetwp_display( 'sort' );
 
 	if ( have_posts() ) {
 

@@ -1,11 +1,13 @@
+/* eslint no-undef: 0 */
+
 ;(function ($) {
   $(document).on('facetwp-loaded', function () {
     modifyFSelectFacet()
+
+    console.log('hello! world')
   })
 
   function modifyFSelectFacet() {
-    console.log(FWP)
-
     $('.facetwp-type-fselect').each(function () {
       const $facet = $(this)
       const facet_name = $facet.attr('data-name')

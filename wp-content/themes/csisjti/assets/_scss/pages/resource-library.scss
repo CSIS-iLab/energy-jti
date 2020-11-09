@@ -8,4 +8,34 @@
   &__secondary {
     max-width: 33%;
   }
+
+  &__subheading {
+    margin: 0 0 rem(8);
+    color: $color-black-170;
+    @extend %font-ui-text-sm-bold-uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.btn {
+  &--filters {
+    margin-top: rem(12);
+    margin-bottom: rem(12);
+  }
+
+  &--reset {
+    display: block;
+    padding: rem(8);
+    color: $color-black-155;
+    @extend %font-ui-text-sm;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    appearance: none;
+
+    &:hover {
+      color: $color-black-190;
+    }
+  }
 }
