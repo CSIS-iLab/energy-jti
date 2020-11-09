@@ -33,8 +33,35 @@
     <?php echo csisjti_get_svg('info'); ?>
   </button>
 
-  <?php echo facetwp_display( 'facet', 'sectors_checkboxes' ); ?>
+  <?php 
+    echo facetwp_display( 'facet', 'sectors_checkboxes' ); 
+    echo facetwp_display( 'facet', 'geographic_focus' ); 
+  ?>
+  
+  <button class="filters-modal__analysis-btn" >
+    Focus Areas
+    <?php echo csisjti_get_svg('info'); ?>
+  </button>
  
+  <?php 
+    echo facetwp_display( 'facet', 'focus_areas' );
+  ?>
+
+  <button class="filters-modal__analysis-btn" >
+    Keywords
+    <?php echo csisjti_get_svg('info'); ?>
+  </button>
+
+  <?php 
+    echo facetwp_display( 'facet', 'keywords' ); 
+  ?>
+ 
+  <div class="filters-modal__subheading">Source Information</div>
+
+  <?php  
+    echo facetwp_display( 'facet', 'publishing_organization' ); 
+    echo facetwp_display( 'facet', 'publishing_organization_type' ); 
+  ?>
 
 </div>
     
