@@ -443,3 +443,70 @@ add_filter( 'facetwp_assets', function( $assets ) {
  * Add accessibility JS for facets.
  */
 add_filter( 'facetwp_load_a11y', '__return_true' );
+
+/**
+ * Modify Resource Library Sort by
+ */
+add_filter( 'facetwp_sort_html', function( $html, $params ) {
+    $html = '<label for="sort">Sort By</label><select class="facetwp-sort-select" id="sort">';
+    foreach ( $params['sort_options'] as $key => $atts ) {
+        $html .= '<option value="' . $key . '">' . $atts['label'] . '</option>';
+    }
+    $html .= '</select>';
+    return $html;
+}, 10, 2 );
+
+/**
+ * Modify FacetWP Pager Template
+ */
+add_filter( 'facetwp_facet_html', function( $output, $params ) {
+		if ( 'numbers' !== $params['facet']['pager_type'] ) {
+			return $output;
+		}
+
+		$pager_args = FWP()->facet->pager_args;
+
+    $output = '';
+    $page = $pager_args['page'];
+		$total_pages = $pager_args['total_pages'];
+
+		$output .= '<div class="facetwp-pager-totals">
+			<strong class="is-highlighted">Page ' . $page . '</strong> of ' . $total_pages . '
+		</div>';
+
+		if ( 1 < $total_pages ) {
+			if ( $page === 1 ) {
+				$prev_disabled = 'disabled';
+			}
+
+			if ( $page == $total_pages ) {
+				$next_disabled = 'disabled';
+			}
+
+			$output .= '<div class="facetwp-pager-nav">';
+
+			$output .= '<button class="facetwp-page facetwp-page--prev" data-page="' . ($page - 1) . '" ' . $prev_disabled . '>' . csisjti_get_svg( 'chevron-left' ) . '</button>';
+
+			$output .= '<button class="facetwp-page facetwp-page--next" data-page="' . ($page + 1) . '" ' . $next_disabled . '>' . csisjti_get_svg( 'chevron-right' )  . '</button>';
+
+			$output .= '</div>';
+
+		}
+
+    return $output;
+}, 10, 2 );
+
+/**
+ * Modifies the # of posts visible on an archive. For testing purposes only!!!
+ */
+add_action( 'pre_get_posts',  'set_posts_per_page'  );
+function set_posts_per_page( $query ) {
+
+  global $wp_the_query;
+
+  if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() ) ) {
+    $query->set( 'posts_per_page', 1 );
+  }
+
+  return $query;
+}

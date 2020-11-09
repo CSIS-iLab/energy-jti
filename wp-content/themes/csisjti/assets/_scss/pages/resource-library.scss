@@ -2,11 +2,37 @@
 
 .post-type-archive-resource-library {
   background: $color-gray-100;
+
+  .entry-header {
+    margin-bottom: 0;
+  }
 }
 
 .resource-library {
+  &__content {
+    @include breakpoint('large') {
+      display: grid;
+      grid-template-columns: minmax(auto, 300px) auto;
+      justify-content: space-between;
+      column-gap: 8%;
+    }
+
+    @include breakpoint('xlarge') {
+      column-gap: 4%;
+    }
+  }
+
+  &__filter-overview {
+    color: $color-black-155;
+    @extend %font-ui-text-md;
+
+    .is-highlighted {
+      color: $color-black-190;
+      @extend %font-ui-text-md-bold-barlow;
+    }
+  }
+
   &__secondary {
-    max-width: 33%;
   }
 
   &__subheading {

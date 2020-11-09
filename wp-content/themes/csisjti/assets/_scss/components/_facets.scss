@@ -1,6 +1,8 @@
 @use '../abstracts' as *;
 
-.facetwp {
+@use './facets-pagination';
+
+.resource-library__secondary .facetwp {
   &-facet {
     position: relative;
     height: rem(60);
