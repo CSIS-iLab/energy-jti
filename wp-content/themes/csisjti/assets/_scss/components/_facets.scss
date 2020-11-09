@@ -30,6 +30,7 @@
   background-color: var(--input-background);
   border: 2px solid var(--input-border);
   border-radius: 3px;
+  transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
 
   &:hover {
     --input-border: #{$color-primary-blue-600};
