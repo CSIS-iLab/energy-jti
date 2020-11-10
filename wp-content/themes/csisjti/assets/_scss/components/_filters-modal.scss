@@ -1,6 +1,8 @@
 @use 'abstracts' as *;
 
 .filters-modal {
+  $facet: '.facetwp-facet';
+
   margin: rem(12) rem(40) rem(40);
 
   &__heading {
@@ -10,7 +12,7 @@
 
   &__subheading {
     @extend %font-ui-section-heading-md;
-    margin-bottom: rem(24);
+    margin: rem(40) 0 rem(24);
   }
 
   &__analysis-btn {
@@ -30,44 +32,41 @@
     color: $color-gradient-jade;
   }
 
-
-.facetwp {
-  // Hides counters next to items
-  &-counter {
-    display: none;
+  .facetwp-facet {
+    margin: 0 !important;
   }
-}
-
-  $facet: '.facetwp-facet';
 
   #{$facet}-analysis_type_checkbox {
     display: flex;
+    height: unset !important;
+    margin-bottom: rem(40) !important;
   
     .facetwp-checkbox {
-      background-color: $color-gray-field;
-      border-radius: 4px;
-      border: 1px solid $color-gray-300;
-      overflow:auto;
       margin-right: rem(8);
       padding: rem(8);
+      overflow: auto;
+      background-color: $color-gray-field;
       background-image: unset !important;
+      border: 1px solid $color-gray-300;
+      border-radius: 4px;
     }
   } 
   
   #{$facet}-sectors_checkboxes {
+    margin-bottom: rem(40) !important;
 
-    .facetwp-checkbox{
+    .facetwp-checkbox {
       --checkbox-bg: #{$color-gray-field};
       --checkbox-border: #{$color-gray-100};
       position: relative;
       right: 12px;
       display: flex;
-      max-width: 150px;
       gap: rem(12);
+      max-width: 150px;
       line-height: 1.15;
       word-break: break-all;
-      cursor: pointer;
       background: unset !important;
+      cursor: pointer;
 
       &:hover {
         --checkbox-bg: #{$color-primary-blue-800};
@@ -126,159 +125,54 @@
       border-radius: 4px;
     }
   }
-}
 
-.fs {
-  &-wrap {
-    --input-background: #{$color-primary-blue-300} !important;
-    --input-border: var(--input-background) !important;
-    --arrow-color: #{$color-white-190};
-    position: relative;
-    display: inline-block;
-    line-height: 1;
-    cursor: pointer;
+  .facetwp-type-fselect {
+    max-width: 300px;
+  }
 
-    &:hover {
-      --input-border: #{$color-primary-blue-300};
-      --input-background: #{$color-primary-blue-200};
+  #{$facet}-geographic_focus {
+    .fs-dropdown {
+      position: relative;
+      top: -60px;
     }
 
-    &.fs-default {
-      --input-background: #{$color-white-100};
-      --input-border: #{$color-gray-200};
-      --arrow-color: #{$color-black-190};
+    // Overrides inherit hidden styling to show the search bar on modal load
+    .fs-show {
+      display: block !important;
+    }
 
-      &:hover {
-        --input-border: #{$color-primary-blue-700};
+    .fs-search {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 1rem;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        margin: auto;
+        background-image: url('/wp-content/themes/csisjti/assets/static/icons/icon-arrow-down.svg');
+        border-top: 5px solid var(--arrow-color);
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        transition: 0.15s ease-in;
+        content: '';
       }
     }
 
-    .hidden {
-      display: none;
-    }
-  }
+    // Toggles dropdown display state
+    .fs-active {
+      .fs-options {
+        display: block;
+      }
 
-  &-wrap,
-  &-label-wrap {
-    width: 100%;
-    height: 100%;
-  }
-
-  &-label-wrap {
-    position: relative;
-    background-color: var(--input-background);
-    border: 2px solid var(--input-border);
-    border-radius: 3px;
-    cursor: default;
-    transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
-
-    &:hover {
-      filter: $shadow--3;
+      .fs-search { 
+        &::after {
+          transform: rotate(-180deg);
+        }
+      }
     }
 
-    &:not([data-num='0'])::after {
-      content: attr(data-num);
-      position: absolute;
-      top: 50%;
-      right: 36px;
-      padding: rem(2) rem(8);
-      @extend %font-ui-text-sm;
-      font-weight: bold;
-      background: $color-white-100;
-      border-radius: 30px;
-      transform: translate(0, -50%);
-    }
-  }
-
-  &-label-wrap,
-  &-dropdown {
-    user-select: none;
-  }
-
-  &-label-field {
-    position: absolute;
-    top: 50%;
-    left: rem(16);
-    z-index: 1;
-    margin: 0;
-    color: $color-white-170;
-    @extend %font-ui-text-lg;
-    font-weight: normal;
-    transform: translate(0, -100%) scale(0.85);
-    transform-origin: left center;
-    pointer-events: none;
-
-    .fs-default & {
-      color: $color-black-190;
-      transform: translate(0, -50%) scale(1);
-    }
-  }
-
-  &-label {
-    position: relative;
-    top: 36%;
-    height: 100%;
-    padding: rem(9) rem(72) rem(9) rem(16);
-    overflow: hidden;
-    color: $color-white-100;
-    @extend %font-ui-text-lg-bold;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-
-    .fs-default & {
-      top: unset;
-    }
-  }
-
-  &-arrow {
-    position: absolute;
-    top: 0;
-    right: rem(16);
-    bottom: 0;
-    width: 0;
-    height: 0;
-    margin: auto;
-    border-top: 5px solid var(--arrow-color);
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-    transition: ease-in 0.15s;
-
-    .fs-open & {
-      transform: rotate(-180deg);
-    }
-  }
-
-  &-dropdown {
-    position: absolute;
-    z-index: 1000;
-    width: 100%;
-    margin: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-
-    .fs-options {
-      max-height: 260px;
-      overflow: auto;
-    }
-  }
-
-  &-search {
-    padding: 0 8px;
-    border-bottom: 1px solid #eee;
-
-    input {
-      width: 100%;
-      padding: 6px 0;
-      border: 0;
-      outline: none;
-      box-shadow: none !important;
-    }
-  }
-
-  &-search,
-  &-optgroup-label,
-  &-no-results {
-    padding: rem(12);
-    cursor: default;
   }
 }

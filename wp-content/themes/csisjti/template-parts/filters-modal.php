@@ -35,8 +35,10 @@
 
   <?php 
     echo facetwp_display( 'facet', 'sectors_checkboxes' ); 
-    echo facetwp_display( 'facet', 'geographic_focus' ); 
   ?>
+
+  <div class="filters-modal__analysis-btn">Geographic Focus</div>
+  <?php echo facetwp_display( 'facet', 'geographic_focus' ); ?>
   
   <button class="filters-modal__analysis-btn" >
     Focus Areas
