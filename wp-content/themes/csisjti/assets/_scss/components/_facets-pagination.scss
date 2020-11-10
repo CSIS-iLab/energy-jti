@@ -42,15 +42,16 @@
       border-radius: 0 20px 20px 0;
     }
 
-    &:not([disabled]):hover {
+    &:not(.is-disabled):hover {
       --pagination-color: #{$color-primary-blue-100};
       box-shadow: 0 3px 4px rgba(2, 3, 3, 0.03), 0 3px 3px rgba(2, 3, 3, 0.02),
         0 1px 8px rgba(2, 3, 3, 0.04);
     }
 
-    &[disabled] {
+    &.is-disabled {
       --pagination-color: #{$color-gray-200};
       cursor: not-allowed;
+      pointer-events: none;
     }
   }
 }

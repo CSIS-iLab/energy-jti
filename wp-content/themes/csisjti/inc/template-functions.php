@@ -476,18 +476,18 @@ add_filter( 'facetwp_facet_html', function( $output, $params ) {
 
 		if ( 1 < $total_pages ) {
 			if ( $page === 1 ) {
-				$prev_disabled = 'disabled';
+				$prev_disabled = ' is-disabled';
 			}
 
 			if ( $page == $total_pages ) {
-				$next_disabled = 'disabled';
+				$next_disabled = ' is-disabled';
 			}
 
 			$output .= '<div class="facetwp-pager-nav">';
 
-			$output .= '<button class="facetwp-page facetwp-page--prev" data-page="' . ($page - 1) . '" ' . $prev_disabled . '>' . csisjti_get_svg( 'chevron-left' ) . '</button>';
+			$output .= '<a class="facetwp-page facetwp-page--prev' . $prev_disabled . '" data-page="' . ($page - 1) . '">' . csisjti_get_svg( 'chevron-left' ) . '</a>';
 
-			$output .= '<button class="facetwp-page facetwp-page--next" data-page="' . ($page + 1) . '" ' . $next_disabled . '>' . csisjti_get_svg( 'chevron-right' )  . '</button>';
+			$output .= '<a class="facetwp-page facetwp-page--next' . $next_disabled . '" data-page="' . ($page + 1) . '">' . csisjti_get_svg( 'chevron-right' )  . '</a>';
 
 			$output .= '</div>';
 
