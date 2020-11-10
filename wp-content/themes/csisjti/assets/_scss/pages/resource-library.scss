@@ -1,28 +1,114 @@
 @use '../abstracts' as *;
 
+:root {
+  --top-bar-height: #{rem(72)};
+}
+
 .post-type-archive-resource-library {
   background: $color-gray-100;
 
   .entry-header {
     margin-bottom: 0;
   }
+
+  .is-highlighted {
+    color: $color-black-190;
+    @extend %font-ui-text-md-bold-barlow;
+  }
 }
 
 .resource-library {
+  // This element exists solely to create the gray background behind the pagination & sort functions.
+  &__top-bar {
+    display: none;
+    @include breakpoint('large') {
+      position: sticky !important;
+      top: var(--header-height);
+      z-index: -1;
+      display: block;
+      width: 1px;
+      height: 0;
+      background: $color-gray-300;
+      @include full-width-background($color-gray-300);
+
+      &::before,
+      &::after {
+        height: var(--top-bar-height);
+      }
+
+      &::before {
+        right: calc(100% - 1px);
+      }
+    }
+  }
+
   &__content {
     @include breakpoint('large') {
       display: grid;
       grid-template-columns: minmax(auto, 300px) auto;
+      grid-template-rows: max-content auto;
       justify-content: space-between;
-      column-gap: 8%;
+      column-gap: 8vw;
     }
 
     @include breakpoint('xlarge') {
-      column-gap: 4%;
+      column-gap: 4vw;
     }
   }
 
   &__secondary {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 10;
+    margin-bottom: rem(12);
+
+    @include breakpoint('medium') {
+      margin-bottom: rem(24);
+    }
+
+    @include breakpoint('large') {
+      position: relative;
+      top: unset;
+      z-index: unset;
+      grid-row: 1 / span 2;
+    }
+  }
+
+  &__sticky {
+    @include breakpoint('large') {
+      position: sticky;
+      top: var(--header-height);
+    }
+  }
+
+  &__pagination {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: rem(32) 0 rem(12);
+    background: $color-gray-300;
+    @include full-width-background($color-gray-300);
+
+    @include breakpoint('large') {
+      align-items: center;
+      height: var(--top-bar-height);
+      margin-bottom: rem(48);
+      padding: 0;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__inline-filters {
+    display: none;
+
+    @include breakpoint('large') {
+      display: block;
+    }
   }
 
   &__subheading {
@@ -31,24 +117,47 @@
     @extend %font-ui-text-sm-bold-uppercase;
     letter-spacing: 0.5px;
   }
+
+  &__results {
+    @include breakpoint('large') {
+      padding-top: rem(48);
+    }
+  }
 }
 
 .filters-overview {
+  margin-bottom: rem(24);
   color: $color-black-155;
   @extend %font-ui-text-md;
 
-  .is-highlighted {
-    color: $color-black-190;
-    @extend %font-ui-text-md-bold-barlow;
+  @include breakpoint('medium') {
+    display: flex;
+    align-items: center;
+  }
+
+  @include breakpoint('large') {
+    height: var(--top-bar-height);
   }
 
   &__totals {
     display: flex;
+    margin-bottom: rem(8);
+    padding-bottom: rem(8);
+    border-bottom: 1px solid $color-gray-line;
+
+    @include breakpoint('medium') {
+      margin-right: rem(16);
+      margin-bottom: 0;
+      padding-right: rem(16);
+      padding-bottom: 0;
+      border-right: 1px solid $color-gray-line;
+      border-bottom: 0;
+    }
   }
 }
 
 .btn {
-  &--filters {
+  &--filters:not(#mobile-filters-btn) {
     margin-top: rem(12);
     margin-bottom: rem(12);
   }
@@ -67,5 +176,11 @@
     &:hover {
       color: $color-black-190;
     }
+  }
+}
+
+#mobile-filters-btn {
+  @include breakpoint('large') {
+    display: none;
   }
 }
