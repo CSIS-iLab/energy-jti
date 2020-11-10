@@ -86,20 +86,21 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: rem(32) 0 rem(12);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: rem(32) var(--container-padding) rem(12);
     background: $color-gray-300;
-    @include full-width-background($color-gray-300);
+    box-shadow: 0 4px 5px rgba(2, 3, 3, 0.03), 0 1px 10px rgba(2, 3, 3, 0.02),
+      0 2px 4px rgba(2, 3, 3, 0.04);
 
     @include breakpoint('large') {
       align-items: center;
+      width: 100%;
       height: var(--top-bar-height);
       margin-bottom: rem(48);
+      margin-left: 0;
       padding: 0;
-
-      &::before,
-      &::after {
-        display: none;
-      }
+      box-shadow: none;
     }
   }
 
