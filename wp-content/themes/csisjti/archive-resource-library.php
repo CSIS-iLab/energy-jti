@@ -69,6 +69,11 @@ get_header();
 
 				get_template_part( 'template-parts/block-post', get_post_type() );
 			}
+		} else {
+			?>
+			<h2 class="no-results__heading">No entries match your search.</h2>
+			<p class="no-results__desc">Try searching for a similar term or removing a filter.</p>
+		<?php
 		}
 		?>
 		</div>

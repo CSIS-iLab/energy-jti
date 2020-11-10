@@ -45,7 +45,7 @@
   &__content {
     @include breakpoint('large') {
       display: grid;
-      grid-template-columns: minmax(auto, 300px) auto;
+      grid-template-columns: minmax(auto, 300px) minmax(auto, 795px);
       grid-template-rows: max-content auto;
       justify-content: space-between;
       column-gap: 8%;
@@ -183,5 +183,20 @@
 #mobile-filters-btn {
   @include breakpoint('large') {
     display: none;
+  }
+}
+
+.no-results {
+  &__heading {
+    margin: rem(16) 0;
+    color: $color-black-170;
+    @extend %font-ui-section-heading-md;
+    text-align: center;
+  }
+
+  &__desc {
+    color: $color-black-170;
+    font-style: italic;
+    text-align: center;
   }
 }

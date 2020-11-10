@@ -445,10 +445,62 @@ add_filter( 'facetwp_assets', function( $assets ) {
 add_filter( 'facetwp_load_a11y', '__return_true' );
 
 /**
- * Modify Resource Library Sort by
+ * Modify Resource Library Sort by, including the default sort order.
  */
+
+function csisjti_resource_library_pre_get_posts( $query ) {
+
+	// do not modify queries in the admin
+	if ( is_admin() ) {
+		return $query;
+	}
+
+
+	// only modify queries for 'event' post type
+	if ( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'resource-library' ) {
+
+		$query->set('orderby', 'meta_value');
+		$query->set('meta_key', 'publication_date');
+		$query->set('order', 'DESC');
+
+	}
+	return $query;
+}
+add_action('pre_get_posts', 'csisjti_resource_library_pre_get_posts');
+
+add_filter( 'facetwp_sort_options', function( $options, $params ) {
+    $options = [
+				'default' => [
+						'label' => 'Publication Date',
+						'query_args' => [
+							'orderby' => 'meta_value',
+							'meta_key' => 'publication_date',
+							'order' => 'DESC',
+						]
+				],
+				'analysis_type' => [
+						'label' => 'Analysis Type',
+						'query_args' => [
+							'orderby' => 'meta_value',
+							'meta_key' => 'analysis_type',
+							'order' => 'ASC',
+						]
+				],
+				'sectors' => [
+						'label' => 'Sectors',
+						'query_args' => [
+							'orderby' => 'meta_value',
+							'meta_key' => 'sectors',
+							'order' => 'ASC',
+						]
+				],
+		];
+
+    return $options;
+}, 10, 2 );
+
 add_filter( 'facetwp_sort_html', function( $html, $params ) {
-    $html = '<label for="sort">Sort By</label><select class="facetwp-sort-select" id="sort">';
+    $html = '<label for="sort" class="facetwp-sort__label">Sort By</label><select class="facetwp-sort-select" id="sort">';
     foreach ( $params['sort_options'] as $key => $atts ) {
         $html .= '<option value="' . $key . '">' . $atts['label'] . '</option>';
     }

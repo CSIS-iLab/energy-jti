@@ -1,6 +1,7 @@
 @use '../abstracts' as *;
 
 @use './facets-pagination';
+@use './facets-sort';
 
 .resource-library__inline-filters .facetwp {
   &-facet {
