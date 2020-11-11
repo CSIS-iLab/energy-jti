@@ -9,15 +9,20 @@
 
 
 $post_id = false;
+$is_home = is_home();
+$is_archive = is_archive();
+$is_page = is_page();
+$has_thumbnail = has_post_thumbnail();
+$post_type = get_post_type();
 
-if ( is_home() ) {
+if ( $is_home ) {
 	$post_id = get_option( 'page_for_posts' );
 }
 
 
 $entry_header_classes = '';
 
-if ( !is_home() && has_post_thumbnail() ) {
+if ( !$is_home && $has_thumbnail ) {
 	$entry_header_classes = ' entry-header--img';
 }
 
@@ -33,7 +38,7 @@ if ( !is_home() && has_post_thumbnail() ) {
 	csisjti_display_page_content_type();
 
 	// Archives & Pages have a specially formatted title.
-	if ( is_archive() || is_page() || is_home() ) {
+	if ( $is_archive || $is_page || $is_home ) {
 		csisjti_formatted_title( $post_id );
 	} else {
 		the_title('<h1 class="entry-header__title">', '</h1>');
@@ -43,11 +48,11 @@ if ( !is_home() && has_post_thumbnail() ) {
 
 	csisjti_header_description( $post_id );
 
-	if ( get_post_type() == 'post') {
+	if ( $post_type == 'post') {
 		csisjti_posted_on();
 	}
 
-	if ( !is_archive() && get_post_type() == 'event') {
+	if ( !$is_archive && $post_type == 'event') {
 
 		csisjti_last_updated();
 
@@ -64,16 +69,11 @@ if ( !is_home() && has_post_thumbnail() ) {
 		endif;
 		?>
 
-	<?php } else if ( !is_home() && has_post_thumbnail() ) { ?>
-		<figure class="post-block__img">
-			<?php
-				the_post_thumbnail( 'large' );
-				get_template_part( 'template-parts/featured-image-caption' );
-			?>
-		</figure>
+	<?php } else if ( !$is_home && $has_thumbnail ) {
 
-		<?php
-	} else if ((get_post_type() == 'resource-library')) {
+		get_template_part( 'template-parts/featured-image' );
+
+	} else if (($post_type == 'resource-library')) {
 	?>
 		<button id="classification-btn" data-a11y-dialog-show="accessible-dialog" ><?php echo csisjti_get_svg('info'); ?>Classifications</button>
 
