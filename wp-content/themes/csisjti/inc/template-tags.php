@@ -130,11 +130,13 @@ function csisjti_site_description( $echo = true ) {
  *
  * @return string $html The formatted page title.
  */
-function csisjti_formatted_title() {
+function csisjti_formatted_title( $post_id = false ) {
+	$formatted_title = get_field('formatted_title', $post_id);
 
-	$object = get_queried_object();
-
-	$formatted_title = get_field( 'formatted_title', $object->name );
+	if ( is_archive() ) {
+		$object = get_queried_object();
+		$formatted_title = get_field( 'formatted_title', $object->name );
+	}
 
 	if ( !$formatted_title ) {
 		return;
@@ -152,7 +154,7 @@ function csisjti_formatted_title() {
 function csisjti_posted_on( $date_format = null ) {
 
 	// Require post ID.
-	if ( ! get_the_ID() ) {
+	if ( is_home() || ! get_the_ID() ) {
 		return;
 	}
 
@@ -236,7 +238,7 @@ if (! function_exists('csisjti_display_categories')) :
 	function csisjti_display_categories() {
 
 		// Require post ID.
-		if ( ! get_the_ID() ) {
+		if ( is_home() || ! get_the_ID() ) {
 			return;
 		}
 
@@ -330,15 +332,15 @@ function split_date($date) {
  * @return string $html The description.
  */
 if (! function_exists('csisjti_header_description')) :
-	function csisjti_header_description( ) {
+	function csisjti_header_description( $post_id = false ) {
 		$desc = '';
 
 		if ( is_archive() ) {
 			$object = get_queried_object();
 			$desc = get_field( 'description', $object->name );
-		} else if ( get_field('description') ) {
-			$desc = get_field('description');
-		} else if (has_excerpt()) {
+		} elseif ( get_field('description', $post_id ) ) {
+			$desc = get_field('description', $post_id);
+		} elseif (has_excerpt()) {
 			$desc = get_the_excerpt();
 		}
 
@@ -357,8 +359,8 @@ endif;
  * @return string $html The subtitle.
  */
 if (! function_exists('csisjti_header_subtitle')) :
-	function csisjti_header_subtitle() {
-		$subtitle = get_field( 'subtitle' );
+	function csisjti_header_subtitle( $post_id = false ) {
+		$subtitle = get_field( 'subtitle', $post_id );
 
 		if ( !$subtitle ) {
 			return;

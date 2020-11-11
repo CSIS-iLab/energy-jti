@@ -7,9 +7,17 @@
  * @since 1.0.0
  */
 
+
+$post_id = false;
+
+if ( is_home() ) {
+	$post_id = get_option( 'page_for_posts' );
+}
+
+
 $entry_header_classes = '';
 
-if ( has_post_thumbnail() ) {
+if ( !is_home() && has_post_thumbnail() ) {
 	$entry_header_classes = ' entry-header--img';
 }
 
@@ -25,17 +33,17 @@ if ( has_post_thumbnail() ) {
 	csisjti_display_page_content_type();
 
 	// Archives & Pages have a specially formatted title.
-	if ( is_archive() || is_page() ) {
-		csisjti_formatted_title();
+	if ( is_archive() || is_page() || is_home() ) {
+		csisjti_formatted_title( $post_id );
 	} else {
 		the_title('<h1 class="entry-header__title">', '</h1>');
 	}
 
-	csisjti_header_subtitle();
+	csisjti_header_subtitle( $post_id );
 
-	csisjti_header_description();
+	csisjti_header_description( $post_id );
 
-	if (get_post_type() == 'post') {
+	if ( get_post_type() == 'post') {
 		csisjti_posted_on();
 	}
 
@@ -56,7 +64,7 @@ if ( has_post_thumbnail() ) {
 		endif;
 		?>
 
-	<?php } else if ( has_post_thumbnail() ) { ?>
+	<?php } else if ( !is_home() && has_post_thumbnail() ) { ?>
 		<figure class="post-block__img">
 			<?php
 				the_post_thumbnail( 'large' );

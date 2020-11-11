@@ -31,7 +31,7 @@
       'desc secondary-content'
       'date secondary-content'
       '. secondary-content';
-    grid-template-columns: minmax(auto, 700px) auto;
+    grid-template-columns: minmax(auto, 700px) minmax(auto, 1fr);
     grid-template-rows:
       max-content minmax(0, max-content) max-content minmax(0, max-content)
       auto;
