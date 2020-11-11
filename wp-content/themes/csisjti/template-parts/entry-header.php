@@ -47,7 +47,7 @@ if ( !is_home() && has_post_thumbnail() ) {
 		csisjti_posted_on();
 	}
 
-	if (get_post_type() == 'event') {
+	if ( !is_archive() && get_post_type() == 'event') {
 
 		csisjti_last_updated();
 

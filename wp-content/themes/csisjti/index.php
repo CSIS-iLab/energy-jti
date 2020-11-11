@@ -20,7 +20,7 @@ get_header();
 <main id="site-content" role="main">
 	<?php get_template_part( 'template-parts/entry-header' ) ?>
 
-	<div class="page__content">
+	<div class="entry__content">
 
 	<?php
 	if ( have_posts() ) {

@@ -360,6 +360,12 @@ endif;
  */
 if (! function_exists('csisjti_header_subtitle')) :
 	function csisjti_header_subtitle( $post_id = false ) {
+
+		if (! is_single() ) {
+			return;
+		}
+
+
 		$subtitle = get_field( 'subtitle', $post_id );
 
 		if ( !$subtitle ) {
