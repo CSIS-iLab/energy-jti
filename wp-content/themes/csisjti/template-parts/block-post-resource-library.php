@@ -10,13 +10,9 @@
 
  $classes = 'post-block post-block--resource-library';
 
- if ( get_field( 'is_essential_reading' ) == 1 ) {
-	$classes .= ' is-essential-reading';
- }
+ $specialClasses = csisjti_resource_content_type();
 
- if ( get_field( 'is_just_transition_initiative_content' ) == 1 ) {
-	 $classes .= ' is-jti-content';
- }
+ $classes .= $specialClasses;
 
 ?>
 

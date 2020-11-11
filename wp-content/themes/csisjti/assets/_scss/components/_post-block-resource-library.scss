@@ -22,14 +22,14 @@
   }
 
   &.is-essential-reading,
-  &.is-jti-content {
+  &.is-jti-analysis {
     #{$post}__header {
       margin-top: rem(16);
     }
   }
 
   &.is-essential-reading::before,
-  &.is-jti-content::after {
+  &.is-jti-analysis::after {
     content: '';
     position: absolute;
     top: 0;
@@ -45,7 +45,7 @@
     --color: #{$color-primary-green-500};
   }
 
-  &.is-jti-content {
+  &.is-jti-analysis {
     &.is-essential-reading::before {
       right: calc(var(--padding-sides) + 1.5rem);
     }
