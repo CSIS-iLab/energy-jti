@@ -72,7 +72,7 @@
     &::after {
       content: '';
       position: absolute;
-      top: 2px;
+      top: 0.5px;
       right: calc(var(--tab-width) * -1);
       bottom: -1px;
       left: calc(var(--tab-width) * -1);
@@ -89,7 +89,7 @@
       );
       /* stylelint-enable */
 
-      @include breakpoint('medium') {
+      @include breakpoint('large') {
         bottom: 0;
       }
     }
