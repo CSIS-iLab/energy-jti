@@ -39,34 +39,44 @@
 
   .post-meta__categories {
     grid-area: category;
+    margin-bottom: rem(12);
     @extend %font-ui-text-md-bold-uppercase-barlow;
+    letter-spacing: 1.5px;
 
     &::after {
       content: '';
       display: block;
       width: rem(32);
-      border-bottom: 3px solid $color-white-155;
+      height: 3px;
+      margin-top: rem(5); // 8px - 3px height
+      background: $color-white-155;
     }
   }
 
   &__title {
     position: relative;
     grid-area: title;
+    margin: 0;
     @extend %font-ui-page-title-lg;
-    margin-bottom: rem(4);
-    padding-top: rem(12);
+    text-shadow: 0 12px 17px rgba(2, 3, 3, 0.19), 0 2px 22px rgba(2, 3, 3, 0.13),
+      0 7px 8px rgba(2, 3, 3, 0.04);
+
+    span {
+      @extend %font-ui-page-title-sm;
+    }
   }
 
   &__subtitle {
     grid-area: subtitle;
+    margin-top: rem(4);
     @extend %font-ui-text-xlg-bold;
-    margin-bottom: rem(16);
   }
 
   &__desc {
     grid-area: desc;
-    @extend %font-ui-body-md;
+    margin-top: rem(16);
     margin-bottom: rem(12);
+    @extend %font-ui-body-md;
   }
 
   .post-meta__date {
@@ -125,38 +135,5 @@
     margin-bottom: rem(-70);
     @include font-size(16);
     color: $color-black-170;
-  }
-
-  #classification-btn {
-    color: $color-white-190;
-    background-color: unset;
-    border: unset;
-    cursor: pointer;
-  }
-
-  &__icon {
-    grid-area: date;
-    max-width: 150px;
-    padding-left: 0;
-    @extend %font-ui-body-md;
-    color: $color-white-100;
-
-    .icon {
-      position: relative;
-      top: 3px;
-      display: inline-block;
-      margin-right: rem(12);
-    }
-  }
-
-  .cta {
-    grid-area: secondary-content;
-    padding-top: rem(32);
-
-    @include breakpoint(large) {
-      align-self: end;
-      justify-self: end;
-      padding-top: 0;
-    }
   }
 }

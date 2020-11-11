@@ -16,13 +16,24 @@ $entry_header_classes = '';
 	<?php
 	csisjti_share();
 
-	the_title('<h1 class="entry-header__title">', '</h1>');
+	// Display either the categories or the page content type.
+	csisjti_display_categories();
+	csisjti_display_page_content_type();
+
+	// Archives & Pages have a specially formatted title.
+	if ( is_archive() || is_page() ) {
+		csisjti_formatted_title();
+	} else {
+		the_title('<h1 class="entry-header__title">', '</h1>');
+	}
+
+	csisjti_header_subtitle();
 
 	csisjti_header_description();
 
-	csisjti_display_categories();
-
-	csisjti_header_subtitle();
+	if (get_post_type() == 'post') {
+		csisjti_posted_on();
+	}
 
 	if (get_post_type() == 'event') {
 
@@ -47,19 +58,17 @@ $entry_header_classes = '';
 		<?php
 		get_template_part( 'template-parts/featured-image-caption' );
 
-		if (get_post_type() == 'post') { csisjti_posted_on(); }
-
 	} else if ((get_post_type() == 'resource-library')) {
-
-		echo facetwp_display( 'facet', 'type_of_content' );
-
 	?>
-		<button id="classification-btn" class="entry-header__icon" data-a11y-dialog-show="accessible-dialog" ><?php echo csisjti_get_svg('info'); ?>Classifications</button>
+		<button id="classification-btn" data-a11y-dialog-show="accessible-dialog" ><?php echo csisjti_get_svg('info'); ?>Classifications</button>
 
-		<a href="" class="cta cta--white">What is "Just Transition"?
+		<a href="/about-just-transitions" class="cta cta--white">What is "Just Transition"?
 			<?php echo csisjti_get_svg( 'arrow-right' ); ?>
 		</a>
 
-	<?php } ?>
+	<?php
+		echo facetwp_display( 'facet', 'type_of_content' );
+	}
+	?>
 
 </header><!-- .entry-header -->

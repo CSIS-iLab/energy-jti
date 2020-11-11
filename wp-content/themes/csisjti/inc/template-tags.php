@@ -125,6 +125,25 @@ function csisjti_site_description( $echo = true ) {
  */
 
 /**
+ * Displays the page's formatted title.
+ *
+ *
+ * @return string $html The formatted page title.
+ */
+function csisjti_formatted_title() {
+
+	$object = get_queried_object();
+
+	$formatted_title = get_field( 'formatted_title', $object->name );
+
+	if ( !$formatted_title ) {
+		return;
+	}
+
+	printf( '<h1 class="entry-header__title">' . esc_html__( '%1$s', 'csisjti' ) . '</h1>', $formatted_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+/**
  * Displays the post's publish date.
  *
  *
@@ -218,7 +237,6 @@ if (! function_exists('csisjti_display_categories')) :
 
 		// Require post ID.
 		if ( ! get_the_ID() ) {
-			echo 'no idea';
 			return;
 		}
 
@@ -233,6 +251,28 @@ if (! function_exists('csisjti_display_categories')) :
 			/* translators: 1: list of categories. */
 			printf( '<div class="post-meta post-meta__categories">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
+	}
+endif;
+
+/**
+ * Displays the page's content_type if it has one.
+ *
+ *
+ * @return string $html The content_type.
+ */
+if (! function_exists('csisjti_display_page_content_type')) :
+	function csisjti_display_page_content_type() {
+
+		$object = get_queried_object();
+
+		$content_type = get_field( 'content_type', $object->name );
+
+		if ( !$content_type ) {
+			return;
+		}
+
+		/* translators: 1: list of categories. */
+		printf( '<div class="post-meta post-meta__categories">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $content_type ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 endif;
 
@@ -293,10 +333,17 @@ if (! function_exists('csisjti_header_description')) :
 	function csisjti_header_description( ) {
 		$desc = '';
 
-		if( get_field('description') ) {
+		if ( is_archive() ) {
+			$object = get_queried_object();
+			$desc = get_field( 'description', $object->name );
+		} else if ( get_field('description') ) {
 			$desc = get_field('description');
 		} else if (has_excerpt()) {
 			$desc = get_the_excerpt();
+		}
+
+		if ( !$desc ) {
+			return;
 		}
 
 		printf('<div class="entry-header__desc">' . $desc . '</div>');
