@@ -1,0 +1,108 @@
+@use '../abstracts' as *;
+
+.facetwp {
+  &-facet-type_of_content {
+    --tab-width: 16px;
+    display: flex;
+    grid-column: 1;
+    grid-row: 9;
+    width: calc(100% + var(--container-padding) + var(--tab-width) + 2vw);
+    margin-top: rem(16);
+    margin-right: calc(var(--container-padding) * -1);
+    margin-bottom: 0 !important;
+    margin-left: calc(var(--container-padding) * -1);
+    padding-left: calc(var(--tab-width) + 2px);
+    overflow: scroll;
+    color: $color-black-100;
+    @extend %font-ui-text-lg;
+
+    @include breakpoint('large') {
+      grid-row: 7;
+      width: initial;
+      margin-right: auto;
+      margin-left: 0;
+      overflow: hidden;
+    }
+
+    .facetwp-counter {
+      color: $color-black-170;
+      @extend %font-ui-text-sm;
+    }
+  }
+
+  &-radio {
+    --tab-bg: #{$color-primary-blue-700};
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: rem(8);
+    justify-content: center;
+    align-items: center;
+    // min-width: rem(125);
+    margin-right: var(--tab-width);
+    margin-bottom: 0 !important;
+    margin-left: var(--tab-left);
+    padding: rem(12) calc(#{rem(16)} + var(--tab-width)) !important;
+    white-space: nowrap;
+    background-color: var(--tab-bg) !important;
+    background-image: none !important;
+    border-radius: 4px 4px 0 0;
+    transition: background-color 0.3s ease-in-out;
+
+    &.checked {
+      --tab-bg: #{$color-gray-300};
+      z-index: 2;
+      font-weight: bold;
+    }
+
+    &:hover,
+    &:focus {
+      --tab-bg: #{$color-primary-blue-600};
+    }
+
+    &[data-value='jti_analysis'] {
+      --color: #{$color-jti-analysis};
+    }
+
+    &[data-value='essential_reading'] {
+      --color: #{$color-essential-reading};
+    }
+
+    // Tabs
+    &::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: calc(var(--tab-width) * -1);
+      bottom: -1px;
+      left: calc(var(--tab-width) * -1);
+      z-index: -1;
+      display: block;
+      background: var(--tab-bg);
+      transition: background 0.3s ease-in-out;
+      /* stylelint-disable */
+      clip-path: polygon(
+        calc(var(--tab-width) + 1px) 0%,
+        calc(100% - var(--tab-width) - 1px) 0%,
+        100% 100%,
+        0% 100%
+      );
+      /* stylelint-enable */
+
+      @include breakpoint('medium') {
+        bottom: 0;
+      }
+    }
+
+    // Ribbon
+    &::before {
+      content: '';
+      width: 10px;
+      height: 18px;
+      border: 6px solid var(--color, $color-black-100);
+      border-top: 0;
+      border-bottom: 5px solid transparent;
+      border-radius: 2px 2px 0 0;
+    }
+  }
+}
