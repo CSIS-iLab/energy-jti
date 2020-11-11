@@ -8,6 +8,7 @@ module.exports = {
   src: './src',
   dest: './dist',
   php: './**/*.php',
+  pluginsJS: './assets/plugins/**/*.js',
 
   port: 8080,
 

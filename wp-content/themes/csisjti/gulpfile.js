@@ -43,6 +43,8 @@ const watcher = () => {
   watch(config.assets + config.js.src + '/**/*', series(webpack, reload))
 
   watch(config.php, reload) // Reload on PHP file changes.
+
+  watch(config.pluginsJS, reload) // Reload on plugin JS file changes.
 }
 
 // Clean dist folder
@@ -50,9 +52,9 @@ function clean() {
   return del([
     config.assets + config.sass.dest,
     config.assets + config.js.dest,
-		config.imagemin.dest,
-		config.sass.mainStyleSheetDest + '*.css',
-		config.sass.mainStyleSheetDest + '*.css.map'
+    config.imagemin.dest,
+    config.sass.mainStyleSheetDest + '*.css',
+    config.sass.mainStyleSheetDest + '*.css.map',
   ])
 }
 
