@@ -4,6 +4,7 @@
     modifyFSelectFacet()
     modifyMultiSelect()
     modifyExpandIcons()
+    // fwpDisableAutoRefresh()
   })
 
   function modifyFSelectFacet() {
@@ -71,6 +72,12 @@
       })
     })
 
-    
-  }
+    // function fwpDisableAutoRefresh() {
+    //   $(function() {
+    //     if ('undefined' !== typeof FWP) {
+    //       FWP.auto_refresh = false;
+    //     }
+    // });
+    // }
+}
 })(jQuery)

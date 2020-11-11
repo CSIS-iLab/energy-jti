@@ -2,29 +2,135 @@
 
 .filters-modal {
   $facet: '.facetwp-facet';
-
-  margin: rem(12) rem(40) rem(40);
-  min-width: 1000px;
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 48px;
+  grid-template-rows: 10 auto;
+  grid-template-areas: 
+    'title title-btns'
+    'analysis-heading .'
+    'analysis analysis'
+    'topic .'
+    'sectors-heading focus-areas-heading'
+    'sectors focus-areas'
+    'geo-heading focus-areas'
+    'geo focus-areas'
+    'keywords-heading focus-areas'
+    'keywords focus-areas'
+    'source .'
+    'pub-org-heading author-heading'
+    'pub-org author'
+    'pub-type-heading pub-date-heading'
+    'pub-type pub-date'
+    'pub-type format-heading'
+    'pub-type format'
+  ;
+  padding: 0 6vw;
+  margin: rem(12) 0 rem(40);
   overflow: scroll;
 
-  &__heading {
-    @extend %font-ui-section-heading-lg;
-    margin-bottom: rem(64);
+  @include breakpoint(xxlarge) {
+    padding: 0 rem(80);
   }
 
-  &__subheading {
+  &__title {
+    @extend %font-ui-section-heading-lg;
+    margin-bottom: rem(64);
+    grid-area: title;
+  }
+
+  &__heading {
     @extend %font-ui-section-heading-md;
     margin: rem(40) 0 rem(24);
   }
 
-  &__analysis-btn {
+  &__subheading {
     margin-bottom: rem(6);
     color: $color-black-190;
     @extend %font-ui-text-lg-bold;
     background-color: unset;
     border: unset;
+    max-width: fit-content;
+    height: 24px;
     cursor: pointer;
+  }
+
+  &--topic {
+    grid-area: topic;
+  }
+
+  &--source {
+    grid-area: source;
+  }
+
+  &--analysis {
+    grid-area: analysis-heading;
+  }
+
+  &--sectors {
+    grid-area: sectors-heading;
+  }
+
+  &--geo {
+    grid-area: geo-heading;
+  }
+
+  &--keywords {
+    grid-area: keywords-heading;
+  }
+
+  &--pub-org {
+    grid-area: pub-org-heading;
+  }
+
+  &--pub-type {
+    grid-area: pub-type-heading;
+  }
+
+  &--focus-areas {
+    grid-area: focus-areas-heading;
+  }
+
+  &--author {
+    grid-area: author-heading;
+  }
+
+  &--pub-date {
+    grid-area: pub-date-heading;
+  }
+
+  &--format {
+    grid-area: format-heading;
+  }
+
+  &__btn-wrapper {
+    grid-area: title-btns;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn--apply, .btn--reset {
+    display: inline-block;
+    height: 32px;
+    max-width: 150px;
+  }
+
+  .btn--apply {
+    @extend %font-ui-text-sm-uppercase;
+    position: relative;
+    padding: rem(8) rem(16);
+    background-color: $color-gray-field !important;
+    border: 1px solid $color-gray-300;
+    border-radius: 2px;
+
+    &::before {
+      position: absolute;
+      display: block;
+      height: 100%;
+      border-left: 1px solid $color-gray-line;
+      right: 64px;
+      content: '';
+    }
   }
 
   .icon {
@@ -40,6 +146,7 @@
   }
 
   #{$facet}-analysis_type_checkbox {
+    grid-area: analysis;
     display: flex;
     height: unset !important;
     margin-bottom: rem(40) !important;
@@ -52,14 +159,45 @@
       background-image: unset !important;
       border: 1px solid $color-gray-300;
       border-radius: 4px;
+     
     }
-
+    
     .fs-checkbox {
       display: none;
     }
-
-
   } 
+
+  #{$facet}-sectors_checkboxes {
+    grid-area: sectors;
+  }
+
+  #{$facet}-geographic_focus {
+    grid-area: geo;
+  }
+
+  #{$facet}-keywords {
+    grid-area: keywords;
+  }
+
+   #{$facet}-publishing_organization {
+    grid-area: pub-org;
+  }
+
+  #{$facet}-publishing_organization_type {
+    grid-area: pub-type;
+  }
+
+  #{$facet}-focus_areas_checkboxes {
+    grid-area: focus-areas;
+  }
+
+  #{$facet}-author {
+    grid-area: author;
+  }
+
+  #{$facet}-format_checkboxes {
+    grid-area: format;
+  }
   
   #{$facet}-sectors_checkboxes, 
   #{$facet}-publishing_organization_type, 
@@ -73,7 +211,7 @@
       right: 12px;
       display: flex;
       gap: rem(12);
-      // max-width: 30%;
+      max-width: fit-content;
       line-height: 1.15;
       word-break: break-all;
       background: unset !important;

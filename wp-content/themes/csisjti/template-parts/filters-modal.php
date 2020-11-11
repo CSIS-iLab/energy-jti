@@ -17,18 +17,25 @@
 
 ?>
 <div class="filters-modal">
-  <h2 class="filters-modal__heading">All Filters</h2>
 
-  <button class="filters-modal__analysis-btn" >
+  <h2 class="filters-modal__title">All Filters</h2>
+
+  <div class="filters-modal__btn-wrapper">
+    <button id="filters-reset-btn" class="btn--reset" onclick="FWP.reset()">Clear All</button>
+    <button id="filters-apply-btn" class="btn--apply" onclick="FWP.refresh()">Apply</button>
+  </div>
+
+
+  <button class="filters-modal__subheading filters-modal--analysis" >
     Analysis Type
     <?php echo csisjti_get_svg('info'); ?>
   </button>
 
   <?php echo facetwp_display( 'facet', 'analysis_type_checkbox' ); ?>
 
-  <div class="filters-modal__subheading">Topic Scope</div>
+  <div class="filters-modal__heading filters-modal--topic">Topic Scope</div>
 
-  <button class="filters-modal__analysis-btn" >
+  <button class="filters-modal__subheading filters-modal--sectors" >
     Sectors
     <?php echo csisjti_get_svg('info'); ?>
   </button>
@@ -37,10 +44,10 @@
     echo facetwp_display( 'facet', 'sectors_checkboxes' ); 
   ?>
 
-  <div class="filters-modal__analysis-btn">Geographic Focus</div>
+  <div class="filters-modal__subheading filters-modal--geo">Geographic Focus</div>
   <?php echo facetwp_display( 'facet', 'geographic_focus' ); ?>
 
-  <button class="filters-modal__analysis-btn" >
+  <button class="filters-modal__subheading filters-modal--keywords" >
     Keywords
     <?php echo csisjti_get_svg('info'); ?>
   </button>
@@ -49,24 +56,38 @@
     echo facetwp_display( 'facet', 'keywords' ); 
   ?>
  
-  <div class="filters-modal__subheading">Source Information</div>
-  <div class="filters-modal__analysis-btn">Publishing Organization</div>
+  <div class="filters-modal__heading filters-modal--source">Source Information</div>
+  <div class="filters-modal__subheading filters-modal--pub-org">Publishing Organization</div>
   <?php  
     echo facetwp_display( 'facet', 'publishing_organization' );
   ?>
   
-  <div class="filters-modal__analysis-btn">Publishing Organization Type</div>
+  <div class="filters-modal__subheading filters-modal--pub-type">Publishing Organization Type</div>
   <?php
     echo facetwp_display( 'facet', 'publishing_organization_type' ); 
   ?>
   
-  <button class="filters-modal__analysis-btn" >
+  <button class="filters-modal__subheading filters-modal--focus-areas" >
     Focus Areas
     <?php echo csisjti_get_svg('info'); ?>
   </button>
   <?php 
     echo facetwp_display( 'facet', 'focus_areas_checkboxes' ); 
   ?>
+
+  <div class="filters-modal__subheading filters-modal--author">Author</div>
+  <?php
+    echo facetwp_display( 'facet', 'author' ); 
+  ?>
+
+  <div class="filters-modal__subheading filters-modal--pub-date">Publish Date Range</div>
+
+  <div class="filters-modal__subheading filters-modal--format">Format</div>
+  <?php
+    echo facetwp_display( 'facet', 'format_checkboxes' ); 
+  ?>
+
+
 
 </div>
     
