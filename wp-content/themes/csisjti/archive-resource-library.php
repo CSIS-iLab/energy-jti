@@ -12,11 +12,31 @@
 get_header();
 ?>
 
-	
+
 
 <main id="site-content" role="main">
 	<?php get_template_part( 'template-parts/entry-header' ); ?>
-	This is the resource library.
+
+	<div class="resource-library__secondary">
+		<h2 class="resource-library__subheading">Search &amp; Filter</h2>
+		<?php
+			echo facetwp_display( 'facet', 'search_input' );
+			echo facetwp_display( 'facet', 'analysis_type' );
+			echo facetwp_display( 'facet', 'geographic_focus' );
+			echo facetwp_display( 'facet', 'sectors' );
+			echo facetwp_display( 'facet', 'focus_areas' );
+			echo facetwp_display( 'facet', 'format' );
+		?>
+		<button id="filters-btn" class="btn btn--outline btn--round btn--filters" data-a11y-dialog-show="accessible-dialog">
+			<?php
+				echo csisjti_get_svg( 'filter' );
+			?>
+			More Filters
+		</button>
+		<button id="filters-reset-btn" class="btn--reset" onclick="FWP.reset()">Clear All</button>
+	</div>
+
+	<div class="resource-library__results">
 
 	<?php
 
@@ -30,6 +50,7 @@ get_header();
 	}
 
 	?>
+	</div>
 
 </main><!-- #site-content -->
 

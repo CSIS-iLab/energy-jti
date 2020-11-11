@@ -421,25 +421,25 @@ if ( class_exists( 'easyFootnotes' ) ) {
 * Strips additional p tags placed in html when using ACF wsywg
 */
 function the_field_without_wpautop( $field_name ) {
-	
+
 	remove_filter('acf_the_content', 'wpautop');
-	
+
 	the_field( $field_name );
-	
+
 	add_filter('acf_the_content', 'wpautop');
-	
+
 }
 
 /**
  * Modify the assets that are loaded on pages that use facets.
  */
 add_filter( 'facetwp_assets', function( $assets ) {
-    $assets['custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets.js';
-    unset( $assets['fSelect.css'] );
-return $assets;
+        $assets['custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets.js';
+        unset( $assets['fSelect.css'] );
+    return $assets;
 });
 
 /**
-* Add accessibility JS for facets.
-*/
+ * Add accessibility JS for facets.
+ */
 add_filter( 'facetwp_load_a11y', '__return_true' );
