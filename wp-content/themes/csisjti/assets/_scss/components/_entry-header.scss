@@ -1,6 +1,9 @@
 @use 'abstracts' as *;
 
 .entry-header {
+  --header-margin-bottom: #{rem(56)};
+  --header-padding-bottom: #{rem(24)};
+  --header-img-offset: #{rem(40)};
   position: relative;
   display: grid;
   grid-template-areas:
@@ -10,17 +13,16 @@
     'subtitle'
     'desc'
     'date'
-    'secondary-content'
-    'caption';
+    'secondary-content';
   width: 100%;
   min-height: 300px;
-  margin-bottom: rem(64);
-  padding-bottom: rem(24);
+  margin-bottom: var(--header-margin-bottom);
+  padding-bottom: var(--header-padding-bottom);
   color: $color-white-190;
   background: var(--page-header-bg);
   @include full-width-background(var(--page-header-bg));
 
-  @include breakpoint(large) {
+  @include breakpoint('large') {
     grid-template-areas:
       '. social-share'
       'category secondary-content'
@@ -28,13 +30,21 @@
       'subtitle secondary-content'
       'desc secondary-content'
       'date secondary-content'
-      '. secondary-content'
-      '. caption';
-    grid-template-columns: 2fr 1fr;
+      '. secondary-content';
+    grid-template-columns: minmax(auto, 700px) auto;
     grid-template-rows:
       max-content minmax(0, max-content) max-content minmax(0, max-content)
       auto;
-    column-gap: rem(24);
+    column-gap: calc(#{rem(24)} + 4%);
+  }
+
+  &--img {
+    /* stylelint-disable */
+    margin-bottom: calc(
+      var(--header-margin-bottom) + var(--header-img-offset) +
+        var(--header-padding-bottom)
+    );
+    /* stylelint-enable */
   }
 
   .post-meta__categories {
@@ -108,10 +118,15 @@
     position: relative;
     grid-area: secondary-content;
     align-self: end;
-    margin-bottom: rem(-40);
+    // Offset negative margin minus padding of header.
+    /* stylelint-disable */
+    margin-bottom: calc(
+      -1 * var(--header-img-offset) - var(--header-padding-bottom)
+    );
+    /* stylelint-enable */
 
     img {
-      height: 300px;
+      width: 100%;
     }
 
     &::before {
@@ -130,9 +145,7 @@
   }
 
   .featured-media__caption {
-    grid-area: caption;
-    align-self: end;
-    margin-bottom: rem(-70);
+    margin-top: rem(4px);
     @include font-size(16);
     color: $color-black-170;
   }

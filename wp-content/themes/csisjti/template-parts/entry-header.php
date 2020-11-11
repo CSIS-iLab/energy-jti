@@ -9,6 +9,10 @@
 
 $entry_header_classes = '';
 
+if ( has_post_thumbnail() ) {
+	$entry_header_classes = ' entry-header--img';
+}
+
 ?>
 
 <header class="entry-header<?php echo esc_attr( $entry_header_classes ); ?>">
@@ -53,11 +57,14 @@ $entry_header_classes = '';
 		?>
 
 	<?php } else if ( has_post_thumbnail() ) { ?>
-		<div class="post-block__img"><?php the_post_thumbnail( 'large' ); ?></div>
+		<figure class="post-block__img">
+			<?php
+				the_post_thumbnail( 'large' );
+				get_template_part( 'template-parts/featured-image-caption' );
+			?>
+		</figure>
 
 		<?php
-		get_template_part( 'template-parts/featured-image-caption' );
-
 	} else if ((get_post_type() == 'resource-library')) {
 	?>
 		<button id="classification-btn" data-a11y-dialog-show="accessible-dialog" ><?php echo csisjti_get_svg('info'); ?>Classifications</button>
