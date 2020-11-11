@@ -4,6 +4,9 @@
   $facet: '.facetwp-facet';
 
   margin: rem(12) rem(40) rem(40);
+  min-width: 1000px;
+  min-height: 100vh;
+  overflow: scroll;
 
   &__heading {
     @extend %font-ui-section-heading-lg;
@@ -44,15 +47,23 @@
     .facetwp-checkbox {
       margin-right: rem(8);
       padding: rem(8);
-      overflow: auto;
-      background-color: $color-gray-field;
+      overflow: auto !important;
+      background-color: $color-gray-field !important;
       background-image: unset !important;
       border: 1px solid $color-gray-300;
       border-radius: 4px;
     }
+
+    .fs-checkbox {
+      display: none;
+    }
+
+
   } 
   
-  #{$facet}-sectors_checkboxes {
+  #{$facet}-sectors_checkboxes, 
+  #{$facet}-publishing_organization_type, 
+  #{$facet}-focus_areas_checkboxes {
     margin-bottom: rem(40) !important;
 
     .facetwp-checkbox {
@@ -62,7 +73,7 @@
       right: 12px;
       display: flex;
       gap: rem(12);
-      max-width: 150px;
+      // max-width: 30%;
       line-height: 1.15;
       word-break: break-all;
       background: unset !important;
@@ -126,13 +137,48 @@
     }
   }
 
+  #{$facet}-focus_areas_checkboxes {
+    left: 1rem;
+
+      .facetwp-expand {
+        visibility: hidden;
+    }
+
+    .icon-minus, 
+    .icon-plus {
+      &::before {
+        visibility: visible;
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 16px;
+        height: 32px;
+        margin: auto;
+        background-image: url('/wp-content/themes/csisjti/assets/static/icons/minus.svg');
+        content: '';
+      }
+    }
+
+    .icon-plus {
+      &::before {
+        background-image: url('/wp-content/themes/csisjti/assets/static/icons/plus.svg');
+      }
+    }
+  }
+  
+  
+
   .facetwp-type-fselect {
     max-width: 300px;
-  }
+    margin-bottom: rem(40) !important;
+    // height: unset !important;
+    // position: relative;
+    // top: 30px;
 
-  #{$facet}-geographic_focus {
     .fs-dropdown {
-      position: relative;
+      position: relative !important;
       top: -60px;
     }
 
@@ -143,6 +189,7 @@
 
     .fs-search {
       position: relative;
+      z-index: 500;
 
       &::after {
         position: absolute;
@@ -159,6 +206,10 @@
         transition: 0.15s ease-in;
         content: '';
       }
+    }
+
+    .fs-options {
+      z-index: 100001 !important;
     }
 
     // Toggles dropdown display state

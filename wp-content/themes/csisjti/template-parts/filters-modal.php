@@ -39,15 +39,6 @@
 
   <div class="filters-modal__analysis-btn">Geographic Focus</div>
   <?php echo facetwp_display( 'facet', 'geographic_focus' ); ?>
-  
-  <button class="filters-modal__analysis-btn" >
-    Focus Areas
-    <?php echo csisjti_get_svg('info'); ?>
-  </button>
- 
-  <?php 
-    echo facetwp_display( 'facet', 'focus_areas' );
-  ?>
 
   <button class="filters-modal__analysis-btn" >
     Keywords
@@ -59,10 +50,22 @@
   ?>
  
   <div class="filters-modal__subheading">Source Information</div>
-
+  <div class="filters-modal__analysis-btn">Publishing Organization</div>
   <?php  
-    echo facetwp_display( 'facet', 'publishing_organization' ); 
+    echo facetwp_display( 'facet', 'publishing_organization' );
+  ?>
+  
+  <div class="filters-modal__analysis-btn">Publishing Organization Type</div>
+  <?php
     echo facetwp_display( 'facet', 'publishing_organization_type' ); 
+  ?>
+  
+  <button class="filters-modal__analysis-btn" >
+    Focus Areas
+    <?php echo csisjti_get_svg('info'); ?>
+  </button>
+  <?php 
+    echo facetwp_display( 'facet', 'focus_areas_checkboxes' ); 
   ?>
 
 </div>

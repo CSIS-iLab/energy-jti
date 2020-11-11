@@ -26,10 +26,10 @@
     modifyCheckboxes()
     modifyFSelectFacet()
     modifyMultiSelect()
+    modifyExpandIcons()
   })
 
   function modifyFSelectFacet() {
-    console.log(FWP)
 
     $('.facetwp-type-fselect').each(function () {
       const $facet = $(this)
@@ -50,8 +50,8 @@
   }
 
   function modifyCheckboxes() {
-
-    $('.facetwp-facet-sectors_checkboxes .facetwp-checkbox').each(function () {
+    // .facetwp-facet-publishing_organization_type 
+    $('.facetwp-checkbox').each(function () {
       const span = document.createElement('span')
       span.classList.add('fs-checkbox')
       span.innerHTML = '<i></i>'
@@ -79,5 +79,24 @@
           }
         })
     })
+  }
+
+  // Toggle plus and minus icons on user click
+  function modifyExpandIcons() {
+    $('.facetwp-expand').each(function () {
+      $(this).context.classList.add('icon-minus')
+
+      $(this).on('click', () => {
+        if ($(this).context.innerHTML.includes('-')) {
+          $(this).context.classList.remove('icon-minus')
+          $(this).context.classList.add('icon-plus')
+        } else {
+          $(this).context.classList.remove('icon-plus')
+          $(this).context.classList.add('icon-minus')
+        }
+      })
+    })
+
+    
   }
 })(jQuery)
