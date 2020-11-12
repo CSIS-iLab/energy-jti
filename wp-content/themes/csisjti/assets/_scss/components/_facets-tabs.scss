@@ -25,14 +25,13 @@
     }
 
     .facetwp-radio {
-      --tab-bg: #{$color-primary-blue-700};
+      --tab-bg: #{$color-tabs-inactive};
       position: relative;
       z-index: 1;
       display: flex;
       gap: rem(8);
       justify-content: center;
       align-items: center;
-      // min-width: rem(125);
       margin-right: var(--tab-width);
       margin-bottom: 0 !important;
       margin-left: var(--tab-left);
@@ -51,7 +50,7 @@
 
       &:hover,
       &:focus {
-        --tab-bg: #{$color-primary-blue-600};
+        --tab-bg: #{$color-tabs-hover};
       }
 
       &[data-value='jti_analysis'] {
