@@ -56,6 +56,19 @@
     ;
   }
 
+  .facetwp {
+    &-facet {
+      position: relative;
+      height: rem(60);
+      margin-bottom: rem(12) !important; // Override plugin default styles
+    }
+  
+    // Hides counters next to items
+    &-counter {
+      display: none;
+    }
+  }
+
   @include breakpoint(xxlarge) {
     padding: 0 rem(80);
   }
@@ -247,6 +260,7 @@
 
    #{$facet}-publishing_organization {
     grid-area: pub-org;
+    margin-left: 0 !important;
   }
 
   #{$facet}-publishing_organization_type {
