@@ -43,11 +43,14 @@
   }
 
   &__content {
+    margin-bottom: rem(56);
+
     @include breakpoint('large') {
       display: grid;
       grid-template-columns: minmax(auto, 300px) minmax(auto, 795px);
       grid-template-rows: max-content auto;
       justify-content: space-between;
+      margin-bottom: rem(64);
       column-gap: 8%;
     }
 
