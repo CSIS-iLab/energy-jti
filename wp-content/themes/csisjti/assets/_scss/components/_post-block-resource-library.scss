@@ -113,6 +113,15 @@
 
     &__categories {
       margin-bottom: rem(16);
+
+      span {
+        font-weight: normal;
+      }
+    }
+
+    &__divider {
+      margin: 0 0.5rem;
+      color: $color-primary-green-400;
     }
 
     &__date {

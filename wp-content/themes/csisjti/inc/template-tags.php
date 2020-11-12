@@ -376,9 +376,9 @@ if (! function_exists('csisjti_resource_date')) :
 
 	}
 endif;
-		
+
 /**
- * Displays Resource Description. 
+ * Displays Resource Description.
  *
  *
  * @return string $html The description.
@@ -483,17 +483,34 @@ endif;
 if (! function_exists('csisjti_resource_format')) :
 	function csisjti_resource_format() {
 		$format = get_field( 'format' );
+		$analysis_type = get_field( 'analysis_type' );
 
-		if ( !$format ) {
+		if ( !$format && !$analysis_type ) {
 			return;
 		}
 
 		$formats = array();
-		foreach( $format as $term ) {
-			$formats[] = $term->name;
+		if ( $format ) {
+			foreach( $format as $term ) {
+				$formats[] = $term->name;
+			}
 		}
 
-		printf( '<div class="post-meta post-meta__categories">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', implode('/ ', $formats ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		$types = array();
+		if ( $analysis_type ) {
+			foreach( $analysis_type as $term ) {
+				$types[] = $term->name;
+			}
+		}
+
+		$divider = '';
+		if ( $format && $analysis_type ) {
+			$divider = '<span class="post-meta__divider">/</span>';
+		}
+
+
+
+		printf( '<div class="post-meta post-meta__categories">' . esc_html__( '%1$s', 'csisjti' ) . esc_html__( '%2$s', 'csisjti' ) . '<span class="post-meta__analysis-types">' . esc_html__( '%3$s', 'csisjti' ) . '</span></div>', implode(', ', $formats ), $divider, implode('; ', $types) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;
@@ -522,7 +539,7 @@ if (! function_exists('csisjti_resource_sectors')) :
 	}
 endif;
 
-/** 
+/**
  * Displays Resource Keywords.
  *
  *
@@ -546,7 +563,7 @@ if (! function_exists('csisjti_resource_keywords')) :
 	}
 endif;
 
-/** 
+/**
  * Displays Resource Geographic Focus.
  *
  *
@@ -582,7 +599,7 @@ if (! function_exists('csisjti_resource_geographic_focus')) :
 	}
 endif;
 
-/** 
+/**
  * Displays Resource Focus Areas.
  *
  *
