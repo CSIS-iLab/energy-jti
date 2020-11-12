@@ -1,4 +1,5 @@
 @use 'abstracts' as *;
+@use 'sass:map';
 
 :root {
   /* stylelint-disable-next-line*/
@@ -6,13 +7,14 @@
   --header-height: 72px;
   --logo-height: 48px;
   --event-block-height: 112px;
-  --color-nav-resource: #{$color-primary-blue-400};
-  --color-nav-analysis: #{$color-primary-green-400};
-  --color-nav-events: #{$color-primary-yellow-400};
-  --color-nav-transitions: #{$color-gradient-purple};
-  --color-nav-jti: #{$color-primary-green-600};
+
+  @each $page, $values in $page-colors {
+    --color-nav-#{$page}: #{map.get($values, 'color')};
+    --page-header-#{$page}: #{map.get($values, 'gradient')};
+  }
+
   --nav-border-color: var(--color-nav-resource);
-  --page-header-bg: #{$color-primary-blue-700};
+  --page-header-bg: var(--color-nav-resource);
 
   @include breakpoint('large') {
     --header-height: 96px;

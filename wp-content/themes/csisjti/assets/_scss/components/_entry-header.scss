@@ -19,8 +19,6 @@
   margin-bottom: var(--header-margin-bottom);
   padding-bottom: var(--header-padding-bottom);
   color: $color-white-190;
-  background: var(--page-header-bg);
-  @include full-width-background(var(--page-header-bg));
 
   @include breakpoint('large') {
     grid-template-areas:
@@ -36,6 +34,22 @@
       max-content minmax(0, max-content) max-content minmax(0, max-content)
       auto;
     column-gap: calc(#{rem(24)} + 4%);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    @include vw100;
+    margin-left: calc(50% - (50vw - var(--scrollbar)));
+    background: var(--page-header-bg);
+    background-repeat: no-repeat;
+    // Separate values for the Image, Gradient, and solid color, respectfully.
+    background-position: 55vw 100%, 100% 100%, 100% 100%;
+    background-size: auto 100%, auto, auto;
+    background-blend-mode: soft-light, normal, normal;
   }
 
   &--img {
@@ -72,7 +86,7 @@
       0 7px 8px rgba(2, 3, 3, 0.04);
 
     span {
-      @extend %font-ui-page-title-sm;
+      font-weight: normal;
     }
   }
 

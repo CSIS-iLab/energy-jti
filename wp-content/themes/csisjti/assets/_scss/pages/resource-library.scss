@@ -3,7 +3,7 @@
 
 :root {
   --top-bar-height: #{rem(72)};
-  --page-header-bg: #015d91; // TODO: make this a variable
+  --page-header-bg: var(--page-header-resource);
 }
 
 .post-type-archive-resource-library {
