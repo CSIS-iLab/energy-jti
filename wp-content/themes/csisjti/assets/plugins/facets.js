@@ -1,10 +1,13 @@
 ;(function ($) {
+  const numFiltersApplied = document.getElementById('num_filters_applied')
+
   $(document).on('facetwp-loaded', function () {
     modifyCheckboxes()
     modifyFSelectFacet()
     modifyMultiSelect()
     modifyExpandIcons()
     // fwpDisableAutoRefresh()
+    setNumFilters()
   })
 
   function modifyFSelectFacet() {
@@ -71,7 +74,7 @@
         }
       })
     })
-
+  }
     // function fwpDisableAutoRefresh() {
     //   $(function() {
     //     if ('undefined' !== typeof FWP) {
@@ -79,5 +82,15 @@
     //     }
     // });
     // }
-}
+
+  // Calculates the number of active filters applied.
+  function setNumFilters() {
+    const numFilters = Object.values(FWP.facets).reduce((acc, curr) => {
+      if (curr != '' && !Array.isArray(curr)) {
+        return acc + 1
+      }
+      return acc + curr.length
+    }, 0)
+    numFiltersApplied.innerHTML = numFilters
+  }
 })(jQuery)

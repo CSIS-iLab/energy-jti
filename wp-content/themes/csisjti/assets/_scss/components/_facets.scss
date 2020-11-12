@@ -1,6 +1,9 @@
 @use '../abstracts' as *;
 
-.facetwp {
+@use './facets-pagination';
+@use './facets-sort';
+
+.resource-library__inline-filters .facetwp {
   &-facet {
     position: relative;
     height: rem(60);

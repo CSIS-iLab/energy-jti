@@ -1,0 +1,63 @@
+@use '../abstracts' as *;
+
+.facetwp {
+  &-facet-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(8);
+    align-items: center;
+
+    @include breakpoint('small') {
+      gap: rem(16);
+    }
+  }
+
+  &-pager {
+    &-nav {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-page {
+    display: flex !important;
+    align-items: center;
+    width: rem(32);
+    height: rem(32);
+    margin-right: rem(2) !important;
+    padding: rem(8) !important;
+    color: var(--pagination-color, $color-primary-blue-400);
+    background: var(--pagination-bg, $color-white-100);
+    border: 0;
+    border-radius: 0;
+    appearance: none;
+
+    &--prev {
+      padding-left: rem(12) !important;
+      border-radius: 20px 0 0 20px;
+    }
+
+    &--next {
+      padding-left: rem(10) !important;
+      border-radius: 0 20px 20px 0;
+    }
+
+    &:not(.is-disabled):hover {
+      --pagination-color: #{$color-primary-blue-100};
+      box-shadow: 0 3px 4px rgba(2, 3, 3, 0.03), 0 3px 3px rgba(2, 3, 3, 0.02),
+        0 1px 8px rgba(2, 3, 3, 0.04);
+    }
+
+    &.is-disabled {
+      --pagination-color: #{$color-gray-200};
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}
+
+/* stylelint-disable-next-line */
+.facetwp-facet-total_entries,
+.facetwp-facet-pagination {
+  margin-bottom: 0 !important;
+}
