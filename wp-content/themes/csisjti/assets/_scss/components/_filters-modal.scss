@@ -4,33 +4,64 @@
   $facet: '.facetwp-facet';
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-column-gap: 48px;
-  grid-template-rows: 10 auto;
   grid-template-areas: 
-    'title title-btns'
-    'analysis-heading .'
-    'analysis analysis'
-    'topic topic'
-    'sectors-heading focus-areas-heading'
-    'sectors focus-areas'
-    'geo-heading focus-areas'
-    'geo focus-areas'
-    'keywords-heading focus-areas'
-    'keywords focus-areas'
-    'source source'
-    'pub-org-heading author-heading'
-    'pub-org author'
-    'pub-type-heading pub-date-heading'
-    'pub-type pub-date'
-    'pub-type format-heading'
-    'pub-type format'
-  ;
+      'title title-btns'
+      'analysis-heading analysis-heading'
+      'analysis analysis'
+      'topic topic'
+      'sectors-heading sectors-heading'
+      'sectors sectors'
+      'geo-heading geo-heading' 
+      'geo geo' 
+      'keywords-heading keywords-heading'
+      'keywords keywords'
+      'focus-areas-heading focus-areas-heading'
+      'focus-areas focus-areas'
+      'source source'
+      'pub-org-heading pub-org-heading'
+      'pub-org pub-org'
+      'pub-type-heading pub-type-heading'
+      'pub-type pub-type'
+      'author-heading author-heading'
+      'author author'
+      'pub-date-heading pub-date-heading'
+      'pub-date pub-date'
+      'format-heading format-heading'
+      'format format'
+    ;
   padding: 0 6vw;
   margin: rem(12) 0 rem(40);
   overflow: scroll;
 
+  @include breakpoint(large) {
+    grid-column-gap: 48px;
+    grid-template-areas: 
+      'title title-btns'
+      'analysis-heading .'
+      'analysis analysis'
+      'topic topic'
+      'sectors-heading focus-areas-heading'
+      'sectors focus-areas'
+      'geo-heading focus-areas'
+      'geo focus-areas'
+      'keywords-heading focus-areas'
+      'keywords focus-areas'
+      'source source'
+      'pub-org-heading author-heading'
+      'pub-org author'
+      'pub-type-heading pub-date-heading'
+      'pub-type pub-date'
+      'pub-type format-heading'
+      'pub-type format'
+    ;
+  }
+
   @include breakpoint(xxlarge) {
     padding: 0 rem(80);
+  }
+
+  &.hidden {
+    display: none;
   }
 
   &__title {
@@ -71,54 +102,14 @@
     max-width: fit-content;
     height: 24px;
     cursor: pointer;
-  }
 
-  &--topic {
-    grid-area: topic;
-  }
-
-  &--source {
-    grid-area: source;
-  }
-
-  &--analysis {
-    grid-area: analysis-heading;
-  }
-
-  &--sectors {
-    grid-area: sectors-heading;
-  }
-
-  &--geo {
-    grid-area: geo-heading;
-  }
-
-  &--keywords {
-    grid-area: keywords-heading;
-  }
-
-  &--pub-org {
-    grid-area: pub-org-heading;
-  }
-
-  &--pub-type {
-    grid-area: pub-type-heading;
-  }
-
-  &--focus-areas {
-    grid-area: focus-areas-heading;
-  }
-
-  &--author {
-    grid-area: author-heading;
-  }
-
-  &--pub-date {
-    grid-area: pub-date-heading;
-  }
-
-  &--format {
-    grid-area: format-heading;
+    .icon {
+      position: relative;
+      top: 3px;
+      display: inline-block;
+      margin-right: rem(12);
+      color: $color-gradient-jade;
+    }
   }
 
   &__btn-wrapper {
@@ -151,16 +142,54 @@
     }
   }
 
-  .icon {
-    position: relative;
-    top: 3px;
-    display: inline-block;
-    margin-right: rem(12);
-    color: $color-gradient-jade;
+  /*----------  Grid Template Area Code Layout  ----------*/
+
+  &--analysis {
+    grid-area: analysis-heading;
   }
 
-  .facetwp-facet {
-    margin: 0 !important;
+  &--topic {
+    grid-area: topic;
+  }
+
+  &--sectors {
+    grid-area: sectors-heading;
+  }
+
+  &--focus-areas {
+    grid-area: focus-areas-heading;
+  }
+
+  &--geo {
+    grid-area: geo-heading;
+  }
+
+  &--keywords {
+    grid-area: keywords-heading;
+  }
+
+  &--source {
+    grid-area: source;
+  }
+
+  &--pub-org {
+    grid-area: pub-org-heading;
+  }
+
+  &--author {
+    grid-area: author-heading;
+  }
+
+  &--pub-type {
+    grid-area: pub-type-heading;
+  }
+
+  &--pub-date {
+    grid-area: pub-date-heading;
+  }
+
+  &--format {
+    grid-area: format-heading;
   }
 
   #{$facet}-analysis_type_checkbox {
@@ -194,8 +223,6 @@
     .fs-checkbox {
       display: none;
     }
-
-    
   } 
 
   #{$facet}-sectors_checkboxes {
@@ -203,7 +230,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    height: unset !important;
 
     .facetwp-checkbox {
       width: 50%;
@@ -252,10 +278,13 @@
     grid-area: format;
   }
   
+  /*----------  Facet: Checkbox  ----------*/
+
   #{$facet}-sectors_checkboxes, 
   #{$facet}-publishing_organization_type, 
   #{$facet}-focus_areas_checkboxes {
     margin-bottom: rem(40) !important;
+    height: unset !important;
 
     .facetwp-checkbox {
       --checkbox-bg: #{$color-gray-field};
@@ -309,7 +338,6 @@
         cursor: default;
         opacity: 0.4;
       }
-
     }
   }
 
@@ -328,11 +356,13 @@
     }
   }
 
+  /*----------  Facet: Expanding Checkbox  ----------*/
+
   #{$facet}-focus_areas_checkboxes {
     left: 1rem;
 
-      .facetwp-expand {
-        visibility: hidden;
+    .facetwp-expand {
+      visibility: hidden;
     }
 
     .icon-minus, 
@@ -359,10 +389,10 @@
     }
   }
   
-  
+  /*----------  Facet: Additional Dropdown Styling  ----------*/
 
   .facetwp-type-fselect {
-    max-width: 300px;
+    max-width: 66%;
     margin-bottom: rem(40) !important;
     // height: unset !important;
     // position: relative;
@@ -380,7 +410,6 @@
 
     .fs-search {
       position: relative;
-      z-index: 500;
 
       &::after {
         position: absolute;
@@ -397,10 +426,6 @@
         transition: 0.15s ease-in;
         content: '';
       }
-    }
-
-    .fs-options {
-      z-index: 100001 !important;
     }
 
     // Toggles dropdown display state
