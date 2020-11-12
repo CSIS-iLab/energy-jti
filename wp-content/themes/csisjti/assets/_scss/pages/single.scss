@@ -1,1 +1,11 @@
 @use '../abstracts' as *;
+
+.page {
+  &--about_jti {
+    --page-header-bg: var(--page-header-jti);
+  }
+
+  &--transitions {
+    --page-header-bg: var(--page-header-transitions);
+  }
+}
