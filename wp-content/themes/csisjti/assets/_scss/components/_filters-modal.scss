@@ -114,6 +114,7 @@
     border: unset;
     max-width: fit-content;
     height: 24px;
+    padding-left: 0;
     cursor: pointer;
 
     .icon {
@@ -205,7 +206,7 @@
     grid-area: format-heading;
   }
 
-  #{$facet}-analysis_type_checkbox {
+  #{$facet}-analysis_type_checkboxes {
     grid-area: analysis;
     display: flex;
     height: unset !important;
@@ -241,12 +242,17 @@
   #{$facet}-sectors_checkboxes {
     grid-area: sectors;
     display: flex;
+    display: inline-flex !important;
     flex-direction: row;
     flex-wrap: wrap;
 
     .facetwp-checkbox {
       width: 50%;
       min-width: 50%;
+
+      &:nth-child(odd) {
+        padding-right: rem(32);
+      }
     }
   }
 
@@ -304,7 +310,7 @@
       --checkbox-bg: #{$color-gray-field};
       --checkbox-border: #{$color-gray-100};
       position: relative;
-      right: 12px;
+      padding-left: 0 !important;
       display: flex;
       gap: rem(12);
       max-width: fit-content;
@@ -373,8 +379,10 @@
   /*----------  Facet: Expanding Checkbox  ----------*/
 
   #{$facet}-focus_areas_checkboxes {
-    left: 1rem;
-
+    .facetwp-checkbox {
+      padding-left: 32px !important;
+    }
+    
     .facetwp-expand {
       visibility: hidden;
     }
@@ -385,20 +393,20 @@
         visibility: visible;
         position: absolute;
         display: block;
-        left: 0;
+        left: 4px;
         top: 0;
         bottom: 0;
         width: 16px;
         height: 32px;
         margin: auto;
-        background-image: url('/wp-content/themes/csisjti/assets/static/icons/minus.svg');
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-minus' viewBox='0 0 18 32'%3E%3Cpath d='M1.524 14.476h15.238c0.842 0 1.524 0.682 1.524 1.524s-0.682 1.524-1.524 1.524h-15.238c-0.842 0-1.524-0.682-1.524-1.524s0.682-1.524 1.524-1.524z'%3E%3C/path%3E%3C/svg%3E") !important;
         content: '';
       }
     }
 
     .icon-plus {
       &::before {
-        background-image: url('/wp-content/themes/csisjti/assets/static/icons/plus.svg');
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-plus' viewBox='0 0 16 32'%3E%3Cpath d='M6.667 22.667c0 0.736 0.597 1.333 1.333 1.333s1.333-0.597 1.333-1.333v-5.333h5.333c0.736 0 1.333-0.597 1.333-1.333s-0.597-1.333-1.333-1.333h-5.333v-5.333c0-0.736-0.597-1.333-1.333-1.333s-1.333 0.597-1.333 1.333v5.333h-5.333c-0.736 0-1.333 0.597-1.333 1.333s0.597 1.333 1.333 1.333h5.333v5.333z'%3E%3C/path%3E%3C/svg%3E") !important;
       }
     }
   }

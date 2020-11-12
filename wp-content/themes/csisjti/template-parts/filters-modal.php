@@ -31,11 +31,11 @@
     <?php echo csisjti_get_svg('info'); ?>
   </button>
 
-  <?php echo facetwp_display( 'facet', 'analysis_type_checkbox' ); ?>
+  <?php echo facetwp_display( 'facet', 'analysis_type_checkboxes' ); ?>
 
   <div class="filters-modal__heading filters-modal--topic">Topic Scope</div>
 
-  <button class="filters-modal__subheading filters-modal--sectors" >
+  <button class="filters-modal__subheading filters-modal--sectors">
     Sectors
     <?php echo csisjti_get_svg('info'); ?>
   </button>
