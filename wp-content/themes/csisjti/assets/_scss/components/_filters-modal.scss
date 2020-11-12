@@ -10,14 +10,14 @@
     'title title-btns'
     'analysis-heading .'
     'analysis analysis'
-    'topic .'
+    'topic topic'
     'sectors-heading focus-areas-heading'
     'sectors focus-areas'
     'geo-heading focus-areas'
     'geo focus-areas'
     'keywords-heading focus-areas'
     'keywords focus-areas'
-    'source .'
+    'source source'
     'pub-org-heading author-heading'
     'pub-org author'
     'pub-type-heading pub-date-heading'
@@ -37,11 +37,29 @@
     @extend %font-ui-section-heading-lg;
     margin-bottom: rem(64);
     grid-area: title;
+
+    &::before {
+      position: relative;
+      top: 64px;
+      display: block;
+      width: calc(200% + 48px);
+      border-bottom: 1px solid $color-gray-line;
+      content: '';
+    }
   }
 
   &__heading {
     @extend %font-ui-section-heading-md;
     margin: rem(40) 0 rem(24);
+
+    &::before {
+      position: relative;
+      top: -32px;
+      display: block;
+      width: 100%;
+      border-top: 1px solid $color-gray-line;
+      content: '';
+    }
   }
 
   &__subheading {
@@ -150,25 +168,47 @@
     display: flex;
     height: unset !important;
     margin-bottom: rem(40) !important;
+    flex-wrap: wrap;
   
     .facetwp-checkbox {
       margin-right: rem(8);
       padding: rem(8);
-      overflow: auto !important;
       background-color: $color-gray-field !important;
       background-image: unset !important;
       border: 1px solid $color-gray-300;
       border-radius: 4px;
-     
+      white-space: nowrap;
+
+      &.checked {
+        background-color: #{$color-primary-blue-400} !important;
+        border-color: #{$color-primary-blue-300} !important;
+        color: $color-white-190;
+      }
+
+      &:hover {
+        background-color: #{$color-primary-blue-800} !important;
+        border-color: #{$color-primary-blue-700} !important;
+      }
     }
     
     .fs-checkbox {
       display: none;
     }
+
+    
   } 
 
   #{$facet}-sectors_checkboxes {
     grid-area: sectors;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: unset !important;
+
+    .facetwp-checkbox {
+      width: 50%;
+      min-width: 50%;
+    }
   }
 
   #{$facet}-geographic_focus {
@@ -185,6 +225,19 @@
 
   #{$facet}-publishing_organization_type {
     grid-area: pub-type;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .facetwp-checkbox {
+      width: 50%;
+      min-width: 50%;
+      word-break: break-word !important;
+
+      &:nth-child(odd) {
+        padding-right: rem(32);
+      }
+    }
   }
 
   #{$facet}-focus_areas_checkboxes {
