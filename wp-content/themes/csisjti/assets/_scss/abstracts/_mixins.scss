@@ -141,3 +141,17 @@
     }
   }
 }
+
+@mixin csisjti-full-width-wrapper {
+  @include vw100;
+  margin-left: calc(50% - (50vw - var(--scrollbar)));
+}
+
+@mixin csisjti-full-width-content {
+  width: 100%;
+  max-width: $size__content-wide-max-width !important;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--container-padding);
+  padding-left: var(--container-padding);
+}
