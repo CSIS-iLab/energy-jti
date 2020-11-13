@@ -376,9 +376,9 @@ if (! function_exists('csisjti_resource_date')) :
 
 	}
 endif;
-		
+
 /**
- * Displays Resource Description. 
+ * Displays Resource Description.
  *
  *
  * @return string $html The description.
@@ -436,6 +436,29 @@ if (! function_exists('csisjti_resource_authors')) :
 
 		printf( '<div class="post-block__authors"><dt class="post-meta__label">By</dt><dd class="post-meta__value">' . esc_html__( '%1$s', 'csisjti' ) . '</dd></div>', implode(', ', $authors ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
+	}
+endif;
+
+/**
+ * Generates classes for Resource Block if it's a JTI analysis or Essential Reading.
+ *
+ *
+ * @return string $html The authors.
+ */
+if (! function_exists('csisjti_resource_content_type')) :
+	function csisjti_resource_content_type() {
+		$type_of_content = get_field( 'type_of_content' );
+
+		if ( !$type_of_content ) {
+			return;
+		}
+
+		$classes = '';
+		foreach( $type_of_content as $type ) {
+			$classes .= ' is-' . str_replace('_', '-', $type);
+		}
+
+		return $classes;
 	}
 endif;
 
@@ -522,7 +545,7 @@ if (! function_exists('csisjti_resource_sectors')) :
 	}
 endif;
 
-/** 
+/**
  * Displays Resource Keywords.
  *
  *
@@ -546,7 +569,7 @@ if (! function_exists('csisjti_resource_keywords')) :
 	}
 endif;
 
-/** 
+/**
  * Displays Resource Geographic Focus.
  *
  *
@@ -582,7 +605,7 @@ if (! function_exists('csisjti_resource_geographic_focus')) :
 	}
 endif;
 
-/** 
+/**
  * Displays Resource Focus Areas.
  *
  *

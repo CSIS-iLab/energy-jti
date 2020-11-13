@@ -1,7 +1,9 @@
 @use '../abstracts' as *;
+@use '../components/facets-tabs';
 
 :root {
   --top-bar-height: #{rem(72)};
+  --page-header-bg: #015d91; // TODO: make this a variable
 }
 
 .post-type-archive-resource-library {
@@ -9,6 +11,13 @@
 
   .entry-header {
     margin-bottom: 0;
+    padding-bottom: 0;
+
+    .cta {
+      @include breakpoint('large') {
+        margin-bottom: rem(24);
+      }
+    }
   }
 
   .is-highlighted {
