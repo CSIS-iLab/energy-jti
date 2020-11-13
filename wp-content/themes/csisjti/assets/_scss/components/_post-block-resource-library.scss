@@ -22,30 +22,31 @@
   }
 
   &.is-essential-reading,
-  &.is-jti-content {
+  &.is-jti-analysis {
     #{$post}__header {
       margin-top: rem(16);
     }
   }
 
   &.is-essential-reading::before,
-  &.is-jti-content::after {
+  &.is-jti-analysis::after {
     content: '';
     position: absolute;
     top: 0;
     right: var(--padding-sides);
     width: 16px;
     height: 24px;
-    border: 8px solid var(--color, $color-primary-yellow-400);
+    border: 8px solid var(--color, $color-jti-analysis);
     border-top: 0;
     border-bottom: 6px solid transparent;
+    border-radius: 2px 2px 0 0;
   }
 
   &.is-essential-reading::before {
-    --color: #{$color-primary-green-500};
+    --color: #{$color-essential-reading};
   }
 
-  &.is-jti-content {
+  &.is-jti-analysis {
     &.is-essential-reading::before {
       right: calc(var(--padding-sides) + 1.5rem);
     }
