@@ -1,6 +1,7 @@
 @use 'abstracts' as *;
 
-.sr-only {
+.sr-only,
+.screen-reader-text {
   position: absolute !important;
   width: 1px;
   height: 1px;
@@ -14,7 +15,8 @@
   clip-path: inset(50%);
 }
 
-.sr-only:focus {
+.sr-only:focus,
+.screen-reader-text:focus {
   top: 5px;
   right: 5px;
   z-index: 100000;
@@ -34,7 +36,8 @@
   clip-path: none;
 }
 
-.sr-only:not(:focus):not(:active) {
+.sr-only:not(:focus):not(:active),
+.screen-reader-text:not(:focus):not(:active) {
   position: absolute;
   width: 1px;
   height: 1px;

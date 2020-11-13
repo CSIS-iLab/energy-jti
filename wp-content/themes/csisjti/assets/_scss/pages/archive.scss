@@ -1,1 +1,9 @@
 @use '../abstracts' as *;
+
+.blog {
+  --page-header-bg: var(--page-header-analysis);
+}
+
+.post-type-archive-event {
+  --page-header-bg: var(--page-header-events);
+}

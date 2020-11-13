@@ -188,11 +188,11 @@ function csisjti_register_styles() {
 
 	wp_enqueue_style( 'csisjti-style', get_stylesheet_directory_uri() . '/style.min.css', array(), $theme_version );
 
-	if ( is_front_page() || is_home() ) {
+	if ( is_front_page() ) {
 		wp_enqueue_style( 'csisjti-style-home', get_stylesheet_directory_uri() . '/assets/css/pages/home.min.css', array(), $theme_version );
 	}
 
-	if ( is_archive() ) {
+	if ( is_home() || is_archive() ) {
 		wp_enqueue_style( 'csisjti-style-archive', get_stylesheet_directory_uri() . '/assets/css/pages/archive.min.css', array(), $theme_version );
 	}
 

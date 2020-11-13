@@ -7,30 +7,19 @@
  * @since 1.0.0
  */
 
-$is_singular = is_singular();
-$is_front_page = is_front_page();
-
 if ( has_post_thumbnail() && ! post_password_required() ) {
 
 	?>
 
-	<figure class="featured-media">
+	<figure class="post-block__img">
 
 		<?php
-			if ( !$is_singular || $is_front_page ) {
-				echo '<a href="' . esc_url ( get_permalink() ) . '">';
-			}
+			the_post_thumbnail( 'large' );
 
-			$size = '';
+			$caption = get_the_post_thumbnail_caption();
 
-			if ( $is_singular && !$is_front_page ) {
-				$size = 'csisjti-fullscreen';
-			}
-
-			the_post_thumbnail( $size );
-
-			if ( !$is_singular || $is_front_page ) {
-				echo '</a>';
+			if ( $caption ) {
+				echo '<figcaption class="featured-media__caption"> ' . esc_html( $caption ) . '</figcaption>';
 			}
 		?>
 
