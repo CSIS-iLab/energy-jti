@@ -6,7 +6,7 @@
     modifyFSelectFacet()
     modifyMultiSelect()
     modifyExpandIcons()
-    // fwpDisableAutoRefresh()
+    fwpDisableAutoRefresh()
     setNumFilters()
   })
 
@@ -61,10 +61,8 @@
 
   // Toggle plus and minus icons on user click
   function modifyExpandIcons() {
-    console.log('hi')
     $('.facetwp-expand').each(function () {
       $(this).context.classList.add('icon-minus')
-      console.log($(this))
 
       $(this).on('click', () => {
         if ($(this).context.innerHTML.includes('-')) {
@@ -77,13 +75,6 @@
       })
     })
   }
-    // function fwpDisableAutoRefresh() {
-    //   $(function() {
-    //     if ('undefined' !== typeof FWP) {
-    //       FWP.auto_refresh = false;
-    //     }
-    // });
-    // }
 
   // Calculates the number of active filters applied.
   function setNumFilters() {
@@ -94,5 +85,14 @@
       return acc + curr.length
     }, 0)
     numFiltersApplied.innerHTML = numFilters
+  }
+
+  // Disable auto-refresh on filterModal
+  function fwpDisableAutoRefresh() {
+    $(function() {
+      if ('undefined' !== typeof FWP) {
+        FWP.auto_refresh = false;
+      }
+    });
   }
 })(jQuery)

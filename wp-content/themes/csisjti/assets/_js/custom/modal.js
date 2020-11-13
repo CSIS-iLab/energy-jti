@@ -35,4 +35,14 @@ const classificationModal = () => {
   })
 }
 
-export { Modal, filterModal, classificationModal }
+// Close modal on click of apply button 
+const applyFilters = () => {
+  const applyBtn = document.getElementById('filters-apply-btn')
+  const closeBtn = document.getElementsByClassName('dialog-close')[0]
+
+  applyBtn.addEventListener('click', () => {
+    closeBtn.click()
+  })
+}
+
+export { Modal, filterModal, classificationModal, applyFilters }

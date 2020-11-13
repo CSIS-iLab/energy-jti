@@ -127,9 +127,25 @@
   }
 
   &__btn-wrapper {
+    position: relative;
     grid-area: title-btns;
     display: flex;
     justify-content: flex-end;
+
+    &::after {
+      content: '5';
+      position: absolute;
+      top: 6%;
+      right: 120px;
+      padding: rem(4) rem(12);
+      @extend %font-ui-text-sm;
+      font-weight: bold;
+      border-color: $color-primary-blue-300!important;
+      background: $color-primary-blue-400!important;
+      color: $color-white-190;
+      border-radius: 30px;
+      cursor: default;
+    }
   }
 
   .btn--apply, .btn--reset {
@@ -138,21 +154,33 @@
     max-width: 150px;
   }
 
+  .btn--reset {
+    position: relative;
+    right: 96px;
+  }
+
   .btn--apply {
     @extend %font-ui-text-sm-uppercase;
     position: relative;
     padding: rem(8) rem(16);
-    background-color: $color-gray-field !important;
-    border: 1px solid $color-gray-300;
+    background-color: $color-primary-blue-400 !important;
+    border: 1px solid $color-primary-blue-300;
     border-radius: 2px;
+    color: $color-white-190;
 
     &::before {
       position: absolute;
       display: block;
       height: 100%;
       border-left: 1px solid $color-gray-line;
-      right: 64px;
+      right: 96px;
+      top: 0;
       content: '';
+    }
+
+    &:hover {
+      background-color: $color-primary-blue-800 !important;
+      color: $color-primary-blue-400 !important;
     }
   }
 
@@ -208,9 +236,17 @@
 
   #{$facet}-analysis_type_checkboxes {
     grid-area: analysis;
+    margin-bottom: rem(40) !important;
+  }
+
+  #{$facet}-format_checkboxes {
+    grid-area: format;
+  }
+
+  #{$facet}-analysis_type_checkboxes,
+  #{$facet}-format_checkboxes {
     display: flex;
     height: unset !important;
-    margin-bottom: rem(40) !important;
     flex-wrap: wrap;
   
     .facetwp-checkbox {
@@ -223,14 +259,18 @@
       white-space: nowrap;
 
       &.checked {
-        background-color: #{$color-primary-blue-400} !important;
-        border-color: #{$color-primary-blue-300} !important;
+        background-color: $color-primary-blue-400 !important;
+        border-color: $color-primary-blue-300 !important;
         color: $color-white-190;
+
+        &:hover {
+          color: $color-primary-blue-400;
+        }
       }
 
       &:hover {
-        background-color: #{$color-primary-blue-800} !important;
-        border-color: #{$color-primary-blue-700} !important;
+        background-color: $color-primary-blue-800 !important;
+        border-color: $color-primary-blue-700 !important;
       }
     }
     
@@ -258,15 +298,27 @@
 
   #{$facet}-geographic_focus {
     grid-area: geo;
+
+    .fs-wrap {
+      z-index: 505;
+    }
   }
 
   #{$facet}-keywords {
     grid-area: keywords;
+
+    .fs-wrap {
+      z-index: 504;
+    }
   }
 
    #{$facet}-publishing_organization {
     grid-area: pub-org;
     margin-left: 0 !important;
+
+    .fs-wrap {
+      z-index: 503;
+    }
   }
 
   #{$facet}-publishing_organization_type {
@@ -292,10 +344,18 @@
 
   #{$facet}-author {
     grid-area: author;
+
+    .fs-wrap {
+      z-index: 502;
+    }
   }
 
   #{$facet}-format_checkboxes {
     grid-area: format;
+  }
+
+  &__date-range {
+    grid-area: pub-date;
   }
   
   /*----------  Facet: Checkbox  ----------*/
@@ -382,7 +442,7 @@
     .facetwp-checkbox {
       padding-left: 32px !important;
     }
-    
+
     .facetwp-expand {
       visibility: hidden;
     }
@@ -413,21 +473,45 @@
   
   /*----------  Facet: Additional Dropdown Styling  ----------*/
 
+
   .facetwp-type-fselect {
     max-width: 66%;
     margin-bottom: rem(40) !important;
-    // height: unset !important;
-    // position: relative;
-    // top: 30px;
 
+    .fs-wrap {
+      position: relative;
+    }
+    
     .fs-dropdown {
-      position: relative !important;
-      top: -60px;
+      top: 0;
+
+      &.hidden {
+        .fs-search {
+          display: block !important;
+        }
+      }
     }
 
     // Overrides inherit hidden styling to show the search bar on modal load
     .fs-show {
       display: block !important;
+    }
+
+    // Toggles dropdown display state
+    .fs-active {
+      .fs-options {
+        display: block;
+      }
+
+      .fs-no-results {
+        display: none;
+      }
+
+      .fs-search { 
+        &::after {
+          transform: rotate(-180deg);
+        }
+      }
     }
 
     .fs-search {
@@ -441,27 +525,65 @@
         width: 0;
         height: 0;
         margin: auto;
-        background-image: url('/wp-content/themes/csisjti/assets/static/icons/icon-arrow-down.svg');
-        border-top: 5px solid var(--arrow-color);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' viewBox='0 0 26 32'%3E%3Cpath d='M25.657 18.254l-2.664-2.664-8.087 8.087v-23.265h-3.767v23.265l-8.087-8.087-2.664 2.664 12.634 12.634 12.634-12.634z'%3E%3C/path%3E%3C/svg%3E");
+        border-top: 5px solid $color-black-190;
         border-right: 5px solid transparent;
         border-left: 5px solid transparent;
         transition: 0.15s ease-in;
         content: '';
       }
     }
-
-    // Toggles dropdown display state
-    .fs-active {
-      .fs-options {
-        display: block;
-      }
-
-      .fs-search { 
-        &::after {
-          transform: rotate(-180deg);
-        }
-      }
-    }
-
   }
+  // .facetwp-type-fselect {
+  //   max-width: 66%;
+  //   margin-bottom: rem(40) !important;
+  //   // height: unset !important;
+  //   // position: relative;
+  //   // top: 30px;
+
+  //   .fs-dropdown {
+  //     position: relative !important;
+  //     top: -60px;
+  //   }
+
+  //   // Overrides inherit hidden styling to show the search bar on modal load
+  //   .fs-show {
+  //     display: block !important;
+  //   }
+
+  //   .fs-search {
+  //     position: relative;
+
+  //     &::after {
+  //       position: absolute;
+  //       top: 0;
+  //       right: 1rem;
+  //       bottom: 0;
+  //       width: 0;
+  //       height: 0;
+  //       margin: auto;
+  //       background-image: url('/wp-content/themes/csisjti/assets/static/icons/icon-arrow-down.svg');
+  //       border-top: 5px solid var(--arrow-color);
+  //       border-right: 5px solid transparent;
+  //       border-left: 5px solid transparent;
+  //       transition: 0.15s ease-in;
+  //       content: '';
+  //     }
+  //   }
+
+  //   // Toggles dropdown display state
+  //   .fs-active {
+  //     .fs-options {
+  //       display: block;
+  //     }
+
+  //     .fs-search { 
+  //       &::after {
+  //         transform: rotate(-180deg);
+  //       }
+  //     }
+  //   }
+
+  // }
+  
 }
