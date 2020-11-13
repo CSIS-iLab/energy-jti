@@ -47,15 +47,26 @@
 
       this.querySelector('.fs-search input').setAttribute('placeholder', 'Type here to filter list')
       
-        $('.fs-search', this).on('click', function() {
-          const fs_wrap = $(this).parents('.fs-wrap')[0]
-
-          if (fs_wrap.classList.contains('fs-active')) {
-            fs_wrap.classList.remove('fs-active')
-          } else {
-            fs_wrap.classList.add('fs-active')
-          }
+      // Close dropdown on outside click
+      $('.filters-modal').on('click', function() {
+        $('.fs-active').each(function() {
+          if ($(this)[0].classList.contains('fs-active')) {
+            $(this)[0].classList.remove('fs-active')
+          } 
         })
+      })
+
+      // Logic to open dropdown or close on self-click
+      $('.fs-search', this).on('click', function(event) {
+        const fs_wrap = $(this).parents('.fs-wrap')[0]
+
+        if (fs_wrap.classList.contains('fs-active')) {
+          fs_wrap.classList.remove('fs-active')
+        } else {
+          event.stopPropagation()
+          fs_wrap.classList.add('fs-active')
+        }
+      })
     })
   }
 
