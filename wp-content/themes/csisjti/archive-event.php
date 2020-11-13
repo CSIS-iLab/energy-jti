@@ -16,37 +16,22 @@ get_header();
 	<?php
 	get_template_part( 'template-parts/entry-header' );
 	?>
-	<section class="home__recent">
 
-	<h1 class="title text--bold">Hello,23w4e5re76tryitu !</h1>
+	<div class="entry__content">
 
 	<?php
+	if ( have_posts() ) {
 
-$featuredPosts = get_field('featured_posts');
+		while ( have_posts() ) {
+			the_post();
 
-if ( $featuredPosts ) {
+			get_template_part( 'template-parts/block-post', get_post_type() );
 
-	foreach($featuredPosts as $key => $post):
-		setup_postdata($post);
-
-		// If you need to have the first featured post look different, you can use this code to use a different template-part for it.
-		if ($key === array_key_first($featuredPosts)) {
-			get_template_part( 'template-parts/block-post-featured' );
-		} else {
-			get_template_part( 'template-parts/block', get_post_type() );
 		}
-
-		endforeach;
-
-	wp_reset_postdata();
-}
-
-?>
-	</section>
-
-	<?php
-	echo csisjti_get_svg( 'videocam' );
+	}
 	?>
+
+	</div>
 
 </main><!-- #site-content -->
 
