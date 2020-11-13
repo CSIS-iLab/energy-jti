@@ -50,6 +50,15 @@ dialog::backdrop {
   margin-top: rem(24);
   background-color: transparent;
   border: unset;
+  color: $color-black-170;
+
+  &:hover {
+    color: $color-primary-blue-400;
+  }
+
+  &:focus {
+    color: $color-black-170;
+  }
 }
 
 .classification-modal {

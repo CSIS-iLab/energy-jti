@@ -1,61 +1,6 @@
 @use 'abstracts' as *;
 
 .filters-modal {
-  $facet: '.facetwp-facet';
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-      'title title-btns'
-      'analysis-heading analysis-heading'
-      'analysis analysis'
-      'topic topic'
-      'sectors-heading sectors-heading'
-      'sectors sectors'
-      'geo-heading geo-heading' 
-      'geo geo' 
-      'keywords-heading keywords-heading'
-      'keywords keywords'
-      'focus-areas-heading focus-areas-heading'
-      'focus-areas focus-areas'
-      'source source'
-      'pub-org-heading pub-org-heading'
-      'pub-org pub-org'
-      'pub-type-heading pub-type-heading'
-      'pub-type pub-type'
-      'author-heading author-heading'
-      'author author'
-      'pub-date-heading pub-date-heading'
-      'pub-date pub-date'
-      'format-heading format-heading'
-      'format format'
-    ;
-  padding: 0 6vw;
-  margin: rem(12) 0 rem(40);
-  overflow: scroll;
-
-  @include breakpoint(large) {
-    grid-column-gap: 48px;
-    grid-template-areas: 
-      'title title-btns'
-      'analysis-heading .'
-      'analysis analysis'
-      'topic topic'
-      'sectors-heading focus-areas-heading'
-      'sectors focus-areas'
-      'geo-heading focus-areas'
-      'geo focus-areas'
-      'keywords-heading focus-areas'
-      'keywords focus-areas'
-      'source source'
-      'pub-org-heading author-heading'
-      'pub-org author'
-      'pub-type-heading pub-date-heading'
-      'pub-type pub-date'
-      'pub-type format-heading'
-      'pub-type format'
-    ;
-  }
-
   .facetwp {
     &-facet {
       position: relative;
@@ -69,6 +14,11 @@
     }
   }
 
+  .facetwp-checkbox {
+    @extend %font-ui-text-md;
+    color: $color-black-190;
+  }
+
   @include breakpoint(xxlarge) {
     padding: 0 rem(80);
   }
@@ -80,7 +30,6 @@
   &__title {
     @extend %font-ui-section-heading-lg;
     margin-bottom: rem(64);
-    grid-area: title;
 
     &::before {
       position: relative;
@@ -128,7 +77,6 @@
 
   &__btn-wrapper {
     position: relative;
-    grid-area: title-btns;
     display: flex;
     justify-content: flex-end;
 
@@ -179,68 +127,14 @@
     }
 
     &:hover {
-      background-color: $color-primary-blue-800 !important;
-      color: $color-primary-blue-400 !important;
+      background-color: $color-primary-blue-200 !important;
+      color: $color-white-190 !important;
     }
   }
 
-  /*----------  Grid Template Area Code Layout  ----------*/
-
-  &--analysis {
-    grid-area: analysis-heading;
-  }
-
-  &--topic {
-    grid-area: topic;
-  }
-
-  &--sectors {
-    grid-area: sectors-heading;
-  }
-
-  &--focus-areas {
-    grid-area: focus-areas-heading;
-  }
-
-  &--geo {
-    grid-area: geo-heading;
-  }
-
-  &--keywords {
-    grid-area: keywords-heading;
-  }
-
-  &--source {
-    grid-area: source;
-  }
-
-  &--pub-org {
-    grid-area: pub-org-heading;
-  }
-
-  &--author {
-    grid-area: author-heading;
-  }
-
-  &--pub-type {
-    grid-area: pub-type-heading;
-  }
-
-  &--pub-date {
-    grid-area: pub-date-heading;
-  }
-
-  &--format {
-    grid-area: format-heading;
-  }
 
   #{$facet}-analysis_type_checkboxes {
-    grid-area: analysis;
     margin-bottom: rem(40) !important;
-  }
-
-  #{$facet}-format_checkboxes {
-    grid-area: format;
   }
 
   #{$facet}-analysis_type_checkboxes,
@@ -279,10 +173,10 @@
     }
   } 
 
+  $facet: '.facetwp-facet';
+
   #{$facet}-sectors_checkboxes {
-    grid-area: sectors;
     display: flex;
-    display: inline-flex !important;
     flex-direction: row;
     flex-wrap: wrap;
 
@@ -296,33 +190,7 @@
     }
   }
 
-  #{$facet}-geographic_focus {
-    grid-area: geo;
-
-    .fs-wrap {
-      z-index: 505;
-    }
-  }
-
-  #{$facet}-keywords {
-    grid-area: keywords;
-
-    .fs-wrap {
-      z-index: 504;
-    }
-  }
-
-   #{$facet}-publishing_organization {
-    grid-area: pub-org;
-    margin-left: 0 !important;
-
-    .fs-wrap {
-      z-index: 503;
-    }
-  }
-
   #{$facet}-publishing_organization_type {
-    grid-area: pub-type;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -338,26 +206,34 @@
     }
   }
 
-  #{$facet}-focus_areas_checkboxes {
-    grid-area: focus-areas;
+  // The following z-indexes cover proceeding search bars 
+  #{$facet}-geographic_focus {
+    .fs-wrap {
+      z-index: 505;
+    }
+  }
+
+  #{$facet}-keywords {
+    .fs-wrap {
+      z-index: 504;
+    }
+  }
+
+   #{$facet}-publishing_organization {
+    margin-left: 0 !important;
+
+    .fs-wrap {
+      z-index: 503;
+    }
   }
 
   #{$facet}-author {
-    grid-area: author;
-
     .fs-wrap {
       z-index: 502;
     }
   }
 
-  #{$facet}-format_checkboxes {
-    grid-area: format;
-  }
 
-  &__date-range {
-    grid-area: pub-date;
-  }
-  
   /*----------  Facet: Checkbox  ----------*/
 
   #{$facet}-sectors_checkboxes, 
@@ -534,56 +410,4 @@
       }
     }
   }
-  // .facetwp-type-fselect {
-  //   max-width: 66%;
-  //   margin-bottom: rem(40) !important;
-  //   // height: unset !important;
-  //   // position: relative;
-  //   // top: 30px;
-
-  //   .fs-dropdown {
-  //     position: relative !important;
-  //     top: -60px;
-  //   }
-
-  //   // Overrides inherit hidden styling to show the search bar on modal load
-  //   .fs-show {
-  //     display: block !important;
-  //   }
-
-  //   .fs-search {
-  //     position: relative;
-
-  //     &::after {
-  //       position: absolute;
-  //       top: 0;
-  //       right: 1rem;
-  //       bottom: 0;
-  //       width: 0;
-  //       height: 0;
-  //       margin: auto;
-  //       background-image: url('/wp-content/themes/csisjti/assets/static/icons/icon-arrow-down.svg');
-  //       border-top: 5px solid var(--arrow-color);
-  //       border-right: 5px solid transparent;
-  //       border-left: 5px solid transparent;
-  //       transition: 0.15s ease-in;
-  //       content: '';
-  //     }
-  //   }
-
-  //   // Toggles dropdown display state
-  //   .fs-active {
-  //     .fs-options {
-  //       display: block;
-  //     }
-
-  //     .fs-search { 
-  //       &::after {
-  //         transform: rotate(-180deg);
-  //       }
-  //     }
-  //   }
-
-  // }
-  
 }
