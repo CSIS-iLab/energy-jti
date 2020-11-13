@@ -51,6 +51,7 @@ dialog::backdrop {
   color: $color-black-170;
   background-color: transparent;
   border: unset;
+  cursor: pointer;
 
   &:hover {
     color: $color-primary-blue-400;

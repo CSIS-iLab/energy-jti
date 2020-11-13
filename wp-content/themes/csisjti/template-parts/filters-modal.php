@@ -22,31 +22,31 @@
 
   <div class="filters-modal__btn-wrapper">
     <button id="filters-reset-btn" class="btn--reset" onclick="FWP.reset()">Clear All</button>
-    <button id="filters-apply-btn" class="btn--apply" onclick="FWP.refresh()">Apply</button>
+    <button id="filters-apply-btn" class="btn btn--apply" onclick="FWP.refresh()">Apply</button>
   </div>
 
-  <button class="filters-modal__subheading filters-modal--analysis" >
+  <div class="filters-modal__subheading filters-modal--analysis" >
     Analysis Type
     <?php echo csisjti_get_svg('info'); ?>
-  </button>
+  </div>
 
   <?php echo facetwp_display( 'facet', 'analysis_type_checkboxes' ); ?>
 
-  <div class="filters-modal__heading filters-modal--topic">Topic Scope</div>
+  <h3 class="filters-modal__heading filters-modal--topic">Topic Scope</h3>
 
-  <button class="filters-modal__subheading filters-modal--sectors">
+  <div class="filters-modal__subheading filters-modal--sectors">
     Sectors
     <?php echo csisjti_get_svg('info'); ?>
-  </button>
+  </div>
 
   <?php 
     echo facetwp_display( 'facet', 'sectors_checkboxes' ); 
   ?>
 
-  <button class="filters-modal__subheading filters-modal--keywords" >
+  <div class="filters-modal__subheading filters-modal--keywords" >
     Keywords
     <?php echo csisjti_get_svg('info'); ?>
-  </button>
+  </div>
 
   <?php 
     echo facetwp_display( 'facet', 'keywords' ); 
@@ -55,7 +55,7 @@
   <div class="filters-modal__subheading filters-modal--geo">Geographic Focus</div>
   <?php echo facetwp_display( 'facet', 'geographic_focus' ); ?>
  
-  <div class="filters-modal__heading filters-modal--source">Source Information</div>
+  <h3 class="filters-modal__heading filters-modal--source">Source Information</h3>
   <div class="filters-modal__subheading filters-modal--pub-org">Publishing Organization</div>
   <?php  
     echo facetwp_display( 'facet', 'publishing_organization' );
@@ -66,10 +66,10 @@
     echo facetwp_display( 'facet', 'publishing_organization_type' ); 
   ?>
   
-  <button class="filters-modal__subheading filters-modal--focus-areas" >
+  <div class="filters-modal__subheading filters-modal--focus-areas" >
     Focus Areas
     <?php echo csisjti_get_svg('info'); ?>
-  </button>
+  </div>
   <?php 
     echo facetwp_display( 'facet', 'focus_areas_checkboxes' ); 
   ?>
