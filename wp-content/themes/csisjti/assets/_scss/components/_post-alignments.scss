@@ -1,0 +1,72 @@
+@use '../abstracts' as *;
+
+/*----------  Alignments  ----------*/
+.alignfull,
+.alignwide,
+.aligncenter,
+.alignleft,
+.alignright,
+.wp-block-image .alignleft,
+.wp-block-image .alignright {
+  margin-top: rem(24);
+  margin-bottom: rem(24);
+}
+
+.alignfull,
+.alignwide {
+  @include csisjti-full-width-wrapper;
+}
+
+.alignwide {
+  > * {
+    @include csisjti-full-width-content;
+  }
+}
+
+.alignleft,
+.alignright {
+  float: none;
+  max-width: $size__align-side-max-width;
+
+  @include breakpoint('small') {
+    --padding-sides: #{rem(24)};
+    padding: 0 var(--padding-sides);
+  }
+
+  @include breakpoint('large') {
+    --margin-text-side: 3vw;
+    --margin-gutter-side: #{rem(-128)};
+    --padding-sides: 0;
+  }
+
+  @include breakpoint('xlarge') {
+    --margin-text-side: #{rem(36)};
+  }
+}
+
+.alignleft,
+.wp-block-image .alignleft {
+  float: none;
+  margin-right: var(--margin-text-side);
+  margin-left: var(--margin-gutter-side, 0);
+
+  @include breakpoint('large') {
+    float: left;
+  }
+}
+
+.alignright,
+.wp-block-image .alignright {
+  float: none;
+  margin-right: var(--margin-gutter-side, 0);
+  margin-left: var(--margin-text-side);
+
+  @include breakpoint('large') {
+    float: right;
+  }
+}
+
+// Custom Class added by CSISJTI Theme
+.alignsmall {
+  max-width: $size__align-small-max-width;
+}

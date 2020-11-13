@@ -1,11 +1,15 @@
 @use '../abstracts' as *;
+@use '../components/post-alignments';
 
-.page {
-  &--about_jti {
-    --page-header-bg: var(--page-header-jti);
+.single {
+  &__content,
+  &__footer {
+    max-width: $size__content-max-width;
+    margin-right: auto;
+    margin-left: auto;
   }
 
-  &--transitions {
-    --page-header-bg: var(--page-header-transitions);
+  &__footer {
+    clear: both;
   }
 }
