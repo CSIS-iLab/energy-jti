@@ -25,7 +25,6 @@
     <button id="filters-apply-btn" class="btn--apply" onclick="FWP.refresh()">Apply</button>
   </div>
 
-
   <button class="filters-modal__subheading filters-modal--analysis" >
     Analysis Type
     <?php echo csisjti_get_svg('info'); ?>
@@ -81,14 +80,13 @@
   ?>
 
   <div class="filters-modal__subheading filters-modal--pub-date">Publish Date Range</div>
+  <!-- To Do: Create Custom Date Picker -->
   <div class="filters-modal__date-range"></div>
 
   <div class="filters-modal__subheading filters-modal--format">Format</div>
   <?php
     echo facetwp_display( 'facet', 'format_checkboxes' ); 
   ?>
-
-
 
 </div>
     

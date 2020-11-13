@@ -36,6 +36,5 @@
       <dd class="list-items__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet diam at id cursus leo nunc. Malesuada nulla diam sit eu pretium dui ullamcorper a. Habitant dui eu sed consequat condimentum. </dd>
   
   </dl>
-
 </div>
     

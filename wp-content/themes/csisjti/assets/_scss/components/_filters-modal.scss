@@ -175,21 +175,7 @@ $facet: '.facetwp-facet';
     }
   } 
 
-  #{$facet}-sectors_checkboxes {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    .facetwp-checkbox {
-      width: 50%;
-      min-width: 50%;
-
-      &:nth-child(odd) {
-        padding-right: rem(32);
-      }
-    }
-  }
-
+  #{$facet}-sectors_checkboxes,
   #{$facet}-publishing_organization_type {
     display: flex;
     flex-direction: row;
@@ -232,7 +218,6 @@ $facet: '.facetwp-facet';
       z-index: 502;
     }
   }
-
 
   /*----------  Facet: Checkbox  ----------*/
 
@@ -348,7 +333,6 @@ $facet: '.facetwp-facet';
   }
   
   /*----------  Facet: Additional Dropdown Styling  ----------*/
-
 
   .facetwp-type-fselect {
     max-width: 66%;
