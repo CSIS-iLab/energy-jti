@@ -1,5 +1,7 @@
 @use 'abstracts' as *;
 
+$facet: '.facetwp-facet';
+
 .filters-modal {
   .facetwp {
     &-facet {
@@ -56,14 +58,14 @@
   }
 
   &__subheading {
+    max-width: fit-content;
+    height: 24px;
     margin-bottom: rem(6);
+    padding-left: 0;
     color: $color-black-190;
     @extend %font-ui-text-lg-bold;
     background-color: unset;
     border: unset;
-    max-width: fit-content;
-    height: 24px;
-    padding-left: 0;
     cursor: pointer;
 
     .icon {
@@ -87,19 +89,20 @@
       right: 120px;
       padding: rem(4) rem(12);
       @extend %font-ui-text-sm;
-      font-weight: bold;
-      border-color: $color-primary-blue-300!important;
-      background: $color-primary-blue-400!important;
       color: $color-white-190;
+      font-weight: bold;
+      background: $color-primary-blue-400 !important;
+      border-color: $color-primary-blue-300 !important;
       border-radius: 30px;
       cursor: default;
     }
   }
 
-  .btn--apply, .btn--reset {
+  .btn--apply,
+  .btn--reset {
     display: inline-block;
-    height: 32px;
     max-width: 150px;
+    height: 32px;
   }
 
   .btn--reset {
@@ -111,27 +114,26 @@
     @extend %font-ui-text-sm-uppercase;
     position: relative;
     padding: rem(8) rem(16);
+    color: $color-white-190;
     background-color: $color-primary-blue-400 !important;
     border: 1px solid $color-primary-blue-300;
     border-radius: 2px;
-    color: $color-white-190;
 
     &::before {
       position: absolute;
+      top: 0;
+      right: 96px;
       display: block;
       height: 100%;
       border-left: 1px solid $color-gray-line;
-      right: 96px;
-      top: 0;
       content: '';
     }
 
     &:hover {
-      background-color: $color-primary-blue-200 !important;
       color: $color-white-190 !important;
+      background-color: $color-primary-blue-200 !important;
     }
   }
-
 
   #{$facet}-analysis_type_checkboxes {
     margin-bottom: rem(40) !important;
@@ -140,23 +142,23 @@
   #{$facet}-analysis_type_checkboxes,
   #{$facet}-format_checkboxes {
     display: flex;
-    height: unset !important;
     flex-wrap: wrap;
+    height: unset !important;
   
     .facetwp-checkbox {
       margin-right: rem(8);
       padding: rem(8);
+      white-space: nowrap;
       background-color: $color-gray-field !important;
       background-image: unset !important;
       border: 1px solid $color-gray-300;
       border-radius: 4px;
-      white-space: nowrap;
 
       &.checked {
+        color: $color-white-190;
         background-color: $color-primary-blue-400 !important;
         border-color: $color-primary-blue-300 !important;
-        color: $color-white-190;
-
+        /* stylelint-disable-next-line */
         &:hover {
           color: $color-primary-blue-400;
         }
@@ -172,8 +174,6 @@
       display: none;
     }
   } 
-
-  $facet: '.facetwp-facet';
 
   #{$facet}-sectors_checkboxes {
     display: flex;
@@ -219,7 +219,7 @@
     }
   }
 
-   #{$facet}-publishing_organization {
+  #{$facet}-publishing_organization {
     margin-left: 0 !important;
 
     .fs-wrap {
@@ -239,17 +239,17 @@
   #{$facet}-sectors_checkboxes, 
   #{$facet}-publishing_organization_type, 
   #{$facet}-focus_areas_checkboxes {
-    margin-bottom: rem(40) !important;
     height: unset !important;
+    margin-bottom: rem(40) !important;
 
     .facetwp-checkbox {
       --checkbox-bg: #{$color-gray-field};
       --checkbox-border: #{$color-gray-100};
       position: relative;
-      padding-left: 0 !important;
       display: flex;
       gap: rem(12);
       max-width: fit-content;
+      padding-left: 0 !important;
       line-height: 1.15;
       word-break: break-all;
       background: unset !important;
@@ -259,7 +259,7 @@
         --checkbox-bg: #{$color-primary-blue-800};
         --checkbox-border: #{$color-primary-blue-700};
       }
-
+      /* stylelint-disable-next-line */
       i {
         border-width: 2px;
       }
@@ -267,7 +267,7 @@
       &.checked {
         --checkbox-bg: #{$color-primary-blue-400};
         --checkbox-border: #{$color-primary-blue-300};
-
+        /* stylelint-disable-next-line */
         i::before {
           --borderWidth: 2px;
           --height: 10px;
@@ -323,19 +323,19 @@
       visibility: hidden;
     }
 
-    .icon-minus, 
+    .icon-minus,
     .icon-plus {
       &::before {
-        visibility: visible;
         position: absolute;
-        display: block;
-        left: 4px;
         top: 0;
         bottom: 0;
+        left: 4px;
+        display: block;
         width: 16px;
         height: 32px;
         margin: auto;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-minus' viewBox='0 0 18 32'%3E%3Cpath d='M1.524 14.476h15.238c0.842 0 1.524 0.682 1.524 1.524s-0.682 1.524-1.524 1.524h-15.238c-0.842 0-1.524-0.682-1.524-1.524s0.682-1.524 1.524-1.524z'%3E%3C/path%3E%3C/svg%3E") !important;
+        visibility: visible;
         content: '';
       }
     }
@@ -362,6 +362,7 @@
       top: 0;
 
       &.hidden {
+        /* stylelint-disable-next-line */
         .fs-search {
           display: block !important;
         }
@@ -375,6 +376,7 @@
 
     // Toggles dropdown display state
     .fs-active {
+      /* stylelint-disable */
       .fs-options {
         display: block;
       }
@@ -384,9 +386,11 @@
       }
 
       .fs-search { 
+
         &::after {
           transform: rotate(-180deg);
         }
+        /* stylelint-enable */
       }
     }
 

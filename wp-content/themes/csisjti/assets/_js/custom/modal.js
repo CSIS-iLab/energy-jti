@@ -35,7 +35,7 @@ const classificationModal = () => {
   })
 }
 
-// Close modal on click of apply button 
+// Close modal on click of apply button
 const applyFilters = () => {
   const applyBtn = document.getElementById('filters-apply-btn')
   const closeBtn = document.getElementsByClassName('dialog-close')[0]

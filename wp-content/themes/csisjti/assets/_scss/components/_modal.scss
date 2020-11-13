@@ -46,11 +46,11 @@ dialog::backdrop {
 
 .dialog-close {
   display: flex;
-  margin-left: auto;
   margin-top: rem(24);
+  margin-left: auto;
+  color: $color-black-170;
   background-color: transparent;
   border: unset;
-  color: $color-black-170;
 
   &:hover {
     color: $color-primary-blue-400;
@@ -63,8 +63,8 @@ dialog::backdrop {
 
 .classification-modal {
   width: 100%;
-  padding: 0 6vw;
   margin: rem(24) 0;
+  padding: 0 6vw;
 
   @include breakpoint(xxlarge) {
     --container-padding: #{rem(80)};
@@ -74,7 +74,7 @@ dialog::backdrop {
     display: none;
   }
 
-  & > * {
+  * {
     max-width: 680px;
   }
 
