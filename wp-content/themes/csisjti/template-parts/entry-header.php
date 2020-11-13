@@ -74,6 +74,7 @@ if ( !$is_home && $has_thumbnail ) {
 		get_template_part( 'template-parts/featured-image' );
 
 	} else if (($post_type == 'resource-library')) {
+
 	?>
 		<button id="classification-btn" data-a11y-dialog-show="accessible-dialog" ><?php echo csisjti_get_svg('info'); ?>Classifications</button>
 
