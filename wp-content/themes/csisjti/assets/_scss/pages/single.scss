@@ -12,4 +12,144 @@
   &__footer {
     clear: both;
   }
+
+  &__content {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $color-text-gray-90;
+    }
+
+    h2 {
+      @extend %font-copy-heading-2;
+
+    }
+
+    h3 {
+      @extend %font-copy-heading-3;
+    }
+
+    h4 {
+      @extend %font-copy-heading-4;
+    }
+
+    h5 {
+      @extend %font-copy-heading-5;
+    }
+
+    h5 {
+      @extend %font-copy-heading-6;
+    }
+
+    p,
+    ul {
+      color: $color-black-190;
+    }
+
+    p {
+      @extend %font-copy-body-long-lg;
+    }
+    
+    ul {
+      @extend %font-copy-body-list-lg;
+      margin: rem(16px) 0 rem(32px) rem(54px); //left margin is 40 + the bullet point + the left spacing
+      padding-left: 0;
+      list-style: none;
+
+      li {
+        position: relative;
+      }
+
+      li::before {
+        content: ' ';
+        position: absolute;
+        top: rem(9px);
+        left: rem(-8px);
+        display: inline-block;
+        width: rem(4px);
+        height: rem(4px);
+        background-color: $color-text-gray-90;
+        border-radius: 50px;
+      }
+    }
+
+    .wp-block-pullquote {
+      padding: rem(8px) 0 rem(24px) 0;
+      text-align: center;
+      
+      p {
+        @extend %font-copy-quote-lg;
+        color: $color-primary-green-400;
+      }
+      
+      cite {
+        @extend %%font-ui-body-md;
+        color: $color-black-170;
+        font-style: normal;
+
+        /* stylelint-disable-next-line */
+        &::before {
+          content: '- ';
+        }
+      }
+
+      &.alignright,
+      &.alignleft {
+        padding-bottom: 0;
+        text-align: left;
+
+        /* stylelint-disable-next-line */
+        p {
+          @extend %font-copy-quote-sm;
+        }
+      }
+    }
+
+    /* stylelint-disable */
+    .wp-block-image img,
+    iframe[src*='youtube'],
+    .csis-block--download-button img {
+      margin-bottom: rem(12px);
+    }
+    /* stylelint-enable */
+
+    figcaption { //this is for images and videos with captions - other elements with classed parent elements will be styled separately
+      @extend %%font-ui-body-smd;
+      color: $color-black-170;
+    }
+
+    .wp-block-media-text {
+      @extend %font-copy-body-short-lg;
+      margin-bottom: rem(32px);
+      color: $color-black-190;
+    }
+
+    .wp-block-media-text:last-of-type { //Not sure why this isn't working.
+      margin-bottom: 0;
+    }
+
+    .wp-block-table.is-style-stripes {
+      color: $color-black-190;
+      
+      table {
+        @extend %font-ui-body-md;
+        margin-top: rem(16px);
+        margin-bottom: rem(8px);
+      }
+
+      thead {
+        @extend %font-ui-body-md-bold;
+        font-weight: bold;
+        border-bottom: 1px solid $color-primary-blue-100;
+      }
+
+      tbody {
+        tr:nth-child(even) {
+          background-color: $color-gray-300;
+        }
+      }
+    }
+  }
 }
