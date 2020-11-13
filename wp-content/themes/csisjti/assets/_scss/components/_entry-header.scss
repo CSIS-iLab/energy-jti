@@ -1,6 +1,9 @@
 @use 'abstracts' as *;
 
 .entry-header {
+  --header-margin-bottom: #{rem(56)};
+  --header-padding-bottom: #{rem(24)};
+  --header-img-offset: #{rem(40)};
   position: relative;
   display: grid;
   grid-template-areas:
@@ -10,17 +13,14 @@
     'subtitle'
     'desc'
     'date'
-    'secondary-content'
-    'caption';
+    'secondary-content';
   width: 100%;
   min-height: 300px;
-  margin-bottom: rem(64);
-  padding-bottom: rem(24);
+  margin-bottom: var(--header-margin-bottom);
+  padding-bottom: var(--header-padding-bottom);
   color: $color-white-190;
-  background: var(--page-header-bg);
-  @include full-width-background(var(--page-header-bg));
 
-  @include breakpoint(large) {
+  @include breakpoint('large') {
     grid-template-areas:
       '. social-share'
       'category secondary-content'
@@ -28,45 +28,79 @@
       'subtitle secondary-content'
       'desc secondary-content'
       'date secondary-content'
-      '. secondary-content'
-      '. caption';
-    grid-template-columns: 2fr 1fr;
+      '. secondary-content';
+    grid-template-columns: minmax(auto, 700px) minmax(auto, 1fr);
     grid-template-rows:
       max-content minmax(0, max-content) max-content minmax(0, max-content)
       auto;
-    column-gap: rem(24);
+    column-gap: calc(#{rem(24)} + 4%);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    @include vw100;
+    margin-left: calc(50% - (50vw - var(--scrollbar)));
+    background: var(--page-header-bg);
+    background-repeat: no-repeat;
+    // Separate values for the Image, Gradient, and solid color, respectfully.
+    background-position: 55vw 100%, 100% 100%, 100% 100%;
+    background-size: auto 100%, auto, auto;
+    background-blend-mode: soft-light, normal, normal;
+  }
+
+  &--img {
+    /* stylelint-disable */
+    margin-bottom: calc(
+      var(--header-margin-bottom) + var(--header-img-offset) +
+        var(--header-padding-bottom)
+    );
+    /* stylelint-enable */
   }
 
   .post-meta__categories {
     grid-area: category;
+    margin-bottom: rem(12);
     @extend %font-ui-text-md-bold-uppercase-barlow;
+    letter-spacing: 1.5px;
 
     &::after {
       content: '';
       display: block;
       width: rem(32);
-      border-bottom: 3px solid $color-white-155;
+      height: 3px;
+      margin-top: rem(5); // 8px - 3px height
+      background: $color-white-155;
     }
   }
 
   &__title {
     position: relative;
     grid-area: title;
+    margin: 0;
     @extend %font-ui-page-title-lg;
-    margin-bottom: rem(4);
-    padding-top: rem(12);
+    text-shadow: 0 12px 17px rgba(2, 3, 3, 0.19), 0 2px 22px rgba(2, 3, 3, 0.13),
+      0 7px 8px rgba(2, 3, 3, 0.04);
+
+    span {
+      font-weight: normal;
+    }
   }
 
   &__subtitle {
     grid-area: subtitle;
+    margin-top: rem(4);
     @extend %font-ui-text-xlg-bold;
-    margin-bottom: rem(16);
   }
 
   &__desc {
     grid-area: desc;
-    @extend %font-ui-body-md;
+    margin-top: rem(16);
     margin-bottom: rem(12);
+    @extend %font-ui-body-md;
   }
 
   .post-meta__date {
@@ -98,10 +132,15 @@
     position: relative;
     grid-area: secondary-content;
     align-self: end;
-    margin-bottom: rem(-40);
+    // Offset negative margin minus padding of header.
+    /* stylelint-disable */
+    margin-bottom: calc(
+      -1 * var(--header-img-offset) - var(--header-padding-bottom)
+    );
+    /* stylelint-enable */
 
     img {
-      height: 300px;
+      width: 100%;
     }
 
     &::before {
@@ -120,43 +159,8 @@
   }
 
   .featured-media__caption {
-    grid-area: caption;
-    align-self: end;
-    margin-bottom: rem(-70);
+    margin-top: rem(4px);
     @include font-size(16);
     color: $color-black-170;
-  }
-
-  #classification-btn {
-    color: $color-white-190;
-    background-color: unset;
-    border: unset;
-    cursor: pointer;
-  }
-
-  &__icon {
-    grid-area: date;
-    max-width: 150px;
-    padding-left: 0;
-    @extend %font-ui-body-md;
-    color: $color-white-100;
-
-    .icon {
-      position: relative;
-      top: 3px;
-      display: inline-block;
-      margin-right: rem(12);
-    }
-  }
-
-  .cta {
-    grid-area: secondary-content;
-    padding-top: rem(32);
-
-    @include breakpoint(large) {
-      align-self: end;
-      justify-self: end;
-      padding-top: 0;
-    }
   }
 }

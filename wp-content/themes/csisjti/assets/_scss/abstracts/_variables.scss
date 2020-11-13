@@ -92,3 +92,98 @@ $shadow--3: drop-shadow(0 3px 4px rgba(2, 3, 3, 0.03))
 
 $shadow--4: 0 4px 5px rgba(2, 3, 3, 0.03), 0 1px 10px rgba(2, 3, 3, 0.02),
   0 2px 4px rgba(2, 3, 3, 0.04);
+
+/*------  Page Specific Colors  ------*/
+
+/* stylelint-disable function-parentheses-space-inside */
+
+$page-colors: (
+  'resource': (
+    color: #015d91,
+    gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/resource.png'),
+      linear-gradient(
+        220.16deg,
+        rgba(56, 142, 209, 0.56) 0%,
+        rgba(60, 134, 245, 0) 60.1%
+      ),
+      linear-gradient(
+        270.67deg,
+        rgba(32, 108, 145, 0.9) 0.59%,
+        rgba(21, 129, 159, 0.655726) 19.4%,
+        rgba(3, 88, 124, 0.88) 68.62%,
+        #0e5267 98.67%
+      ),
+      #015d91,
+    ),
+  ),
+  'analysis': (
+    color: #73bf20,
+    gradient: (
+      linear-gradient(
+        220.16deg,
+        rgba(153, 163, 70, 0.97) 0%,
+        rgba(88, 128, 4, 0.2) 72.4%
+      ),
+      linear-gradient(
+        270.67deg,
+        #3b6b07 0.35%,
+        #558e16 28.02%,
+        rgba(28, 128, 26, 0.74) 62.01%,
+        rgba(4, 91, 42, 0.88) 98.67%
+      ),
+      #73bf20,
+    ),
+  ),
+  'events': (
+    color: #6a268a,
+    gradient: (
+      linear-gradient(
+        220.16deg,
+        rgba(228, 89, 89, 0.47) 0%,
+        rgba(245, 127, 60, 0) 60.1%
+      ),
+      linear-gradient(
+        270.67deg,
+        rgba(60, 65, 130, 0.74) 0.59%,
+        rgba(59, 50, 95, 0.655726) 19.4%,
+        rgba(59, 33, 80, 0.87) 68.62%,
+        #3f2577 98.67%
+      ),
+      #6a268a,
+    ),
+  ),
+  'transitions': (
+    color: #26858f,
+    gradient: (
+      linear-gradient(
+        220.16deg,
+        rgba(6, 166, 217, 0.75) 0%,
+        rgba(21, 167, 217, 0.1) 52.99%
+      ),
+      linear-gradient(
+        270.67deg,
+        #0ba4b9 0.35%,
+        #2cbfd3 28.54%,
+        rgba(13, 194, 204, 0.74) 61.5%,
+        rgba(17, 135, 152, 0.71) 99.22%
+      ),
+      #26858f,
+    ),
+  ),
+  'jti': (
+    color: #e2992b,
+    gradient: (
+      linear-gradient(220.16deg, #e4d759 0%, rgba(245, 196, 60, 0) 60.1%),
+      linear-gradient(
+        270.44deg,
+        rgba(245, 196, 60, 0.74) 0.47%,
+        #f5c43c 19.35%,
+        rgba(255, 173, 15, 0.87) 68.75%,
+        #e2992b 98.91%
+      ),
+      #e2992b,
+    ),
+  ),
+);
+/* stylelint-enable function-parentheses-space-inside */
