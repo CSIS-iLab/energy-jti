@@ -82,6 +82,10 @@
   <div class="filters-modal__subheading filters-modal--pub-date">Publish Date Range</div>
   <!-- To Do: Create Custom Date Picker -->
   <div class="filters-modal__date-range"></div>
+  <?php
+    echo facetwp_display( 'facet', 'publish_date' ); 
+  ?>
+  <?php get_template_part( 'template-parts/filters-modal-date-range' ); ?>
 
   <div class="filters-modal__subheading filters-modal--format">Format</div>
   <?php
