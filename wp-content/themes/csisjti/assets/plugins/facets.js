@@ -8,7 +8,8 @@
     modifyExpandIcons()
     fwpDisableAutoRefresh()
     setNumFilters()
-    datePickerHook()
+    customizeDatePicker()
+    // test()
   })
 
   function modifyFSelectFacet() {
@@ -108,9 +109,10 @@
     });
   }
 
+  // Wires custom date range dropdown to facet functionality 
   function datePickerHook() {
-    $('.date-range--select').each(function() {
-      $(this).on('change', function() {
+    $('.select-options li').each(function() {
+      $(this).on('click', function() {
         let startMonth = document.getElementById('date-range--start-month').value
         let startYear = document.getElementById('date-range--start-year').value
         let endMonth = document.getElementById('date-range--end-month').value
@@ -123,11 +125,60 @@
           console.log(elDate < endDate)
           console.log(endDate)
           if (elDate >= startDate && elDate <= endDate) {
-            console.log('h')
             el.click()
           }
         })
       })
+    })
+
+  }
+
+  // Creates additional layer of html for custom styling of select
+  function customizeDatePicker() {
+    $('.date-range--select').each(function(){
+      var $this = $(this), numberOfOptions = $(this).children('option').length;
+    
+      $this.addClass('select-hidden'); 
+      $this.wrap('<div class="select"></div>');
+      $this.after('<div class="select-styled"></div>');
+
+      var $styledSelect = $this.next('div.select-styled');
+      $styledSelect.text($this.children('option').eq(0).text());
+    
+      var $list = $('<ul />', {
+          'class': 'select-options'
+      }).insertAfter($styledSelect);
+    
+      for (var i = 0; i < numberOfOptions; i++) {
+          $('<li />', {
+              text: $this.children('option').eq(i).text(),
+              rel: $this.children('option').eq(i).val()
+          }).appendTo($list);
+      }
+    
+      var $listItems = $list.children('li');
+    
+      $styledSelect.click(function(e) {
+          e.stopPropagation();
+          $('div.select-styled.active').not(this).each(function(){
+              $(this).removeClass('active').next('ul.select-options').hide();
+          });
+          $(this).toggleClass('active').next('ul.select-options').toggle();
+      });
+    
+      $listItems.click(function(e) {
+          e.stopPropagation();
+          $styledSelect.text($(this).text()).removeClass('active');
+          $this.val($(this).attr('rel'));
+          $list.hide();
+      });
+    
+      $(document).click(function() {
+          $styledSelect.removeClass('active');
+          $list.hide();
+      });
+
+      datePickerHook()
     })
   }
 })(jQuery)
