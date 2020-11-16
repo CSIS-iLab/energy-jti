@@ -22,6 +22,17 @@ function csisjti_no_js_class() {
 
 add_action( 'wp_head', 'csisjti_no_js_class' );
 
+function test() {
+
+	?>
+	 <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+	<?php
+
+}
+
+add_action( 'wp_footer', 'test' );
+
 /**
  * Add conditional body classes.
  *

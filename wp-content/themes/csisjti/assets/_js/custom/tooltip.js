@@ -5,9 +5,10 @@
 import tippy from 'tippy.js'
 
 const Tooltip = () => {
-  console.log('hello')
   tippy('.filters-modal__subheading', {
     content: 'Tooltip',
+    appendTo: 'parent',
+    zIndex: 9999999999999999,
   })
 }
 
