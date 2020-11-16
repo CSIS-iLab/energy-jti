@@ -21,6 +21,7 @@
 }
 
 %font-ui-body-md-bold {
+  font-weight: bold;
   @include font-size(16px);
   line-height: 1.35;
 }
