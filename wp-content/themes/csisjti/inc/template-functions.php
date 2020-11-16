@@ -22,16 +22,20 @@ function csisjti_no_js_class() {
 
 add_action( 'wp_head', 'csisjti_no_js_class' );
 
-function test() {
+/**
+ * Add TippyJS Scripts to the footer.
+ * Ensure these scripts are at the top of the stack.
+ */
+function initialiaze_tippy_scripts() {
 
 	?>
-	 <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
 	<?php
 
 }
 
-add_action( 'wp_footer', 'test' );
+add_action( 'wp_footer', 'initialiaze_tippy_scripts' );
 
 /**
  * Add conditional body classes.
