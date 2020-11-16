@@ -18,77 +18,75 @@ $args = array (
 $the_query = new WP_Query( $args );
 
 if ( $the_query->have_posts() ) {
+
+  $pub_dates = array();
+
     while ( $the_query->have_posts() ) {
         
-        $the_query->the_post(); ?>
-        <h2>Found</h2>
-        <div><?php the_field('publication_date'); ?></div>
+        $the_query->the_post(); 
+        $pub_field = (int)substr(get_field('publication_date'), -4); ?>
 
-    <?php } } else { ?>
+        <?php array_push($pub_dates, $pub_field); ?>
 
-    <h2>Not Found</h2>
+    <?php } }  
 
-<?php } ?>
-<?php wp_reset_postdata(); ?>
+ wp_reset_postdata(); ?>
 
 
 <div class="filters-modal__date-range">
-  <select id="date-range--start-month" class="date-range--select">
-    <option value="01">01</option>
-    <option value="10">10</option>
-  </select>
+  <div class="filters-modal__date-range-start">
+    <select id="date-range--start-month" class="date-range--select">
 
-  <select id="date-range--start-year" class="date-range--select">
-    <option>2016</option>
-    <option>2017</option>
-    <option>2018</option>
-  </select>
+      <?php 
+        $months = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
+        $i = 0;
+
+        foreach($months as $month) {
+          echo "<option value=" . $i . ">" . $month . "</option>";
+          $i++;
+        }   
+      ?>
+    </select>
+
+    <select id="date-range--start-year" class="date-range--select">  
+
+    <?php 
+        $i = min($pub_dates);
+        $max = max($pub_dates);
+        $pub_dates = array($i, $max);
+        $pub_dates = array_unique($pub_dates);
+
+        while ( $i <= $max ) {
+          echo "<option value=" . $i . ">" . $i . "</option>";
+          $i++;
+        }
+      ?>
+    </select>
+  </div>
 
   <div class="filters-modal__date-range--text">to</div>
 
-  <select id="date-range--end-month"  class="date-range--select">
-    <option>01</option>
-    <option>02</option>
-  </select>
+  <div class="filters-modal__date-range-start">
+    <select id="date-range--end-month"  class="date-range--select">
+    <?php 
+        $i = 0;
 
-  <select id="date-range--end-year"  class="date-range--select">
-    <option>2016</option>
-    <option>2017</option>
-    <option>2018</option>
-  </select>
+        foreach($months as $month) {
+          echo "<option value=" . $i . ">" . $month . "</option>";
+          $i++;
+        }   
+      ?>
+    </select>
 
+    <select id="date-range--end-year"  class="date-range--select">
+    <?php 
+        $i = min($pub_dates);
 
-      <!-- Hide the custom select from AT (e.g. SR) using aria-hidden
-      <div class="selectCustom js-selectCustom" aria-hidden="true">
-          <div class="selectCustom-trigger">Start Month</div>
-          <div class="selectCustom-options">
-            <div data-value="01">Jan</div>
-            <div data-value="10">Oct</div>
-          </div>
-      </div>
-
-      <div class="selectCustom js-selectCustom" aria-hidden="true">
-            <div class="selectCustom-trigger">Start Year</div>
-            <div class="selectCustom-options">
-              <div>2016</div>
-              <div>2017</div>
-              <div>2018</div>
-            </div>
-        </div>
-
-        <div class="selectCustom js-selectCustom" aria-hidden="true">
-            <div class="selectCustom-trigger">End Month</div>
-            <div  class="selectCustom-options">
-              <div>01</div>
-              <div>02</div>
-            </div>
-        </div>
-
-        <div class="selectCustom js-selectCustom" aria-hidden="true">
-            <div class="selectCustom-trigger">End Year</div>
-            <div  class="selectCustom-options">
-              <div>01</div>
-              <div>02</div>
-            </div>
-        </div> -->
+        while ( $i <= $max ) {
+          echo "<option value=" . $i . ">" . $i . "</option>";
+          $i++;
+        }
+    ?>
+    </select>
+  </div>
 </div>

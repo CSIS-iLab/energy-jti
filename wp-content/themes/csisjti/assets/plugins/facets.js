@@ -118,12 +118,12 @@
         let endMonth = document.getElementById('date-range--end-month').value
         let endYear = document.getElementById('date-range--end-year').value
         const facetDate = document.getElementsByClassName('facetwp-facet-publish_date')[0]
+
         facetDate.querySelectorAll('.fs-option').forEach(function(el) {
           const startDate = new Date(startYear, startMonth - 1, 1);
           const endDate = new Date(endYear, endMonth - 1, 1);
           const elDate = new Date(el.getAttribute('data-value').slice(0,4), el.getAttribute('data-value').slice(4,6) - 1, 1)
-          console.log(elDate < endDate)
-          console.log(endDate)
+
           if (elDate >= startDate && elDate <= endDate) {
             el.click()
           }
@@ -133,7 +133,8 @@
 
   }
 
-  // Creates additional layer of html for custom styling of select
+   // Creates additional layer of html for custom styling of select 
+  // Taken from https://codepen.io/wallaceerick/pen/ctsCz 
   function customizeDatePicker() {
     $('.date-range--select').each(function(){
       var $this = $(this), numberOfOptions = $(this).children('option').length;

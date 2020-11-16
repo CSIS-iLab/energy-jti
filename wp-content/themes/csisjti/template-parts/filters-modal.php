@@ -25,7 +25,7 @@
     <button id="filters-apply-btn" class="btn btn--apply" onclick="FWP.refresh()">Apply</button>
   </div>
 
-  <div class="filters-modal__subheading filters-modal--analysis" >
+  <div class="filters-modal__subheading filters-modal--analysis" id="myButton" >
     Analysis Type
     <?php echo csisjti_get_svg('info'); ?>
   </div>
@@ -80,11 +80,9 @@
   ?>
 
   <div class="filters-modal__subheading filters-modal--pub-date">Publish Date Range</div>
-  <!-- To Do: Create Custom Date Picker -->
-  <div class="filters-modal__date-range"></div>
-  <?php
-    echo facetwp_display( 'facet', 'publish_date' ); 
-  ?>
+  
+  <div aria-hidden="true"><?php echo facetwp_display( 'facet', 'publish_date' ); ?></div>
+
   <?php get_template_part( 'template-parts/filters-modal-date-range' ); ?>
 
   <div class="filters-modal__subheading filters-modal--format">Format</div>

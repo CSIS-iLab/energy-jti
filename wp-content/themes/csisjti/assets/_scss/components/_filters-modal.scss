@@ -385,10 +385,29 @@ $facet: '.facetwp-facet';
 
   /*----------  Facet: Custom Date Range  ----------*/
 
+  #{$facet}-publish_date {
+    display: none;
+  }
+
+  &__date-range-start,
+  &__date-range-end {
+    min-width: 100%;
+
+    @include breakpoint(large) {
+      min-width: 50%;
+    }
+  }
+
   &__date-range {
     position: relative;
     display: flex;
     margin-bottom: rem(40);
+    flex-direction: column;
+
+    @include breakpoint(large) {
+      flex-direction: row;
+      white-space: nowrap;
+    }
 
     .select-hidden {
       display: none;
@@ -398,7 +417,7 @@ $facet: '.facetwp-facet';
     .select {
       position: relative;
       display: inline-block;
-      width: 20%;
+      min-width: 33%;
       height: 42px;
       margin-right: rem(12);
       color: $color-black-140;
@@ -406,6 +425,10 @@ $facet: '.facetwp-facet';
       background: $color-white-100;
       border: $color-gray-200;
       cursor: pointer;
+
+      @include breakpoint(large) {
+        min-width: 45%;
+      }
     }
 
     .select-styled {
@@ -447,6 +470,7 @@ $facet: '.facetwp-facet';
       right: 0;
       left: 0;
       z-index: 400;
+      max-height: 200px;
       display: none; 
       margin: 0;
       padding: 0;
@@ -474,11 +498,14 @@ $facet: '.facetwp-facet';
     }
 
     &--text {
-      position: relative;
-      top: 12px;
       @extend %font-ui-text-md;
       padding-right: rem(12);
       color: $color-black-190;
+
+      @include breakpoint(large) {
+        position: relative;
+        top: 12px;
+      }
     }
   }
   
