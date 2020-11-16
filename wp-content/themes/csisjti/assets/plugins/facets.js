@@ -9,7 +9,6 @@
     fwpDisableAutoRefresh()
     setNumFilters()
     customizeDatePicker()
-    // test()
   })
 
   function modifyFSelectFacet() {
@@ -148,13 +147,16 @@
       $styledSelect.text($this.children('option').eq(0).text());
     
       let $list = $('<ul />', {
-          'class': 'select-options'
+          'class': 'select-options',
+          'role': 'listbox',
+          'tabindex': -1
       }).insertAfter($styledSelect);
     
       for (let i = 0; i < numberOfOptions; i++) {
           $('<li />', {
               text: $this.children('option').eq(i).text(),
-              rel: $this.children('option').eq(i).val()
+              rel: $this.children('option').eq(i).val(),
+              'role': 'option'
           }).appendTo($list);
       }
     
