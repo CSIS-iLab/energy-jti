@@ -33,7 +33,7 @@
 						_x( 'Y', 'copyright date format', 'csisjti' )
 					);
 					?>
-					Center for Strategic and International Studies. All rights reserved. <a href="https://www.csis.org/privacy-policy">Privacy Policy</a>
+					by the Center for Strategic and International Studies and the Climate Investment Funds. All rights reserved. <a href="https://www.csis.org/privacy-policy">Privacy Policy</a>
 				</p><!-- .footer-copyright -->
 
 			</footer><!-- #site-footer -->
