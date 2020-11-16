@@ -34,7 +34,9 @@ if ( !$is_home && $has_thumbnail ) {
 	csisjti_share();
 
 	// Display either the categories or the page content type.
-	csisjti_display_categories();
+	if ( !$is_home ) {
+		csisjti_display_categories();
+	}
 	csisjti_display_page_content_type();
 
 	// Archives & Pages have a specially formatted title.
@@ -48,7 +50,7 @@ if ( !$is_home && $has_thumbnail ) {
 
 	csisjti_header_description( $post_id );
 
-	if ( $post_type == 'post') {
+	if ( !$is_home && $post_type == 'post') {
 		csisjti_posted_on();
 	}
 
