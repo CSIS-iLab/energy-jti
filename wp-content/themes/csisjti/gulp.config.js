@@ -9,6 +9,7 @@ module.exports = {
   dest: './dist',
   php: './**/*.php',
   pluginsJS: './assets/plugins/**/*.js',
+  import: 'tippy.js/dist/tippy.css', 
 
   port: 8080,
 
@@ -57,13 +58,22 @@ module.exports = {
   webpack: {
     mode: 'production',
     module: {
-      rules: [],
+      rules: [
+        {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+        }
+      ],
     },
     // optimization: {
     //   splitChunks: {
     //     chunks: 'all',
     //   },
     // },
-    externals: {},
+    // externalsType: 'script',
+    // externals: {
+    //   tippy: ['https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js',
+    //   'https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js']
+    //   }
   },
 }

@@ -2,11 +2,13 @@
  * JS file for instantiating a11y dialogue instance
  *
  */
-import tippy from 'tippy.js'
-import 'tippy.js/dist/tippy.css' // optional for styling
+import * as tippy from 'tippy.js'
 
 const Tooltip = () => {
-  tippy('.filters-modal__subheading')
+  console.log('hello')
+  tippy('.filters-modal__subheading', {
+    content: 'Tooltip',
+  })
 }
 
 export { Tooltip }
