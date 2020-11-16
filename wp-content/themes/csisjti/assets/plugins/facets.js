@@ -119,10 +119,10 @@
         const facetDate = document.getElementsByClassName('facetwp-facet-publish_date')[0]
 
         facetDate.querySelectorAll('.fs-option').forEach(function(el) {
-          const startDate = new Date(startYear, startMonth - 1, 1);
-          const endDate = new Date(endYear, endMonth - 1, 1);
-          const elDate = new Date(el.getAttribute('data-value').slice(0,4), el.getAttribute('data-value').slice(4,6) - 1, 1)
-
+          const startDate = new Date(startYear, startMonth, 1);
+          const endDate = new Date(endYear, endMonth, 1);
+          const elDate = new Date(el.getAttribute('data-value').slice(0,4), el.getAttribute('data-value').slice(4,6) -1, 1)
+          console.log(startDate, endDate)
           if (elDate >= startDate && elDate <= endDate) {
             el.click()
           }
