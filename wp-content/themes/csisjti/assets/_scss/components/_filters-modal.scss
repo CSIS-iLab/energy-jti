@@ -386,7 +386,7 @@ $facet: '.facetwp-facet';
   /*----------  Facet: Custom Date Range  ----------*/
 
   #{$facet}-publish_date {
-    // display: none;
+    display: none;
   }
 
   &__date-range-start,

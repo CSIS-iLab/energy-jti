@@ -19,7 +19,7 @@ $the_query = new WP_Query( $args );
 
 if ( $the_query->have_posts() ) {
 
-  $pub_dates = array(2016);
+  $pub_dates = array();
 
     while ( $the_query->have_posts() ) {
         
