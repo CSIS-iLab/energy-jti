@@ -471,26 +471,18 @@ add_action('pre_get_posts', 'csisjti_resource_library_pre_get_posts');
 add_filter( 'facetwp_sort_options', function( $options, $params ) {
     $options = [
 				'default' => [
-						'label' => 'Publication Date',
+						'label' => 'Publication Date (Newest)',
 						'query_args' => [
 							'orderby' => 'meta_value',
 							'meta_key' => 'publication_date',
 							'order' => 'DESC',
 						]
 				],
-				'analysis_type' => [
-						'label' => 'Analysis Type',
+				'publication_date_asc' => [
+						'label' => 'Publication Date (Oldest)',
 						'query_args' => [
 							'orderby' => 'meta_value',
-							'meta_key' => 'analysis_type',
-							'order' => 'ASC',
-						]
-				],
-				'sectors' => [
-						'label' => 'Sectors',
-						'query_args' => [
-							'orderby' => 'meta_value',
-							'meta_key' => 'sectors',
+							'meta_key' => 'publication_date',
 							'order' => 'ASC',
 						]
 				],

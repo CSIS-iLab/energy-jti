@@ -154,7 +154,7 @@ function csisjti_formatted_title( $post_id = false ) {
 function csisjti_posted_on( $date_format = null ) {
 
 	// Require post ID.
-	if ( is_home() || ! get_the_ID() ) {
+	if ( ! get_the_ID() ) {
 		return;
 	}
 
@@ -238,7 +238,7 @@ if (! function_exists('csisjti_display_categories')) :
 	function csisjti_display_categories() {
 
 		// Require post ID.
-		if ( is_home() || ! get_the_ID() ) {
+		if ( ! get_the_ID() ) {
 			return;
 		}
 
