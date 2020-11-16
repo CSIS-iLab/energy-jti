@@ -36,6 +36,7 @@ if ( $the_query->have_posts() ) {
 <div class="filters-modal__date-range">
   <div class="filters-modal__date-range-start">
     <select id="date-range--start-month" class="date-range--select">
+      <option value="hide" disabled selected>Month</option>
 
       <?php 
         $months = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
@@ -48,7 +49,8 @@ if ( $the_query->have_posts() ) {
       ?>
     </select>
 
-    <select id="date-range--start-year" class="date-range--select">  
+    <select id="date-range--start-year" class="date-range--select">
+    <option value="hide" disabled selected>Year</option>  
 
     <?php 
         $i = min($pub_dates);
@@ -68,6 +70,8 @@ if ( $the_query->have_posts() ) {
 
   <div class="filters-modal__date-range-start">
     <select id="date-range--end-month"  class="date-range--select">
+    <option value="hide" disabled selected>Month</option>
+
     <?php 
         $i = 0;
 
@@ -79,6 +83,8 @@ if ( $the_query->have_posts() ) {
     </select>
 
     <select id="date-range--end-year"  class="date-range--select">
+    <option value="hide" disabled selected>Year</option>
+
     <?php 
         $i = min($pub_dates);
 

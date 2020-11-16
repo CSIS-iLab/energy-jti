@@ -137,27 +137,28 @@
   // Taken from https://codepen.io/wallaceerick/pen/ctsCz 
   function customizeDatePicker() {
     $('.date-range--select').each(function(){
-      var $this = $(this), numberOfOptions = $(this).children('option').length;
+      let $this = $(this) 
+      let numberOfOptions = $(this).children('option').length;
     
       $this.addClass('select-hidden'); 
       $this.wrap('<div class="select"></div>');
       $this.after('<div class="select-styled"></div>');
 
-      var $styledSelect = $this.next('div.select-styled');
+      let $styledSelect = $this.next('div.select-styled');
       $styledSelect.text($this.children('option').eq(0).text());
     
-      var $list = $('<ul />', {
+      let $list = $('<ul />', {
           'class': 'select-options'
       }).insertAfter($styledSelect);
     
-      for (var i = 0; i < numberOfOptions; i++) {
+      for (let i = 0; i < numberOfOptions; i++) {
           $('<li />', {
               text: $this.children('option').eq(i).text(),
               rel: $this.children('option').eq(i).val()
           }).appendTo($list);
       }
     
-      var $listItems = $list.children('li');
+      let $listItems = $list.children('li');
     
       $styledSelect.click(function(e) {
           e.stopPropagation();
