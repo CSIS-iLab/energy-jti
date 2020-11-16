@@ -73,8 +73,7 @@
 
   /* stylelint-disable */
   .wp-block-image img,
-  iframe[src*='youtube'],
-  .csis-block--download-button img {
+  iframe[src*='youtube'] {
     margin-bottom: rem(12px);
   }
   /* stylelint-enable */

@@ -1,6 +1,7 @@
 @use '../abstracts' as *;
 @use '../components/post-alignments';
 @use '../components/post-typography';
+@use '../blocks/download-button';
 
 .single {
   &__content,
