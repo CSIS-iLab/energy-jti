@@ -11,6 +11,16 @@ const Modal = () => {
 
 const filterModal = () => {
   const filterBtn = document.getElementById('filters-btn')
+  const mobileFilterBtn = document.getElementById('mobile-filters-btn')
+
+  mobileFilterBtn.addEventListener('click', () => {
+    const classification = document.getElementsByClassName(
+      'classification-modal'
+    )[0]
+    const filter = document.getElementsByClassName('filters-modal')[0]
+    classification.classList.add('hidden')
+    filter.classList.remove('hidden')
+  })
 
   filterBtn.addEventListener('click', () => {
     const classification = document.getElementsByClassName(
