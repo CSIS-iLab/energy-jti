@@ -556,8 +556,8 @@ function set_posts_per_page( $query ) {
 
   global $wp_the_query;
 
-  if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() ) ) {
-    $query->set( 'posts_per_page', 2 );
+  if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_post_type_archive( 'resource-library' ) ) ) {
+    $query->set( 'posts_per_page', 25 );
   }
 
   return $query;
