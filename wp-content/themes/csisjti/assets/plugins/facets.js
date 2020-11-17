@@ -5,6 +5,7 @@
 
   $(document).on('facetwp-loaded', function () {
     modifyCheckboxes()
+    modifySearchFacet()
     modifyFSelectFacet()
     modifyMultiSelect()
     modifyExpandIcons()
@@ -75,6 +76,30 @@
           FWP.fetch_data()
         })
     }
+  }
+
+  function modifySearchFacet() {
+    // If these fields already exist, don't create them again.
+    if (document.querySelector('.fs-search-submit')) {
+      return
+    }
+
+    // Add Search button to search input since we removed the autorefresh.
+    const button = document.createElement('button')
+    button.classList.add('fs-search-submit')
+    button.innerHTML =
+      '<svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg>'
+    button.setAttribute('aria-label', 'Search Database')
+    button.setAttribute('type', 'submit')
+    button.addEventListener('click', function () {
+      FWP.refresh()
+    })
+
+    document
+      .querySelector(
+        '.resource-library__inline-filters .facetwp-facet-search_input span'
+      )
+      .append(button)
   }
 
   function modifyFSelectFacet() {

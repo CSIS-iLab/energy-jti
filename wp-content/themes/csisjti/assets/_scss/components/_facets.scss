@@ -61,6 +61,33 @@
   }
 }
 
+.fs-search-submit {
+  position: absolute;
+  top: 50%;
+  right: rem(16);
+  display: flex;
+  padding: 0;
+  color: $color-primary-blue-300;
+  font-size: rem(32);
+  line-height: 1;
+  background: transparent;
+  border: 0;
+  transform: translate(0, -50%);
+  visibility: hidden;
+  opacity: 0;
+  appearance: none;
+
+  .facetwp-type-search:focus-within & {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  svg {
+    border: 2px solid $color-primary-blue-300;
+    border-radius: 50%;
+  }
+}
+
 /*----------  Facet: fSelect  ----------*/
 
 .fs {
