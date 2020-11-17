@@ -4,9 +4,10 @@
  */
 import A11yDialog from 'a11y-dialog'
 
+let dialog
 const Modal = () => {
   const el = document.getElementById('accessible-dialog')
-  new A11yDialog(el)
+  dialog = new A11yDialog(el)
 }
 
 const filterModal = () => {
@@ -48,10 +49,9 @@ const classificationModal = () => {
 // Close modal on click of apply button
 const applyFilters = () => {
   const applyBtn = document.getElementById('filters-apply-btn')
-  const closeBtn = document.getElementsByClassName('dialog-close')[0]
-
   applyBtn.addEventListener('click', () => {
-    closeBtn.click()
+    // closeBtn.click()
+    dialog.hide()
   })
 }
 

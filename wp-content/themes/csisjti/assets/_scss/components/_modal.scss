@@ -39,7 +39,7 @@ dialog::backdrop {
   transform: translate(-50%, -50%);
 
   &[open] {
-    animation: appear 1s 1s 1 both;
+    animation: appear 1s 0s 1 both;
   }
 }
 
