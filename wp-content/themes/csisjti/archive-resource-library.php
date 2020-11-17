@@ -41,6 +41,10 @@ get_header();
 						echo facetwp_display( 'facet', 'sectors' );
 						echo facetwp_display( 'facet', 'focus_areas' );
 						echo facetwp_display( 'facet', 'format' );
+						echo facetwp_display( 'facet', 'keywords' );
+						echo facetwp_display( 'facet', 'publishing_organization' );
+						echo facetwp_display( 'facet', 'publishing_organization_type' );
+						echo facetwp_display( 'facet', 'author' );
 					?>
 					<button id="filters-btn" class="btn btn--outline btn--round btn--filters" data-a11y-dialog-show="accessible-dialog">
 						<?php
@@ -55,7 +59,7 @@ get_header();
 
 		<div class="filters-overview">
 			<div class="filters-overview__totals">
-				<strong class="is-highlighted" id="num_filters_applied">0</strong>&nbsp;filters applied,&nbsp;
+				<strong class="is-highlighted fp-num_filters_applied">0</strong>&nbsp;filters applied,&nbsp;
 				<?php echo facetwp_display( 'facet', 'total_entries' ); ?>
 			</div>
 			<?php echo facetwp_display( 'sort' ); ?>

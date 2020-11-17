@@ -57,13 +57,17 @@ module.exports = {
   webpack: {
     mode: 'production',
     module: {
-      rules: [],
+      rules: [
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+      ],
     },
     // optimization: {
     //   splitChunks: {
     //     chunks: 'all',
     //   },
     // },
-    externals: {},
   },
 }
