@@ -381,23 +381,20 @@ $facet: '.facetwp-facet';
 
   &__date-range-start,
   &__date-range-end {
-    min-width: 100%;
-
-    @include breakpoint(large) {
-      min-width: 50%;
-    }
+    display: flex;
+    flex: 1 1 auto;
   }
 
   &__date-range {
     position: relative;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     margin-bottom: rem(40);
 
     @include breakpoint(large) {
       flex-direction: row;
-      white-space: nowrap;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     .select-hidden {
@@ -407,18 +404,19 @@ $facet: '.facetwp-facet';
 
     .select {
       position: relative;
-      display: inline-block;
-      min-width: 33%;
+      display: block;
+      width: 100%;
+      max-width: 120px;
       height: 42px;
-      margin-right: rem(12);
       color: $color-black-140;
       font-size: 16px;
       background: $color-white-100;
       border: $color-gray-200;
       cursor: pointer;
 
-      @include breakpoint(large) {
-        min-width: 45%;
+      // stylelint-disable-next-line
+      & + .select {
+        margin-left: rem(12);
       }
     }
 
@@ -461,8 +459,8 @@ $facet: '.facetwp-facet';
       right: 0;
       left: 0;
       z-index: 400;
-      max-height: 200px;
       display: none;
+      max-height: 200px;
       margin: 0;
       padding: 0;
       overflow: auto;
@@ -477,6 +475,7 @@ $facet: '.facetwp-facet';
         text-indent: 16px;
         border-top: 1px solid $color-white-100;
 
+        /* stylelint-disable */
         &:hover {
           background: $color-primary-blue-800;
         }
@@ -489,16 +488,16 @@ $facet: '.facetwp-facet';
       &[rel='placeholder'] {
         display: none;
       }
+      /* stylelint-enable */
     }
 
     &--text {
-      @extend %font-ui-text-md;
-      padding-right: rem(12);
+      margin: rem(12) 0;
       color: $color-black-190;
+      @extend %font-ui-text-md;
 
-      @include breakpoint(large) {
-        position: relative;
-        top: 12px;
+      @include breakpoint('large') {
+        margin: 0 rem(12);
       }
     }
   }
