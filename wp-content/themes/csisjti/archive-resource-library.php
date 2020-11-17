@@ -42,7 +42,7 @@ get_header();
 						echo facetwp_display( 'facet', 'focus_areas' );
 						echo facetwp_display( 'facet', 'format' );
 					?>
-					<button id="filters-btn" class="btn btn--outline btn--round btn--filters" data-a11y-dialog-show="accessible-dialog">
+					<button id="filters-btn" class="btn btn--outline btn--round btn--filters" data-a11y-dialog-show="accessible-dialog" onclick="FWP.reset()">
 						<?php
 							echo csisjti_get_svg( 'filter' );
 						?>
