@@ -15,6 +15,10 @@
  * The text inside the span with the class nav-short will be hidden on small screens.
  */
 
+// Needed to get ACF from Archive.
+$object = get_queried_object();
+$object_name = $object->name;
+
 ?>
 <div class="filters-modal">
 
@@ -25,7 +29,7 @@
     <button id="filters-apply-btn" class="btn btn--apply" onclick="FWP.refresh()">Apply</button>
   </div>
 
-  <div class="filters-modal__subheading filters-modal--analysis" data-tippy-content="<?php the_field( 'analysis_type_description' ); ?>">
+  <div class="filters-modal__subheading filters-modal--analysis" data-tippy-content="<?php the_field( 'analysis_type_description', $object_name ); ?>">
     Analysis Type
     <?php echo csisjti_get_svg('info'); ?>
   </div>
@@ -34,49 +38,49 @@
 
   <h3 class="filters-modal__heading filters-modal--topic">Topic Scope</h3>
 
-  <div class="filters-modal__subheading filters-modal--sectors" data-tippy-content="<?php the_field( 'sectors_description' ); ?>">
+  <div class="filters-modal__subheading filters-modal--sectors" data-tippy-content="<?php the_field( 'sectors_description', $object_name ); ?>">
     Sectors
     <?php echo csisjti_get_svg('info'); ?>
   </div>
 
-  <?php 
-    echo facetwp_display( 'facet', 'sectors_checkboxes' ); 
+  <?php
+    echo facetwp_display( 'facet', 'sectors_checkboxes' );
   ?>
 
-  <div class="filters-modal__subheading filters-modal--keywords" data-tippy-content="<?php the_field( 'keywords_description' ); ?>">
+  <div class="filters-modal__subheading filters-modal--keywords" data-tippy-content="<?php the_field( 'keywords_description', $object_name ); ?>">
     Keywords
     <?php echo csisjti_get_svg('info'); ?>
   </div>
 
-  <?php 
-    echo facetwp_display( 'facet', 'keywords' ); 
+  <?php
+    echo facetwp_display( 'facet', 'keywords' );
   ?>
 
   <div class="filters-modal__subheading filters-modal--geo">Geographic Focus</div>
   <?php echo facetwp_display( 'facet', 'geographic_focus' ); ?>
- 
+
   <h3 class="filters-modal__heading filters-modal--source">Source Information</h3>
   <div class="filters-modal__subheading filters-modal--pub-org">Publishing Organization</div>
-  <?php  
+  <?php
     echo facetwp_display( 'facet', 'publishing_organization' );
   ?>
-  
+
   <div class="filters-modal__subheading filters-modal--pub-type">Publishing Organization Type</div>
   <?php
-    echo facetwp_display( 'facet', 'publishing_organization_type' ); 
+    echo facetwp_display( 'facet', 'publishing_organization_type' );
   ?>
-  
-  <div class="filters-modal__subheading filters-modal--focus-areas filters-modal--tooltip" data-tippy-content="<?php the_field( 'focus_areas_description' ); ?>">
+
+  <div class="filters-modal__subheading filters-modal--focus-areas filters-modal--tooltip" data-tippy-content="<?php the_field( 'focus_areas_description', $object_name ); ?>">
     Focus Areas
     <?php echo csisjti_get_svg('info'); ?>
   </div>
-  <?php 
-    echo facetwp_display( 'facet', 'focus_areas_checkboxes' ); 
+  <?php
+    echo facetwp_display( 'facet', 'focus_areas_checkboxes' );
   ?>
 
   <div class="filters-modal__subheading filters-modal--author">Author</div>
   <?php
-    echo facetwp_display( 'facet', 'author' ); 
+    echo facetwp_display( 'facet', 'author' );
   ?>
 
   <div class="filters-modal__subheading filters-modal--pub-date">Publish Date Range</div>
@@ -85,8 +89,8 @@
 
   <div class="filters-modal__subheading filters-modal--format">Format</div>
   <?php
-    echo facetwp_display( 'facet', 'format_checkboxes' ); 
+    echo facetwp_display( 'facet', 'format_checkboxes' );
   ?>
 
 </div>
-    
+

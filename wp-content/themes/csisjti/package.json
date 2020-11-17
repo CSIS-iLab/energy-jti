@@ -58,8 +58,7 @@
     "eslint-fix": "gulp eslint --fix"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
     "a11y-dialog": "^5.4.2",
-    "tippy.js": "^6.2.7"
+    "core-js": "^3.6.5"
   }
 }

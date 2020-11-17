@@ -9,7 +9,6 @@ module.exports = {
   dest: './dist',
   php: './**/*.php',
   pluginsJS: './assets/plugins/**/*.js',
-  import: 'tippy.js/dist/tippy.css', 
 
   port: 8080,
 
@@ -60,9 +59,9 @@ module.exports = {
     module: {
       rules: [
         {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-        }
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
       ],
     },
     // optimization: {
