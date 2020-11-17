@@ -31,29 +31,19 @@
 
 /* Makes a fixed background wrapper */
 
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   // height: 300px;
-//   min-height: 300px;
-//   z-index: -1;
-//   pointer-events: none;
-//   overflow: hidden;
+  .iframe-wrapper {
+    position: relative;
+    padding: 42.92% 0 0 0;
+    z-index: 1;
 
-.iframe-wrapper {
-  position: relative;
-  padding: 42.92% 0 0 0;
-  z-index: 1;
-
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
-}
 
 /* Make the iframe keep an aspect ratio, and
 position it in the middle of its parent wrapper*/
