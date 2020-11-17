@@ -213,9 +213,9 @@ if (! function_exists('csisjti_authors_list_extended')) :
 			$authors = '<h2 class="heading">Authors</h2>';
 
 			foreach (get_coauthors() as $coauthor) {
-				$name = '<h3 class="post__authors-name">' . $coauthor->display_name . '</h3>';
+				$name = $coauthor->display_name;
 
-				$authors .= '<p class="post__authors-author">' . $name . ' ' . $coauthor->description . '</p>';
+				$authors .= '<h3 class="post__authors-name">' . $name . '</h3><p class="post__authors-author">' . $name . ' ' . $coauthor->description . '</p>';
 
 				if ( $coauthor->website ) {
 					$authors .= '<a href="' . $coauthor->website . '" class="post__authors-learn-more">Learn More ' . csisjti_get_svg( 'arrow-external' ) .'</a>';
