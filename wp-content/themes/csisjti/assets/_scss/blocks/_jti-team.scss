@@ -18,6 +18,10 @@
         margin-bottom: rem(40px);
       }
 
+      @include breakpoint('large') {
+        text-align: left;
+      }
+
       h3 {
         @extend %font-ui-text-lg;
         margin-bottom: rem(24px);
@@ -28,7 +32,7 @@
 
         @include breakpoint('medium') {
           display: table-cell;
-          height: rem(72px);
+          height: rem(72px); // Added this to get the headings to line up
           text-align: left;
           vertical-align: bottom;
         }
@@ -47,24 +51,43 @@
 
     &__list {
       margin-left: 0;
+
+      @include breakpoint('large') {
+        margin-bottom: 0;
+      }
     }
 
     &__item {
-      margin-bottom: rem(32px);
+      &:not(:last-child) {
+        margin-bottom: rem(32px);
+      }
+
+      @include breakpoint('large') {
+        display: grid;
+        grid-template-columns: 1fr 2.5fr;
+        column-gap: rem(24px);
+      }
     }
 
     &__img {
       display: block;
+      grid-column: 1;
+      grid-row: 1 / span 3;
       margin-bottom: rem(16px);
       
       img {
         margin: 0 auto;
+
+        @include breakpoint('large') {
+          margin: 0;
+        }
       }
     }
 
     &__name {
       @extend %font-ui-headline-md;
       display: block;
+      grid-column: 2;
       margin-bottom: rem(8px);
       color: $color-black-100;
       text-decoration: underline;
@@ -82,12 +105,14 @@
 
     &__institution {
       @extend %font-ui-text-lg;
+      grid-column: 2;
       margin-bottom: rem(8px);
       color: $color-black-190;
     }
     
     &__job {
       @extend %font-ui-text-md;
+      grid-column: 2;
       color: $color-black-170;
     }
   }
