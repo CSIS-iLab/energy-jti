@@ -36,13 +36,15 @@
 			<h2 class="post__related-heading">Related</h2>
 			<h3 class="post__related-subheading">from the <span class="post__related-resource-lib">Resource Library</span></h3>
 			<?php $related_resources = get_field( 'related_resources' ); ?>
-			<?php if ( $related_resources ) : ?>
-				<?php foreach ( $related_resources as $post ) : ?>
-					<?php setup_postdata ( $post ); ?>
-					<?php get_template_part( 'template-parts/block-post-resource-library' ); ?>
-				<?php endforeach; ?>
-				<?php wp_reset_postdata(); ?>
-			<?php endif; ?>
+			<?php
+				if ( $related_resources ) :
+					foreach ( $related_resources as $post ) :
+						setup_postdata ( $post );
+						get_template_part( 'template-parts/block-post-resource-library' );
+					endforeach;
+					wp_reset_postdata();
+				endif;
+			?>
 		</div>
 	</footer>
 	<?php } ?>

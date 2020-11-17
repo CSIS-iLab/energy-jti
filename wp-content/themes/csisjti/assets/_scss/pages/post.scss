@@ -9,6 +9,7 @@
 
 .post {
   &__authors {
+    padding: rem(40) 0 rem(48);
     color: $color-black-100;
 
     &-divider {
@@ -25,17 +26,19 @@
     }
 
     &-author {
-      margin-bottom: rem(32px);
+      + .post__authors-author {
+        margin-top: rem(32);
+      }
 
       &-name {
         @extend %font-ui-section-heading-md;
         margin-bottom: rem(8px);
       }
-      
+
       &-bio {
         @extend %font-ui-body-md;
       }
-      
+
       &-link {
         @extend %font-ui-text-sm-uppercase;
         display: block;
