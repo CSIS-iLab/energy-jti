@@ -5,7 +5,9 @@
   text-align: center;
 
   @include breakpoint('medium') {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: rem(32px);
   }
 
   .teams {
@@ -23,6 +25,13 @@
         color: $color-black-100;
         text-transform: uppercase;
         border-bottom: 1px solid $color-gray-line;
+
+        @include breakpoint('medium') {
+          display: table-cell;
+          height: rem(72px);
+          text-align: left;
+          vertical-align: bottom;
+        }
       }
       
       span {
