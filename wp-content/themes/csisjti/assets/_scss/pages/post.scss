@@ -44,4 +44,42 @@
       }
     }
   }
+
+  &__related {
+    padding-top: rem(40px);
+    padding-bottom: rem(72px);
+    @include full-width-background($color-gray-100);
+    background: $color-gray-100;
+
+    &-heading {
+      @extend %font-ui-section-heading-lg;
+      margin-bottom: rem(4px);
+      color: $color-black-100;
+    }
+
+    &-subheading {
+      margin-bottom: rem(32px);
+      color: $color-black-155;
+      font-family: $font-barlow;
+      font-weight: 400;
+      @include font-size(17px);
+      font-style: italic;
+      line-height: 1.15;
+
+      @include breakpoint('medium') {
+        margin-bottom: rem(24px);
+      }
+
+      @include breakpoint('large') {
+        margin-bottom: rem(40px);
+      }
+    }
+
+    &-resource-lib {
+      @extend %font-ui-text-lg;
+      color: $color-black-190;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+  }
 }
