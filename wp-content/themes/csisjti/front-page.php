@@ -15,21 +15,12 @@ get_header();
 <main id="site-content" role="main">
 
 <div class="home-header">
-	<!-- <div class="home-header__title">Just Transition</div>
-	<h2 class="home-header__desc">Searching for solutions to secure an inclusive and sustainable future.</h2> -->
-	
-	<div class="iframe-wrapper"> 
-	<iframe src="https://player.vimeo.com/video/477747022?loop=1&title=0&byline=0&portrait=0" width="640" height="275" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+	<div class="home-header__title">Just Transition</div>
+	<h2 class="home-header__desc">Searching for solutions to secure an inclusive and sustainable future.</h2>
+
+	<div class="iframe-wrapper" >
+		<iframe src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?background=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 	</div>
-
-	<!-- <video class="iframe-wrapper">
-	<iframe src="https://player.vimeo.com/video/477747022?title=0&byline=0&portrait=0?background?controls=0" width="640" height="300" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-		</iframe>
-	</video> -->
-
-	<!-- <video autoplay muted loop id="video">
-		<source src="https://player.vimeo.com/video/477747022?title=0&byline=0&portrait=0" type="video/mp4">
-	</video> -->
 </div>
 
 
