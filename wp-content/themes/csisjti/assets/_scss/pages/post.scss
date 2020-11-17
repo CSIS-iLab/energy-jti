@@ -11,6 +11,14 @@
   &__authors {
     color: $color-black-100;
 
+    &-divider {
+      height: 1px;
+      margin-top: rem(32px);
+      margin-bottom: rem(40px);
+      background: $color-gray-line;
+      border: 0;
+    }
+
     .heading {
       @extend %font-ui-section-heading-lg;
       margin-bottom: rem(32px);

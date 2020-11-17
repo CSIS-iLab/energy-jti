@@ -226,7 +226,7 @@ if (! function_exists('csisjti_authors_list_extended')) :
 		} else {
 			$authors = the_author_posts_link();
 		}
-		return '<div class="post__authors">' . $authors . '</div>';
+		return '<div class="post__authors"><hr class="post__authors-divider alignfull">' . $authors . '</div>';
 	}
 endif;
 
