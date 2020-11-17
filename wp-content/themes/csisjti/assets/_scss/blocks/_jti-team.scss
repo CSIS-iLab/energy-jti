@@ -1,0 +1,56 @@
+@use '../abstracts' as *;
+
+.csis-block--teams {
+  text-align: center;
+
+  @include breakpoint('medium') {
+    display: flex;
+  }
+
+  .teams {
+    &__team {
+      h3 {
+        @extend %font-ui-text-lg;
+        color: $color-black-100;
+        text-transform: uppercase;
+      }
+      
+      span {
+        color: $color-black-155;
+        font-family: $font-barlow;
+        font-weight: 400;
+        @include font-size(17px);
+        font-style: italic;
+        line-height: 1.15;
+        text-transform: initial;
+      }
+    }
+
+    &__list {
+      margin-left: 0;
+    }
+
+    &__img {
+      display: block;
+      
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    &__name {
+      @extend %font-ui-headline-md;
+      color: $color-black-100;
+
+      &::after {
+        content: '';
+        display: inline-block;
+        width: rem(11px);
+        height: rem(12px);
+        background-image: url('/wp-content/themes/csisjti/assets/static/icons/arrow-external.svg');
+        background-size: 100% 100%;
+      }
+    }
+  }
+}
+
