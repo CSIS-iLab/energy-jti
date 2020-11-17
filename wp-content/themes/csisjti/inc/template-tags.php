@@ -215,10 +215,12 @@ if (! function_exists('csisjti_authors_list_extended')) :
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
 
-				$authors .= '<h3 class="post__authors-name">' . $name . '</h3><p class="post__authors-author">' . $name . ' ' . $coauthor->description . '</p>';
+				$authors .= '<div class="post__authors-author"><h3 class="post__authors-author-name">' . $name . '</h3><p class="post__authors-author-bio">' . $name . ' ' . $coauthor->description . '</p>';
 
 				if ( $coauthor->website ) {
-					$authors .= '<a href="' . $coauthor->website . '" class="post__authors-learn-more">Learn More ' . csisjti_get_svg( 'arrow-external' ) .'</a>';
+					$authors .= '<a href="' . $coauthor->website . '" class="post__authors-author-link">Learn More ' . csisjti_get_svg( 'arrow-external' ) .'</a></div>';
+				} else {
+					$authors .= '</div>';
 				}
 			}
 		} else {
