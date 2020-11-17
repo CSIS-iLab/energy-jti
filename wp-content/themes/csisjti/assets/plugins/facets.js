@@ -237,7 +237,8 @@
   // Calculates the number of active filters applied.
   function setNumFilters() {
     // We don't want the pagination or sort to imapct the count.
-    const excludedFacets = ['pagination', 'sort']
+    console.log(FWP.facets)
+    const excludedFacets = ['pagination', 'sort', 'paged']
 
     const numFilters = Object.keys(FWP.facets)
       .filter((f) => !excludedFacets.includes(f))
