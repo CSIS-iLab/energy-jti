@@ -114,12 +114,12 @@ $facet: '.facetwp-facet';
     }
   }
 
-  #{$facet}-analysis_type_checkboxes {
+  #{$facet}-analysis_type_modal {
     margin-bottom: rem(40) !important;
   }
 
-  #{$facet}-analysis_type_checkboxes,
-  #{$facet}-format_checkboxes {
+  #{$facet}-analysis_type_modal,
+  #{$facet}-format_modal {
     display: flex;
     flex-wrap: wrap;
     height: unset !important;
@@ -154,8 +154,8 @@ $facet: '.facetwp-facet';
     }
   }
 
-  #{$facet}-sectors_checkboxes,
-  #{$facet}-publishing_organization_type {
+  #{$facet}-sectors_modal,
+  #{$facet}-publishing_organization_type_modal {
     column-count: 2;
     column-gap: rem(32);
 
@@ -180,7 +180,7 @@ $facet: '.facetwp-facet';
     }
   }
 
-  #{$facet}-publishing_organization {
+  #{$facet}-publishing_organization_modal {
     margin-left: 0 !important;
 
     .fs-wrap {
@@ -196,9 +196,9 @@ $facet: '.facetwp-facet';
 
   /*----------  Facet: Checkbox  ----------*/
 
-  #{$facet}-sectors_checkboxes,
-  #{$facet}-publishing_organization_type,
-  #{$facet}-focus_areas_checkboxes {
+  #{$facet}-sectors_modal,
+  #{$facet}-publishing_organization_type_modal,
+  #{$facet}-focus_areas_modal {
     height: unset !important;
     margin-bottom: rem(40) !important;
 
@@ -274,7 +274,7 @@ $facet: '.facetwp-facet';
 
   /*----------  Facet: Expanding Checkbox  ----------*/
 
-  #{$facet}-focus_areas_checkboxes {
+  #{$facet}-focus_areas_modal {
     .facetwp-checkbox {
       padding-left: 32px !important;
     }

@@ -41,6 +41,10 @@ get_header();
 						echo facetwp_display( 'facet', 'sectors' );
 						echo facetwp_display( 'facet', 'focus_areas' );
 						echo facetwp_display( 'facet', 'format' );
+						echo facetwp_display( 'facet', 'keywords' );
+						echo facetwp_display( 'facet', 'publishing_organization' );
+						echo facetwp_display( 'facet', 'publishing_organization_type' );
+						echo facetwp_display( 'facet', 'author' );
 					?>
 					<button id="filters-btn" class="btn btn--outline btn--round btn--filters" data-a11y-dialog-show="accessible-dialog">
 						<?php

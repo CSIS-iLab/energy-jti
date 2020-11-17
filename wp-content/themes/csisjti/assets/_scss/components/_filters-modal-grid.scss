@@ -115,16 +115,16 @@ $facet: '.facetwp-facet';
 
   /*----------  Grid Layout for Facets ----------*/
 
-  #{$facet}-analysis_type_checkboxes {
+  #{$facet}-analysis_type_modal {
     grid-area: analysis;
     margin-bottom: rem(40) !important;
   }
 
-  #{$facet}-format_checkboxes {
+  #{$facet}-format_modal {
     grid-area: format;
   }
 
-  #{$facet}-sectors_checkboxes {
+  #{$facet}-sectors_modal {
     grid-area: sectors;
   }
 
@@ -132,27 +132,27 @@ $facet: '.facetwp-facet';
     grid-area: geo;
   }
 
-  #{$facet}-keywords {
+  #{$facet}-keywords_modal {
     grid-area: keywords;
   }
 
-  #{$facet}-publishing_organization {
+  #{$facet}-publishing_organization_modal {
     grid-area: pub-org;
   }
 
-  #{$facet}-publishing_organization_type {
+  #{$facet}-publishing_organization_type_modal {
     grid-area: pub-type;
   }
 
-  #{$facet}-focus_areas_checkboxes {
+  #{$facet}-focus_areas_modal {
     grid-area: focus-areas;
   }
 
-  #{$facet}-author {
+  #{$facet}-author_modal {
     grid-area: author;
   }
 
-  #{$facet}-format_checkboxes {
+  #{$facet}-format_modal {
     grid-area: format;
   }
 

@@ -12,6 +12,7 @@
     fwpDisableAutoRefresh()
     customizeDatePicker()
     connectFacets()
+    hideExtraFacets()
     hasRun = true
   })
 
@@ -24,13 +25,19 @@
     })
   }
 
+  // Connects values from side search to modal search.
   function connectFacets() {
+    // Facet Names: ['side', 'modal']
     const pairs = [
-      ['analysis_type', 'analysis_type_checkboxes'],
-      ['sectors', 'sectors_checkboxes'],
+      ['analysis_type', 'analysis_type_modal'],
+      ['sectors', 'sectors_modal'],
       ['geographic_focus', 'geographic_focus_modal'],
-      ['focus_areas', 'focus_areas_checkboxes'],
-      ['format', 'format_checkboxes'],
+      ['focus_areas', 'focus_areas_modal'],
+      ['format', 'format_modal'],
+      ['keywords', 'keywords_modal'],
+      ['publishing_organization', 'publishing_organization_modal'],
+      ['publishing_organization_type', 'publishing_organization_type_modal'],
+      ['author', 'author_modal'],
     ]
 
     if (!hasRun) {
@@ -64,6 +71,7 @@
             }
           }
           console.log('fetch data')
+          console.log(FWP.facets)
           FWP.fetch_data()
         })
     }
@@ -78,7 +86,6 @@
 
         // Add Number of Selected Options to Wrapper
         const numSelected = FWP.facets[facet_name].length
-        console.log('numSelected: ' + numSelected)
         this.querySelector('.fs-label-wrap').setAttribute(
           'data-num',
           numSelected
@@ -187,8 +194,6 @@
       return acc + curr.length
     }, 0)
 
-    console.log(numFiltersApplied)
-
     Array.from(numFiltersApplied).forEach((el) => (el.innerHTML = numFilters))
   }
 
@@ -275,6 +280,28 @@
       })
 
       datePickerHook()
+    })
+  }
+
+  // Hides the extra facets from the side search if value is empty.
+  function hideExtraFacets() {
+    const extraFacets = [
+      'keywords',
+      'publishing_organization',
+      'publishing_organization_type',
+      'author',
+    ]
+    extraFacets.forEach((facet) => {
+      document
+        .querySelector(
+          `.resource-library__inline-filters .facetwp-facet-${facet}`
+        )
+        .classList.toggle('facetwp-hidden', FWP.facets[facet].length < 1)
+    })
+
+    $.each(FWP.settings.num_choices, function (key, val) {
+      var $parent = $('.facetwp-facet-' + key).closest('.facet-wrap')
+      0 === val ? $parent.hide() : $parent.show()
     })
   }
 })(jQuery)
