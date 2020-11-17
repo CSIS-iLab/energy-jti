@@ -6,3 +6,18 @@
     background: $color-gradient-green;
   }
 }
+
+.post {
+  &__authors {
+    color: $color-black-100;
+
+    .heading {
+      @extend %font-ui-section-heading-lg;
+
+    }
+
+    &-name {
+      @extend %font-ui-section-heading-md;
+    }
+  }
+}

@@ -213,7 +213,7 @@ if (! function_exists('csisjti_authors_list_extended')) :
 			$authors = '<h2 class="heading">Authors</h2>';
 
 			foreach (get_coauthors() as $coauthor) {
-				$name = $coauthor->display_name;
+				$name = '<h3 class="post__authors-name">' . $coauthor->display_name . '</h3>';
 
 				$authors .= '<p class="post__authors-author">' . $name . ' ' . $coauthor->description . '</p>';
 
