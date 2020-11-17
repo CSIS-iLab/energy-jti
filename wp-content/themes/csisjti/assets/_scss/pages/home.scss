@@ -1,6 +1,99 @@
 @use '../abstracts' as *;
 
 .home {
+
+  &-header {   
+    --header-margin-bottom: #{rem(56)};
+    // --header-padding-bottom: #{rem(24)};
+    // --header-img-offset: #{rem(40)};
+    position: relative;
+    // display: grid;
+    width: 100%;
+    min-height: 300px;
+    margin-bottom: var(--header-margin-bottom);
+    padding-bottom: var(--header-padding-bottom);
+    color: $color-white-190;
+    // overflow-x: hidden;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+      @include vw100;
+      margin-left: calc(50% - (50vw - var(--scrollbar)));
+      background: var(--page-header-home);
+      // Separate values for the Image, Gradient, and solid color, respectfully.
+      background-position: 100vw 100%, 100% 100%, 100% 100%;
+      background-size: auto 100%, auto, auto;
+      background-blend-mode: soft-light, normal, normal;
+    }
+
+/* Makes a fixed background wrapper
+which the user cannot interact with */
+
+.iframe-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // height: 300px;
+  min-height: 300px;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Make the iframe keep an aspect ratio, and
+position it in the middle of its parent wrapper*/
+
+.iframe-wrapper iframe {
+  position: fixed;
+  min-height: 100vh;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  // position: fixed;
+  // top: 50%;
+  // left: 50%;
+  // min-width: 100%;
+  // min-height: 100%;
+  // width: auto;
+  // height: auto;
+  // z-index: -100;
+  // transform: translate(-50%, -50%);
+}
+
+    // &__title {
+    //   margin-bottom: rem(12);
+    //   @extend %font-ui-text-md-bold-uppercase-barlow;
+    //   letter-spacing: 1.5px;
+  
+    //   &::after {
+    //     content: '';
+    //     display: block;
+    //     width: rem(32);
+    //     height: 3px;
+    //     margin-top: rem(5); // 8px - 3px height
+    //     background: $color-white-155;
+    //   }
+    // }
+
+    // &__desc {
+    //   font-family: $font-barlow-condensed;
+    //   font-weight: 700;
+    //   @include font-clamp(54px, 40px);
+    // }
+
+
+      
+    
+}
+  
+
   &__analysis {
     .post-block:not(:first-of-type) .post-block__excerpt {
       display: none;
@@ -18,6 +111,21 @@
       .post-block__img {
         margin-bottom: rem(24);
       }
+    }
+  }
+
+  &__content {
+    &--subheading {
+      font-family: $font-barlow;
+      font-weight: 600;
+      @include font-size(30px);
+      color: $color-black-100;
+      line-height: 1.15;
+    }
+
+    &--desc {
+      @extend %font-copy-body-short-lede;
+      color: $color-black-190;
     }
   }
 }
