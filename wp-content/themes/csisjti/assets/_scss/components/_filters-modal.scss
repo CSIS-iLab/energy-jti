@@ -59,6 +59,7 @@ $facet: '.facetwp-facet';
   }
 
   &__subheading {
+    max-width: fit-content;
     margin-bottom: rem(6);
     color: $color-black-190;
     @extend %font-ui-text-lg-bold;

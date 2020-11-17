@@ -91,13 +91,15 @@ dialog::backdrop {
 
 .list-items {
   &__name {
-    @extend %font-copy-heading-5;
     margin-bottom: rem(6);
+    color: $color-gray-text;
+    @extend %font-copy-heading-5;
   }
 
   &__desc {
-    @extend %font-copy-body-long-lg;
     margin-bottom: rem(40);
+    color: $color-black-190;
+    @extend %font-copy-body-long-lg;
   }
 }
 

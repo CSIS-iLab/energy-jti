@@ -447,7 +447,6 @@ if (! function_exists('csisjti_resource_description')) :
 		}
 
 		printf( '<div class="post-block__desc">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 	}
 endif;
 
