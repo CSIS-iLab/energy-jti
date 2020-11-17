@@ -19,5 +19,14 @@
     &-name {
       @extend %font-ui-section-heading-md;
     }
+
+    &-author {
+      @extend %font-ui-body-md;
+    }
+
+    &-learn-more {
+      @extend %font-ui-text-sm-uppercase;
+      color: $color-primary-blue-400;
+    }
   }
 }
