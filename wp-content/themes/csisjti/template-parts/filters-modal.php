@@ -81,8 +81,7 @@
   ?>
 
   <div class="filters-modal__subheading filters-modal--pub-date">Publish Date Range</div>
-
-  <div aria-hidden="true"><?php echo facetwp_display( 'facet', 'publish_date' ); ?></div>
+  <?php echo facetwp_display( 'facet', 'publish_date' ); ?>
 
   <?php get_template_part( 'template-parts/filters-modal-date-range' ); ?>
 

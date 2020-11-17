@@ -29,8 +29,8 @@ $args = array (
 $the_query = new WP_Query( $args );
 
 // Create fallbacks just in case the query fails.
-// $min_year = 2012;
-// $max_year = 2020;
+$min_year = 2012;
+$max_year = 2020;
 
 if ( $the_query->have_posts() ) {
 
