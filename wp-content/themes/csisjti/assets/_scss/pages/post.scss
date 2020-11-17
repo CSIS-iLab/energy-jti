@@ -6,3 +6,83 @@
     background: $color-gradient-green;
   }
 }
+
+.post {
+  &__authors {
+    padding: rem(40) 0 rem(48);
+    color: $color-black-100;
+
+    &-divider {
+      height: 1px;
+      margin-top: rem(32px);
+      margin-bottom: rem(40px);
+      background: $color-gray-line;
+      border: 0;
+    }
+
+    .heading {
+      @extend %font-ui-section-heading-lg;
+      margin-bottom: rem(32px);
+    }
+
+    &-author {
+      + .post__authors-author {
+        margin-top: rem(32);
+      }
+
+      &-name {
+        @extend %font-ui-section-heading-md;
+        margin-bottom: rem(8px);
+      }
+
+      &-bio {
+        @extend %font-ui-body-md;
+      }
+
+      &-link {
+        @extend %font-ui-text-sm-uppercase;
+        display: block;
+        margin-top: rem(8px);
+        color: $color-primary-blue-400;
+      }
+    }
+  }
+
+  &__related {
+    padding-top: rem(40px);
+    padding-bottom: rem(72px);
+    @include full-width-background($color-gray-100);
+    background: $color-gray-100;
+
+    &-heading {
+      @extend %font-ui-section-heading-lg;
+      margin-bottom: rem(4px);
+      color: $color-black-100;
+    }
+
+    &-subheading {
+      margin-bottom: rem(32px);
+      color: $color-black-155;
+      font-family: $font-barlow;
+      font-weight: 400;
+      @include font-size(17px);
+      font-style: italic;
+      line-height: 1.15;
+
+      @include breakpoint('medium') {
+        margin-bottom: rem(24px);
+      }
+
+      @include breakpoint('large') {
+        margin-bottom: rem(40px);
+      }
+    }
+
+    &-resource-lib {
+      @extend %font-ui-text-lg;
+      color: $color-black-190;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+  }
+}

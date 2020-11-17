@@ -245,6 +245,7 @@
 }
 
 %font-copy-heading-5 {
+  font-weight: 500;
   @include font-size(20px);
   line-height: 1.14;
 }

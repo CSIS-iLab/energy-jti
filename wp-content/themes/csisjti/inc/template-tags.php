@@ -215,16 +215,18 @@ if (! function_exists('csisjti_authors_list_extended')) :
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
 
-				if ( $coauthor->website ) {
-					$name = '<a href="' . $coauthor->website . '">' . $coauthor->display_name . '</a>';
-				}
+				$authors .= '<div class="post__authors-author"><h3 class="post__authors-author-name">' . $name . '</h3><p class="post__authors-author-bio">' . $name . ' ' . $coauthor->description . '</p>';
 
-				$authors .= '<p class="post__authors-author">' . $name . ' ' . $coauthor->description . '</p>';
+				if ( $coauthor->website ) {
+					$authors .= '<a href="' . $coauthor->website . '" class="post__authors-author-link">Learn More ' . csisjti_get_svg( 'arrow-external' ) .'</a></div>';
+				} else {
+					$authors .= '</div>';
+				}
 			}
 		} else {
 			$authors = the_author_posts_link();
 		}
-		return '<div class="post__authors">' . $authors . '</div>';
+		return '<div class="post__authors"><hr class="post__authors-divider alignfull">' . $authors . '</div>';
 	}
 endif;
 
@@ -447,7 +449,6 @@ if (! function_exists('csisjti_resource_description')) :
 		}
 
 		printf( '<div class="post-block__desc">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $description ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 	}
 endif;
 

@@ -434,8 +434,8 @@ function the_field_without_wpautop( $field_name ) {
  * Modify the assets that are loaded on pages that use facets.
  */
 add_filter( 'facetwp_assets', function( $assets ) {
-		$assets['custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets.js';
-		unset( $assets['fSelect.css'] );
+        $assets['custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets.js';
+        unset( $assets['fSelect.css'] );
     return $assets;
 });
 
@@ -504,41 +504,45 @@ add_filter( 'facetwp_sort_html', function( $html, $params ) {
  * Modify FacetWP Pager Template
  */
 add_filter( 'facetwp_facet_html', function( $output, $params ) {
-		if ( 'numbers' !== $params['facet']['pager_type'] ) {
-			return $output;
-		}
-
-		$pager_args = FWP()->facet->pager_args;
-
-    $output = '';
-    $page = $pager_args['page'];
-		$total_pages = $pager_args['total_pages'];
-
-		$output .= '<div class="facetwp-pager-totals">
-			<strong class="is-highlighted">Page ' . $page . '</strong> of ' . $total_pages . '
-		</div>';
-
-		if ( 1 < $total_pages ) {
-			if ( $page === 1 ) {
-				$prev_disabled = ' is-disabled';
-			}
-
-			if ( $page == $total_pages ) {
-				$next_disabled = ' is-disabled';
-			}
-
-			$output .= '<div class="facetwp-pager-nav">';
-
-			$output .= '<a class="facetwp-page facetwp-page--prev' . $prev_disabled . '" data-page="' . ($page - 1) . '">' . csisjti_get_svg( 'chevron-left' ) . '</a>';
-
-			$output .= '<a class="facetwp-page facetwp-page--next' . $next_disabled . '" data-page="' . ($page + 1) . '">' . csisjti_get_svg( 'chevron-right' )  . '</a>';
-
-			$output .= '</div>';
-
+		if ( 'numbers' == $params['facet']['pager_type'] ) {
+			$output = csisjti_facetwp_pagination_output( $output, $params );
 		}
 
     return $output;
 }, 10, 2 );
+
+function csisjti_facetwp_pagination_output( $output, $params) {
+	$pager_args = FWP()->facet->pager_args;
+
+	$output = '';
+	$page = $pager_args['page'];
+	$total_pages = $pager_args['total_pages'];
+
+	$output .= '<div class="facetwp-pager-totals">
+		<strong class="is-highlighted">Page ' . $page . '</strong> of ' . $total_pages . '
+	</div>';
+
+	if ( 1 < $total_pages ) {
+		if ( $page === 1 ) {
+			$prev_disabled = ' is-disabled';
+		}
+
+		if ( $page == $total_pages ) {
+			$next_disabled = ' is-disabled';
+		}
+
+		$output .= '<div class="facetwp-pager-nav">';
+
+		$output .= '<a class="facetwp-page facetwp-page--prev' . $prev_disabled . '" data-page="' . ($page - 1) . '">' . csisjti_get_svg( 'chevron-left' ) . '</a>';
+
+		$output .= '<a class="facetwp-page facetwp-page--next' . $next_disabled . '" data-page="' . ($page + 1) . '">' . csisjti_get_svg( 'chevron-right' )  . '</a>';
+
+		$output .= '</div>';
+
+	}
+
+	return $output;
+}
 
 /**
  * Modifies the # of posts visible on an archive. For testing purposes only!!!
@@ -548,8 +552,8 @@ function set_posts_per_page( $query ) {
 
   global $wp_the_query;
 
-  if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_archive() ) ) {
-    $query->set( 'posts_per_page', 2 );
+  if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_post_type_archive( 'resource-library' ) ) ) {
+    $query->set( 'posts_per_page', 25 );
   }
 
   return $query;

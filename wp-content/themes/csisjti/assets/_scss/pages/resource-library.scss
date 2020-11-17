@@ -1,5 +1,7 @@
 @use '../abstracts' as *;
 @use '../components/facets-tabs';
+@use '../components/filters-modal';
+@use '../components/filters-modal-grid';
 
 :root {
   --top-bar-height: #{rem(72)};

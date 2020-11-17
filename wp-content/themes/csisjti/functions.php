@@ -184,7 +184,7 @@ function csisjti_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'csisjti-fonts', 'https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap', array(), $theme_version );
+	wp_enqueue_style( 'csisjti-google-fonts', 'https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Barlow:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap', array(), null );
 
 	wp_enqueue_style( 'csisjti-style', get_stylesheet_directory_uri() . '/style.min.css', array(), $theme_version );
 
@@ -242,6 +242,20 @@ function csisjti_register_scripts() {
 	if ( is_post_type_archive( 'resource-library' ) ) {
 		wp_enqueue_script( 'csisjti-js-resource-library', get_template_directory_uri() . '/assets/js/resource-library.min.js', array(), $theme_version, true );
 		wp_script_add_data( 'csisjti-js-resource-library', 'defer', true );
+
+		wp_enqueue_script( 'popper', 'https://unpkg.com/@popperjs/core@2', array(), '2.0.0', true );
+		wp_enqueue_script( 'tippy', 'https://unpkg.com/tippy.js@6', array(), '6.0.0', true );
+
+		$tippyInit = "
+			tippy('[data-tippy-content]', {
+				appendTo: 'parent',
+				hideOnClick: true,
+			})
+		";
+
+		wp_add_inline_script( 'tippy', $tippyInit, 'after' );
+
+
 	}
 
 }

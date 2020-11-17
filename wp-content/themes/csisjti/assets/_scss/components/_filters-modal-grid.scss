@@ -1,0 +1,162 @@
+@use '../abstracts' as *;
+
+$facet: '.facetwp-facet';
+
+.filters-modal {
+  display: grid;
+  grid-template-areas:
+    'title title-btns'
+    'analysis-heading analysis-heading'
+    'analysis analysis'
+    'topic topic'
+    'sectors-heading sectors-heading'
+    'sectors sectors'
+    'geo-heading geo-heading'
+    'geo geo'
+    'keywords-heading keywords-heading'
+    'keywords keywords'
+    'focus-areas-heading focus-areas-heading'
+    'focus-areas focus-areas'
+    'source source'
+    'pub-org-heading pub-org-heading'
+    'pub-org pub-org'
+    'pub-type-heading pub-type-heading'
+    'pub-type pub-type'
+    'author-heading author-heading'
+    'author author'
+    'pub-date-heading pub-date-heading'
+    'pub-date pub-date'
+    'format-heading format-heading'
+    'format format';
+  grid-template-columns: 1fr 1fr;
+  margin: rem(12) 0 rem(40);
+  padding: 0 6vw;
+  overflow: scroll;
+
+  @include breakpoint(large) {
+    grid-column-gap: 48px;
+    grid-template-areas:
+      'title title-btns'
+      'analysis-heading .'
+      'analysis analysis'
+      'topic topic'
+      'sectors-heading focus-areas-heading'
+      'sectors focus-areas'
+      'geo-heading focus-areas'
+      'geo focus-areas'
+      'keywords-heading focus-areas'
+      'keywords focus-areas'
+      'source source'
+      'pub-org-heading author-heading'
+      'pub-org author'
+      'pub-type-heading pub-date-heading'
+      'pub-type pub-date'
+      'pub-type format-heading'
+      'pub-type format';
+  }
+
+  /*----------  Grid Layout for Headings and SubHeadings  ----------*/
+
+  &__title {
+    grid-area: title;
+  }
+
+  &__btn-wrapper {
+    grid-area: title-btns;
+  }
+
+  &--analysis {
+    grid-area: analysis-heading;
+  }
+
+  &--topic {
+    grid-area: topic;
+  }
+
+  &--sectors {
+    grid-area: sectors-heading;
+  }
+
+  &--focus-areas {
+    grid-area: focus-areas-heading;
+  }
+
+  &--geo {
+    grid-area: geo-heading;
+  }
+
+  &--keywords {
+    grid-area: keywords-heading;
+  }
+
+  &--source {
+    grid-area: source;
+  }
+
+  &--pub-org {
+    grid-area: pub-org-heading;
+  }
+
+  &--author {
+    grid-area: author-heading;
+  }
+
+  &--pub-type {
+    grid-area: pub-type-heading;
+  }
+
+  &--pub-date {
+    grid-area: pub-date-heading;
+  }
+
+  &--format {
+    grid-area: format-heading;
+  }
+
+  /*----------  Grid Layout for Facets ----------*/
+
+  #{$facet}-analysis_type_modal {
+    grid-area: analysis;
+    margin-bottom: rem(40) !important;
+  }
+
+  #{$facet}-format_modal {
+    grid-area: format;
+  }
+
+  #{$facet}-sectors_modal {
+    grid-area: sectors;
+  }
+
+  #{$facet}-geographic_focus_modal {
+    grid-area: geo;
+  }
+
+  #{$facet}-keywords_modal {
+    grid-area: keywords;
+  }
+
+  #{$facet}-publishing_organization_modal {
+    grid-area: pub-org;
+  }
+
+  #{$facet}-publishing_organization_type_modal {
+    grid-area: pub-type;
+  }
+
+  #{$facet}-focus_areas_modal {
+    grid-area: focus-areas;
+  }
+
+  #{$facet}-author_modal {
+    grid-area: author;
+  }
+
+  #{$facet}-format_modal {
+    grid-area: format;
+  }
+
+  &__date-range {
+    grid-area: pub-date;
+  }
+}

@@ -31,8 +31,6 @@ dialog::backdrop {
   position: fixed;
   top: 50%;
   left: 50%;
-  // z-index: 3;
-  height: 600px;
   max-height: 100%;
   overflow: auto;
   background: $color-white-100;
@@ -41,25 +39,43 @@ dialog::backdrop {
   transform: translate(-50%, -50%);
 
   &[open] {
-    animation: appear 1s 1s 1 both;
+    animation: appear 1s 0s 1 both;
   }
-
 }
 
 .dialog-close {
   display: flex;
+  margin-top: rem(24);
   margin-left: auto;
+  color: $color-black-170;
   background-color: transparent;
   border: unset;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-primary-blue-400;
+  }
+
+  &:focus {
+    color: $color-black-170;
+  }
 }
 
 .classification-modal {
   width: 100%;
-  max-width: 680px;
-  margin: rem(24) 6vw;
+  margin: rem(24) 0;
+  padding: 0 6vw;
 
   @include breakpoint(xxlarge) {
     --container-padding: #{rem(80)};
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  * {
+    max-width: 680px;
   }
 
   &__heading {
@@ -71,33 +87,42 @@ dialog::backdrop {
     @extend %font-copy-body-long-lg;
     margin-bottom: rem(40);
   }
-
 }
 
 .list-items {
   &__name {
-    @extend %font-copy-heading-5;
     margin-bottom: rem(6);
+    color: $color-gray-text;
+    @extend %font-copy-heading-5;
   }
 
   &__desc {
-    @extend %font-copy-body-long-lg;
     margin-bottom: rem(40);
+    color: $color-black-190;
+    @extend %font-copy-body-long-lg;
   }
 }
 
 @keyframes fade-in {
-  from { opacity: 0;  }
+  from {
+    opacity: 0;
+  }
 
-  to { opacity: 1;  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes appear {
-  from { transform: translate(-50%, -40%);
-    opacity: 0; }
+  from {
+    transform: translate(-50%, -40%);
+    opacity: 0;
+  }
 
-  to { transform: translate(-50%, -50%);
-    opacity: 1; }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
 }
 
 .dialog:not([aria-hidden='true']) > .dialog-overlay {
