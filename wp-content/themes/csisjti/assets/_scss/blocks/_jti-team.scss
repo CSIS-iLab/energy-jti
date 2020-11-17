@@ -10,6 +10,10 @@
     column-gap: rem(32px);
   }
 
+  @include breakpoint('large') {
+    column-gap: rem(48px);
+  }
+
   .teams {
     &__team {
       margin-bottom: rem(48px);
