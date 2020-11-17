@@ -32,6 +32,14 @@
 		<?php get_template_part( 'template-parts/featured-image-caption' ); ?>
 		<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
 		<?php echo csisjti_authors_list_extended(); ?>
+		<?php $related_resources = get_field( 'related_resources' ); ?>
+		<?php if ( $related_resources ) : ?>
+			<?php foreach ( $related_resources as $post ) : ?>
+				<?php setup_postdata ( $post ); ?>
+				<?php get_template_part( 'template-parts/block-post-resource-library' ); ?>
+			<?php endforeach; ?>
+			<?php wp_reset_postdata(); ?>
+		<?php endif; ?>
 	</footer>
 	<?php } ?>
 </article><!-- .post -->
