@@ -1,6 +1,7 @@
 @use '../abstracts' as *;
 
 .csis-block--teams {
+  margin-top: rem(32px);
   text-align: center;
 
   @include breakpoint('medium') {
@@ -9,10 +10,19 @@
 
   .teams {
     &__team {
+      margin-bottom: rem(48px);
+
+      &:last-child {
+        margin-bottom: rem(40px);
+      }
+
       h3 {
         @extend %font-ui-text-lg;
+        margin-bottom: rem(24px);
+        padding-bottom: rem(8px);
         color: $color-black-100;
         text-transform: uppercase;
+        border-bottom: 1px solid $color-gray-line;
       }
       
       span {
@@ -30,8 +40,13 @@
       margin-left: 0;
     }
 
+    &__item {
+      margin-bottom: rem(32px);
+    }
+
     &__img {
       display: block;
+      margin-bottom: rem(16px);
       
       img {
         margin: 0 auto;
@@ -40,6 +55,8 @@
 
     &__name {
       @extend %font-ui-headline-md;
+      display: block;
+      margin-bottom: rem(8px);
       color: $color-black-100;
       text-decoration: underline;
 
@@ -56,6 +73,7 @@
 
     &__institution {
       @extend %font-ui-text-lg;
+      margin-bottom: rem(8px);
       color: $color-black-190;
     }
     
