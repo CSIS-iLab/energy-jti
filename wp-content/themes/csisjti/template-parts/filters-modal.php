@@ -25,7 +25,7 @@
     <button id="filters-apply-btn" class="btn btn--apply" onclick="FWP.refresh()">Apply</button>
   </div>
 
-  <div class="filters-modal__subheading filters-modal--analysis" >
+  <div class="filters-modal__subheading filters-modal--analysis" data-tippy-content="<?php echo 'placeholder'; ?>">
     Analysis Type
     <?php echo csisjti_get_svg('info'); ?>
   </div>
@@ -34,7 +34,7 @@
 
   <h3 class="filters-modal__heading filters-modal--topic">Topic Scope</h3>
 
-  <div class="filters-modal__subheading filters-modal--sectors">
+  <div class="filters-modal__subheading filters-modal--sectors" data-tippy-content="<?php echo 'placeholder'; ?>">
     Sectors
     <?php echo csisjti_get_svg('info'); ?>
   </div>
@@ -43,7 +43,7 @@
     echo facetwp_display( 'facet', 'sectors_checkboxes' ); 
   ?>
 
-  <div class="filters-modal__subheading filters-modal--keywords" >
+  <div class="filters-modal__subheading filters-modal--keywords" data-tippy-content="<?php echo 'placeholder'; ?>">
     Keywords
     <?php echo csisjti_get_svg('info'); ?>
   </div>
@@ -66,7 +66,7 @@
     echo facetwp_display( 'facet', 'publishing_organization_type' ); 
   ?>
   
-  <div class="filters-modal__subheading filters-modal--focus-areas" >
+  <div class="filters-modal__subheading filters-modal--focus-areas filters-modal--tooltip" data-tippy-content="<?php echo 'placeholder'; ?>">
     Focus Areas
     <?php echo csisjti_get_svg('info'); ?>
   </div>

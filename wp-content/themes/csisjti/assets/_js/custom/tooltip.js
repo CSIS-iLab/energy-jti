@@ -5,10 +5,9 @@
 import tippy from 'tippy.js'
 
 const Tooltip = () => {
-  tippy('.filters-modal__subheading', {
-    content: 'Tooltip',
+  tippy('[data-tippy-content]', {
     appendTo: 'parent',
-    zIndex: 9999999999999999,
+    hideOnClick: true,
   })
 }
 

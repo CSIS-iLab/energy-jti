@@ -70,10 +70,5 @@ module.exports = {
     //     chunks: 'all',
     //   },
     // },
-    externalsType: 'script',
-    externals: {
-      tippy: ['https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js',
-      'https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js']
-      }
   },
 }
