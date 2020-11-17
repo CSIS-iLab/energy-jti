@@ -41,12 +41,16 @@
       ['author', 'author_modal'],
     ]
 
+    let tempFacets = []
     if (!hasRun) {
       console.log('running')
+
+      // Open the Modal by clicking the "Filters" button.
       document
         .getElementById('filters-btn')
         .addEventListener('click', function () {
-          console.log('clicked more button')
+          // Set our temp facets, which we'll use in case the user closes the modal without applying.
+          tempFacets = FWP.facets
 
           for (let i = 0; i < pairs.length; i++) {
             const pair = pairs[i]
@@ -59,10 +63,30 @@
           FWP.fetch_data()
         })
 
+      // Close the modal without saving anything. Revert back to what we had in our side search.
+      document
+        .querySelector('.dialog-close')
+        .addEventListener('click', function () {
+          if (tempFacets.length === 0) {
+            return
+          }
+          FWP.facets = tempFacets
+          FWP.parse_facets()
+          for (let i = 0; i < pairs.length; i++) {
+            const pair = pairs[i]
+            if ('undefined' !== typeof FWP.facets[pair[0]]) {
+              FWP.facets[pair[0]] = tempFacets[pair[1]] // Copy temp value to side search
+              FWP.facets[pair[1]] = [] // Clear modal values
+            }
+          }
+          tempFacets = []
+          FWP.fetch_data()
+        })
+
+      // Click on the "Apply" button in the modal.
       document
         .getElementById('filters-apply-btn')
         .addEventListener('click', function () {
-          console.log('clicked apply button')
           FWP.parse_facets()
           for (let i = 0; i < pairs.length; i++) {
             const pair = pairs[i]
@@ -71,8 +95,7 @@
               FWP.facets[pair[1]] = [] // Clear modal values
             }
           }
-          console.log('fetch data')
-          console.log(FWP.facets)
+          tempFacets = []
           FWP.fetch_data()
         })
     }
@@ -243,7 +266,6 @@
             el.getAttribute('data-value').slice(4, 6) - 1,
             1
           )
-          console.log(startDate, endDate)
           if (elDate >= startDate && elDate <= endDate) {
             el.click()
           }
