@@ -1,0 +1,27 @@
+@use 'abstracts' as *;
+
+.tippy-content {
+  position: relative;
+  max-width: 200px;
+  padding: 0.75rem;
+  color: $color-black-100;
+  text-align: left;
+  background-color: $color-gray-field;
+  border: 2px solid $color-gray-300;
+  border-radius: 2px;
+  @extend %font-ui-text-md;
+}
+
+.tippy-box {
+  position: relative;
+}
+
+.tippy-arrow::before,
+.tippy-arrow::after {
+  border-top-color: $color-gray-300 !important;
+}
+
+/* stylelint-disable-next-line */
+div[data-tippy-content] {
+  cursor: pointer;
+}
