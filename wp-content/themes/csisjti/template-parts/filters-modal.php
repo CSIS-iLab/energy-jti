@@ -21,8 +21,9 @@
   <h2 class="filters-modal__title">All Filters</h2>
 
   <div class="filters-modal__btn-wrapper">
-    <button id="filters-reset-btn" class="btn--reset" onclick="FWP.reset()">Clear All</button>
-    <button id="filters-apply-btn" class="btn btn--apply" onclick="FWP.refresh()">Apply</button>
+		<button id="filters-reset-btn" class="btn--reset" onclick="FWP.reset()">Clear All</button>
+		<div class="filters-modal__totals btn btn--round fp-num_filters_applied">0</div>
+    <button id="filters-apply-btn" class="btn btn--apply">Apply</button>
   </div>
 
   <div class="filters-modal__subheading filters-modal--analysis" id="myButton" >
@@ -39,8 +40,8 @@
     <?php echo csisjti_get_svg('info'); ?>
   </div>
 
-  <?php 
-    echo facetwp_display( 'facet', 'sectors_checkboxes' ); 
+  <?php
+    echo facetwp_display( 'facet', 'sectors_checkboxes' );
   ?>
 
   <div class="filters-modal__subheading filters-modal--keywords" >
@@ -48,47 +49,47 @@
     <?php echo csisjti_get_svg('info'); ?>
   </div>
 
-  <?php 
-    echo facetwp_display( 'facet', 'keywords' ); 
+  <?php
+    echo facetwp_display( 'facet', 'keywords' );
   ?>
 
   <div class="filters-modal__subheading filters-modal--geo">Geographic Focus</div>
-  <?php echo facetwp_display( 'facet', 'geographic_focus' ); ?>
- 
+  <?php echo facetwp_display( 'facet', 'geographic_focus_modal' ); ?>
+
   <h3 class="filters-modal__heading filters-modal--source">Source Information</h3>
   <div class="filters-modal__subheading filters-modal--pub-org">Publishing Organization</div>
-  <?php  
+  <?php
     echo facetwp_display( 'facet', 'publishing_organization' );
   ?>
-  
+
   <div class="filters-modal__subheading filters-modal--pub-type">Publishing Organization Type</div>
   <?php
-    echo facetwp_display( 'facet', 'publishing_organization_type' ); 
+    echo facetwp_display( 'facet', 'publishing_organization_type' );
   ?>
-  
+
   <div class="filters-modal__subheading filters-modal--focus-areas" >
     Focus Areas
     <?php echo csisjti_get_svg('info'); ?>
   </div>
-  <?php 
-    echo facetwp_display( 'facet', 'focus_areas_checkboxes' ); 
+  <?php
+    echo facetwp_display( 'facet', 'focus_areas_checkboxes' );
   ?>
 
   <div class="filters-modal__subheading filters-modal--author">Author</div>
   <?php
-    echo facetwp_display( 'facet', 'author' ); 
+    echo facetwp_display( 'facet', 'author' );
   ?>
 
   <div class="filters-modal__subheading filters-modal--pub-date">Publish Date Range</div>
-  
+
   <div aria-hidden="true"><?php echo facetwp_display( 'facet', 'publish_date' ); ?></div>
 
   <?php get_template_part( 'template-parts/filters-modal-date-range' ); ?>
 
   <div class="filters-modal__subheading filters-modal--format">Format</div>
   <?php
-    echo facetwp_display( 'facet', 'format_checkboxes' ); 
+    echo facetwp_display( 'facet', 'format_checkboxes' );
   ?>
 
 </div>
-    
+

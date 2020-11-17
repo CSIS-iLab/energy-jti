@@ -8,7 +8,7 @@ $facet: '.facetwp-facet';
       height: rem(60);
       margin-bottom: rem(12) !important; // Override plugin default styles
     }
-  
+
     // Hides counters next to items
     &-counter {
       display: none;
@@ -76,33 +76,24 @@ $facet: '.facetwp-facet';
     position: relative;
     display: flex;
     justify-content: flex-end;
+  }
 
-    &::after {
-      content: '5';
-      position: absolute;
-      top: 6%;
-      right: 120px;
-      padding: rem(4) rem(12);
-      @extend %font-ui-text-sm;
-      color: $color-white-190;
-      font-weight: bold;
-      background: $color-primary-blue-400 !important;
-      border-color: $color-primary-blue-300 !important;
-      border-radius: 30px;
+  .filters-modal__totals {
+    margin-right: rem(40);
+    margin-left: rem(20);
+    font-weight: bold;
+
+    &:hover {
       cursor: default;
     }
   }
 
   .btn--apply,
-  .btn--reset {
+  .btn--reset,
+  .filters-modal__totals {
     display: inline-block;
     max-width: 150px;
     height: 32px;
-  }
-
-  .btn--reset {
-    position: relative;
-    right: 96px;
   }
 
   .btn--apply {
@@ -132,7 +123,7 @@ $facet: '.facetwp-facet';
     display: flex;
     flex-wrap: wrap;
     height: unset !important;
-  
+
     .facetwp-checkbox {
       margin-right: rem(8);
       padding: rem(8);
@@ -157,11 +148,11 @@ $facet: '.facetwp-facet';
         border-color: $color-primary-blue-700 !important;
       }
     }
-    
+
     .fs-checkbox {
       display: none;
     }
-  } 
+  }
 
   #{$facet}-sectors_checkboxes,
   #{$facet}-publishing_organization_type {
@@ -176,7 +167,7 @@ $facet: '.facetwp-facet';
     }
   }
 
-  // The following z-indexes cover proceeding search bars 
+  // The following z-indexes cover proceeding search bars
   #{$facet}-geographic_focus {
     .fs-wrap {
       z-index: 505;
@@ -205,8 +196,8 @@ $facet: '.facetwp-facet';
 
   /*----------  Facet: Checkbox  ----------*/
 
-  #{$facet}-sectors_checkboxes, 
-  #{$facet}-publishing_organization_type, 
+  #{$facet}-sectors_checkboxes,
+  #{$facet}-publishing_organization_type,
   #{$facet}-focus_areas_checkboxes {
     height: unset !important;
     margin-bottom: rem(40) !important;
@@ -232,7 +223,7 @@ $facet: '.facetwp-facet';
       i {
         border-width: 2px;
       }
-    
+
       &.checked {
         --checkbox-bg: #{$color-primary-blue-400};
         --checkbox-border: #{$color-primary-blue-300};
@@ -315,7 +306,7 @@ $facet: '.facetwp-facet';
       }
     }
   }
-  
+
   /*----------  Facet: Additional Dropdown Styling  ----------*/
 
   .facetwp-type-fselect {
@@ -325,7 +316,7 @@ $facet: '.facetwp-facet';
     .fs-wrap {
       position: relative;
     }
-    
+
     .fs-dropdown {
       top: 0;
 
@@ -353,8 +344,7 @@ $facet: '.facetwp-facet';
         display: none;
       }
 
-      .fs-search { 
-
+      .fs-search {
         &::after {
           transform: rotate(-180deg);
         }
@@ -401,8 +391,9 @@ $facet: '.facetwp-facet';
   &__date-range {
     position: relative;
     display: flex;
-    margin-bottom: rem(40);
     flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: rem(40);
 
     @include breakpoint(large) {
       flex-direction: row;
@@ -432,7 +423,7 @@ $facet: '.facetwp-facet';
     }
 
     .select-styled {
-      position: absolute; 
+      position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
@@ -459,11 +450,11 @@ $facet: '.facetwp-facet';
       }
 
       &:hover {
-        box-shadow: 0 1px 2px $color-primary-blue-600, 0 3px 3px rgba(2, 3, 3, 0.02),
-          0 1px 8px rgba(2, 3, 3, 0.04);
+        box-shadow: 0 1px 2px $color-primary-blue-600,
+          0 3px 3px rgba(2, 3, 3, 0.02), 0 1px 8px rgba(2, 3, 3, 0.04);
       }
     }
-    
+
     .select-options {
       position: absolute;
       top: 100%;
@@ -471,7 +462,7 @@ $facet: '.facetwp-facet';
       left: 0;
       z-index: 400;
       max-height: 200px;
-      display: none; 
+      display: none;
       margin: 0;
       padding: 0;
       overflow: auto;
@@ -511,5 +502,4 @@ $facet: '.facetwp-facet';
       }
     }
   }
-  
 }

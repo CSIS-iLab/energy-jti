@@ -39,9 +39,8 @@ dialog::backdrop {
   transform: translate(-50%, -50%);
 
   &[open] {
-    animation: appear 1s 1s 1 both;
+    animation: appear 1s 0s 1 both;
   }
-
 }
 
 .dialog-close {
@@ -88,7 +87,6 @@ dialog::backdrop {
     @extend %font-copy-body-long-lg;
     margin-bottom: rem(40);
   }
-
 }
 
 .list-items {
@@ -104,17 +102,25 @@ dialog::backdrop {
 }
 
 @keyframes fade-in {
-  from { opacity: 0;  }
+  from {
+    opacity: 0;
+  }
 
-  to { opacity: 1;  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes appear {
-  from { transform: translate(-50%, -40%);
-    opacity: 0; }
+  from {
+    transform: translate(-50%, -40%);
+    opacity: 0;
+  }
 
-  to { transform: translate(-50%, -50%);
-    opacity: 1; }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
 }
 
 .dialog:not([aria-hidden='true']) > .dialog-overlay {

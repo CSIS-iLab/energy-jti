@@ -2,17 +2,17 @@
 
 $facet: '.facetwp-facet';
 
-.filters-modal {  
+.filters-modal {
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     'title title-btns'
     'analysis-heading analysis-heading'
     'analysis analysis'
     'topic topic'
     'sectors-heading sectors-heading'
     'sectors sectors'
-    'geo-heading geo-heading' 
-    'geo geo' 
+    'geo-heading geo-heading'
+    'geo geo'
     'keywords-heading keywords-heading'
     'keywords keywords'
     'focus-areas-heading focus-areas-heading'
@@ -35,7 +35,7 @@ $facet: '.facetwp-facet';
 
   @include breakpoint(large) {
     grid-column-gap: 48px;
-    grid-template-areas: 
+    grid-template-areas:
       'title title-btns'
       'analysis-heading .'
       'analysis analysis'
@@ -61,7 +61,7 @@ $facet: '.facetwp-facet';
     grid-area: title;
   }
 
-  &__btn-wrapper { 
+  &__btn-wrapper {
     grid-area: title-btns;
   }
 
@@ -128,7 +128,7 @@ $facet: '.facetwp-facet';
     grid-area: sectors;
   }
 
-  #{$facet}-geographic_focus {
+  #{$facet}-geographic_focus_modal {
     grid-area: geo;
   }
 
@@ -159,6 +159,4 @@ $facet: '.facetwp-facet';
   &__date-range {
     grid-area: pub-date;
   }
-
 }
-
