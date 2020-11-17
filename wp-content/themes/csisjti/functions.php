@@ -184,7 +184,7 @@ function csisjti_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'csisjti-fonts', 'https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Barlow:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap', array(), $theme_version );
+	wp_enqueue_style( 'csisjti-google-fonts', 'https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Barlow:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap', array(), null );
 
 	wp_enqueue_style( 'csisjti-style', get_stylesheet_directory_uri() . '/style.min.css', array(), $theme_version );
 
