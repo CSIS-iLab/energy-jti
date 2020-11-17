@@ -125,6 +125,7 @@ $page-colors: (
   'analysis': (
     color: #73bf20,
     gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/analysis.png'),
       linear-gradient(
         220.16deg,
         rgba(153, 163, 70, 0.97) 0%,
@@ -143,6 +144,7 @@ $page-colors: (
   'events': (
     color: #6a268a,
     gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/events.png'),
       linear-gradient(
         220.16deg,
         rgba(228, 89, 89, 0.47) 0%,
@@ -179,6 +181,7 @@ $page-colors: (
   'jti': (
     color: #e2992b,
     gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/jti.png'),
       linear-gradient(220.16deg, #e4d759 0%, rgba(245, 196, 60, 0) 60.1%),
       linear-gradient(
         270.44deg,

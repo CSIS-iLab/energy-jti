@@ -3,6 +3,16 @@
 @use '../components/post-typography';
 @use '../blocks/download-button';
 
+.page {
+  &--about_jti {
+    --page-header-bg: var(--page-header-jti);
+  }
+
+  &--transitions {
+    --page-header-bg: var(--page-header-transitions);
+  }
+}
+
 .single {
   &__content,
   &__footer {
