@@ -733,3 +733,104 @@ function csisjti_group_acf_tax_by_parent( $field ) {
 	return $html;
 }
 endif;
+
+/**
+ * Displays Event Date.
+ *
+ *
+ * @return string $html The event date.
+ */
+if (! function_exists('csisjti_event_date')) :
+	function csisjti_event_date() {
+		$date = get_field( 'date_of_event' );
+
+		if ( !$date ) {
+			return;
+		}
+
+		/* translators: 1: list of tags. */
+		printf( '<div class="post-meta__date">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $date ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Event Details such as time & address, but only if this is an upcoming event. Otherwise show a notice that this event has already occurred.
+ *
+ *
+ * @return string $html The event time.
+ */
+if (! function_exists('csisjti_event_details')) :
+	function csisjti_event_details() {
+		// If this is a past event, show banner that it's past.
+		$date = get_field( 'date_of_event' );
+		$is_past_event = false;
+
+		if ( $date < date("Y-m-d") ) {
+			$is_past_event = true;
+
+			$past_class = 'past';
+			$icon = csisjti_get_svg( 'calendar' );
+			$text = 'This event has already occurred.';
+
+			$has_video = get_field( 'has_video_available' );
+
+			if ( $has_video ) {
+				$past_class = 'past-video';
+				$icon = csisjti_get_svg( 'videocam' );
+				$text = 'Video Available';
+			}
+
+			printf( '<div class="post-meta post-meta__details post-meta__details--' . esc_html__( '%1$s', 'csisjti' ) .'">' . esc_html__( '%2$s', 'csisjti' ) . esc_html__( '%3$s', 'csisjti' ) . '</div>', $past_class, $icon, $text ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+			return;
+		}
+
+		$time = get_field( 'time' );
+		$location = get_field( 'location' );
+
+		if ( !$time && !$location ) {
+			return;
+		}
+
+
+		$timeHTML = '';
+		if ($time) {
+			$timeHTML = '<dt class="post-meta__label">Time</dt><dd>' . $time . '</dd>';
+		}
+
+		$locationHTML = '';
+		if ($location) {
+			$locationHTML = '<dt class="post-meta__label">Location</dt><dd><address>' . $location . '</address></dd>';
+		}
+
+		printf( '<dl class="post-meta post-meta__details post-meta__details--upcoming">' . esc_html__( '%1$s', 'csisjti' ) . esc_html__( '%2$s', 'csisjti' ) . '</dl>', $timeHTML, $locationHTML ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Event Post Sponsored short text.
+ *
+ *
+ * @return string $html The sponsored short text.
+ */
+if (! function_exists('csisjti_event_sponsored_short')) :
+	function csisjti_event_sponsored_short() {
+		$sponsored_short = '';
+
+		if( have_rows('sponsor_or_partners') ):
+			while ( have_rows('sponsor_or_partners') ) : the_row();
+				$sponsored_short = get_sub_field('short_description');
+			endwhile;
+		endif;
+
+
+		if ( !$sponsored_short ) {
+			return;
+		}
+
+		printf( '<div class="post-meta post-meta__sponsored">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $sponsored_short ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;

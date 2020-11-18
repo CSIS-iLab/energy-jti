@@ -15,17 +15,9 @@
 
 <article <?php post_class('post-block post-block--event'); ?> id="post-<?php the_ID(); ?>">
 
-	<?php if ( has_post_thumbnail() ) : ?>
-    <a href="<?php the_permalink(); ?>" class="post-block__img" title="<?php the_title_attribute(); ?>">
-      <?php the_post_thumbnail( 'large' ); ?>
-    </a>
-	<?php endif; ?>
-
 	<?php
-		csisjti_display_categories();
-	?>
 
-	<?php
+	csisjti_event_date();
 
 	the_title( '<h2 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
 
@@ -34,5 +26,7 @@
 	?>
 
 	<p class="post-block__excerpt"> <?php echo get_the_excerpt(); ?></p>
+
+	<?php csisjti_event_details(); ?>
 
 </article><!-- .post -->

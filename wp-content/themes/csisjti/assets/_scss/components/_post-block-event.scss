@@ -1,0 +1,98 @@
+@use 'abstracts' as *;
+
+.post-block--event {
+  --meta-categories: #{$color-primary-green-300};
+
+  $post: '.post-block';
+
+  display: grid;
+  grid-template-areas:
+    'date'
+    'title'
+    'sponsor'
+    'excerpt'
+    'details';
+  grid-template-columns: 1fr;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include breakpoint('medium') {
+    grid-template-areas:
+      'date title'
+      'date sponsor'
+      'date excerpt'
+      'date details';
+    grid-template-columns: max-content auto;
+    max-width: 840px;
+    column-gap: rem(32);
+  }
+
+  @include breakpoint('large') {
+    grid-template-areas:
+      'date title details'
+      'date sponsor details'
+      'date excerpt details';
+    grid-template-columns: max-content minmax(auto, 640px) minmax(auto, 200px);
+    max-width: 1040px;
+    column-gap: rem(40);
+  }
+
+  #{$post}__title {
+    grid-area: title;
+    margin-bottom: rem(8px);
+  }
+
+  #{$post}__excerpt {
+    grid-area: excerpt;
+  }
+
+  .post-meta__date {
+    grid-area: date;
+    max-width: 120px;
+  }
+
+  .post-meta__sponsored {
+    grid-area: sponsor;
+    margin-bottom: rem(16);
+  }
+
+  .post-meta__details {
+    grid-area: details;
+    margin-bottom: rem(16);
+
+    &--upcoming {
+      dt {
+        color: $color-primary-green-400;
+        @extend %font-ui-text-sm-bold-uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      dd {
+        color: $color-black-100;
+        @extend %font-body-short-sm;
+
+        + dt {
+          margin-top: rem(8);
+        }
+      }
+    }
+
+    &--past {
+      display: none;
+    }
+
+    &--past-video {
+      display: flex;
+      color: $color-primary-green-400;
+      @extend %font-ui-text-sm-bold-uppercase;
+      letter-spacing: 0.5px;
+
+      .icon {
+        width: 1.1em;
+        height: 1.1em;
+        margin-right: rem(8);
+      }
+    }
+  }
+}

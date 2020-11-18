@@ -8,6 +8,10 @@
     color: var(--meta-date);
   }
 
+  &__sponsored {
+    color: $color-black-155;
+  }
+
   &__categories {
     margin-bottom: rem(4);
     color: var(--meta-categories);
