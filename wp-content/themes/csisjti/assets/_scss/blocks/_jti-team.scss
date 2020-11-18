@@ -95,6 +95,7 @@
       margin-bottom: rem(8px);
       color: $color-black-100;
       text-decoration: underline;
+      transition: all 0.3s ease-in-out;
 
       &::after {
         content: '';
@@ -104,6 +105,11 @@
         text-decoration: none;
         background-image: url('/wp-content/themes/csisjti/assets/static/icons/arrow-external.svg');
         background-size: 100% 100%;
+      }
+
+      &:hover {
+        color: $color-primary-blue-200;
+        text-decoration: none;
       }
     }
 
