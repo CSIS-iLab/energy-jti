@@ -57,7 +57,6 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      // z-index: 2;
       @include vw100;
       margin-left: calc(50% - (50vw - var(--scrollbar)));
       background: var(--page-header-home);
@@ -69,17 +68,6 @@
     .video {
       width: 100%;
     }
-    // iframe {
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 50%;
-    //   min-width: 100%;
-    //   min-height: 100%;
-    //   width: auto;
-    //   height: auto;
-    //   z-index: -100;
-    //   transform: translate(-50%, -50%);
-    // }
   }
 
   &__analysis {
@@ -105,14 +93,22 @@
     }
 
     &--content {
+      // @include full-width-background(#F5F7F7, left);
+      
       @include breakpoint(large) {
-        column-count: 2;
-        column-gap: rem(32);
-        break-inside: avoid;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: 
+        'primary secondary'
+        'primary secondary'
+        'primary secondary'
+        'primary secondary';
       }
 
       .post-block:not(:first-of-type) .post-block__excerpt {
         display: none;
+        grid-column: 2;
+        grid-area: secondary;
       }
 
       .post-block:first-of-type {
@@ -123,12 +119,14 @@
           'date'
           'excerpt';
         grid-template-columns: 1fr;
+        grid-column: 1;
+        grid-area: primary;
 
         .post-block__img {
           margin-bottom: rem(24);
         }
       }
-
+      
       .cta {
         float: right;
         margin-bottom: rem(16);
@@ -149,7 +147,8 @@
   }
 
   &__inline-filters {
-    $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
+    // $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
+    $tab-gradient: $color-primary-blue-400;
     grid-row: 1;
     background: $tab-gradient;
     margin-top: rem(-64);
@@ -169,7 +168,7 @@
       line-height: 1.15;
       letter-spacing: 0.5px;
       margin-top: rem(-55);
-      padding: rem(16) rem(16) rem(12);
+      padding: rem(16) rem(24) rem(12);
       white-space: nowrap;
       max-width: fit-content;
       background: $tab-gradient;
@@ -203,7 +202,7 @@
       margin-top: rem(12);
       margin-bottom: rem(8);
       color: $color-white-190;
-      padding-left: rem(16);
+      padding-left: rem(24);
       max-width: 66%;
     }
 
@@ -211,7 +210,7 @@
       @extend %font-ui-body-md;
       margin-top: rem(12);
       color: $color-white-170;
-      padding-left: rem(16);
+      padding-left: rem(24);
       max-width: 66%;
     }
 
@@ -228,7 +227,7 @@
       display: flex;
       float: right;
       margin-right: rem(50);
-      margin-top: rem(12);
+      margin-top: rem(12) rem(24);
 
       &:hover {
         background-color: $color-primary-blue-200;
@@ -263,7 +262,7 @@
 
   .csis-block--gray-section {
     position: relative;
-    padding: rem(16) 0;
+    padding: rem(32) 0 rem(48);
     margin: 0 auto;
     width: 100%;
 

@@ -44,7 +44,7 @@ get_header();
 				echo csisjti_get_svg( 'arrow-right' ); ?>
 			</a>
 		</div>
-		<div class="home__inline-filters">
+		<div class="home__inline-filters resource-library__inline-filters">
 			<h3 class="home__inline-filters--subheading">Explore the Resource Library</h3>
 			<p class="home__inline-filters--desc">Browse resources or search for specific analysis, strategies, and case studies.</p>
 			<?php
