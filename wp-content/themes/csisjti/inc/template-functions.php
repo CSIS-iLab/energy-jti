@@ -434,8 +434,16 @@ function the_field_without_wpautop( $field_name ) {
  * Modify the assets that are loaded on pages that use facets.
  */
 add_filter( 'facetwp_assets', function( $assets ) {
-        $assets['custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets.js';
-        unset( $assets['fSelect.css'] );
+		if ( !is_front_page() ) {
+			$assets['custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets.js';
+		}
+
+		if ( is_front_page() ) {
+			$assets['homepage-custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets-homepage.js';
+		}
+
+		unset( $assets['fSelect.css'] );
+
     return $assets;
 });
 
@@ -559,22 +567,5 @@ function set_posts_per_page( $query ) {
   return $query;
 }
 
-// /** makes sure the is_home query defaults to post rather than any post_type **/
-// add_filter( 'facetwp_is_main_query', function( $is_main_query, $query ) {
-//     if ( is_home() && $is_main_query && empty( $query->get('post_type') ) ) {
-//         $query->set( 'post_type', 'post' );
-//     }
-//     return $is_main_query;
-// }, 10, 2);
 
-add_filter( 'facetwp_template_html', function( $output, $class ) {
-    $GLOBALS['wp_query'] = $class->query;
-    ob_start();
-?>
-    <?php while ( have_posts() ): the_post(); ?>
-    <p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-    <?php endwhile; ?>
-<?php
-    return ob_get_clean();
-}, 10, 2 );
 

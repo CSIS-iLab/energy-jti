@@ -1,8 +1,7 @@
 @use '../abstracts' as *;
 
 .home {
-
-  &-header {   
+  &-header {
     --header-margin-bottom: #{rem(56)};
     position: relative;
     width: 100%;
@@ -19,7 +18,7 @@
       letter-spacing: 1.5px;
       color: $color-white-100;
       top: calc(100% - 250px);
-  
+
       &::after {
         content: '';
         display: block;
@@ -29,7 +28,7 @@
         background: $color-white-155;
       }
     }
-  
+
     &__desc {
       position: absolute;
       z-index: 10;
@@ -44,9 +43,8 @@
       max-width: 50%;
     }
   }
-   
 
-/* Makes a fixed background wrapper */
+  /* Makes a fixed background wrapper */
 
   .iframe-wrapper {
     position: relative;
@@ -63,8 +61,8 @@
       @include vw100;
       margin-left: calc(50% - (50vw - var(--scrollbar)));
       background: var(--page-header-home);
-      z-index: 1; 
-      mix-blend-mode: soft-light; 
+      z-index: 1;
+      mix-blend-mode: soft-light;
       pointer-events: none;
     }
 
@@ -80,8 +78,6 @@
       transform: translate(-50%, -50%);
     }
   }
-
-    
 
   &__analysis {
     margin-top: rem(40);
@@ -104,9 +100,8 @@
         color: $color-black-190;
       }
     }
-  
+
     &--content {
-      
       @include breakpoint(large) {
         column-count: 2;
         column-gap: rem(32);
@@ -209,7 +204,7 @@
     }
 
     div {
-      height: 300px;
+      // height: 300px;
       margin-right: var(--tab-width);
     }
   }
@@ -235,7 +230,6 @@
     .cta {
       margin-bottom: rem(16);
     }
-  
   }
 
   .csis-block--gray-section {
