@@ -74,10 +74,11 @@
     }
 
     &__img {
-      display: block;
+      display: inline-block;
       grid-column: 1;
       grid-row: 1 / span 3;
       margin-bottom: rem(16px);
+      max-width: fit-content;
       
       img {
         margin: 0 auto;
