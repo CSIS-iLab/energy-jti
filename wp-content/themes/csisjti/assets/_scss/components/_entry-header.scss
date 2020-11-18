@@ -29,7 +29,7 @@
       'desc secondary-content'
       'date secondary-content'
       '. secondary-content';
-    grid-template-columns: minmax(auto, 700px) minmax(auto, 1fr);
+    grid-template-columns: minmax(auto, 700px) minmax(auto, 315px);
     grid-template-rows:
       max-content minmax(0, max-content) max-content minmax(0, max-content)
       auto;
@@ -142,7 +142,16 @@
     img {
       width: 100%;
     }
+  }
 
+  .featured-media__caption {
+    margin-top: rem(4px);
+    @include font-size(16);
+    color: $color-black-170;
+  }
+
+  .post-block__img,
+  .event-block {
     &::before {
       display: none;
 
@@ -156,11 +165,5 @@
         border-left: 1px solid $color-white-155;
       }
     }
-  }
-
-  .featured-media__caption {
-    margin-top: rem(4px);
-    @include font-size(16);
-    color: $color-black-170;
   }
 }

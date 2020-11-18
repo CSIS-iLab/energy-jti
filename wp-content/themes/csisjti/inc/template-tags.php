@@ -704,8 +704,14 @@ if (! function_exists('csisjti_event_date')) :
 		$month = date("M", strtotime($date));
 		$day = $date_array[2];
 
+		$past_class = "event-date";
+
+		if ( $date < date("Y-m-d") ) {
+			$past_class = " event-date--past";
+		}
+
 		/* translators: 1: list of tags. */
-		printf( '<div class="post-meta__date event-date"><div class="event-date__month">' . esc_html__( '%1$s', 'csisjti' ) . '</div><div class="event-date__day">' . esc_html__( '%2$s', 'csisjti' ) . '</div><div class="event-date__year">' . esc_html__( '%3$s', 'csisjti' ) . '</div></div>', $month, $day, $year ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<div class="post-meta__date event-date' . esc_html__( '%1$s', 'csisjti' ) . '"><div class="event-date__month">' . esc_html__( '%2$s', 'csisjti' ) . '</div><div class="event-date__day">' . esc_html__( '%3$s', 'csisjti' ) . '</div><div class="event-date__year">' . esc_html__( '%4$s', 'csisjti' ) . '</div></div>', $past_class, $month, $day, $year ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;
@@ -725,19 +731,17 @@ if (! function_exists('csisjti_event_details')) :
 		if ( $date < date("Y-m-d") ) {
 			$is_past_event = true;
 
-			$past_class = 'past';
-			$icon = csisjti_get_svg( 'calendar' );
-			$text = 'This event has already occurred.';
+			$pastHTML = '<div class="post-meta__details-past">' . csisjti_get_svg( 'calendar' ) .  'This event has already occurred.</div>';
 
 			$has_video = get_field( 'has_video_available' );
 
+			$videoHTML = '';
+
 			if ( $has_video ) {
-				$past_class = 'past-video';
-				$icon = csisjti_get_svg( 'videocam' );
-				$text = 'Video Available';
+				$videoHTML = '<div class="post-meta__details-video">' . csisjti_get_svg( 'videocam' ) . 'Video Available</div>';
 			}
 
-			printf( '<div class="post-meta post-meta__details post-meta__details--' . esc_html__( '%1$s', 'csisjti' ) .'">' . esc_html__( '%2$s', 'csisjti' ) . esc_html__( '%3$s', 'csisjti' ) . '</div>', $past_class, $icon, $text ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<div class="post-meta post-meta__details">' . esc_html__( '%1$s', 'csisjti' ) . esc_html__( '%2$s', 'csisjti' ) . '</div>', $pastHTML, $videoHTML ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 			return;
 		}
@@ -752,12 +756,12 @@ if (! function_exists('csisjti_event_details')) :
 
 		$timeHTML = '';
 		if ($time) {
-			$timeHTML = '<dt class="post-meta__label">Time</dt><dd>' . $time . '</dd>';
+			$timeHTML = '<dt class="post-meta__label">Time</dt><dd class="post-meta__time">' . $time . '</dd>';
 		}
 
 		$locationHTML = '';
 		if ($location) {
-			$locationHTML = '<dt class="post-meta__label">Location</dt><dd><address>' . $location . '</address></dd>';
+			$locationHTML = '<dt class="post-meta__label">Location</dt><dd class="post-meta__location"><address>' . $location . '</address></dd>';
 		}
 
 		printf( '<dl class="post-meta post-meta__details post-meta__details--upcoming">' . esc_html__( '%1$s', 'csisjti' ) . esc_html__( '%2$s', 'csisjti' ) . '</dl>', $timeHTML, $locationHTML ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

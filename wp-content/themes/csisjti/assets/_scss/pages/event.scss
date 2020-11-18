@@ -1,0 +1,70 @@
+@use '../abstracts' as *;
+@use '../components/footnotes';
+
+.event-block {
+  position: relative;
+  display: grid;
+  grid-area: secondary-content;
+  gap: rem(16);
+
+  @include breakpoint('small') {
+    grid-template-columns: max-content auto;
+    gap: rem(32);
+    align-items: end;
+  }
+
+  .event-date {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 auto;
+
+    @include breakpoint('small') {
+      margin: 0;
+    }
+
+    &--past {
+      display: none;
+    }
+  }
+
+  .post-meta {
+    &__label {
+      display: none;
+    }
+
+    &__time {
+      margin-bottom: rem(12);
+      @extend %font-ui-section-heading-md;
+    }
+
+    &__location {
+      @extend %font-ui-text-md;
+    }
+
+    &__details {
+      &-video {
+        display: none;
+      }
+
+      &-past {
+        display: flex;
+        grid-column: 1 / -1;
+        align-items: center;
+        padding: rem(12) rem(16);
+        color: $color-white-100;
+        @extend %font-ui-text-md;
+        background: $color-primary-green-500;
+      }
+
+      .icon {
+        width: 1.3em;
+        height: 1.3em;
+        margin-right: rem(8);
+      }
+    }
+  }
+
+  .post-block--related-post {
+    grid-column: 1 / -1;
+  }
+}

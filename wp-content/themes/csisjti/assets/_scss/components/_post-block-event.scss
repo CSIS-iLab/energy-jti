@@ -79,11 +79,11 @@
       }
     }
 
-    &--past {
+    &-past {
       display: none;
     }
 
-    &--past-video {
+    &-video {
       display: flex;
       color: $color-primary-green-400;
       @extend %font-ui-text-sm-bold-uppercase;
