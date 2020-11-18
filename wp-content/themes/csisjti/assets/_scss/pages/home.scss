@@ -97,6 +97,7 @@
       
       @include breakpoint(large) {
         display: grid;
+        grid-column-gap: 6vw;
         grid-template-columns: 1fr 2fr;
         grid-template-areas: 
         'primary secondary'
@@ -127,8 +128,12 @@
         }
       }
 
+      .post-block:nth-child(2) {
+        margin-top: 0;
+      }
+
       .cta {
-        float: right;
+        justify-self: end;
         margin-bottom: rem(16);
       }
     }
