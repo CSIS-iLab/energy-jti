@@ -2,6 +2,9 @@
 
 .blog {
   --page-header-bg: var(--page-header-analysis);
+  .entry__content {
+    padding-bottom: rem(56px);
+  }
 }
 
 .post-type-archive-event {
