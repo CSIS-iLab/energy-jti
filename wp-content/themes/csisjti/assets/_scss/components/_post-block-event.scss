@@ -72,6 +72,7 @@
         color: $color-black-100;
         @extend %font-body-short-sm;
 
+        /* stylelint-disable-next-line */
         + dt {
           margin-top: rem(8);
         }
