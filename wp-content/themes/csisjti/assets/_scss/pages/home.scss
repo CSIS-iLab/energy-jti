@@ -45,12 +45,12 @@
   }
 
   /* Makes a fixed background wrapper */
-
-  .video {
+  .video-wrapper {
     position: relative;
     @include vw100;
-    margin-left: calc(50% - (50vw - var(--scrollbar)));
     max-height: 500px;
+    margin-left: calc(50% - (50vw - var(--scrollbar)));
+    overflow: hidden;
 
     &::before {
       content: '';
@@ -65,7 +65,10 @@
       mix-blend-mode: soft-light;
       pointer-events: none;
     }
-
+  
+    .video {
+      width: 100%;
+    }
     // iframe {
     //   position: absolute;
     //   top: 50%;
@@ -200,6 +203,14 @@
       margin-top: rem(12);
       margin-bottom: rem(8);
       color: $color-white-190;
+      padding-left: rem(16);
+      max-width: 66%;
+    }
+
+    &--info {
+      @extend %font-ui-body-md;
+      margin-top: rem(12);
+      color: $color-white-170;
       padding-left: rem(16);
       max-width: 66%;
     }
