@@ -1,38 +1,40 @@
 @use 'abstracts' as *;
 
-.event-block {
-  display: grid;
-  grid-area: secondary-content;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: repeat(auto-fit, minmax(10px, 100px));
-  height: var(--event-block-height);
-  column-gap: 32px;
+.event-date {
+  --meta-date: #{$color-white-100};
+  --event-year: #{$color-primary-green-700};
+  width: 120px;
+  height: 120px;
+  padding: rem(12) rem(16);
+  background: var(--event-bg, $color-primary-green-400);
+  box-shadow: $shadow--4;
 
-  &::before {
-    display: none;
-
-    @include breakpoint(large) {
-      position: absolute;
-      top: 92px;
-      left: 65%;
-      display: block;
-      content: '';
-      height: 100%;
-      border-left: 1px solid $color-white-155;
-    }
+  .post-block--event & {
+    --meta-date: #{$color-primary-green-300};
+    --event-bg: #{$color-gray-400};
+    --event-year: #{$color-primary-green-600};
   }
 
-  &__date {
-    display: flex;
-    flex-direction: column;
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    justify-content: center;
-    width: var(--event-block-height);
-    padding-left: rem(18);
-    @extend %font-ui-text-md;
-    background-color: $color-primary-green-500;
-  }
+  // display: grid;
+  // grid-area: secondary-content;
+  // grid-template-columns: 1fr 4fr;
+  // grid-template-rows: repeat(auto-fit, minmax(10px, 100px));
+  // height: var(--event-block-height);
+  // column-gap: 32px;
+
+  // &::before {
+  //   display: none;
+
+  //   @include breakpoint(large) {
+  //     position: absolute;
+  //     top: 92px;
+  //     left: 65%;
+  //     display: block;
+  //     content: '';
+  //     height: 100%;
+  //     border-left: 1px solid $color-white-155;
+  //   }
+  // }
 
   &__month {
     @extend %font-ui-text-lg-bold;
@@ -41,23 +43,11 @@
 
   &__day {
     @extend %font-ui-text-emphasis;
-    padding: rem(2) 0;
+    margin-bottom: rem(12);
   }
 
   &__year {
+    color: var(--event-year);
     @extend %font-ui-text-md-bold;
-  }
-
-  &__loc {
-    grid-column: 2;
-    grid-row: 2;
-    @extend %font-ui-text-md;
-    font-style: normal;
-  }
-
-  &__time {
-    grid-column: 2;
-    grid-row: 1;
-    @extend %font-ui-section-heading-md;
   }
 }

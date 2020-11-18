@@ -316,18 +316,6 @@ if (! function_exists('csisjti_share')) :
 endif;
 
 /**
- * Splits date string to create date object
- *
- */
-function split_date($date) {
-	if ( strpos($date, "/") ) {
-		return explode("/", $date);
-	} elseif ( strpos($date, "-") ) {
-		return explode("-", $date);
-	}
-}
-
-/**
  * Displays the header's description or excerpt depending on post type.
  *
  *
@@ -375,43 +363,6 @@ if (! function_exists('csisjti_header_subtitle')) :
 		}
 
 		printf( '<p class="entry-header__subtitle">' . esc_html__( '%1$s', 'csisjti' ) . '</p>', $subtitle ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-endif;
-
-/**
- * Displays Event Block Time.
- *
- *
- * @return string $html The event block time.
- */
-if (! function_exists('csisjti_event_block_time')) :
-	function csisjti_event_block_time() {
-		$time = get_field( 'time' );
-
-		if ( !$time ) {
-			return;
-		}
-
-		printf( '<div class="event-block__time">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $time ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-endif;
-
-/**
- * Displays Event Block Location.
- *
- *
- * @return string $html The event block location.
- */
-if (! function_exists('csisjti_event_block_loc')) :
-	function csisjti_event_block_loc() {
-		$loc = get_field( 'location', false, false );
-
-		if ( !$loc ) {
-			return;
-		}
-
-		printf( '<address class="event-block__loc">' . esc_html__( '%1$s', 'csisjti' ) . '</address>', $loc ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 	}
 endif;
 
@@ -748,8 +699,13 @@ if (! function_exists('csisjti_event_date')) :
 			return;
 		}
 
+		$date_array = explode('-', $date);
+		$year = $date_array[0];
+		$month = date("M", $date);
+		$day = $date_array[2];
+
 		/* translators: 1: list of tags. */
-		printf( '<div class="post-meta__date">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $date ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<div class="post-meta__date event-date"><div class="event-date__month">' . esc_html__( '%1$s', 'csisjti' ) . '</div><div class="event-date__day">' . esc_html__( '%2$s', 'csisjti' ) . '</div><div class="event-date__year">' . esc_html__( '%3$s', 'csisjti' ) . '</div></div>', $month, $day, $year ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;
