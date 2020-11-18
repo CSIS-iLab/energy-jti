@@ -19,7 +19,7 @@
 
 	csisjti_event_date();
 
-	the_title( '<h2 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
+	the_title( '<h3 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 
 	csisjti_event_sponsored_short();
 
