@@ -701,7 +701,7 @@ if (! function_exists('csisjti_event_date')) :
 
 		$date_array = explode('-', $date);
 		$year = $date_array[0];
-		$month = date("M", $date);
+		$month = date("M", strtotime($date));
 		$day = $date_array[2];
 
 		/* translators: 1: list of tags. */
