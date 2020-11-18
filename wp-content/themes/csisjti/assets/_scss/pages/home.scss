@@ -80,16 +80,17 @@
     }
 
     &--byline {
-      color: $color-black-155;
-      font-family: $font-barlow;
-      text-emphasis: italic;
-      @include font-size(17px);
-      line-height: 1.15;
+      @extend %font-ui-text-lg;
+      color: $color-black-190;
+      font-weight: 400;
       margin-bottom: rem(16);
+      line-height: 1.15;
 
       span {
-        @extend %font-ui-text-lg;
-        color: $color-black-190;
+        color: $color-black-155;
+        font-family: $font-barlow;
+        font-style: italic;
+        @include font-size(17px);
       }
     }
 
