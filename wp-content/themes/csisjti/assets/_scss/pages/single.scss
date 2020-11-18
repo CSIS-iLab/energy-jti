@@ -43,6 +43,12 @@
         text-decoration: none;
       }
     }
+
+    .content__lede {
+      @extend %font-copy-body-short-lede;
+      color: $color-primary-blue-300;
+      margin-bottom: rem(32px);
+    }
   }
 
   &__footer {
