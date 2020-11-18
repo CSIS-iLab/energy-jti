@@ -64,7 +64,7 @@
     &__item {
       display: grid;
       grid-template-columns: 100px auto;
-      grid-template-rows: repeat(2, minmax(0, auto)) minmax(0, 1fr);
+      grid-template-rows: repeat(2, auto) minmax(0, 1fr);
       overflow: hidden;
       column-gap: rem(24px);
 
@@ -100,8 +100,8 @@
       &::after {
         content: '';
         display: inline-block;
-        width: rem(11px);
-        height: rem(12px);
+        width: 0.7em;
+        height: 0.7em;
         text-decoration: none;
         background-image: url('/wp-content/themes/csisjti/assets/static/icons/arrow-external.svg');
         background-size: 100% 100%;
