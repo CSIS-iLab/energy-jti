@@ -62,11 +62,11 @@ get_header();
 
 
 	<section class="home__analysis">
-	<!-- <div class="facetwp-template"> -->
+	<h3 class="home__analysis--subheading">Analysis<div class="home__analysis--byline"><span>by the</span> Just Transition Initiative</div></h3>
 	<h3 class="home__analysis--subheading">Analysis</h3>
 	<p class="home__analysis--byline">by the<span> Just Transition Initiative</span></p>
 	<div class="home__analysis--content">
-		
+
 	<?php
 		$featured_analysis = get_field( 'featured_analysis' );
 

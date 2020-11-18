@@ -8,7 +8,6 @@
     min-height: 300px;
     padding-bottom: var(--header-padding-bottom);
     color: $color-white-190;
-    // height: 500px;
 
     &__title {
       position: absolute;
@@ -41,6 +40,7 @@
       bottom: 0;
       margin: rem(12) 0 rem(8);
       max-width: 50%;
+      text-shadow: 0px 12px 17px rgba(2, 3, 3, 0.19), 0px 2px 22px rgba(2, 3, 3, 0.13), 0px 7px 8px rgba(2, 3, 3, 0.04);
     }
   }
 
@@ -122,6 +122,9 @@
         grid-template-columns: 1fr;
         grid-column: 1;
         grid-area: primary;
+        grid-template-rows: max-content max-content max-content max-content auto;
+
+        .post-block:first-of-type img { max-width: 100%;}
 
         .post-block__img {
           margin-bottom: rem(24);
