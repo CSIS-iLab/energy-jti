@@ -128,6 +128,25 @@ $page-colors: (
   'analysis': (
     color: #73bf20,
     gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/analysis.png'),
+      linear-gradient(
+        220.16deg,
+        rgba(153, 163, 70, 0.97) 0%,
+        rgba(88, 128, 4, 0.2) 72.4%
+      ),
+      linear-gradient(
+        270.67deg,
+        #3b6b07 0.35%,
+        #558e16 28.02%,
+        rgba(28, 128, 26, 0.74) 62.01%,
+        rgba(4, 91, 42, 0.88) 98.67%
+      ),
+      #73bf20,
+    ),
+  ),
+  'analysis-post': (
+    color: #73bf20,
+    gradient: (
       linear-gradient(
         220.16deg,
         rgba(153, 163, 70, 0.97) 0%,
@@ -144,6 +163,25 @@ $page-colors: (
     ),
   ),
   'events': (
+    color: #6a268a,
+    gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/events.png'),
+      linear-gradient(
+        220.16deg,
+        rgba(228, 89, 89, 0.47) 0%,
+        rgba(245, 127, 60, 0) 60.1%
+      ),
+      linear-gradient(
+        270.67deg,
+        rgba(60, 65, 130, 0.74) 0.59%,
+        rgba(59, 50, 95, 0.655726) 19.4%,
+        rgba(59, 33, 80, 0.87) 68.62%,
+        #3f2577 98.67%
+      ),
+      #6a268a,
+    ),
+  ),
+  'events-post': (
     color: #6a268a,
     gradient: (
       linear-gradient(
@@ -182,6 +220,7 @@ $page-colors: (
   'jti': (
     color: #e2992b,
     gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/jti.png'),
       linear-gradient(220.16deg, #e4d759 0%, rgba(245, 196, 60, 0) 60.1%),
       linear-gradient(
         270.44deg,
