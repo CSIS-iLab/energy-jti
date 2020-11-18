@@ -66,6 +66,7 @@ get_header();
 	<h3 class="home__analysis--subheading">Analysis</h3>
 	<p class="home__analysis--byline">by the<span> Just Transition Initiative</span></p>
 	<div class="home__analysis--content">
+		
 	<?php
 		$featured_analysis = get_field( 'featured_analysis' );
 
