@@ -31,6 +31,19 @@
     margin-left: auto;
   }
 
+  &__content {
+    a {
+      color: $color-primary-blue-400;
+      text-decoration: underline;
+      transition: all 0.3s ease-in-out;
+      
+      &:hover {
+        color: $color-primary-blue-200;
+        text-decoration: none;
+      }
+    }
+  }
+
   &__footer {
     clear: both;
   }
