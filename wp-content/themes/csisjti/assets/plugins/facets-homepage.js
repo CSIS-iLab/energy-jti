@@ -24,7 +24,6 @@
   })
 
   function modifyHomeFSelectFacet() {
-    console.log('hi')
     $('.home__inline-filters .facetwp-type-fselect').each(
       function () {
         const $facet = $(this)
