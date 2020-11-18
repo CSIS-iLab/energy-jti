@@ -15,8 +15,8 @@ get_header();
 <main id="site-content" role="main">
 
 <div class="home-header">
-	<div class="home-header__title">Just Transition</div>
-	<h2 class="home-header__desc">Searching for solutions to secure an inclusive and sustainable future.</h2>
+	<h1 class="home-header__title">Just Transition</h1>
+	<div class="home-header__desc">Searching for solutions to secure an inclusive and sustainable future.</div>
 	<div class="video-wrapper">
 		<video
 					preload="auto"
@@ -38,7 +38,7 @@ get_header();
 
 <div class="home__primary">
 		<div class="home__content">
-			<h3 class="home__content--subheading">Addressing climate change should not undermine the society or economy.</h3>
+			<h2 class="home__content--subheading">Addressing climate change should not undermine the society or economy.</h2>
 			<p class="home__content--desc">With climate change posing unprecedented threats to the planet and society, there is a growing focus on “just transitions” to help achieve the economic and social changes necessary for sustainable development, while protecting workers and communities and ensuring a more socially-equitable distribution of benefits and risks.</p>
 			<a href="" class="cta">What is "Just Transition"? <?php
 				echo csisjti_get_svg( 'arrow-right' ); ?>
