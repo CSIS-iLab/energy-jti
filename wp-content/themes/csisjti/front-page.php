@@ -36,8 +36,11 @@ get_header();
 			<h3 class="home__inline-filters--subheading">Explore the Resource Library</h3>
 			<p class="home__inline-filters--desc">Browse resources or search for specific analysis, strategies, and case studies.</p>
 			<?php
-					//echo facetwp_display( 'facet', 'search_input' );
+					echo facetwp_display( 'facet', 'search_input' );
+					echo facetwp_display( 'facet', 'analysis_type' );
 			?>
+			<div style="display:none"><?php echo facetwp_display( 'template', 'resource_library' ); ?></div>
+			<button class="fwp-submit" data-href="/resource-library/">Submit</button>
 			<!-- placeholder for filters -->
 			<div></div>
 		</div>
@@ -73,7 +76,7 @@ get_header();
 					<?php
 						include( get_template_directory() . '/assets/static/csisjti-logo-long.svg');
 					?>
-					</a> 
+					</a>
 		<p>The <strong>Just Transition Initiative</strong> is a new partnership project developed by the CSIS Energy Security & Climate Change Program and the Climate Investment Funds (CIF) to investigate how to achieve a just transition through the transformational change necessary to address climate change. <a href="/about/" title="Learn more">Learn more</a></p>
 	</div>
 
