@@ -2,11 +2,15 @@
 
 .blog {
   --page-header-bg: var(--page-header-analysis);
-  .entry__content {
-    padding-bottom: rem(56px);
-  }
 }
 
 .post-type-archive-event {
   --page-header-bg: var(--page-header-events);
+}
+
+.blog,
+.post-type-archive-event {
+  .entry__content {
+    padding-bottom: rem(56px);
+  }
 }
