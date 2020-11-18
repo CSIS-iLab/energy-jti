@@ -18,11 +18,11 @@ get_header();
 	<div class="home-header__title">Just Transition</div>
 	<h2 class="home-header__desc">Searching for solutions to secure an inclusive and sustainable future.</h2>
 
-	<div class="iframe-wrapper" >
-		<!-- <iframe src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?background=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
-			<iframe src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0" width="640" height="275" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-	</div>
-	<!-- <video
+	<!-- <div class="iframe-wrapper" >
+		<iframe src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?background=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+			<iframe src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0" width="640" height="275" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> 
+	 </div> -->
+	<video
         preload="auto"
         autoplay
         playsinline
@@ -32,10 +32,10 @@ get_header();
         class="site-header__video"
       >
         <source
-          src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0"
+          src="https://player.vimeo.com/external/477747022.hd.mp4?s=1ac388b148b442871b2875ed3de74e530a63e372&profile_id=174"
           type="video/mp4"
 />
-      </video> -->
+      </video>
 </div>
 
 <div class="home__primary">
@@ -50,13 +50,16 @@ get_header();
 			<h3 class="home__inline-filters--subheading">Explore the Resource Library</h3>
 			<p class="home__inline-filters--desc">Browse resources or search for specific analysis, strategies, and case studies.</p>
 			<?php
-					echo facetwp_display( 'facet', 'search_input' );
-					echo facetwp_display( 'facet', 'analysis_type' );
+				echo facetwp_display( 'facet', 'search_input' );
+				echo facetwp_display( 'facet', 'geographic_focus' );
+				echo facetwp_display( 'facet', 'sectors' );
+				echo facetwp_display( 'facet', 'focus_areas' );
+				echo facetwp_display( 'facet', 'format' );
 			?>
 			<div style="display:none"><?php echo facetwp_display( 'template', 'resource_library' ); ?></div>
-			<button class="fwp-submit" data-href="/resource-library/">Submit</button>
+			<button class="fwp-submit btn" data-href="/resource-library/">Submit</button>
 			<!-- placeholder for filters -->
-			<div></div>
+			<!-- <div></div> -->
 		</div>
 	</div>
 

@@ -439,7 +439,7 @@ add_filter( 'facetwp_assets', function( $assets ) {
 		}
 
 		if ( is_front_page() ) {
-			$assets['homepage-custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets-homepage.js';
+            $assets['homepage-custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets-homepage.js';
 		}
 
 		unset( $assets['fSelect.css'] );
