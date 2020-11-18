@@ -7,3 +7,21 @@
 .post-type-archive-event {
   --page-header-bg: var(--page-header-events);
 }
+
+.page__section-heading {
+  margin: 0 0 rem(56);
+  @extend %font-ui-section-heading-lg;
+  text-align: center;
+
+  &:last-of-type {
+    margin-top: rem(56);
+    padding-top: rem(56);
+    border-top: 1px solid $color-gray-line;
+  }
+}
+
+.page__no-content {
+  color: $color-black-170;
+  font-style: italic;
+  text-align: center;
+}
