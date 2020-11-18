@@ -9,6 +9,39 @@
     min-height: 300px;
     padding-bottom: var(--header-padding-bottom);
     color: $color-white-190;
+
+    &__title {
+      position: absolute;
+      z-index: 10;
+      margin-bottom: rem(8);
+      @extend %font-ui-text-md-bold-uppercase-barlow;
+      letter-spacing: 1.5px;
+      color: $color-white-100;
+      top: calc(100% - 250px);
+  
+      &::after {
+        content: '';
+        display: block;
+        width: rem(32);
+        height: 3px;
+        margin-top: rem(5); // 8px - 3px height
+        background: $color-white-155;
+      }
+    }
+  
+    &__desc {
+      position: absolute;
+      z-index: 10;
+      font-family: $font-barlow-condensed;
+      font-weight: 700;
+      @include font-clamp(54px, 40px);
+      color: $color-white-100;
+      display: flex;
+      align-items: flex-end;
+      bottom: 0;
+      margin: rem(12) 0 rem(8);
+      max-width: 50%;
+    }
   }
    
 
@@ -47,94 +80,86 @@
     }
   }
 
-
-
-      &__title {
-        position: absolute;
-        z-index: 2;
-        margin-bottom: rem(12);
-        @extend %font-ui-text-md-bold-uppercase-barlow;
-        letter-spacing: 1.5px;
     
-        &::after {
-          content: '';
-          display: block;
-          width: rem(32);
-          height: 3px;
-          margin-top: rem(5); // 8px - 3px height
-          background: $color-white-155;
+
+  &__analysis {
+    margin-top: rem(40);
+
+    &--subheading {
+      @extend %font-copy-heading-2;
+      margin-bottom: rem(4);
+    }
+
+    &--byline {
+      color: $color-black-155;
+      font-family: $font-barlow;
+      text-emphasis: italic;
+      @include font-size(17px);
+      line-height: 1.15;
+      margin-bottom: rem(16);
+
+      span {
+        @extend %font-ui-text-lg;
+        color: $color-black-190;
+      }
+    }
+  
+    &--content {
+      
+      @include breakpoint(large) {
+        column-count: 2;
+        column-gap: rem(32);
+        break-inside: avoid;
+      }
+
+      .post-block:not(:first-of-type) .post-block__excerpt {
+        display: none;
+      }
+
+      .post-block:first-of-type {
+        grid-template-areas:
+          'img'
+          'category'
+          'title'
+          'date'
+          'excerpt';
+        grid-template-columns: 1fr;
+
+        .post-block__img {
+          margin-bottom: rem(24);
         }
       }
 
-      &__desc {
-        position: absolute;
-        z-index: 10;
-        font-family: $font-barlow-condensed;
-        font-weight: 700;
-        @include font-clamp(54px, 40px);
-      }
-    
-  // }
-
-  &__analysis {
-
-  &--subheading {
-    @extend %font-copy-heading-2;
-  }
-
-  &--byline {
-    color: $color-black-155;
-    font-family: $font-barlow;
-    text-emphasis: italic;
-    @include font-size(17px);
-    line-height: 1.15;
-
-    span {
-      @extend %font-ui-text-lg;
-      color: $color-black-190;
-    }
-  }
-  
-  &--content {
-    column-count: 2;
-    column-gap: rem(32);
-    break-inside: avoid;
-
-    .post-block:not(:first-of-type) .post-block__excerpt {
-      display: none;
-    }
-
-    .post-block:first-of-type {
-      grid-template-areas:
-        'img'
-        'category'
-        'title'
-        'date'
-        'excerpt';
-      grid-template-columns: 1fr;
-
-      .post-block__img {
-        margin-bottom: rem(24);
+      .cta {
+        float: right;
+        margin-bottom: rem(16);
       }
     }
+  }
 
-    .cta {
-      float: right;
+  &__primary {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2;
+
+    @include breakpoint(large) {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      grid-gap: 6vw;
     }
   }
-}
-
- &__primary {
-   display: grid;
-   grid-template-columns: 3fr 2fr;
-   grid-gap: 6vw;
- }
 
   &__inline-filters {
     $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
+    grid-row: 1;
     background: $tab-gradient;
-    margin-top: -64px;
+    margin-top: rem(-64);
     z-index: 10;
+
+    @include breakpoint(large) {
+      grid-row: unset;
+      margin-top: -64px;
+    }
 
     &--subheading {
       margin: 0 0 rem(8);
@@ -167,7 +192,7 @@
         /* stylelint-disable */
         clip-path: polygon(
           0% 0%,
-          calc(100% - var(--tab-width) - 1px) 0%,
+          calc(100% - var(--tab-width) - 0) 0%,
           100% 100%,
           0% 100%
         );
@@ -211,12 +236,17 @@
     }
   
   }
+
   .csis-block--gray-section {
     position: relative;
     padding: rem(16) 0;
     margin: 0 auto;
-    display: flex;
-    width: 70%;
+    width: 100%;
+
+    @include breakpoint(large) {
+      display: flex;
+      width: 70%;
+    }
 
     .header__logo {
       margin-right: rem(24);

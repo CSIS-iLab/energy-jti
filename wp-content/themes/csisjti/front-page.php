@@ -20,7 +20,7 @@ get_header();
 
 	<div class="iframe-wrapper" >
 		<!-- <iframe src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?background=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
-			<iframe src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0background=1" width="640" height="275" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+			<iframe src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0" width="640" height="275" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 	</div>
 </div>
 
