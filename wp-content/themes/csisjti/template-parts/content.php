@@ -48,4 +48,10 @@
 		</div>
 	</footer>
 	<?php } ?>
+
+	<?php if ( is_page( '135' ) ) {
+		dynamic_sidebar( 'explore-resource-library' );
+	}
+	
+	?>
 </article><!-- .post -->
