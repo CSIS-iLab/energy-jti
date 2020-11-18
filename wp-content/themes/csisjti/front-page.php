@@ -22,6 +22,20 @@ get_header();
 		<!-- <iframe src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?background=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
 			<iframe src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0" width="640" height="275" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 	</div>
+	<!-- <video
+        preload="auto"
+        autoplay
+        playsinline
+        muted
+        data-poster="/assets/img/meta/header.jpg"
+        id="player"
+        class="site-header__video"
+      >
+        <source
+          src="https://player.vimeo.com/video/477747022?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0"
+          type="video/mp4"
+/>
+      </video> -->
 </div>
 
 <div class="home__primary">
