@@ -93,7 +93,7 @@
     }
 
     &--content {
-      // @include full-width-background(#F5F7F7, left);
+      @include full-width-background(#F5F7F7, left);
       
       @include breakpoint(large) {
         display: grid;
@@ -126,7 +126,7 @@
           margin-bottom: rem(24);
         }
       }
-      
+
       .cta {
         float: right;
         margin-bottom: rem(16);
