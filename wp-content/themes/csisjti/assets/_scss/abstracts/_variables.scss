@@ -103,12 +103,11 @@ $shadow--4: 0 4px 5px rgba(2, 3, 3, 0.03), 0 1px 10px rgba(2, 3, 3, 0.02),
 
 /*------  Page Specific Colors  ------*/
 
-/* stylelint-disable function-parentheses-space-inside */
 $page-colors: (
+  /* stylelint-disable function-parentheses-space-inside */
   'home': (
     color: #018085,
     gradient: (
-    // url('https://player.vimeo.com/video/477747022?title=0&byline=0&portrait=0'),
     linear-gradient(
       220.16deg,
       #26a7ac 0%, 
