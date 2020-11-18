@@ -95,7 +95,7 @@
     }
 
     &--content {
-      @include full-width-background($color-gray-400);
+      @include full-width-background($color-gray-400, left);
       display: flex;
       flex-direction: column;
       
