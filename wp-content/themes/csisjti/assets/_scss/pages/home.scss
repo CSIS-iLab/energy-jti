@@ -40,7 +40,8 @@
       bottom: 0;
       margin: rem(12) 0 rem(8);
       max-width: 50%;
-      text-shadow: 0px 12px 17px rgba(2, 3, 3, 0.19), 0px 2px 22px rgba(2, 3, 3, 0.13), 0px 7px 8px rgba(2, 3, 3, 0.04);
+      text-shadow: 0px 12px 17px rgba(2, 3, 3, 0.19),
+        0px 2px 22px rgba(2, 3, 3, 0.13), 0px 7px 8px rgba(2, 3, 3, 0.04);
     }
   }
 
@@ -64,7 +65,7 @@
       mix-blend-mode: soft-light;
       pointer-events: none;
     }
-  
+
     .video {
       width: 100%;
     }
@@ -94,16 +95,16 @@
 
     &--content {
       @include full-width-background($color-gray-400, left);
-      
+
       @include breakpoint(large) {
         display: grid;
         grid-column-gap: 6vw;
         grid-template-columns: 1fr 2fr;
-        grid-template-areas: 
-        'primary secondary'
-        'primary secondary'
-        'primary secondary'
-        'primary secondary';
+        grid-template-areas:
+          'primary secondary'
+          'primary secondary'
+          'primary secondary'
+          'primary secondary';
       }
 
       .post-block:not(:first-of-type) .post-block__excerpt {
@@ -126,7 +127,9 @@
         background-color: $color-gray-400;
         padding-left: rem(32);
 
-        .post-block:first-of-type img { max-width: 100%;}
+        .post-block:first-of-type img {
+          max-width: 100%;
+        }
 
         .post-block__img {
           margin-bottom: rem(24);
@@ -151,17 +154,18 @@
 
     @include breakpoint(large) {
       display: grid;
-      grid-template-columns: 3fr 2fr;
       grid-gap: 6vw;
+      grid-template-columns: 3fr 2fr;
     }
   }
 
   &__inline-filters {
     $tab-gradient: $color-primary-blue-400;
-    grid-row: 1;
-    background: $tab-gradient;
-    margin-top: rem(-64);
     z-index: 10;
+    grid-row: 1;
+    margin-top: rem(-64);
+    padding: 0 rem(32) rem(32);
+    background: $tab-gradient;
 
     @include breakpoint(large) {
       grid-row: unset;
@@ -169,14 +173,13 @@
     }
 
     &--subheading {
-      margin: 0 0 rem(8);
+      margin: rem(-55) rem(-32) rem(8);
       color: $color-white-100;
       font-family: $font-barlow;
       font-weight: 600;
       @include font-size(24px);
       line-height: 1.15;
       letter-spacing: 0.5px;
-      margin-top: rem(-55);
       padding: rem(16) rem(24) rem(12);
       white-space: nowrap;
       max-width: fit-content;
@@ -206,26 +209,22 @@
       }
     }
 
-    &--desc {
+    p {
       @extend %font-ui-body-md;
-      margin-top: rem(12);
-      margin-bottom: rem(8);
+    }
+
+    &--desc {
+      margin: rem(16) 0;
       color: $color-white-190;
-      padding-left: rem(24);
-      max-width: 66%;
     }
 
     &--info {
-      @extend %font-ui-body-md;
-      margin-top: rem(12);
+      margin: rem(8) 0 rem(24);
       color: $color-white-170;
-      padding-left: rem(24);
-      max-width: 66%;
     }
 
     .facetwp-facet {
-      padding: rem(8) rem(24) 0 rem(24) !important;
-      margin: 0 rem(24) 0 0 !important;
+      margin-bottom: rem(12);
     }
 
     .fs-arrow {
@@ -235,18 +234,17 @@
     }
 
     .fwp-submit {
-      margin: 0 auto;
-      background-color: $color-white-100;
+      display: block;
+      margin: 0 0 0 auto;
       color: $color-primary-blue-200;
+      background-color: $color-white-100;
+      bodrer: 1px solid transparent;
       border-radius: 2px;
-      display: flex;
-      float: right;
-      margin: rem(12) rem(48);
 
       &:hover {
-        background-color: $color-primary-blue-200;
         color: $color-white-100;
-        border: $color-primary-blue-400;
+        background-color: $color-primary-blue-200;
+        border: 1px solid $color-primary-blue-400;
       }
     }
   }
