@@ -175,7 +175,7 @@
   #{$post}__summary {
     margin-top: rem(8);
     color: $color-black-190;
-    @extend %font-copy-body-long-lg;
+    @extend %font-copy-body-short-md;
   }
 
   #{$post}__summary-content {
