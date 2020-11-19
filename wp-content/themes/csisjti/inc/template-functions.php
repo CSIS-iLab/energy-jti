@@ -553,7 +553,7 @@ function csisjti_facetwp_pagination_output( $output, $params) {
 }
 
 /**
- * Modifies the # of posts visible on an archive. For testing purposes only!!!
+ * Modifies the # of posts visible on an archive.
  */
 add_action( 'pre_get_posts',  'set_posts_per_page'  );
 function set_posts_per_page( $query ) {
@@ -562,6 +562,10 @@ function set_posts_per_page( $query ) {
 
   if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_post_type_archive( 'resource-library' ) ) ) {
     $query->set( 'posts_per_page', 25 );
+	}
+
+	if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( is_home() ) ) {
+    $query->set( 'posts_per_page', -1 );
   }
 
   return $query;
