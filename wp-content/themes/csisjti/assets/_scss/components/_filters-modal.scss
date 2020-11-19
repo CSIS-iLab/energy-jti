@@ -326,8 +326,11 @@ $facet: '.facetwp-facet';
   /*----------  Facet: Additional Dropdown Styling  ----------*/
 
   .facetwp-type-fselect {
-    // max-width: 66%;
     margin-bottom: rem(40) !important;
+
+    @include breakpoint (medium) {
+      max-width: 66%;
+    }
   }
 
   .fs-fselect-apply {
