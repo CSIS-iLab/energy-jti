@@ -29,7 +29,7 @@ get_header();
 					loop
 					data-poster="/assets/img/meta/header.jpg"
 					id="player"
-					class="site-header__video"
+					class="site-header__video intrinsic-ignore"
 				>
 					<source
 						src="https://player.vimeo.com/external/477747022.hd.mp4?s=1ac388b148b442871b2875ed3de74e530a63e372&profile_id=174"
