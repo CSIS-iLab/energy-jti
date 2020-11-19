@@ -11,19 +11,24 @@ if ( has_post_thumbnail() && ! post_password_required() ) {
 
 	?>
 
-	<figure class="entry-header__img">
+	<div class="entry-header__spacer"></div>
+
+	<div class="entry-header__img">
 
 		<?php
 			the_post_thumbnail( 'large' );
+		?>
 
+	</div><!-- .featured-media -->
+	<div class="entry-header__caption">
+		<?php
 			$caption = get_the_post_thumbnail_caption();
 
 			if ( $caption ) {
-				echo '<figcaption class="featured-media__caption"> ' . esc_html( $caption ) . '</figcaption>';
+				echo esc_html( $caption );
 			}
 		?>
-
-	</figure><!-- .featured-media -->
+	</div>
 
 	<?php
 }
