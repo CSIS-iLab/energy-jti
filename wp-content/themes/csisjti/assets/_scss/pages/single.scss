@@ -2,8 +2,28 @@
 @use '../components/post-alignments';
 @use '../components/post-typography';
 @use '../blocks/download-button';
+@use '../blocks/gray-section';
+@use '../blocks/jti-team';
+
+.page {
+  &--about_jti {
+    --page-header-bg: var(--page-header-jti);
+  }
+
+  &--transitions {
+    --page-header-bg: var(--page-header-transitions);
+  }
+}
 
 .single {
+  &-post {
+    --page-header-bg: var(--page-header-analysis-post);
+  }
+
+  &-event {
+    --page-header-bg: var(--page-header-events-post);
+  }
+
   &__content,
   &__footer {
     max-width: $size__content-max-width;

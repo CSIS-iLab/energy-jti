@@ -7,3 +7,14 @@
 .post-type-archive-event {
   --page-header-bg: var(--page-header-events);
 }
+
+.blog,
+.post-type-archive-event {
+  .entry__content {
+    padding-bottom: rem(56px);
+
+    @include breakpoint('large') {
+      padding-bottom: rem(64px);
+    }
+  }
+}

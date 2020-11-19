@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+.csis-block--gray-section {
+  margin: rem(40) auto rem(56);
+  padding-top: rem(56px);
+  padding-bottom: rem(56px);
+  background: $color-gray-400;
+  @include full-width-background($color-gray-400);
+
+  &::before,
+  &::after {
+    z-index: -1;
+  }
+}

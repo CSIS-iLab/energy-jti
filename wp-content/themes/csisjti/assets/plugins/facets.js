@@ -14,6 +14,7 @@
     customizeDatePicker()
     connectFacets()
     hideExtraFacets()
+    enableAutoRefreshSpecificFacets()
     hasRun = true
   })
 
@@ -235,12 +236,18 @@
 
   // Calculates the number of active filters applied.
   function setNumFilters() {
-    const numFilters = Object.values(FWP.facets).reduce((acc, curr) => {
-      if (curr != '' && !Array.isArray(curr)) {
-        return acc + 1
-      }
-      return acc + curr.length
-    }, 0)
+    // We don't want the pagination or sort to imapct the count.
+    console.log(FWP.facets)
+    const excludedFacets = ['pagination', 'sort', 'paged']
+
+    const numFilters = Object.keys(FWP.facets)
+      .filter((f) => !excludedFacets.includes(f))
+      .reduce((acc, curr) => {
+        if (FWP.facets[curr] != '' && !Array.isArray(FWP.facets[curr])) {
+          return acc + 1
+        }
+        return acc + FWP.facets[curr].length
+      }, 0)
 
     Array.from(numFiltersApplied).forEach((el) => (el.innerHTML = numFilters))
   }
@@ -350,5 +357,20 @@
       var $parent = $('.facetwp-facet-' + key).closest('.facet-wrap')
       0 === val ? $parent.hide() : $parent.show()
     })
+  }
+
+  // We want to refresh as soon as the user changes the type of content (tabs) or changes the sort order.
+  function enableAutoRefreshSpecificFacets() {
+    $(document).on('change', '.facetwp-sort-select', function () {
+      FWP.refresh()
+    })
+
+    $(document).on(
+      'click',
+      '.facetwp-facet-type_of_content .facetwp-radio',
+      function () {
+        FWP.refresh()
+      }
+    )
   }
 })(jQuery)
