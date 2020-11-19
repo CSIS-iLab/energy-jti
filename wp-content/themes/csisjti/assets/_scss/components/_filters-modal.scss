@@ -313,65 +313,10 @@ $facet: '.facetwp-facet';
   .facetwp-type-fselect {
     max-width: 66%;
     margin-bottom: rem(40) !important;
+  }
 
-    .fs-wrap {
-      position: relative;
-    }
-
-    .fs-dropdown {
-      top: 0;
-
-      &.hidden {
-        /* stylelint-disable-next-line */
-        .fs-search {
-          display: block !important;
-        }
-      }
-    }
-
-    // Overrides inherit hidden styling to show the search bar on modal load
-    .fs-show {
-      display: block !important;
-    }
-
-    // Toggles dropdown display state
-    .fs-active {
-      /* stylelint-disable */
-      .fs-options {
-        display: block;
-      }
-
-      .fs-no-results {
-        display: none;
-      }
-
-      .fs-search {
-        &::after {
-          transform: rotate(-180deg);
-        }
-        /* stylelint-enable */
-      }
-    }
-
-    .fs-search {
-      position: relative;
-
-      &::after {
-        position: absolute;
-        top: 0;
-        right: 1rem;
-        bottom: 0;
-        width: 0;
-        height: 0;
-        margin: auto;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' viewBox='0 0 26 32'%3E%3Cpath d='M25.657 18.254l-2.664-2.664-8.087 8.087v-23.265h-3.767v23.265l-8.087-8.087-2.664 2.664 12.634 12.634 12.634-12.634z'%3E%3C/path%3E%3C/svg%3E");
-        border-top: 5px solid $color-black-190;
-        border-right: 5px solid transparent;
-        border-left: 5px solid transparent;
-        transition: 0.15s ease-in;
-        content: '';
-      }
-    }
+  .fs-fselect-apply {
+    display: none;
   }
 
   /*----------  Facet: Custom Date Range  ----------*/

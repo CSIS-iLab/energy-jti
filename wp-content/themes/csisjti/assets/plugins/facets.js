@@ -7,8 +7,9 @@
     fwpDisableAutoRefresh()
     modifyCheckboxes()
     modifySearchFacet()
+    fSelectFacetApply()
     modifyFSelectFacet()
-    modifyMultiSelect()
+    modifyFSelectLabels()
     modifyExpandIcons()
     setNumFilters()
     customizeDatePicker()
@@ -127,7 +128,7 @@
   }
 
   function modifyFSelectFacet() {
-    $('.resource-library__inline-filters .facetwp-type-fselect').each(
+    $('.facetwp-type-fselect').each(
       function () {
         const $facet = $(this)
         const facet_name = $facet.attr('data-name')
@@ -151,7 +152,13 @@
         label.innerHTML = facet_label
 
         this.querySelector('.fs-label-wrap').prepend(label)
+      }
+    )
+  }
 
+  function fSelectFacetApply() {
+    $('.resource-library__inline-filters .facetwp-type-fselect').each(
+      function () {
         // Add Apply Button
         const applyWrapper = document.createElement('div')
         applyWrapper.classList.add('fs-fselect-apply')
@@ -180,40 +187,6 @@
       span.innerHTML = '<i></i>'
 
       this.prepend(span)
-    })
-  }
-
-  function modifyMultiSelect() {
-    $('.filters-modal .facetwp-type-fselect').each(function () {
-      this.querySelector('.fs-dropdown').classList.remove('hidden')
-      this.querySelector('.fs-dropdown').classList.add('fs-show')
-      this.querySelector('.fs-options').classList.add('hidden')
-
-      this.querySelector('.fs-search input').setAttribute(
-        'placeholder',
-        'Type here to filter list'
-      )
-
-      // Close dropdown on outside click
-      $('.filters-modal').on('click', function () {
-        $('.fs-active').each(function () {
-          if ($(this)[0].classList.contains('fs-active')) {
-            $(this)[0].classList.remove('fs-active')
-          }
-        })
-      })
-
-      // Logic to open dropdown or close on self-click
-      $('.fs-search', this).on('click', function (event) {
-        const fs_wrap = $(this).parents('.fs-wrap')[0]
-
-        if (fs_wrap.classList.contains('fs-active')) {
-          fs_wrap.classList.remove('fs-active')
-        } else {
-          event.stopPropagation()
-          fs_wrap.classList.add('fs-active')
-        }
-      })
     })
   }
 
@@ -370,6 +343,16 @@
       '.facetwp-facet-type_of_content .facetwp-radio',
       function () {
         FWP.refresh()
+      }
+    )
+  }
+
+  function modifyFSelectLabels() {
+    $('.filters-modal .facetwp-type-fselect').each(
+      function () {
+        let el = this.querySelectorAll('.fs-label-field')[0]
+        let label = el.innerText.replace(" Modal", "")
+        el.innerText = label
       }
     )
   }
