@@ -172,6 +172,12 @@
       padding-top: rem(48);
     }
   }
+
+  &__disclaimer {
+    margin-top: rem(16);
+    color: $color-white-170;
+    @include font-size(16px);
+  }
 }
 
 .filters-overview {

@@ -10,6 +10,10 @@
 .page {
   &--about_jti {
     --page-header-bg: var(--page-header-jti);
+
+    .entry-header__desc {
+      text-shadow: 0 1px 5px rgba(2, 3, 3, 0.19);
+    }
   }
 
   &--transitions {
