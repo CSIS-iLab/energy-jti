@@ -180,7 +180,7 @@ function csisjti_last_updated() {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__date">' . get_the_modified_time( get_option( 'date_format' ) ) . '</div>';
+	echo '<div class="post-meta post-meta__date"><span class="post-meta__label">Last Updated</span> ' . get_the_modified_time( get_option( 'date_format' ) ) . '</div>';
 }
 
 /**
@@ -209,8 +209,12 @@ if (! function_exists('csisjti_authors_list_extended')) :
 	{
 		global $post;
 
+		if ( 'post' !== get_post_type() ) {
+			return;
+		}
+
 		if (function_exists('coauthors_posts_links')) {
-			$authors = '<h2 class="heading">Authors</h2>';
+			$authors = '<h2 class="section__heading">Authors</h2>';
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
@@ -249,6 +253,11 @@ if (! function_exists('csisjti_display_categories')) :
 
 		if ('Uncategorized' === $categories_list) {
 				return;
+		}
+
+		// Always display "Event" for events
+		if ( 'event' === get_post_type() ) {
+			$categories_list = 'Event';
 		}
 
 		if ( $categories_list ) {
@@ -704,7 +713,7 @@ if (! function_exists('csisjti_event_date')) :
 		$month = date("M", strtotime($date));
 		$day = $date_array[2];
 
-		$past_class = "event-date";
+		$past_class = "";
 
 		if ( $date < date("Y-m-d") ) {
 			$past_class = " event-date--past";
@@ -791,6 +800,96 @@ if (! function_exists('csisjti_event_sponsored_short')) :
 		}
 
 		printf( '<div class="post-meta post-meta__sponsored">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $sponsored_short ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Event Post full sponsor information.
+ *
+ *
+ * @return string $html The sponsor description and logos.
+ */
+if (! function_exists('csisjti_event_sponsored_full')) :
+	function csisjti_event_sponsored_full() {
+
+		if ( 'event' !== get_post_type() ) {
+			return;
+		}
+
+		$sponsored_full = '';
+
+		$sponsors = array();
+		$max_num_sponsors = 3;
+
+		if( have_rows('sponsor_or_partners') ):
+			while ( have_rows('sponsor_or_partners') ) : the_row();
+				$sponsored_full = get_sub_field('description');
+
+				for ($i = 1; $i <= 3; $i++) {
+
+					$url = get_sub_field( 'sponsor_' . $i . '_url' );
+
+					if ( $url ) {
+						$logo = get_sub_field( 'logo_' . $i );
+						$sponsors[] = array('url' => $url, 'logo' => $logo);
+					}
+				}
+
+			endwhile;
+		endif;
+
+		if ( !$sponsored_full ) {
+			return;
+		}
+
+		$sponsorsHTML = '';
+		if ( !empty($sponsors) ) {
+			$sponsorsHTML .= '<ul class="event__sponsor-list">';
+
+			foreach ($sponsors as $key => $sponsor) {
+				$sponsorsHTML .= '<li><a href="' . esc_url($sponsor['url']) . '"><img src="' . esc_url($sponsor['logo']['url']) . '" alt="' . esc_attr( $sponsor['logo']['alt'] ) . '" /></a></li>';
+			}
+
+			$sponsorsHTML .= '</ul>';
+		}
+
+		printf( '<div class="event__sponsor"><p>' . esc_html__( '%1$s', 'csisjti' ) . '</p>' . esc_html__( '%2$s', 'csisjti' ) . '</div>', $sponsored_full, $sponsorsHTML); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Event Register Link if event has not occurred yet.
+ *
+ *
+ * @return string $html The event register link.
+ */
+if (! function_exists('csisjti_event_register_link')) :
+	function csisjti_event_register_link() {
+		$date = get_field( 'date_of_event' );
+
+		if ( $date < date("Y-m-d") ) {
+			return;
+		}
+
+		$registration_link = get_field( 'registration_link' );
+
+		if ( !$registration_link ) {
+			return;
+		}
+
+		$info = get_field( 'additional_registration_info' );
+
+		$infoHTML = '';
+
+		if ( $info ) {
+			$infoHTML = '<p class="registration-info">' . esc_html( $info ) . '</p>';
+		}
+
+		$icon = csisjti_get_svg( 'arrow-external' );
+
+		printf( '<div class="event__registration"><a class="btn btn--round btn--register" href="' . esc_url( '%1$s', 'csisjti' ) . '" target="' . esc_attr( '%3$s', 'csisjti' ) . '">' . esc_html__( '%2$s', 'csisjti' ) . esc_html__( '%4$s', 'csisjti' ) . '</a>' . esc_html__( '%5$s', 'csisjti' ) . '</div>', $registration_link['url'], $registration_link['title'], $registration_link['target'], $icon, $infoHTML ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;

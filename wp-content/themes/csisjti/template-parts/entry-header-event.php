@@ -28,14 +28,5 @@
 		endif;
 
 		?>
-
-		<?php $related_analysis = get_field( 'related_analysis' );
-		if ( $related_analysis ) :
-			$post = $related_analysis;
-		 	setup_postdata( $post ); ?>
-			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-			<?php wp_reset_postdata();
-		endif;
-		?>
   </div>
 

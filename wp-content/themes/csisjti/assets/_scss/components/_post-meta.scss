@@ -30,4 +30,9 @@
     color: $color-black-155;
     @extend %font-ui-body-sm;
   }
+
+  &__related {
+    @extend %font-ui-text-sm-bold-uppercase;
+    letter-spacing: 0.5px;
+  }
 }

@@ -17,13 +17,11 @@
 
 	<?php if ( has_post_thumbnail() ) : ?>
     <a href="<?php the_permalink(); ?>" class="post-block__img" title="<?php the_title_attribute(); ?>">
-      <?php the_post_thumbnail( 'large' ); ?>
+      <?php the_post_thumbnail( 'thumbnail' ); ?>
     </a>
 	<?php endif; ?>
 
-	<?php
-		csisjti_display_categories();
-	?>
+	<div class="post-meta post-meta__related">Related JTI Analysis</div>
 
 	<?php
 

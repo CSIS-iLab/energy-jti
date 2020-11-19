@@ -112,6 +112,10 @@
     @include breakpoint(large) {
       margin-bottom: rem(40);
     }
+
+    .post-meta__label {
+      @extend %font-ui-text-md-bold-barlow;
+    }
   }
 
   /* stylelint-disable-next-line */
@@ -128,7 +132,7 @@
     }
   }
 
-  .post-block__img {
+  &__img {
     position: relative;
     grid-area: secondary-content;
     align-self: end;
@@ -150,7 +154,7 @@
     color: $color-black-170;
   }
 
-  .post-block__img,
+  &__img,
   .event-block {
     &::before {
       display: none;
