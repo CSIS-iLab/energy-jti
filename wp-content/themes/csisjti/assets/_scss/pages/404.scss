@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+.error404 {
+  --page-header-bg: var(--page-header-404);
+
+  &-content {
+    max-width: $size__content-max-width;
+    margin: rem(56) auto;
+
+    @include breakpoint('large') {
+      margin-top: rem(64);
+      margin-bottom: rem(64);
+    }
+  }
+
+  .intro-text {
+    @extend %font-ui-body-md;
+    margin-bottom: rem(16);
+    color: $color-black-190;
+  }
+}

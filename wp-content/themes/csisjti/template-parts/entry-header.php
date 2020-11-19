@@ -14,6 +14,7 @@ $is_archive = is_archive();
 $is_page = is_page();
 $has_thumbnail = has_post_thumbnail();
 $post_type = get_post_type();
+$is_404 = is_404();
 
 if ( $is_home ) {
 	$post_id = get_option( 'page_for_posts' );
@@ -42,7 +43,9 @@ if ( !$is_home && $has_thumbnail ) {
 	// Archives & Pages have a specially formatted title.
 	if ( $is_archive || $is_page || $is_home ) {
 		csisjti_formatted_title( $post_id );
-	} else {
+	} elseif ( $is_404 ) { ?>
+	<h1 class="entry-header__title"><?php _e( '404 Page Not Found', 'csisjti' ); ?></h1>
+	<?php } else {
 		the_title('<h1 class="entry-header__title">', '</h1>');
 	}
 

@@ -240,5 +240,11 @@ $page-colors: (
       #e2992b,
     ),
   ),
+  '404': (
+    color: #02bac6,
+    gradient: (
+      linear-gradient(220.16deg, rgba(56, 142, 209, 0.56) 0%, rgba(60, 134, 245, 0) 60.1%), linear-gradient(270.67deg, rgba(35, 111, 117, 0.74) 0.59%, rgba(21, 129, 159, 0.655726) 19.4%, rgba(9, 103, 128, 0.8) 68.62%, #00678a 98.67%), #02bac6
+    ),
+  ),
 );
 /* stylelint-enable function-parentheses-space-inside */
