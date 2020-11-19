@@ -197,9 +197,13 @@
   margin: rem(32) 0;
   @extend %font-copy-body-short-lg;
   color: $color-black-190;
-
+  
   .wp-block-media-text__content {
     padding: 0;
+  }
+  
+  img {
+    filter: grayscale(1);
   }
 }
 
