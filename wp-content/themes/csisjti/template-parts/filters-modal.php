@@ -30,8 +30,9 @@ $object_name = $object->name;
     <button id="filters-apply-btn" class="btn btn--apply">Apply</button>
   </div>
 
-  <div class="filters-modal__subheading filters-modal--analysis">
+  <div class="filters-modal__subheading filters-modal--analysis" data-tippy-content="<?php the_field( 'analysis_description', $object_name ); ?>">
     Analysis Type
+    <?php echo csisjti_get_svg('info'); ?>
   </div>
 
   <?php echo facetwp_display( 'facet', 'analysis_type_modal' ); ?>
