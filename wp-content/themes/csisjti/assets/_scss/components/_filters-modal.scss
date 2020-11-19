@@ -31,16 +31,23 @@ $facet: '.facetwp-facet';
 
   &__title {
     @extend %font-ui-section-heading-lg;
-    margin-bottom: rem(64);
+    margin-bottom: rem(8);
     color: $color-gray-dark;
+    white-space: nowrap !important;
+    
+    @include breakpoint(large) {
+      margin-bottom: rem(64);
+    }
 
-    &::before {
-      position: relative;
-      top: 64px;
-      display: block;
-      width: calc(200% + 48px);
-      border-bottom: 1px solid $color-gray-line;
-      content: '';
+    @include breakpoint(large) {
+      &::before {
+        position: relative;
+        top: 64px;
+        display: block;
+        width: calc(200% + 48px);
+        border-bottom: 1px solid $color-gray-line;
+        content: '';
+      }
     }
   }
 
@@ -73,10 +80,21 @@ $facet: '.facetwp-facet';
     }
   }
 
+  &--analysis {
+    @include breakpoint(large) {
+      margin-top: rem(40);
+    }
+  }
+
   &__btn-wrapper {
     position: relative;
     display: flex;
     justify-content: flex-end;
+    margin-bottom: rem(40);
+
+    @include breakpoint(large) {
+      margin-bottom: unset;
+    }
   }
 
   .filters-modal__totals {
@@ -157,9 +175,6 @@ $facet: '.facetwp-facet';
 
   #{$facet}-sectors_modal,
   #{$facet}-publishing_organization_type_modal {
-    column-count: 2;
-    column-gap: rem(32);
-
     .facetwp-checkbox {
       width: 100%;
       padding-left: 0;
@@ -311,12 +326,20 @@ $facet: '.facetwp-facet';
   /*----------  Facet: Additional Dropdown Styling  ----------*/
 
   .facetwp-type-fselect {
-    max-width: 66%;
     margin-bottom: rem(40) !important;
+
+    @include breakpoint (medium) {
+      max-width: 66%;
+    }
   }
 
   .fs-fselect-apply {
     display: none;
+  }
+
+  // Keeps label from breaking out of its container
+  .fs-label {
+    max-width: 350px;
   }
 
   /*----------  Facet: Custom Date Range  ----------*/
@@ -335,6 +358,7 @@ $facet: '.facetwp-facet';
     position: relative;
     display: flex;
     flex-direction: column;
+    max-width: 550px;
     margin-bottom: rem(40);
 
     @include breakpoint(large) {

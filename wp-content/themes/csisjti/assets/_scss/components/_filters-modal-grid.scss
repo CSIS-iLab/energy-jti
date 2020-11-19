@@ -5,7 +5,8 @@ $facet: '.facetwp-facet';
 .filters-modal {
   display: grid;
   grid-template-areas:
-    'title title-btns'
+    'title title'
+    'title-btns title-btns'
     'analysis-heading analysis-heading'
     'analysis analysis'
     'topic topic'
@@ -33,6 +34,33 @@ $facet: '.facetwp-facet';
   padding: 0 6vw;
   overflow: scroll;
 
+  @include breakpoint(xsmall) {
+    grid-template-areas:
+      'title title-btns'
+      'analysis-heading analysis-heading'
+      'analysis analysis'
+      'topic topic'
+      'sectors-heading sectors-heading'
+      'sectors sectors'
+      'geo-heading geo-heading'
+      'geo geo'
+      'keywords-heading keywords-heading'
+      'keywords keywords'
+      'focus-areas-heading focus-areas-heading'
+      'focus-areas focus-areas'
+      'source source'
+      'pub-org-heading pub-org-heading'
+      'pub-org pub-org'
+      'pub-type-heading pub-type-heading'
+      'pub-type pub-type'
+      'author-heading author-heading'
+      'author author'
+      'pub-date-heading pub-date-heading'
+      'pub-date pub-date'
+      'format-heading format-heading'
+      'format format';
+  }
+  
   @include breakpoint(large) {
     grid-column-gap: 48px;
     grid-template-areas:
