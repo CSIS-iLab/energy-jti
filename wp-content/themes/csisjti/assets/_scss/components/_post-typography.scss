@@ -17,7 +17,7 @@
     }
 
     /* stylelint-disable */
-    &[href*="//"]:not([href*="energy-jti.local"]):not([href*="localhost"]):not([href*="justtransitioninitiative"])
+    &[href*="//"]:not([class]):not([href*="energy-jti.local"]):not([href*="localhost"]):not([href*="justtransitioninitiative"])
     {
       &::after {
         content: '';
