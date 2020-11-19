@@ -336,6 +336,11 @@ $facet: '.facetwp-facet';
     display: none;
   }
 
+  // Keeps label from breaking out of its container
+  .fs-label {
+    max-width: 350px;
+  }
+
   /*----------  Facet: Custom Date Range  ----------*/
 
   #{$facet}-publish_date {
@@ -353,6 +358,7 @@ $facet: '.facetwp-facet';
     display: flex;
     flex-direction: column;
     margin-bottom: rem(40);
+    max-width: 550px;
 
     @include breakpoint(large) {
       flex-direction: row;
