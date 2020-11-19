@@ -63,12 +63,12 @@ get_header();
 		</div>
 	</div>
 
-<div class="home__event-block">
+<!-- <div class="home__event-block">
 <div class="home__event-block--heading">Upcoming Event:</div>
 <div class="home__event-block--date">Date</div>
 <div class="home__event-block--name">Event Name</div>
 <div class="home__event-block--time">9am-3pm EST</div>
-</div>
+</div> -->
 
 	<section class="home__analysis">
 		<h3 class="home__analysis--subheading">Analysis<div class="home__analysis--byline"><span>by the</span> Just Transition Initiative</div></h3>
