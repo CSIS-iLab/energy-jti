@@ -329,3 +329,7 @@
     cursor: default;
   }
 }
+
+.no-flexbox-gap .fs-option .fs-checkbox {
+  margin-right: rem(12);
+}

@@ -105,3 +105,13 @@
     }
   }
 }
+
+.no-flexbox-gap {
+  .facetwp-radio::before {
+    margin-right: rem(8px);
+  }
+
+  .facetwp-counter {
+    margin-left: rem(8px);
+  }
+}

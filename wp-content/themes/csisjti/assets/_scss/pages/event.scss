@@ -165,3 +165,7 @@
     max-height: 50px;
   }
 }
+
+.no-flexbox-gap .event__sponsor li:not(:last-child) {
+  margin-right: rem(24px);
+}
