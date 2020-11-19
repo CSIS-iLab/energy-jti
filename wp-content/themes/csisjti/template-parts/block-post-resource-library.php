@@ -44,7 +44,7 @@
 
 		<details class="post-block__details">
 			<summary class="btn btn--outline btn--round" data-close="Less Details">
-				<span class="post-block__details-label" data-open="More" data-close="Less"></span>Details
+				<span class="post-block__details-label" data-open="More" data-close="Less"></span>Detail
 				<?php echo csisjti_get_svg( 'arrow-down' ); ?>
 			</summary>
 			<div class="post-block__details-content">
