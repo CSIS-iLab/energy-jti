@@ -416,13 +416,15 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
     }
   }
 
-  .csis-block--gray-section {
+  &__jti-block {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
     margin: 0 auto;
     padding: rem(32) 0 rem(48);
+    background: $color-gray-100;
+    @include full-width-background($color-gray-100);
 
     @include breakpoint('small') {
       flex-direction: row;
