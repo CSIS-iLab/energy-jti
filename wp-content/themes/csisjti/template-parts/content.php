@@ -23,7 +23,7 @@ $post_type = get_post_type();
 
 	?>
 
-	<div class="single__content">
+	<div class="single__content post-copy">
 		<?php
 			csisjti_event_register_link();
 
@@ -59,4 +59,8 @@ $post_type = get_post_type();
 		<?php endif; ?>
 	</footer>
 	<?php } ?>
+
+	<?php
+		dynamic_sidebar( 'explore-resource-library' );
+	?>
 </article><!-- .post -->

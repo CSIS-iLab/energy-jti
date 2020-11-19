@@ -372,8 +372,8 @@ function csisjti_sidebar_registration() {
 			'name'        => __( 'Explore Resource Library', 'csisjti' ),
 			'id'          => 'explore-resource-library',
 			'description' => __( 'This widget will be displayed on the homepage & contain the abbreviated search for the resource library.', 'csisjti' ),
-			'before_widget' => '',
-			'after_widget' => ''
+			'before_widget' => '<div class="explore-resource-library">',
+			'after_widget' => '</div>'
 		)
 	);
 
