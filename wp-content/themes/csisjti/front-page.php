@@ -93,7 +93,7 @@ get_header();
 		</div>
 	</section>
 
-	<div class="csis-block--gray-section">
+	<div class="home__jti-block">
 			<a href="<?php echo get_home_url(); ?>" class="header__logo" title="Go home">
 					<?php
 						include( get_template_directory() . '/assets/static/csisjti-logo-long.svg');
