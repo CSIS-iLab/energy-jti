@@ -33,14 +33,21 @@ $facet: '.facetwp-facet';
     @extend %font-ui-section-heading-lg;
     margin-bottom: rem(64);
     color: $color-gray-dark;
+    white-space: nowrap !important;
+    
+    @include breakpoint(xsmall) {
+      margin-bottom: rem(8);
+    }
 
-    &::before {
-      position: relative;
-      top: 64px;
-      display: block;
-      width: calc(200% + 48px);
-      border-bottom: 1px solid $color-gray-line;
-      content: '';
+    @include breakpoint(large) {
+      &::before {
+        position: relative;
+        top: 64px;
+        display: block;
+        width: calc(200% + 48px);
+        border-bottom: 1px solid $color-gray-line;
+        content: '';
+      }
     }
   }
 
@@ -73,10 +80,20 @@ $facet: '.facetwp-facet';
     }
   }
 
+  &--analysis {
+    @include breakpoint(large) {
+      margin-top: rem(40);
+    }
+  }
+
   &__btn-wrapper {
     position: relative;
     display: flex;
     justify-content: flex-end;
+
+    @include breakpoint(xsmall) {
+      margin-bottom: rem(40);
+    }
   }
 
   .filters-modal__totals {
