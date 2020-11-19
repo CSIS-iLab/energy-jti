@@ -14,9 +14,12 @@ get_header();
 
 <main id="site-content" role="main">
 
-<div class="home-header">
-	<h1 class="home-header__title">Just Transition</h1>
-	<div class="home-header__desc">Searching for solutions to secure an inclusive and sustainable future.</div>
+<div class="home__header">
+	<div class="home__header--title-wrapper">
+		<h1 class="home__header--title">Just Transition</h1>
+		<div class="home__header--desc">Searching for solutions to secure an inclusive and sustainable future.</div>
+	</div>
+
 	<div class="video-wrapper">
 		<video
 					preload="auto"
@@ -37,14 +40,14 @@ get_header();
 </div>
 
 <div class="home__primary">
-		<div class="home__content">
-			<h2 class="home__content--subheading">Addressing climate change should not undermine the society or economy.</h2>
-			<p class="home__content--desc">With climate change posing unprecedented threats to the planet and society, there is a growing focus on “just transitions” to help achieve the economic and social changes necessary for sustainable development, while protecting workers and communities and ensuring a more socially-equitable distribution of benefits and risks.</p>
-			<a href="" class="cta">What is "Just Transition"? <?php
+		<div class="home__objective">
+			<h2 class="home__objective--subheading">Addressing climate change should not undermine the society or economy.</h2>
+			<p class="home__objective--desc">With climate change posing unprecedented threats to the planet and society, there is a growing focus on “just transitions” to help achieve the economic and social changes necessary for sustainable development, while protecting workers and communities and ensuring a more socially-equitable distribution of benefits and risks.</p>
+			<a href="/about-just-transitions/" title="Go to Just Transition Page" class="cta">What is "Just Transition"? <?php
 				echo csisjti_get_svg( 'arrow-right' ); ?>
 			</a>
 		</div>
-		<div class="home__inline-filters resource-library__inline-filters">
+		<div class="home__inline-filters">
 			<h3 class="home__inline-filters--subheading">Explore the Resource Library</h3>
 			<p class="home__inline-filters--desc">Browse resources or search for specific analysis, strategies, and case studies.</p>
 			<?php
@@ -60,28 +63,27 @@ get_header();
 		</div>
 	</div>
 
-
 	<section class="home__analysis">
-	<h3 class="home__analysis--subheading">Analysis<div class="home__analysis--byline"><span>by the</span> Just Transition Initiative</div></h3>
-	<div class="home__analysis--content">
+		<h3 class="home__analysis--subheading">Analysis<div class="home__analysis--byline"><span>by the</span> Just Transition Initiative</div></h3>
+		<div class="home__analysis--content">
 
-	<?php
-		$featured_analysis = get_field( 'featured_analysis' );
+		<?php
+			$featured_analysis = get_field( 'featured_analysis' );
 
-		if ( $featured_analysis ) :
-			foreach ( $featured_analysis as $post ) :
-				setup_postdata ( $post );
+			if ( $featured_analysis ) :
+				foreach ( $featured_analysis as $post ) :
+					setup_postdata ( $post );
 
-				get_template_part( 'template-parts/block-post', get_post_type() );
+					get_template_part( 'template-parts/block-post', get_post_type() );
 
-			endforeach;
-			wp_reset_postdata();
-		endif;
-	?>
-		<a href="/jti-analysis/" class="cta">All Analysis <?php
-			echo csisjti_get_svg( 'arrow-right' ); ?>
-		</a>
-	</div>
+				endforeach;
+				wp_reset_postdata();
+			endif;
+		?>
+			<a href="/jti-analysis/" class="cta">All Analysis <?php
+				echo csisjti_get_svg( 'arrow-right' ); ?>
+			</a>
+		</div>
 	</section>
 
 	<div class="csis-block--gray-section">

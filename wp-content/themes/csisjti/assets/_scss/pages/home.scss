@@ -1,18 +1,18 @@
 @use '../abstracts' as *;
 
 .home {
-  &-header {
-    --header-margin-bottom: #{rem(56)};
+  &__header {
     position: relative;
-    width: 100%;
-    min-height: 300px;
-    padding-bottom: var(--header-padding-bottom);
-    color: $color-white-190;
+    height: 500px;
 
-    &__title {
+    &--title-wrapper {
       position: absolute;
-      top: calc(100% - 250px);
-      z-index: 10;
+      bottom: 0;
+      z-index: 5;
+      padding-bottom: rem(32);
+    }
+
+    &--title {
       margin-bottom: rem(8);
       @extend %font-ui-text-md-bold-uppercase-barlow;
       color: $color-white-100;
@@ -28,14 +28,9 @@
       }
     }
 
-    &__desc {
-      position: absolute;
-      bottom: 0;
-      z-index: 10;
-      display: flex;
-      align-items: flex-end;
+    &--desc {
       max-width: 50%;
-      margin: rem(12) 0 rem(32);
+      margin-top: rem(12);
       color: $color-white-100;
       font-family: $font-barlow-condensed;
       font-weight: 700;
@@ -44,128 +39,35 @@
       text-shadow: 0px 12px 17px rgba(2, 3, 3, 0.19),
         0px 2px 22px rgba(2, 3, 3, 0.13), 0px 7px 8px rgba(2, 3, 3, 0.04);
     }
-  }
 
-  /* stylelint-enable */
-  .video-wrapper {
-    position: relative;
-    @include vw100;
-    max-height: 500px;
-    margin-left: calc(50% - (50vw - var(--scrollbar)));
-    overflow: hidden;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      z-index: 1;
+    /* stylelint-enable */
+    .video-wrapper {
+      position: relative;
       @include vw100;
+      max-height: 500px;
       margin-left: calc(50% - (50vw - var(--scrollbar)));
-      background: var(--page-header-home);
-      mix-blend-mode: soft-light;
-      pointer-events: none;
-    }
+      overflow: hidden;
 
-    .video {
-      width: 100%;
-    }
-  }
-
-  &__analysis {
-    margin-top: rem(40);
-
-    &--subheading {
-      @extend %font-copy-heading-2;
-      margin-bottom: rem(4);
-    }
-
-    &--byline {
-      @extend %font-ui-text-lg;
-      margin-bottom: rem(16);
-      color: $color-black-190;
-      font-weight: 400;
-      line-height: 1.15;
-
-      span {
-        color: $color-black-155;
-        font-family: $font-barlow;
-        font-style: italic;
-        @include font-size(17px);
-      }
-    }
-
-    &--content {
-      @include full-width-background($color-gray-400);
-      display: flex;
-      flex-direction: column;
-      
-
-      @include breakpoint(large) {
-        display: grid;
-        grid-column-gap: 6vw;
-        grid-template-areas:
-          'primary secondary'
-          'primary secondary'
-          'primary secondary'
-          'primary secondary';
-        grid-template-columns: 1fr 2fr;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        @include vw100;
+        margin-left: calc(50% - (50vw - var(--scrollbar)));
+        background: var(--page-header-home);
+        mix-blend-mode: soft-light;
+        pointer-events: none;
       }
 
-      .post-block--post {
-        margin-left: 0;
-      }
-
-      .post-block:not(:first-of-type) .post-block__excerpt {
-        display: none;
-        grid-area: secondary;
-        grid-column: 2;
-      }
-
-      .post-block:first-of-type {
-        grid-area: primary;
-        grid-column: 1;
-        grid-template-areas:
-          'img'
-          'category'
-          'title'
-          'date'
-          'excerpt';
-        grid-template-columns: 1fr;
-        grid-template-rows: max-content max-content max-content max-content auto;
-        background-color: $color-gray-400;
-        
-        @include breakpoint(large) {
-          // padding-left: rem(32);
-        }
-
-        /* stylelint-disable-next-line */
-        .post-block:first-of-type img {
-          max-width: 100%;
-        }
-
-        /* stylelint-disable-next-line */
-        .post-block__img {
-          margin-bottom: rem(24);
-        }
-      }
-
-      .post-block:nth-child(2) {
-        @include breakpoint(large) {
-          margin-top: 0;
-        }
-      }
-
-      .cta {
-        margin-bottom: rem(16);
-        margin-left: auto;
-
-        @include breakpoint(large) {
-          justify-self: end;
-        }
+      .video {
+        width: 100%;
       }
     }
   }
+
+  /** Wrapper for JTI Objective and Filters **/
 
   &__primary {
     display: grid;
@@ -179,12 +81,31 @@
     }
   }
 
+  /** Styling for JTI Objective **/
+
+  &__objective {
+    margin-top: rem(40);
+
+    &--subheading {
+      font-family: $font-barlow;
+      font-weight: 600;
+      @include font-size(30px);
+      color: $color-black-100;
+      line-height: 1.15;
+      margin-bottom: rem(8);
+    }
+
+    &--desc {
+      @extend %font-copy-body-short-lede;
+      color: $color-black-190;
+      margin-bottom: rem(16);
+    }
+  }
+
   &__inline-filters {
     $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
-    mix-blend-mode: light;
     z-index: 2;
     grid-row: 1;
-    width: 100%;
     margin-top: rem(-64);
     padding: 0 rem(32) rem(32);
     background: $tab-gradient;
@@ -241,12 +162,13 @@
     }
 
     &--info {
-      margin: rem(8) 0 rem(24);
+      margin: rem(4) 0 rem(24);
       color: $color-white-170;
     }
 
     .facetwp-facet {
-      margin-bottom: rem(12);
+      margin-bottom: rem(8);
+      height: 60px;
     }
 
     .fs-arrow {
@@ -271,26 +193,110 @@
     }
   }
 
-  &__content {
-    margin-top: rem(24);
+  /** Styling for Analysis Section **/
+
+  &__analysis {
+    margin-top: rem(40);
 
     &--subheading {
-      font-family: $font-barlow;
-      font-weight: 600;
-      @include font-size(30px);
-      color: $color-black-100;
-      line-height: 1.15;
-      margin-bottom: rem(8);
+      @extend %font-copy-heading-2;
+      margin-bottom: rem(4);
     }
 
-    &--desc {
-      @extend %font-copy-body-short-lede;
+    &--byline {
+      @extend %font-ui-text-lg;
+      margin-bottom: rem(16);
       color: $color-black-190;
-      margin-bottom: rem(16);
+      font-weight: 400;
+      line-height: 1.15;
+
+      span {
+        color: $color-black-155;
+        font-family: $font-barlow;
+        font-style: italic;
+        @include font-size(17px);
+      }
     }
 
-    .cta {
-      margin-bottom: rem(16);
+    &--content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      
+      &::before {
+        content: "";
+          position: absolute;
+          top: 0;
+          right: 100%;
+          display: block;
+          width: calc(50vw - var(--scrollbar)/2 - 50%);
+          height: 100%;
+          background: #f5f7f7;
+      }
+
+      @include breakpoint(large) {
+        display: grid;
+        grid-column-gap: 6vw;
+        grid-template-areas:
+          'primary secondary'
+          'primary secondary'
+          'primary secondary'
+          'primary secondary';
+        grid-template-columns: 1fr 2fr;
+      }
+
+      .post-block--post {
+        margin-left: 0;
+
+        img {
+          max-width: unset;
+        }
+      }
+
+      .post-block:not(:first-of-type) .post-block__excerpt {
+        display: none;
+        grid-area: secondary;
+        grid-column: 2;
+      }
+
+      .post-block:first-of-type {
+        grid-area: primary;
+        grid-column: 1;
+        grid-template-areas:
+          'img'
+          'category'
+          'title'
+          'date'
+          'excerpt';
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content max-content max-content auto;
+        background-color: $color-gray-400;
+
+        /* stylelint-disable-next-line */
+        .post-block:first-of-type img {
+          max-width: 100%;
+        }
+
+        /* stylelint-disable-next-line */
+        .post-block__img {
+          margin-bottom: rem(24);
+        }
+      }
+
+      .post-block:nth-child(2) {
+        @include breakpoint(large) {
+          margin-top: 0;
+        }
+      }
+
+      .cta {
+        margin-bottom: rem(24);
+        margin-left: auto;
+
+        @include breakpoint(large) {
+          justify-self: end;
+        }
+      }
     }
   }
 
@@ -335,4 +341,6 @@
       background: $color-gray-100;
     }
   }
+
+  // background: var(--page-header-event);
 }
