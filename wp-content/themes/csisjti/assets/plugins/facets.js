@@ -16,7 +16,6 @@
     connectFacets()
     hideExtraFacets()
     enableAutoRefreshSpecificFacets()
-    modifyExpandCheckboxFacet()
     hasRun = true
   })
 
@@ -353,15 +352,6 @@
         let el = this.querySelectorAll('.fs-label-field')[0]
         let label = el.innerText.replace(" Modal", "")
         el.innerText = label
-      }
-    )
-  }
-
-  function modifyExpandCheckboxFacet() {
-    console.log('hello')
-    $('.facetwp-facet-focus_areas_modal').children().not('.facetwp-depth').each(
-      function () {
-        
       }
     )
   }
