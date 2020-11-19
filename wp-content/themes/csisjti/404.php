@@ -12,19 +12,16 @@ get_header();
 
 <main id="site-content" role="main">
 
+	<?php	get_template_part( 'template-parts/entry-header' ); ?>
+	
 	<div class="section-inner thin error404-content">
 
-		<h1 class="entry-title"><?php _e( 'Page Not Found', 'csisjti' ); ?></h1>
 
-		<div class="intro-text"><p><?php _e( 'The page you were looking for could not be found. It might have been removed, renamed, or did not exist in the first place.', 'csisjti' ); ?></p></div>
+		<div class="intro-text"><p><?php _e( 'The page you requested was moved, removed, renamed, or might never have existed. We apologize for any inconvenience!', 'csisjti' ); ?></p></div>
 
-		<?php
-		get_search_form(
-			array(
-				'label' => __( '404 not found', 'csisjti' ),
-			)
-		);
-		?>
+		<a href="/" class="cta"> 
+			Go to the homepage <?php echo csisjti_get_svg('arrow-right') ?>
+		</a>
 
 	</div><!-- .section-inner -->
 

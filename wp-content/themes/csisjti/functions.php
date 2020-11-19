@@ -200,6 +200,10 @@ function csisjti_register_styles() {
 		wp_enqueue_style( 'csisjti-style-resource-library', get_stylesheet_directory_uri() . '/assets/css/pages/resource-library.min.css', array(), $theme_version );
 	}
 
+	if ( is_404() ) {
+		wp_enqueue_style( 'csisjti-style-404', get_stylesheet_directory_uri() . '/assets/css/pages/404.min.css', array(), $theme_version );
+	}
+
 	if ( is_singular() || is_page() ) {
 		wp_enqueue_style( 'csisjti-style-single', get_stylesheet_directory_uri() . '/assets/css/pages/single.min.css', array(), $theme_version );
 
