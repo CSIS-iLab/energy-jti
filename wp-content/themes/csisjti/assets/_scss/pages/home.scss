@@ -1,5 +1,7 @@
 @use '../abstracts' as *;
 
+$tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
+
 .home {
   &__header {
     position: relative;
@@ -103,29 +105,32 @@
 
   &__primary {
     --filter-width: 33%;
-    --filter-overlap: 20%;
-    --filter-desc-height: #{rem(60px)};
-    $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
+    --filter-overlap: #{rem(150px)};
+    --filter-desc-height: #{rem(80px)};
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 2;
 
     @include breakpoint(large) {
+      --filter-desc-height: #{rem(60px)};
+      --filter-overlap: 28%;
       display: grid;
       grid-gap: 6vw;
       grid-template-columns: auto var(--filter-width);
     }
 
     &::after {
-      content: '';
-      position: absolute;
-      top: calc(var(--filter-desc-height) * -1);
-      bottom: 0;
-      left: calc(100% - var(--filter-width));
-      z-index: 1;
-      width: calc(50vw - var(--scrollbar) / 2 - 50% + var(--filter-width));
-      background: $tab-gradient;
+      @include breakpoint('large') {
+        content: '';
+        position: absolute;
+        top: calc(var(--filter-desc-height) * -1);
+        bottom: 0;
+        left: calc(100% - var(--filter-width));
+        z-index: 1;
+        width: calc(50vw - var(--scrollbar) / 2 - 50% + var(--filter-width));
+        background: $tab-gradient;
+      }
     }
   }
 
@@ -153,14 +158,29 @@
   &__inline-filters {
     $tab-solid: $color-primary-blue-400;
     position: relative;
-    top: calc(var(--filter-overlap) * -1);
     z-index: 2;
     grid-row: 1;
+    margin-top: calc(var(--filter-overlap) * -1);
     padding: 0 rem(32) rem(32);
     background: transparent;
 
     @include breakpoint(large) {
       grid-row: unset;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: var(--filter-desc-height);
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      width: calc(100vw - var(--scrollbar) - var(--container-padding));
+      background: $tab-gradient;
+
+      @include breakpoint('large') {
+        display: none;
+      }
     }
 
     &--subheading,
@@ -191,7 +211,7 @@
         position: absolute;
         top: 1px;
         bottom: 0;
-        left: calc(100% - 4px);
+        left: calc(100% - 1px);
         width: var(--tab-width);
         background: transparent;
         /* stylelint-disable */
@@ -202,6 +222,10 @@
           transparent 50%
         );
         /* stylelint-enable */
+
+        @include breakpoint('large') {
+          left: calc(100% - 4px);
+        }
       }
     }
 
@@ -210,9 +234,26 @@
     }
 
     &--desc {
-      height: var(--filter-desc-height);
+      position: relative;
+      padding-top: rem(8);
       padding-bottom: rem(16);
       color: $color-white-190;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        z-index: -1;
+        width: calc(100vw - var(--scrollbar) - 100% - var(--container-padding));
+        height: 100%;
+        background: $tab-solid;
+
+        @include breakpoint('large') {
+          display: none;
+        }
+      }
     }
 
     &--info {
