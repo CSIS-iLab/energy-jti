@@ -21,7 +21,7 @@
 
 	?>
 
-	<div class="single__content">
+	<div class="single__content post-copy">
 		<?php
 			the_content( __( 'Continue reading', 'csisjti' ) );
 		?>
@@ -52,6 +52,6 @@
 	<?php if ( is_page( '135' ) ) {
 		dynamic_sidebar( 'explore-resource-library' );
 	}
-	
+
 	?>
 </article><!-- .post -->

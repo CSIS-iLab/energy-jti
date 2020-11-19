@@ -1,8 +1,52 @@
 @use '../abstracts' as *;
 
-.single__content {
+.post-copy {
   > * + * {
     margin-top: rem(16);
+  }
+
+  /*----------  Links  ----------*/
+  a {
+    color: $color-primary-blue-400;
+    text-decoration: underline;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-primary-blue-200;
+      text-decoration: none;
+    }
+
+    /* stylelint-disable */
+    &[href*="//"]:not([href*="energy-jti.local"]):not([href*="localhost"]):not([href*="justtransitioninitiative"])
+    {
+      &::after {
+        content: '';
+        position: relative;
+        left: 1px;
+        display: inline-block;
+        width: 0.8em;
+        height: 0.8em;
+        background-image: url('/wp-content/themes/csisjti/assets/static/icons/arrow-external.svg');
+        background-size: 100% 100%;
+        filter: invert(34%) sepia(49%) saturate(1283%) hue-rotate(142deg)
+          brightness(97%) contrast(99%);
+        transition: filter 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        filter: invert(22%) sepia(46%) saturate(1699%) hue-rotate(150deg)
+          brightness(98%) contrast(104%);
+      }
+    }
+    /* stylelint-enable */
+  }
+
+  /*----------  Lede  ----------*/
+
+  .content__lede {
+    @extend %font-copy-body-short-lede;
+    margin-bottom: rem(32px);
+    color: $color-primary-blue-300;
   }
 
   /*----------  Headings  ----------*/
