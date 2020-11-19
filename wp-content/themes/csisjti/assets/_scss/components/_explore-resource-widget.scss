@@ -1,0 +1,53 @@
+@use '../abstracts' as *;
+
+.explore-resource-library {
+  @include vw100;
+  margin-left: calc(50% - (50vw - var(--scrollbar)));
+  padding: rem(40px) var(--container-padding);
+  color: $color-white-190;
+  /* stylelint-disable */
+  background: linear-gradient(
+      220.16deg,
+      #26a7ac 0%,
+      rgba(58, 151, 151, 0.1) 60.1%
+    ),
+    linear-gradient(270.67deg, #36987c 0.59%, #038170 44.63%, #005958 98.67%),
+    linear-gradient(0deg, $color-gradient-jade, $color-gradient-jade);
+  /* stylelint-enable */
+
+  p {
+    @extend %font-ui-text-md;
+    max-width: rem(450px);
+    margin: 0 auto rem(20px) auto;
+    text-align: center;
+  }
+
+  a {
+    @extend %font-ui-text-lg-bold;
+    display: flex;
+    gap: rem(12px);
+    align-items: center;
+    max-width: rem(450px);
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-white-100;
+
+      .icon {
+        color: $color-primary-blue-400;
+        background: $color-white-100;
+        border: 2.5px solid $color-white-100;
+      }
+    }
+  }
+
+  .icon {
+    flex-shrink: 0;
+    width: 2em;
+    height: 2em;
+    color: $color-white-190;
+    border: 2.5px solid $color-white-140;
+    border-radius: 50%;
+  }
+}
