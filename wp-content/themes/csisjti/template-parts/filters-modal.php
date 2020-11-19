@@ -30,7 +30,7 @@ $object_name = $object->name;
     <button id="filters-apply-btn" class="btn btn--apply">Apply</button>
   </div>
 
-  <div class="filters-modal__subheading filters-modal--analysis" data-tippy-content="<?php the_field( 'analysis_description', $object_name ); ?>">
+  <div class="filters-modal__subheading filters-modal--analysis" data-tippy-content="<?php the_field( 'analysis_type_description', $object_name ); ?>">
     Analysis Type
     <?php echo csisjti_get_svg('info'); ?>
   </div>
