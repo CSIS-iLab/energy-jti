@@ -1,6 +1,7 @@
 @use 'abstracts' as *;
 @use 'post-block-post';
 @use 'post-block-resource-library';
+@use 'post-block-event';
 
 .post-block {
   + .post-block {
