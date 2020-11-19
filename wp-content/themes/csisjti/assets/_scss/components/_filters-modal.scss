@@ -448,3 +448,11 @@ $facet: '.facetwp-facet';
     }
   }
 }
+
+.no-flexbox-gap #{$facet}-sectors_modal,
+.no-flexbox-gap #{$facet}-publishing_organization_type_modal,
+.no-flexbox-gap #{$facet}-focus_areas_modal {
+  .fs-checkbox {
+    margin-right: rem(12px);
+  }
+}

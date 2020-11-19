@@ -3,7 +3,7 @@
 .explore-resource-library {
   @include vw100;
   margin-left: calc(50% - (50vw - var(--scrollbar)));
-  padding: rem(40px) var(--container-padding);
+  padding: rem(40) var(--container-padding);
   color: $color-white-190;
   /* stylelint-disable */
   background: linear-gradient(
@@ -17,23 +17,23 @@
 
   p {
     @extend %font-ui-text-md;
-    max-width: rem(450px);
-    margin: 0 auto rem(20px) auto;
+    max-width: rem(450);
+    margin: 0 auto rem(20) auto;
     text-align: center;
   }
 
   a {
     @extend %font-ui-text-lg-bold;
     display: flex;
-    gap: rem(12px);
+    gap: rem(12);
     align-items: center;
-    max-width: rem(450px);
+    max-width: rem(450);
     margin: 0 auto;
     transition: all 0.3s ease-in-out;
 
     &:hover {
       color: $color-white-100;
-
+      
       .icon {
         color: $color-primary-blue-400;
         background: $color-white-100;
@@ -41,7 +41,7 @@
       }
     }
   }
-
+  
   .icon {
     flex-shrink: 0;
     width: 2em;
@@ -50,4 +50,8 @@
     border: 2.5px solid $color-white-140;
     border-radius: 50%;
   }
+}
+
+.no-flexbox-gap .explore-resource-library .icon {
+  margin-right: rem(12);
 }

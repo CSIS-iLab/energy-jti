@@ -61,3 +61,11 @@
 .facetwp-facet-pagination {
   margin-bottom: 0 !important;
 }
+
+.no-flexbox-gap .facetwp-facet-pagination .facetwp-pager-totals {
+  margin-right: rem(8);
+
+  @include breakpoint('small') {
+    margin-right: rem(16);
+  }
+}
