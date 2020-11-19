@@ -12,7 +12,7 @@
     margin-bottom: 0 !important;
     margin-left: calc(var(--container-padding) * -1);
     padding-left: calc(var(--tab-width) + 2px);
-    overflow: scroll;
+    overflow-x: scroll;
     color: $color-black-100;
     @extend %font-ui-text-lg;
 
