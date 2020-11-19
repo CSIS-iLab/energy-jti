@@ -3,17 +3,17 @@
 .csis-block--teams {
   margin-top: rem(32px);
 
-  @include breakpoint('medium') {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: rem(32px);
-  }
-
-  @include breakpoint('large') {
-    column-gap: rem(48px);
-  }
-
   .teams {
+    @include breakpoint('medium') {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: rem(32px);
+    }
+
+    @include breakpoint('large') {
+      column-gap: rem(48px);
+    }
+
     &__team {
       margin-bottom: rem(48px);
 
@@ -88,23 +88,24 @@
       display: block;
       grid-column: 2;
       margin-bottom: rem(8px);
-      color: $color-black-100;
-      text-decoration: underline;
-      transition: all 0.3s ease-in-out;
 
-      &::after {
-        content: '';
-        display: inline-block;
-        width: 0.7em;
-        height: 0.7em;
-        text-decoration: none;
-        background-image: url('/wp-content/themes/csisjti/assets/static/icons/arrow-external.svg');
-        background-size: 100% 100%;
-      }
+      a {
+        /* stylelint-disable-next-line */
+        &::after {
+          content: '';
+          display: inline-block;
+          width: 0.7em;
+          height: 0.7em;
+          text-decoration: none;
+          background-image: url('/wp-content/themes/csisjti/assets/static/icons/arrow-external.svg');
+          background-size: 100% 100%;
+        }
 
-      &:hover {
-        color: $color-primary-blue-200;
-        text-decoration: none;
+        /* stylelint-disable-next-line */
+        &:hover {
+          color: $color-primary-blue-200;
+          text-decoration: none;
+        }
       }
     }
 
