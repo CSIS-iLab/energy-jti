@@ -104,10 +104,11 @@
     &_nav_menu {
       grid-area: menu;
       @extend %font-ui-text-md-bold;
-
+      
       @include breakpoint('large') {
         margin-left: rem(8);
         padding-left: rem(16);
+        border-left: 1px solid rgba(0, 0, 0, 0.2);
       }
 
       @include breakpoint('xlarge') {
