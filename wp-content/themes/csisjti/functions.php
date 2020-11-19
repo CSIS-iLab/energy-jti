@@ -202,10 +202,14 @@ function csisjti_register_styles() {
 
 	if ( is_singular() || is_page() ) {
 		wp_enqueue_style( 'csisjti-style-single', get_stylesheet_directory_uri() . '/assets/css/pages/single.min.css', array(), $theme_version );
-	}
 
-	if ( 'post' === get_post_type() ) {
-		wp_enqueue_style( 'csisjti-style-post', get_stylesheet_directory_uri() . '/assets/css/pages/post.min.css', array(), $theme_version );
+		if ( 'post' === get_post_type() ) {
+			wp_enqueue_style( 'csisjti-style-post', get_stylesheet_directory_uri() . '/assets/css/pages/post.min.css', array(), $theme_version );
+		}
+
+		if ( 'event' === get_post_type() ) {
+			wp_enqueue_style( 'csisjti-style-event', get_stylesheet_directory_uri() . '/assets/css/pages/event.min.css', array(), $theme_version );
+		}
 	}
 
 	// Add print CSS.
@@ -368,8 +372,8 @@ function csisjti_sidebar_registration() {
 			'name'        => __( 'Explore Resource Library', 'csisjti' ),
 			'id'          => 'explore-resource-library',
 			'description' => __( 'This widget will be displayed on the homepage & contain the abbreviated search for the resource library.', 'csisjti' ),
-			'before_widget' => '',
-			'after_widget' => ''
+			'before_widget' => '<div class="explore-resource-library">',
+			'after_widget' => '</div>'
 		)
 	);
 

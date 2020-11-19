@@ -180,7 +180,7 @@ function csisjti_last_updated() {
 		return;
 	}
 
-	echo '<div class="post-meta post-meta__date">' . get_the_modified_time( get_option( 'date_format' ) ) . '</div>';
+	echo '<div class="post-meta post-meta__date"><span class="post-meta__label">Last Updated</span> ' . get_the_modified_time( get_option( 'date_format' ) ) . '</div>';
 }
 
 /**
@@ -209,8 +209,12 @@ if (! function_exists('csisjti_authors_list_extended')) :
 	{
 		global $post;
 
+		if ( 'post' !== get_post_type() ) {
+			return;
+		}
+
 		if (function_exists('coauthors_posts_links')) {
-			$authors = '<h2 class="heading">Authors</h2>';
+			$authors = '<h2 class="section__heading">Authors</h2>';
 
 			foreach (get_coauthors() as $coauthor) {
 				$name = $coauthor->display_name;
@@ -249,6 +253,11 @@ if (! function_exists('csisjti_display_categories')) :
 
 		if ('Uncategorized' === $categories_list) {
 				return;
+		}
+
+		// Always display "Event" for events
+		if ( 'event' === get_post_type() ) {
+			$categories_list = 'Event';
 		}
 
 		if ( $categories_list ) {
@@ -316,18 +325,6 @@ if (! function_exists('csisjti_share')) :
 endif;
 
 /**
- * Splits date string to create date object
- *
- */
-function split_date($date) {
-	if ( strpos($date, "/") ) {
-		return explode("/", $date);
-	} elseif ( strpos($date, "-") ) {
-		return explode("-", $date);
-	}
-}
-
-/**
  * Displays the header's description or excerpt depending on post type.
  *
  *
@@ -375,43 +372,6 @@ if (! function_exists('csisjti_header_subtitle')) :
 		}
 
 		printf( '<p class="entry-header__subtitle">' . esc_html__( '%1$s', 'csisjti' ) . '</p>', $subtitle ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-endif;
-
-/**
- * Displays Event Block Time.
- *
- *
- * @return string $html The event block time.
- */
-if (! function_exists('csisjti_event_block_time')) :
-	function csisjti_event_block_time() {
-		$time = get_field( 'time' );
-
-		if ( !$time ) {
-			return;
-		}
-
-		printf( '<div class="event-block__time">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $time ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-endif;
-
-/**
- * Displays Event Block Location.
- *
- *
- * @return string $html The event block location.
- */
-if (! function_exists('csisjti_event_block_loc')) :
-	function csisjti_event_block_loc() {
-		$loc = get_field( 'location', false, false );
-
-		if ( !$loc ) {
-			return;
-		}
-
-		printf( '<address class="event-block__loc">' . esc_html__( '%1$s', 'csisjti' ) . '</address>', $loc ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
 	}
 endif;
 
@@ -732,4 +692,204 @@ function csisjti_group_acf_tax_by_parent( $field ) {
 
 	return $html;
 }
+endif;
+
+/**
+ * Displays Event Date.
+ *
+ *
+ * @return string $html The event date.
+ */
+if (! function_exists('csisjti_event_date')) :
+	function csisjti_event_date() {
+		$date = get_field( 'date_of_event' );
+
+		if ( !$date ) {
+			return;
+		}
+
+		$date_array = explode('-', $date);
+		$year = $date_array[0];
+		$month = date("M", strtotime($date));
+		$day = $date_array[2];
+
+		$past_class = "";
+
+		if ( $date < date("Y-m-d") ) {
+			$past_class = " event-date--past";
+		}
+
+		/* translators: 1: list of tags. */
+		printf( '<div class="post-meta__date event-date' . esc_html__( '%1$s', 'csisjti' ) . '"><div class="event-date__month">' . esc_html__( '%2$s', 'csisjti' ) . '</div><div class="event-date__day">' . esc_html__( '%3$s', 'csisjti' ) . '</div><div class="event-date__year">' . esc_html__( '%4$s', 'csisjti' ) . '</div></div>', $past_class, $month, $day, $year ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Event Details such as time & address, but only if this is an upcoming event. Otherwise show a notice that this event has already occurred.
+ *
+ *
+ * @return string $html The event time.
+ */
+if (! function_exists('csisjti_event_details')) :
+	function csisjti_event_details() {
+		// If this is a past event, show banner that it's past.
+		$date = get_field( 'date_of_event' );
+		$is_past_event = false;
+
+		if ( $date < date("Y-m-d") ) {
+			$is_past_event = true;
+
+			$pastHTML = '<div class="post-meta__details-past">' . csisjti_get_svg( 'calendar' ) .  'This event has already occurred.</div>';
+
+			$has_video = get_field( 'has_video_available' );
+
+			$videoHTML = '';
+
+			if ( $has_video ) {
+				$videoHTML = '<div class="post-meta__details-video">' . csisjti_get_svg( 'videocam' ) . 'Video Available</div>';
+			}
+
+			printf( '<div class="post-meta post-meta__details">' . esc_html__( '%1$s', 'csisjti' ) . esc_html__( '%2$s', 'csisjti' ) . '</div>', $pastHTML, $videoHTML ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+			return;
+		}
+
+		$time = get_field( 'time' );
+		$location = get_field( 'location' );
+
+		if ( !$time && !$location ) {
+			return;
+		}
+
+
+		$timeHTML = '';
+		if ($time) {
+			$timeHTML = '<dt class="post-meta__label">Time</dt><dd class="post-meta__time">' . $time . '</dd>';
+		}
+
+		$locationHTML = '';
+		if ($location) {
+			$locationHTML = '<dt class="post-meta__label">Location</dt><dd class="post-meta__location"><address>' . $location . '</address></dd>';
+		}
+
+		printf( '<dl class="post-meta post-meta__details post-meta__details--upcoming">' . esc_html__( '%1$s', 'csisjti' ) . esc_html__( '%2$s', 'csisjti' ) . '</dl>', $timeHTML, $locationHTML ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Event Post Sponsored short text.
+ *
+ *
+ * @return string $html The sponsored short text.
+ */
+if (! function_exists('csisjti_event_sponsored_short')) :
+	function csisjti_event_sponsored_short() {
+		$sponsored_short = '';
+
+		if( have_rows('sponsor_or_partners') ):
+			while ( have_rows('sponsor_or_partners') ) : the_row();
+				$sponsored_short = get_sub_field('short_description');
+			endwhile;
+		endif;
+
+
+		if ( !$sponsored_short ) {
+			return;
+		}
+
+		printf( '<div class="post-meta post-meta__sponsored">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $sponsored_short ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Event Post full sponsor information.
+ *
+ *
+ * @return string $html The sponsor description and logos.
+ */
+if (! function_exists('csisjti_event_sponsored_full')) :
+	function csisjti_event_sponsored_full() {
+
+		if ( 'event' !== get_post_type() ) {
+			return;
+		}
+
+		$sponsored_full = '';
+
+		$sponsors = array();
+		$max_num_sponsors = 3;
+
+		if( have_rows('sponsor_or_partners') ):
+			while ( have_rows('sponsor_or_partners') ) : the_row();
+				$sponsored_full = get_sub_field('description');
+
+				for ($i = 1; $i <= 3; $i++) {
+
+					$url = get_sub_field( 'sponsor_' . $i . '_url' );
+
+					if ( $url ) {
+						$logo = get_sub_field( 'logo_' . $i );
+						$sponsors[] = array('url' => $url, 'logo' => $logo);
+					}
+				}
+
+			endwhile;
+		endif;
+
+		if ( !$sponsored_full ) {
+			return;
+		}
+
+		$sponsorsHTML = '';
+		if ( !empty($sponsors) ) {
+			$sponsorsHTML .= '<ul class="event__sponsor-list">';
+
+			foreach ($sponsors as $key => $sponsor) {
+				$sponsorsHTML .= '<li><a href="' . esc_url($sponsor['url']) . '"><img src="' . esc_url($sponsor['logo']['url']) . '" alt="' . esc_attr( $sponsor['logo']['alt'] ) . '" /></a></li>';
+			}
+
+			$sponsorsHTML .= '</ul>';
+		}
+
+		printf( '<div class="event__sponsor"><p>' . esc_html__( '%1$s', 'csisjti' ) . '</p>' . esc_html__( '%2$s', 'csisjti' ) . '</div>', $sponsored_full, $sponsorsHTML); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
+
+/**
+ * Displays Event Register Link if event has not occurred yet.
+ *
+ *
+ * @return string $html The event register link.
+ */
+if (! function_exists('csisjti_event_register_link')) :
+	function csisjti_event_register_link() {
+		$date = get_field( 'date_of_event' );
+
+		if ( $date < date("Y-m-d") ) {
+			return;
+		}
+
+		$registration_link = get_field( 'registration_link' );
+
+		if ( !$registration_link ) {
+			return;
+		}
+
+		$info = get_field( 'additional_registration_info' );
+
+		$infoHTML = '';
+
+		if ( $info ) {
+			$infoHTML = '<p class="registration-info">' . esc_html( $info ) . '</p>';
+		}
+
+		$icon = csisjti_get_svg( 'arrow-external' );
+
+		printf( '<div class="event__registration"><a class="btn btn--round btn--register" href="' . esc_url( '%1$s', 'csisjti' ) . '" target="' . esc_attr( '%3$s', 'csisjti' ) . '">' . esc_html__( '%2$s', 'csisjti' ) . esc_html__( '%4$s', 'csisjti' ) . '</a>' . esc_html__( '%5$s', 'csisjti' ) . '</div>', $registration_link['url'], $registration_link['title'], $registration_link['target'], $icon, $infoHTML ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
 endif;

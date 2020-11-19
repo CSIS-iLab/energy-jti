@@ -58,20 +58,9 @@ if ( !$is_home && $has_thumbnail ) {
 
 		csisjti_last_updated();
 
-		get_template_part( 'template-parts/event-block-upcoming' );
-	?>
-		<!-- past event block -->
+		get_template_part( 'template-parts/entry-header-event' );
 
-		<?php $related_analysis = get_field( 'related_analysis' );
-		if ( $related_analysis ) :
-			$post = $related_analysis;
-		 	setup_postdata( $post ); ?>
-			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-			<?php wp_reset_postdata();
-		endif;
-		?>
-
-	<?php } else if ( !$is_home && $has_thumbnail ) {
+	} else if ( !$is_home && $has_thumbnail ) {
 
 		get_template_part( 'template-parts/featured-image' );
 

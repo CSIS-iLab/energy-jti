@@ -11,7 +11,7 @@ if ( has_post_thumbnail() && ! post_password_required() ) {
 
 	?>
 
-	<figure class="post-block__img">
+	<figure class="entry-header__img">
 
 		<?php
 			the_post_thumbnail( 'large' );
