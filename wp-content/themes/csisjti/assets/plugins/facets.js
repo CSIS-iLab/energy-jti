@@ -8,6 +8,7 @@
     modifySearchFacet()
     fSelectFacetApply()
     modifyFSelectFacet()
+    modifyFSelectLabels()
     modifyExpandIcons()
     setNumFilters()
     fwpDisableAutoRefresh()
@@ -342,6 +343,16 @@
       '.facetwp-facet-type_of_content .facetwp-radio',
       function () {
         FWP.refresh()
+      }
+    )
+  }
+
+  function modifyFSelectLabels() {
+    $('.filters-modal .facetwp-type-fselect').each(
+      function () {
+        let el = this.querySelectorAll('.fs-label-field')[0]
+        let label = el.innerText.replace(" Modal", "")
+        el.innerText = label
       }
     )
   }
