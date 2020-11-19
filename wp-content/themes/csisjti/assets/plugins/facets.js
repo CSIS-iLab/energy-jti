@@ -4,13 +4,13 @@
   let hasRun = false
 
   $(document).on('facetwp-loaded', function () {
+    fwpDisableAutoRefresh()
     modifyCheckboxes()
     modifySearchFacet()
     modifyFSelectFacet()
     modifyMultiSelect()
     modifyExpandIcons()
     setNumFilters()
-    fwpDisableAutoRefresh()
     customizeDatePicker()
     connectFacets()
     hideExtraFacets()

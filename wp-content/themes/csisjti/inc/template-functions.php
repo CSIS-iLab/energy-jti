@@ -434,8 +434,16 @@ function the_field_without_wpautop( $field_name ) {
  * Modify the assets that are loaded on pages that use facets.
  */
 add_filter( 'facetwp_assets', function( $assets ) {
-        $assets['custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets.js';
-        unset( $assets['fSelect.css'] );
+		if ( !is_front_page() ) {
+			$assets['custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets.js';
+		}
+
+		if ( is_front_page() ) {
+            $assets['homepage-custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets-homepage.js';
+		}
+
+		unset( $assets['fSelect.css'] );
+
     return $assets;
 });
 
@@ -558,3 +566,6 @@ function set_posts_per_page( $query ) {
 
   return $query;
 }
+
+
+
