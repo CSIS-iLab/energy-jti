@@ -5,7 +5,8 @@ $facet: '.facetwp-facet';
 .filters-modal {
   display: grid;
   grid-template-areas:
-    'title title-btns'
+    'title title'
+    'title-btns title-btns'
     'analysis-heading analysis-heading'
     'analysis analysis'
     'topic topic'
@@ -35,8 +36,7 @@ $facet: '.facetwp-facet';
 
   @include breakpoint(xsmall) {
     grid-template-areas:
-      'title title'
-      'title-btns title-btns'
+      'title title-btns'
       'analysis-heading analysis-heading'
       'analysis analysis'
       'topic topic'
@@ -175,7 +175,7 @@ $facet: '.facetwp-facet';
   #{$facet}-focus_areas_modal {
     grid-area: focus-areas;
   }
-  
+
   #{$facet}-author_modal {
     grid-area: author;
   }

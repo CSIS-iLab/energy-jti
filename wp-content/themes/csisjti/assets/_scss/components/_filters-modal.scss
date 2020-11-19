@@ -31,12 +31,12 @@ $facet: '.facetwp-facet';
 
   &__title {
     @extend %font-ui-section-heading-lg;
-    margin-bottom: rem(64);
+    margin-bottom: rem(8);
     color: $color-gray-dark;
     white-space: nowrap !important;
     
-    @include breakpoint(xsmall) {
-      margin-bottom: rem(8);
+    @include breakpoint(large) {
+      margin-bottom: rem(64);
     }
 
     @include breakpoint(large) {
@@ -90,9 +90,10 @@ $facet: '.facetwp-facet';
     position: relative;
     display: flex;
     justify-content: flex-end;
+    margin-bottom: rem(40);
 
-    @include breakpoint(xsmall) {
-      margin-bottom: rem(40);
+    @include breakpoint(large) {
+      margin-bottom: unset;
     }
   }
 
