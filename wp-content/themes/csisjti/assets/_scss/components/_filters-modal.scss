@@ -315,6 +315,10 @@ $facet: '.facetwp-facet';
     margin-bottom: rem(40) !important;
   }
 
+  .fs-fselect-apply {
+    display: none;
+  }
+
   /*----------  Facet: Custom Date Range  ----------*/
 
   #{$facet}-publish_date {

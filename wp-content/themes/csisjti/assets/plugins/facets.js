@@ -6,6 +6,7 @@
   $(document).on('facetwp-loaded', function () {
     modifyCheckboxes()
     modifySearchFacet()
+    fSelectFacetApply()
     modifyFSelectFacet()
     modifyExpandIcons()
     setNumFilters()
@@ -150,7 +151,13 @@
         label.innerHTML = facet_label
 
         this.querySelector('.fs-label-wrap').prepend(label)
+      }
+    )
+  }
 
+  function fSelectFacetApply() {
+    $('.resource-library__inline-filters .facetwp-type-fselect').each(
+      function () {
         // Add Apply Button
         const applyWrapper = document.createElement('div')
         applyWrapper.classList.add('fs-fselect-apply')
