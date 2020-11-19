@@ -571,5 +571,17 @@ function set_posts_per_page( $query ) {
   return $query;
 }
 
+/**
+ * Only use default feature image on posts.
+ */
+function csisjti_dfi_posttype_post ( $dfi_id, $post_id ) {
+	$post = get_post($post_id);
+
+  if ( 'post' === $post->post_type ) {
+    return $dfi_id; // the original featured image id
+  }
+  return 0; // the original featured image id
+}
+add_filter( 'dfi_thumbnail_id', 'csisjti_dfi_posttype_post', 10, 2 );
 
 
