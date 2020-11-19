@@ -2,11 +2,11 @@
 
 .event-date {
   --meta-date: #{$color-white-100};
-  --event-year: #{$color-primary-green-700};
+  --event-year: #{$color-purple-100};
   width: 120px;
   height: 120px;
   padding: rem(12) rem(16);
-  background: var(--event-bg, $color-primary-green-400);
+  background: var(--event-bg, $color-gradient-purple);
   box-shadow: $shadow--4;
 
   .post-block--event & {
@@ -14,27 +14,6 @@
     --event-bg: #{$color-gray-400};
     --event-year: #{$color-primary-green-600};
   }
-
-  // display: grid;
-  // grid-area: secondary-content;
-  // grid-template-columns: 1fr 4fr;
-  // grid-template-rows: repeat(auto-fit, minmax(10px, 100px));
-  // height: var(--event-block-height);
-  // column-gap: 32px;
-
-  // &::before {
-  //   display: none;
-
-  //   @include breakpoint(large) {
-  //     position: absolute;
-  //     top: 92px;
-  //     left: 65%;
-  //     display: block;
-  //     content: '';
-  //     height: 100%;
-  //     border-left: 1px solid $color-white-155;
-  //   }
-  // }
 
   &__month {
     @extend %font-ui-text-lg-bold;
