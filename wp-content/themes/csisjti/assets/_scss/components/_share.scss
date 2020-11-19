@@ -62,16 +62,13 @@
       brightness(95%) contrast(99%);
     --icon-fill-hover: invert(22%) sepia(46%) saturate(1699%) hue-rotate(150deg)
       brightness(98%) contrast(104%) #{$shadow--3};
+    margin-top: rem(48);
     margin-bottom: rem(16);
 
     @include breakpoint('small') {
       width: fit-content;
       margin-right: auto;
       margin-left: auto;
-    }
-
-    @include breakpoint('large') {
-      margin-top: rem(32);
     }
 
     &::before {
