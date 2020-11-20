@@ -6,7 +6,7 @@
 /* stylelint-disable */
 .resource-library__inline-filters {
   height media query {
-    max-height: 600px;
+    max-height: 500px;
     overflow: scroll;
   }
 }
@@ -19,7 +19,8 @@
     margin-bottom: rem(12) !important; // Override plugin default styles
 
     @media all and (max-height: 800px) {
-      height: rem(48);
+      height: rem(45);
+      margin-bottom: 0.50rem!important;
     }
   }
 
