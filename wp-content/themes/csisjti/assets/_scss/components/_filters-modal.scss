@@ -101,10 +101,7 @@ $facet: '.facetwp-facet';
     margin-right: rem(40);
     margin-left: rem(20);
     font-weight: bold;
-
-    &:hover {
-      cursor: default;
-    }
+    pointer-events: none;
   }
 
   .btn--apply,
