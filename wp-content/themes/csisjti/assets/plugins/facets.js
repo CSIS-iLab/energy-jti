@@ -29,6 +29,7 @@
     connectFacets()
     hideExtraFacets()
     enableAutoRefreshSpecificFacets()
+    modifyExpandCheckboxFacet()
     hasRun = true
   })
 
@@ -369,5 +370,14 @@
       let label = el.innerText.replace(' Modal', '')
       el.innerText = label
     })
+  }
+
+  function modifyExpandCheckboxFacet() {
+    console.log('hello')
+    $('.facetwp-facet-focus_areas_modal').next('.facetwp-depth').each(
+      function () {
+        console.log('hi')
+      }
+    )
   }
 })(jQuery)
