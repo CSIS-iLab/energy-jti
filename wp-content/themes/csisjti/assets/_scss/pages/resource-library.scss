@@ -123,6 +123,8 @@
   }
 
   &__sticky {
+    z-index: 1000;
+    
     @include breakpoint('large') {
       position: sticky;
       top: var(--header-height);
