@@ -5,8 +5,8 @@
 
 /* stylelint-disable */
 .resource-library__inline-filters {
-  height media query {
-    max-height: 500px;
+  // Set overflow scroll on the inline filters so on small screens you can always access the dropdown options & the more filters/clear button. They are cut off on shorter screens + when more filters are selected & added to the list.
+  @include breakpoint('large') {
     overflow: scroll;
   }
 }
@@ -18,9 +18,9 @@
     height: rem(60);
     margin-bottom: rem(12) !important; // Override plugin default styles
 
-    @media all and (max-height: 800px) {
+    @media screen and (max-height: 800px) {
       height: rem(45);
-      margin-bottom: 0.50rem!important;
+      margin-bottom: 0.5rem !important;
     }
   }
 
@@ -314,7 +314,7 @@
     &.d1 .fs-option-label {
       padding-left: 0 !important; // Do not indent children checkboxes.
     }
-    
+
     .fs-option-label {
       white-space: normal !important;
       word-break: break-word;
