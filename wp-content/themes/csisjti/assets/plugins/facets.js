@@ -3,7 +3,20 @@
 
   let hasRun = false
 
+  $(document).on('facetwp-refresh', function () {
+    if (FWP.soft_refresh == true) {
+      FWP.enable_scroll = true
+    } else {
+      FWP.enable_scroll = false
+    }
+  })
+
   $(document).on('facetwp-loaded', function () {
+    if (FWP.enable_scroll == true) {
+      const top = $('.resource-library__content').offset().top - 100
+      $(window).scrollTop(top)
+    }
+
     fwpDisableAutoRefresh()
     modifyCheckboxes()
     modifySearchFacet()
@@ -45,7 +58,6 @@
 
     let tempFacets = []
     if (!hasRun) {
-
       // Open the Modal by clicking the "Filters" button.
       document
         .getElementById('filters-btn')
@@ -127,32 +139,27 @@
   }
 
   function modifyFSelectFacet() {
-    $('.facetwp-type-fselect').each(
-      function () {
-        const $facet = $(this)
-        const facet_name = $facet.attr('data-name')
-        const facet_label = FWP.settings.labels[facet_name]
+    $('.facetwp-type-fselect').each(function () {
+      const $facet = $(this)
+      const facet_name = $facet.attr('data-name')
+      const facet_label = FWP.settings.labels[facet_name]
 
-        // Add Number of Selected Options to Wrapper
-        const numSelected = FWP.facets[facet_name].length
-        this.querySelector('.fs-label-wrap').setAttribute(
-          'data-num',
-          numSelected
-        )
+      // Add Number of Selected Options to Wrapper
+      const numSelected = FWP.facets[facet_name].length
+      this.querySelector('.fs-label-wrap').setAttribute('data-num', numSelected)
 
-        // If these fields already exist, don't create them again.
-        if (this.querySelector('.fs-label-field')) {
-          return
-        }
-
-        // Add Facet Label
-        const label = document.createElement('div')
-        label.classList.add('fs-label-field')
-        label.innerHTML = facet_label
-
-        this.querySelector('.fs-label-wrap').prepend(label)
+      // If these fields already exist, don't create them again.
+      if (this.querySelector('.fs-label-field')) {
+        return
       }
-    )
+
+      // Add Facet Label
+      const label = document.createElement('div')
+      label.classList.add('fs-label-field')
+      label.innerHTML = facet_label
+
+      this.querySelector('.fs-label-wrap').prepend(label)
+    })
   }
 
   function fSelectFacetApply() {
@@ -160,7 +167,9 @@
       function () {
         // Check if apply button has been added
         const applyBtn = this.querySelector('.fs-fselect-apply')
-        if (applyBtn) { return }
+        if (applyBtn) {
+          return
+        }
 
         const applyWrapper = document.createElement('div')
         applyWrapper.classList.add('fs-fselect-apply')
@@ -350,12 +359,10 @@
   }
 
   function modifyFSelectLabels() {
-    $('.filters-modal .facetwp-type-fselect').each(
-      function () {
-        let el = this.querySelectorAll('.fs-label-field')[0]
-        let label = el.innerText.replace(" Modal", "")
-        el.innerText = label
-      }
-    )
+    $('.filters-modal .facetwp-type-fselect').each(function () {
+      let el = this.querySelectorAll('.fs-label-field')[0]
+      let label = el.innerText.replace(' Modal', '')
+      el.innerText = label
+    })
   }
 })(jQuery)
