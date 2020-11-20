@@ -3,11 +3,23 @@
 @use './facets-pagination';
 @use './facets-sort';
 
+ /* stylelint-disable-next-line */
+.resource-library__inline-filters {
+  height media query {
+    max-height: 600px;
+    overflow: scroll;
+  }
+}
+
 .resource-library__inline-filters .facetwp {
   &-facet {
     position: relative;
     height: rem(60);
     margin-bottom: rem(12) !important; // Override plugin default styles
+
+    @media all and (max-height: 800px) {
+      height: rem(48);
+    }
   }
 
   // Hides counters next to items
@@ -186,6 +198,7 @@
     @extend %font-ui-text-lg-bold;
     white-space: nowrap;
     text-overflow: ellipsis;
+    word-break: break-word;
 
     .fs-default & {
       top: unset;
@@ -298,6 +311,11 @@
 
     &.d1 .fs-option-label {
       padding-left: 0 !important; // Do not indent children checkboxes.
+    }
+    
+    .fs-option-label {
+      white-space: normal !important;
+      word-break: break-word;
     }
   }
 

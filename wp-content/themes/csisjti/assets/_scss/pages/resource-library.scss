@@ -133,7 +133,7 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     @include vw100;
     margin-left: calc(50% - (50vw - var(--scrollbar)));
     padding: rem(32) var(--container-padding) rem(12);
