@@ -208,6 +208,12 @@
       border-right: 1px solid $color-gray-line;
       border-bottom: 0;
     }
+
+    /* stylelint-disable-next-line */
+    .fp-num_filters_applied {
+      position: relative;
+      top: -1px;
+    }
   }
 }
 
