@@ -367,6 +367,8 @@ function csisjti_sidebar_registration() {
 			'name'        => __( 'About JTI', 'csisjti' ),
 			'id'          => 'about-jti',
 			'description' => __( 'Widgets in this area will be displayed in the "about JTI" section on the homepage.', 'csisjti' ),
+			'before_widget' => '',
+      'after_widget' => '',
 		)
 	);
 

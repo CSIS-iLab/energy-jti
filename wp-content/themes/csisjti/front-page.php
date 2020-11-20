@@ -70,7 +70,7 @@ get_header();
 </div> -->
 
 	<section class="home__analysis">
-		<h3 class="home__analysis--subheading">Analysis<div class="home__analysis--byline"><span>by the</span> Just Transition Initiative</div></h3>
+		<h2 class="home__analysis--subheading">Analysis<div class="home__analysis--byline"><span>by the</span> Just Transition Initiative</div></h2>
 		<div class="home__analysis--content">
 
 		<?php
@@ -97,8 +97,8 @@ get_header();
 					<?php
 						include( get_template_directory() . '/assets/static/csisjti-logo-long.svg');
 					?>
-					</a>
-		<p>The <strong>Just Transition Initiative</strong> is a partnership project developed by the Energy Security & Climate Change Program at the Center for Strategic and International Studies (CSIS) and the Climate Investment Funds (CIF) to investigate how to achieve a just transition through the transformational changes necessary to address climate change. <a href="/about/" title="Learn more">Learn more</a></p>
+			</a>
+			<?php dynamic_sidebar( 'about-jti' ); ?>
 	</div>
 
 </main><!-- #site-content -->
