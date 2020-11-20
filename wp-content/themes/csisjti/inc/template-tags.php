@@ -319,7 +319,17 @@ if (! function_exists('csisjti_share')) :
 	function csisjti_share() {
 
 		if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) {
-			ADDTOANY_SHARE_SAVE_KIT();
+			// Make sure that we're sharing the archive page and not just the most recent post in that archive.
+			if ( is_home() || is_archive() ) {
+
+				ADDTOANY_SHARE_SAVE_KIT( array(
+						'linkname' => is_home() ? get_bloginfo( 'description' ) : wp_title( '', false ),
+						'linkurl'  => esc_url_raw( home_url( $_SERVER['REQUEST_URI'] ) ),
+				) );
+
+			} else {
+				ADDTOANY_SHARE_SAVE_KIT();
+			}
 		}
 	}
 endif;
