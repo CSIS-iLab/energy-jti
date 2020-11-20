@@ -17,7 +17,7 @@ get_header();
 <div class="home__header">
 	<div class="home__header--title-wrapper">
 		<h1 class="home__header--title">Just Transition</h1>
-		<div class="home__header--desc">Searching for solutions to secure an inclusive and sustainable future.</div>
+		<div class="home__header--desc">Driving solutions for a more inclusive and sustainable future</div>
 	</div>
 
 	<div class="video-wrapper">
@@ -41,8 +41,8 @@ get_header();
 
 <div class="home__primary">
 		<div class="home__objective">
-			<h2 class="home__objective--subheading">Addressing climate change should not undermine the society or economy.</h2>
-			<p class="home__objective--desc">With climate change posing unprecedented threats to the planet and society, there is a growing focus on “just transitions” to help achieve the economic and social changes necessary for sustainable development, while protecting workers and communities and ensuring a more socially-equitable distribution of benefits and risks.</p>
+			<h2 class="home__objective--subheading">Climate action that supports affected workers and communities</h2>
+			<p class="home__objective--desc">With climate change posing unprecedented threats to the planet and society, there is a growing focus on just transitions to help achieve the economic and social changes necessary to meet climate and sustainable development goals, while protecting workers and communities and ensuring a more socially-equitable distribution of benefits and risks.</p>
 			<a href="/about-just-transitions/" title="Go to Just Transition Page" class="cta">What is "Just Transition"? <?php
 				echo csisjti_get_svg( 'arrow-right' ); ?>
 			</a>
@@ -99,7 +99,7 @@ get_header();
 						include( get_template_directory() . '/assets/static/csisjti-logo-long.svg');
 					?>
 					</a>
-		<p>The <strong>Just Transition Initiative</strong> is a new partnership project developed by the CSIS Energy Security & Climate Change Program and the Climate Investment Funds (CIF) to investigate how to achieve a just transition through the transformational change necessary to address climate change. <a href="/about/" title="Learn more">Learn more</a></p>
+		<p>The <strong>Just Transition Initiative</strong> is a partnership project developed by the Energy Security & Climate Change Program at the Center for Strategic and International Studies (CSIS) and the Climate Investment Funds (CIF) to investigate how to achieve a just transition through the transformational changes necessary to address climate change. <a href="/about/" title="Learn more">Learn more</a></p>
 	</div>
 
 </main><!-- #site-content -->
