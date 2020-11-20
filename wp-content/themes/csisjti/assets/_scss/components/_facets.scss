@@ -7,7 +7,7 @@
 .resource-library__inline-filters {
   // Set overflow scroll on the inline filters so on small screens you can always access the dropdown options & the more filters/clear button. They are cut off on shorter screens + when more filters are selected & added to the list.
   @include breakpoint('large') {
-    overflow: scroll;
+    overflow-y: scroll;
   }
 }
 
