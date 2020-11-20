@@ -8,6 +8,10 @@
     position: relative;
     height: rem(60);
     margin-bottom: rem(12) !important; // Override plugin default styles
+
+    @media all and (max-height: 800px) {
+      height: rem(48);
+    }
   }
 
   // Hides counters next to items
