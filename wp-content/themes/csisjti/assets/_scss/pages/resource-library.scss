@@ -223,6 +223,11 @@
   &--filters:not(#mobile-filters-btn) {
     margin-top: rem(12);
     margin-bottom: rem(12);
+
+    @media all and (max-height: 800px) {
+      margin-top: rem(4) !important;
+      margin-bottom: 0 !important;
+    }
   }
 
   &--reset {
