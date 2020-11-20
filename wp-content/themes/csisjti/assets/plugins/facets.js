@@ -209,7 +209,7 @@
   // Toggle plus and minus icons on user click
   function modifyExpandIcons() {
     $('.facetwp-expand').each(function () {
-      $(this).context.classList.add('icon-minus')
+      $(this).context.classList.add('icon-plus')
 
       $(this).on('click', () => {
         if ($(this).context.innerHTML.includes('-')) {
