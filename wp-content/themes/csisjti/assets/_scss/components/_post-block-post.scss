@@ -22,7 +22,7 @@
       'img title'
       'img date'
       'img excerpt';
-    grid-template-columns: 25% minmax(min-content, 680px);
+    grid-template-columns: max-content minmax(min-content, 680px);
     grid-template-rows: max-content max-content max-content auto;
     width: fit-content;
     column-gap: rem(32);
@@ -45,6 +45,7 @@
   #{$post}__img {
     display: block;
     grid-area: img;
+    align-self: start;
     margin-bottom: rem(24);
 
     @include breakpoint('small') {
@@ -52,30 +53,16 @@
     }
 
     img {
-      width: auto;
-      height: 100%;
+      --img-size: 150px;
+      width: var(--img-size, 200px);
+      height: var(--img-size, 200px);
       margin: 0 auto;
       object-fit: cover;
+      object-position: center center;
 
-      // @include breakpoint('small') {
-      //   width: 105.5px;
-      //   height: 105.5px;
-      // }
-
-      // @include breakpoint('small') {
-      //   width: 140px;
-      //   height: 140px;
-      // }
-
-      // @include breakpoint('large') {
-      //   width: 225px;
-      //   height: 225px;
-      // }
-
-      // @include breakpoint('xlarge') {
-      //   width: 236px;
-      //   height: 236px;
-      // }
+      @include breakpoint('medium') {
+        --img-size: 280px;
+      }
     }
   }
 

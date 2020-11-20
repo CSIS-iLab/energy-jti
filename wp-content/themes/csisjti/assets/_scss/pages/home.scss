@@ -372,6 +372,11 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
       }
     }
 
+    /* stylelint-disable-next-line */
+    &:not(:first-of-type) .post-block__img img {
+      --img-size: 175px !important;
+    }
+
     // Featured Post
     &:first-of-type {
       grid-area: primary;
@@ -384,7 +389,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
         'excerpt';
       grid-template-columns: 1fr;
       grid-template-rows: max-content max-content max-content max-content auto;
-      margin-bottom: rem(64);
+      margin-bottom: rem(16);
       padding-bottom: rem(16);
       background-color: $color-gray-400;
       @include full-width-background($color-gray-400);
@@ -405,6 +410,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
         img {
           width: 100%;
           max-width: 100%;
+          height: auto;
         }
       }
 
