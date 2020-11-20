@@ -22,7 +22,7 @@
       'img title'
       'img date'
       'img excerpt';
-    grid-template-columns: 25% minmax(min-content, 680px);
+    grid-template-columns: max-content minmax(min-content, 680px);
     grid-template-rows: max-content max-content max-content auto;
     width: fit-content;
     column-gap: rem(32);
@@ -45,6 +45,7 @@
   #{$post}__img {
     display: block;
     grid-area: img;
+    align-self: start;
     margin-bottom: rem(24);
 
     @include breakpoint('small') {
@@ -52,17 +53,15 @@
     }
 
     img {
-      max-height: 180px;
+      --img-size: 150px;
+      width: var(--img-size, 200px);
+      height: var(--img-size, 200px);
+      margin: 0 auto;
       object-fit: cover;
+      object-position: center center;
 
-      @include breakpoint('small') {
-        max-height: unset;
-        object-fit: unset;
-      }
-
-      @include breakpoint('large') {
-        width: 100%;
-        max-width: 320px;
+      @include breakpoint('medium') {
+        --img-size: 280px;
       }
     }
   }
