@@ -190,6 +190,7 @@
     @extend %font-ui-text-lg-bold;
     white-space: nowrap;
     text-overflow: ellipsis;
+    word-break: break-word;
 
     .fs-default & {
       top: unset;
@@ -302,6 +303,11 @@
 
     &.d1 .fs-option-label {
       padding-left: 0 !important; // Do not indent children checkboxes.
+    }
+    
+    .fs-option-label {
+      white-space: normal !important;
+      word-break: break-word;
     }
   }
 
