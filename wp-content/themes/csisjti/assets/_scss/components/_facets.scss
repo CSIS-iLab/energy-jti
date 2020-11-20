@@ -3,6 +3,14 @@
 @use './facets-pagination';
 @use './facets-sort';
 
+ /* stylelint-disable-next-line */
+.resource-library__inline-filters {
+  height media query {
+    max-height: 600px;
+    overflow: scroll;
+  }
+}
+
 .resource-library__inline-filters .facetwp {
   &-facet {
     position: relative;
