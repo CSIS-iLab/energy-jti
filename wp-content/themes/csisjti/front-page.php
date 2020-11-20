@@ -16,8 +16,8 @@ get_header();
 
 <div class="home__header">
 	<div class="home__header--title-wrapper">
-		<h1 class="home__header--title">Just Transition</h1>
-		<div class="home__header--desc">Driving solutions for a more inclusive and sustainable future</div>
+		<h1 class="home__header--title"><?php the_field( 'content_type' ); ?></h1>
+		<div class="home__header--desc"><?php the_field( 'formatted_title' ); ?></div>
 	</div>
 
 	<div class="video-wrapper">
@@ -40,15 +40,14 @@ get_header();
 </div>
 
 <div class="home__primary">
-		<div class="home__objective">
-			<h2 class="home__objective--subheading">Climate action that supports affected workers and communities</h2>
-			<p class="home__objective--desc">With climate change posing unprecedented threats to the planet and society, there is a growing focus on just transitions to help achieve the economic and social changes necessary to meet climate and sustainable development goals, while protecting workers and communities and ensuring a more socially-equitable distribution of benefits and risks.</p>
+	<div class="home__objective">
+		<?php the_content(); ?>
 			<a href="/about-just-transitions/" title="Go to Just Transition Page" class="cta">What is "Just Transition"? <?php
 				echo csisjti_get_svg( 'arrow-right' ); ?>
 			</a>
 		</div>
-		<div class="home__inline-filters">
-			<h3 class="home__inline-filters--subheading">Explore the Resource Library</h3>
+		<aside class="home__inline-filters">
+			<h2 class="home__inline-filters--subheading">Explore the Resource Library</h2>
 			<p class="home__inline-filters--desc">Browse resources or search for specific analysis, strategies, and case studies.</p>
 			<?php
 				echo facetwp_display( 'facet', 'search_input' );
@@ -60,7 +59,7 @@ get_header();
 			<p class="home__inline-filters--info">More filters can be found on the Resource Library page.</p>
 			<div style="display:none"><?php echo facetwp_display( 'template', 'resource_library' ); ?></div>
 			<button class="fwp-submit btn" data-href="/resource-library/">Submit</button>
-		</div>
+		</aside>
 	</div>
 
 <!-- <div class="home__event-block">
