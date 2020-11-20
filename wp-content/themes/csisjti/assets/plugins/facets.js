@@ -158,7 +158,10 @@
   function fSelectFacetApply() {
     $('.resource-library__inline-filters .facetwp-type-fselect').each(
       function () {
-        // Add Apply Button
+        // Check if apply button has been added
+        const applyBtn = this.querySelector('.fs-fselect-apply')
+        if (applyBtn) { return }
+
         const applyWrapper = document.createElement('div')
         applyWrapper.classList.add('fs-fselect-apply')
         applyWrapper.innerHTML =
