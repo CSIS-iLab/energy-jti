@@ -28,7 +28,7 @@
 		if ( !$url ) {
 			the_title( '<h2 class="post-block__title">', '</h2>' );
 		} else {
-			the_title( '<h2 class="post-block__title"><a href="' . esc_url( $url ) . '">', '</a></h2>' );
+			the_title( '<h2 class="post-block__title"><a href="' . esc_url( $url ) . '"  target="_blank" rel="noopener">', '</a></h2>' );
 		}
 	?>
 	</header>
