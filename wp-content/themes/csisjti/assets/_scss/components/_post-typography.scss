@@ -124,7 +124,6 @@
 
   //this is for images and videos with captions - other elements with classed parent elements will be styled separately
   figcaption {
-    margin: 0;
     @extend %font-copy-body-short-md;
     color: $color-black-170;
   }
