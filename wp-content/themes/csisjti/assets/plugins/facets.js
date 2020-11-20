@@ -193,6 +193,11 @@
 
   function modifyCheckboxes() {
     $('.facetwp-checkbox').each(function () {
+      const checkbox = this.querySelector('.fs-checkbox')
+      if (checkbox) {
+        return
+      }
+
       const span = document.createElement('span')
       span.classList.add('fs-checkbox')
       span.innerHTML = '<i></i>'
