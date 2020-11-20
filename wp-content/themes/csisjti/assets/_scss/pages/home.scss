@@ -374,7 +374,9 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
 
     /* stylelint-disable-next-line */
     &:not(:first-of-type) .post-block__img img {
-      --img-size: 175px !important;
+      @include breakpoint(large) {
+        --img-size: 175px !important;
+      }
     }
 
     // Featured Post
