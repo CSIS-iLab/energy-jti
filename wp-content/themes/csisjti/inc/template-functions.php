@@ -415,3 +415,173 @@ if ( class_exists( 'easyFootnotes' ) ) {
     }
     add_filter('the_content', 'csisjti_remove_easy_footnotes', 20);
 }
+
+/**
+*
+* Strips additional p tags placed in html when using ACF wsywg
+*/
+function the_field_without_wpautop( $field_name ) {
+
+	remove_filter('acf_the_content', 'wpautop');
+
+	the_field( $field_name );
+
+	add_filter('acf_the_content', 'wpautop');
+
+}
+
+/**
+ * Modify the assets that are loaded on pages that use facets.
+ */
+add_filter( 'facetwp_assets', function( $assets ) {
+		if ( !is_front_page() ) {
+			$assets['custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets.js';
+		}
+
+		if ( is_front_page() ) {
+            $assets['homepage-custom.js'] = '/wp-content/themes/csisjti/assets/plugins/facets-homepage.js';
+		}
+
+		unset( $assets['fSelect.css'] );
+
+    return $assets;
+});
+
+/**
+ * Add accessibility JS for facets.
+ */
+add_filter( 'facetwp_load_a11y', '__return_true' );
+
+/**
+ * Modify Resource Library Sort by, including the default sort order.
+ */
+
+function csisjti_resource_library_pre_get_posts( $query ) {
+
+	// do not modify queries in the admin
+	if ( is_admin() ) {
+		return $query;
+	}
+
+
+	// only modify queries for 'event' post type
+	if ( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'resource-library' ) {
+
+		$query->set('orderby', 'meta_value');
+		$query->set('meta_key', 'publication_date');
+		$query->set('order', 'DESC');
+
+	}
+	return $query;
+}
+add_action('pre_get_posts', 'csisjti_resource_library_pre_get_posts');
+
+add_filter( 'facetwp_sort_options', function( $options, $params ) {
+    $options = [
+				'default' => [
+						'label' => 'Publication Date (Newest)',
+						'query_args' => [
+							'orderby' => 'meta_value',
+							'meta_key' => 'publication_date',
+							'order' => 'DESC',
+						]
+				],
+				'publication_date_asc' => [
+						'label' => 'Publication Date (Oldest)',
+						'query_args' => [
+							'orderby' => 'meta_value',
+							'meta_key' => 'publication_date',
+							'order' => 'ASC',
+						]
+				],
+		];
+
+    return $options;
+}, 10, 2 );
+
+add_filter( 'facetwp_sort_html', function( $html, $params ) {
+    $html = '<label for="sort" class="facetwp-sort__label">Sort By</label><select class="facetwp-sort-select" id="sort">';
+    foreach ( $params['sort_options'] as $key => $atts ) {
+        $html .= '<option value="' . $key . '">' . $atts['label'] . '</option>';
+    }
+    $html .= '</select>';
+    return $html;
+}, 10, 2 );
+
+/**
+ * Modify FacetWP Pager Template
+ */
+add_filter( 'facetwp_facet_html', function( $output, $params ) {
+		if ( 'numbers' == $params['facet']['pager_type'] ) {
+			$output = csisjti_facetwp_pagination_output( $output, $params );
+		}
+
+    return $output;
+}, 10, 2 );
+
+function csisjti_facetwp_pagination_output( $output, $params) {
+	$pager_args = FWP()->facet->pager_args;
+
+	$output = '';
+	$page = $pager_args['page'];
+	$total_pages = $pager_args['total_pages'];
+
+	$output .= '<div class="facetwp-pager-totals">
+		<strong class="is-highlighted">Page ' . $page . '</strong> of ' . $total_pages . '
+	</div>';
+
+	if ( 1 < $total_pages ) {
+		if ( $page === 1 ) {
+			$prev_disabled = ' is-disabled';
+		}
+
+		if ( $page == $total_pages ) {
+			$next_disabled = ' is-disabled';
+		}
+
+		$output .= '<div class="facetwp-pager-nav">';
+
+		$output .= '<a class="facetwp-page facetwp-page--prev' . $prev_disabled . '" data-page="' . ($page - 1) . '">' . csisjti_get_svg( 'chevron-left' ) . '</a>';
+
+		$output .= '<a class="facetwp-page facetwp-page--next' . $next_disabled . '" data-page="' . ($page + 1) . '">' . csisjti_get_svg( 'chevron-right' )  . '</a>';
+
+		$output .= '</div>';
+
+	}
+
+	return $output;
+}
+
+/**
+ * Modifies the # of posts visible on an archive.
+ */
+add_action( 'pre_get_posts',  'set_posts_per_page'  );
+function set_posts_per_page( $query ) {
+
+  global $wp_the_query;
+
+  if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( $query->is_post_type_archive( 'resource-library' ) ) ) {
+    $query->set( 'posts_per_page', 25 );
+	}
+
+	if ( ( ! is_admin() ) && ( $query === $wp_the_query ) && ( is_home() ) ) {
+    $query->set( 'posts_per_page', -1 );
+  }
+
+  return $query;
+}
+
+/**
+ * Only use default feature image on posts.
+ */
+function csisjti_dfi_posttype_post ( $dfi_id, $post_id ) {
+	$post = get_post($post_id);
+
+  if ( 'post' === $post->post_type ) {
+    return $dfi_id; // the original featured image id
+  }
+  return 0; // the original featured image id
+}
+add_filter( 'dfi_thumbnail_id', 'csisjti_dfi_posttype_post', 10, 2 );
+
+

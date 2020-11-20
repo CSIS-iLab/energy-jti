@@ -1,0 +1,41 @@
+@use '../abstracts' as *;
+
+.feedback-form {
+  padding-top: rem(32px);
+
+  label {
+    @extend %font-ui-text-lg-bold;
+    margin-bottom: rem(6px);
+    color: $color-primary-green-400;
+    text-transform: uppercase;
+  }
+
+  p:not(.first-name):not(.submit) {
+    margin-bottom: rem(40px);
+  }
+
+  .first-name,
+  .submit {
+    margin-bottom: rem(16px);
+  }
+
+  .submit {
+    display: block;
+    text-align: right;
+  }
+
+  input:not(.btn),
+  textarea {
+    @extend %font-ui-text-lg;
+    width: 100%;
+    padding: rem(20px) rem(16px);
+    color: $color-black-190;
+    background: $color-white-100;
+    border: 2px solid #e6e6e6;
+
+    &::placeholder {
+      @extend %font-ui-text-lg;
+      color: $color-black-140;
+    }
+  }
+}

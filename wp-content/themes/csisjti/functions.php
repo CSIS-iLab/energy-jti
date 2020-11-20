@@ -184,24 +184,36 @@ function csisjti_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'csisjti-fonts', 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,700;1,400&display=swap', array(), $theme_version );
+	wp_enqueue_style( 'csisjti-google-fonts', 'https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Barlow:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap', array(), null );
 
 	wp_enqueue_style( 'csisjti-style', get_stylesheet_directory_uri() . '/style.min.css', array(), $theme_version );
 
-	if ( is_front_page() || is_home() ) {
+	if ( is_front_page() ) {
 		wp_enqueue_style( 'csisjti-style-home', get_stylesheet_directory_uri() . '/assets/css/pages/home.min.css', array(), $theme_version );
 	}
 
-	if ( is_archive() ) {
+	if ( is_home() || is_archive() ) {
 		wp_enqueue_style( 'csisjti-style-archive', get_stylesheet_directory_uri() . '/assets/css/pages/archive.min.css', array(), $theme_version );
 	}
 
-	if ( is_singular() ) {
-		wp_enqueue_style( 'csisjti-style-single', get_stylesheet_directory_uri() . '/assets/css/pages/single.min.css', array(), $theme_version );
+	if ( is_post_type_archive( 'resource-library' ) ) {
+		wp_enqueue_style( 'csisjti-style-resource-library', get_stylesheet_directory_uri() . '/assets/css/pages/resource-library.min.css', array(), $theme_version );
 	}
 
-	if ( 'post' === get_post_type() ) {
-		wp_enqueue_style( 'csisjti-style-post', get_stylesheet_directory_uri() . '/assets/css/pages/post.min.css', array(), $theme_version );
+	if ( is_404() ) {
+		wp_enqueue_style( 'csisjti-style-404', get_stylesheet_directory_uri() . '/assets/css/pages/404.min.css', array(), $theme_version );
+	}
+
+	if ( is_singular() || is_page() ) {
+		wp_enqueue_style( 'csisjti-style-single', get_stylesheet_directory_uri() . '/assets/css/pages/single.min.css', array(), $theme_version );
+
+		if ( 'post' === get_post_type() ) {
+			wp_enqueue_style( 'csisjti-style-post', get_stylesheet_directory_uri() . '/assets/css/pages/post.min.css', array(), $theme_version );
+		}
+
+		if ( 'event' === get_post_type() ) {
+			wp_enqueue_style( 'csisjti-style-event', get_stylesheet_directory_uri() . '/assets/css/pages/event.min.css', array(), $theme_version );
+		}
 	}
 
 	// Add print CSS.
@@ -226,11 +238,33 @@ function csisjti_register_scripts() {
 		// wp_script_add_data( 'csisjti-iframeResizer', 'async', true );
 	}
 
-	wp_enqueue_script( 'csisjti-vendor-js', get_template_directory_uri() . '/assets/js/vendor.min.js', array(), $theme_version, true );
-	wp_script_add_data( 'csisjti-vendor-js', 'async', true );
+	wp_enqueue_script( 'csisjti-js-vendor', get_template_directory_uri() . '/assets/js/vendor.min.js', array(), $theme_version, true );
+	wp_script_add_data( 'csisjti-js-vendor', 'async', true );
 
-	wp_enqueue_script( 'csisjti-custom-js', get_template_directory_uri() . '/assets/js/custom.min.js', array(), $theme_version, true );
-	wp_script_add_data( 'csisjti-custom-js', 'defer', true );
+	wp_enqueue_script( 'csisjti-js-skip-link', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.min.js', array(), $theme_version, true );
+	wp_script_add_data( 'csisjti-js-skip-link', 'async', true );
+
+	wp_enqueue_script( 'csisjti-js-bundle', get_template_directory_uri() . '/assets/js/bundle.min.js', array(), $theme_version, true );
+	wp_script_add_data( 'csisjti-js-bundle', 'defer', true );
+
+	if ( is_post_type_archive( 'resource-library' ) ) {
+		wp_enqueue_script( 'csisjti-js-resource-library', get_template_directory_uri() . '/assets/js/resource-library.min.js', array(), $theme_version, true );
+		wp_script_add_data( 'csisjti-js-resource-library', 'defer', true );
+
+		wp_enqueue_script( 'popper', 'https://unpkg.com/@popperjs/core@2', array(), '2.0.0', true );
+		wp_enqueue_script( 'tippy', 'https://unpkg.com/tippy.js@6', array(), '6.0.0', true );
+
+		$tippyInit = "
+			tippy('[data-tippy-content]', {
+				appendTo: 'parent',
+				hideOnClick: true,
+			})
+		";
+
+		wp_add_inline_script( 'tippy', $tippyInit, 'after' );
+
+
+	}
 
 }
 
@@ -283,13 +317,13 @@ function csisjti_sidebar_registration() {
 
 	// Arguments used in all register_sidebar() calls.
 	$footer_shared_args = array(
-		'before_title'  => '',
-		'after_title'   => '',
+		'before_title'  => '<h2 class="widget__title">',
+		'after_title'   => '</h2>',
 		'before_widget' => '<div class="widget %2$s">',
 		'after_widget'  => '</div>',
 	);
 
-	// Footer #1.
+	// Footer #1: Description.
 	register_sidebar(
 		array_merge(
 			$footer_shared_args,
@@ -301,6 +335,7 @@ function csisjti_sidebar_registration() {
 		)
 	);
 
+	// Footer #2: Menu
 	register_sidebar(
 		array_merge(
 			$footer_shared_args,
@@ -312,38 +347,38 @@ function csisjti_sidebar_registration() {
 		)
 	);
 
-	// Newsletter.
+	// Social Share
 	register_sidebar(
 		array_merge(
 			$footer_shared_args,
 			array(
-				'name'        => __( 'About JTI', 'csisjti' ),
-				'id'          => 'about-jti',
-				'description' => __( 'Widgets in this area will be displayed in the "about JTI" section on the homepage.', 'csisjti' ),
-			)
-		)
-	);
-
-	// Social Share
-	register_sidebar(
-		array(
 				'name'        => __( 'Social Share', 'csisjti' ),
 				'id'          => 'social-share',
 				'description' => __( 'Social Share Widget', 'csisjti' ),
 				'before_widget' => '',
 				'after_widget' => ''
 			)
+		)
 	);
 
-	// Twitter Timeline
+	// About JTI on Homepage.
 	register_sidebar(
 		array(
-				'name'        => __( 'Explore Resource Library', 'csisjti' ),
-				'id'          => 'explore-resource-library',
-				'description' => __( 'This widget will be displayed on the homepage & contain the abbreviated search for the resource library.', 'csisjti' ),
-				'before_widget' => '',
-				'after_widget' => ''
-			)
+			'name'        => __( 'About JTI', 'csisjti' ),
+			'id'          => 'about-jti',
+			'description' => __( 'Widgets in this area will be displayed in the "about JTI" section on the homepage.', 'csisjti' ),
+		)
+	);
+
+	// Explore Resources form on homepage.
+	register_sidebar(
+		array(
+			'name'        => __( 'Explore Resource Library', 'csisjti' ),
+			'id'          => 'explore-resource-library',
+			'description' => __( 'This widget will be displayed on the homepage & contain the abbreviated search for the resource library.', 'csisjti' ),
+			'before_widget' => '<div class="explore-resource-library">',
+			'after_widget' => '</div>'
+		)
 	);
 
 }

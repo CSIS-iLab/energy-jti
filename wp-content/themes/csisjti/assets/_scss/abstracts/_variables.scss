@@ -3,48 +3,79 @@
 =================================*/
 
 /*----------  Colors  ----------*/
-$color-white-100: rgba(255, 255, 255, 1);
 $color-black-100: rgba(0, 0, 0, 1);
+$color-black-140: rgba(0, 0, 0, 0.4);
+$color-black-155: rgba(0, 0, 0, 0.55);
+$color-black-170: rgba(0, 0, 0, 0.7);
+$color-black-190: rgba(0, 0, 0, 0.9);
 
-$color-primary-blue-100: rgba(6, 42, 60, 1);
-$color-primary-blue-200: rgba(7, 52, 74, 1);
-$color-primary-blue-300: rgba(22, 68, 88, 1);
-$color-primary-blue-400: rgba(42, 85, 101, 1);
-$color-primary-blue-500: rgba(66, 103, 115, 1);
-$color-primary-blue-600: rgba(95, 121, 129, 1);
-$color-primary-blue-700: rgba(114, 136, 143, 1);
-$color-primary-blue-800: rgba(135, 154, 160, 1);
-$color-primary-blue-900: rgba(159, 174, 179, 1);
+$color-white-100: rgba(255, 255, 255, 1);
+$color-white-125: rgba(255, 255, 255, 0.25);
+$color-white-140: rgba(255, 255, 255, 0.4);
+$color-white-155: rgba(255, 255, 255, 0.55);
+$color-white-170: rgba(255, 255, 255, 0.7);
+$color-white-190: rgba(255, 255, 255, 0.9);
 
-$color-primary-gold: rgba(242, 194, 97, 1);
+$color-primary-yellow-100: rgba(128, 99, 24, 1);
+$color-primary-yellow-200: rgba(168, 127, 35, 1);
+$color-primary-yellow-300: rgba(207, 154, 47, 1);
+$color-primary-yellow-400: rgba(245, 178, 60, 1);
+$color-primary-yellow-500: rgba(248, 193, 109, 1);
+$color-primary-yellow-600: rgba(250, 211, 158, 1);
+$color-primary-yellow-700: rgba(253, 232, 206, 1);
 
-$color-primary-light-blue: rgba(223, 228, 231, 1);
-$color-primary-light-gray: rgba(240, 243, 245, 1);
+$color-primary-green-100: rgba(51, 70, 4, 1);
+$color-primary-green-200: rgba(62, 92, 7, 1);
+$color-primary-green-300: rgba(71, 113, 11, 1);
+$color-primary-green-400: rgba(77, 133, 15, 1);
+$color-primary-green-500: rgba(134, 176, 63, 1);
+$color-primary-green-600: rgba(169, 194, 135, 1);
+$color-primary-green-700: rgba(213, 225, 195, 1);
 
-$color-text-light-100: $color-white-100;
-$color-text-light-190: rgba(255, 255, 255, 0.9);
-$color-text-light-170: rgba(255, 255, 255, 0.7);
-$color-text-light-155: rgba(255, 255, 255, 0.55);
+$color-primary-blue-100: rgba(0, 62, 71, 1);
+$color-primary-blue-200: rgba(0, 83, 92, 1);
+$color-primary-blue-300: rgba(0, 106, 113, 1);
+$color-primary-blue-400: rgba(1, 128, 133, 1);
+$color-primary-blue-500: rgba(62, 154, 155, 1);
+$color-primary-blue-600: rgba(121, 181, 180, 1);
+$color-primary-blue-700: rgba(177, 208, 208, 1);
+$color-primary-blue-800: rgba(230, 239, 239, 1);
 
-$color-text-dark-100: $color-black-100;
-$color-text-dark-190: rgba(0, 0, 0, 0.9);
-$color-text-dark-170: rgba(0, 0, 0, 0.7);
-$color-text-dark-155: rgba(0, 0, 0, 0.55);
+$color-gray-100: rgba(220, 223, 224, 1);
+$color-gray-200: rgba(229, 229, 229, 1);
+$color-gray-300: rgba(233, 235, 236, 1);
+$color-gray-400: rgba(245, 247, 247, 1);
 
-$color-table-row-base: rgba(205, 213, 218, 1);
-$color-table-row-header: rgba(95, 121, 129, 1);
+$color-text-gray-90: #171717;
 
-$color-line-mid-gray: rgba(169, 176, 184, 1);
-$color-line-light-gray: rgba(196, 201, 207, 1);
+$color-gray-line: rgba(199, 199, 199, 1);
+$color-gray-field: rgba(242, 247, 247, 1);
 
-$color-focus: rgba(45, 156, 219, 1);
+$color-gradient-green: rgba(66, 139, 81, 1);
+$color-gradient-jade: rgba(1, 128, 133, 1);
+$color-gradient-blue: rgba(2, 186, 198, 1);
+
+$color-gradient-yellow: rgba(144, 53, 180, 1);
+$color-gradient-purple: rgba(106, 38, 138, 1);
+$color-purple-100: rgb(206 195 225 / 1);
+
+$color-jti-analysis: $color-primary-green-500;
+$color-essential-reading: $color-primary-yellow-400;
+
+$color-tabs-inactive: #b1c3d0;
+$color-tabs-hover: #92b7d2;
+
+$color-gray-dark: #081d3d;
+$color-gray-text: rgba(23, 23, 23, 1);
 
 /*----------  Fonts  ----------*/
-$font-source-serif: 'Source Serif Pro', serif;
-$font-source-sans: 'Source Sans Pro', sans-serif;
+$font-roboto: 'Roboto', sans-serif;
+$font-barlow: 'Barlow', sans-serif;
+$font-barlow-condensed: 'Barlow Semi Condensed', sans-serif;
 
 /*----------  Structure  ----------*/
 $breakpoints: (
+  'xsmall': 25em,
   'small': 30em,
   'medium': 40em,
   'large': 64em,
@@ -52,6 +83,169 @@ $breakpoints: (
   'xxlarge': 87.5em,
 );
 
+$min-width: 30rem;
+$max-width: 87.5rem;
+$width-diff: 57.5rem; // Difference in rems between small & large breakpoints
+
 $size__container-max-width: 1400px;
 $size__content-max-width: 680px;
 $size__content-wide-max-width: 1120px;
+
+$size__align-side-max-width: 400px;
+$size__align-small-max-width: 250px;
+
+/*----------  Shadows  ----------*/
+
+$shadow--3: drop-shadow(0 3px 4px rgba(2, 3, 3, 0.03))
+  drop-shadow(0 3px 3px rgba(2, 3, 3, 0.02))
+  drop-shadow(0 1px 8px rgba(2, 3, 3, 0.04));
+
+$shadow--4: 0 4px 5px rgba(2, 3, 3, 0.03), 0 1px 10px rgba(2, 3, 3, 0.02),
+  0 2px 4px rgba(2, 3, 3, 0.04);
+
+/*------  Page Specific Colors  ------*/
+
+/* stylelint-disable function-parentheses-space-inside */
+$page-colors: (
+  'home': (
+    color: #018085,
+    gradient: (
+      linear-gradient(220.16deg, #26a7ac 0%, rgba(58, 151, 151, 0.1) 60.1%),
+      linear-gradient(270.67deg, #36987c 0.59%, #038170 44.63%, #005958 98.67%),
+      #018085,
+    ),
+  ),
+  'resource': (
+    color: #015d91,
+    gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/resource.png'),
+      linear-gradient(
+        220.16deg,
+        rgba(56, 142, 209, 0.56) 0%,
+        rgba(60, 134, 245, 0) 60.1%
+      ),
+      linear-gradient(
+        270.67deg,
+        rgba(32, 108, 145, 0.9) 0.59%,
+        rgba(21, 129, 159, 0.655726) 19.4%,
+        rgba(3, 88, 124, 0.88) 68.62%,
+        #0e5267 98.67%
+      ),
+      #015d91,
+    ),
+  ),
+  'analysis': (
+    color: #73bf20,
+    gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/analysis.png'),
+      linear-gradient(
+        220.16deg,
+        rgba(153, 163, 70, 0.97) 0%,
+        rgba(88, 128, 4, 0.2) 72.4%
+      ),
+      linear-gradient(
+        270.67deg,
+        #3b6b07 0.35%,
+        #558e16 28.02%,
+        rgba(28, 128, 26, 0.74) 62.01%,
+        rgba(4, 91, 42, 0.88) 98.67%
+      ),
+      #73bf20,
+    ),
+  ),
+  'analysis-post': (
+    color: #73bf20,
+    gradient: (
+      linear-gradient(
+        220.16deg,
+        rgba(153, 163, 70, 0.97) 0%,
+        rgba(88, 128, 4, 0.2) 72.4%
+      ),
+      linear-gradient(
+        270.67deg,
+        #3b6b07 0.35%,
+        #558e16 28.02%,
+        rgba(28, 128, 26, 0.74) 62.01%,
+        rgba(4, 91, 42, 0.88) 98.67%
+      ),
+      #73bf20,
+    ),
+  ),
+  'events': (
+    color: #6a268a,
+    gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/events.png'),
+      linear-gradient(
+        220.16deg,
+        rgba(228, 89, 89, 0.47) 0%,
+        rgba(245, 127, 60, 0) 60.1%
+      ),
+      linear-gradient(
+        270.67deg,
+        rgba(60, 65, 130, 0.74) 0.59%,
+        rgba(59, 50, 95, 0.655726) 19.4%,
+        rgba(59, 33, 80, 0.87) 68.62%,
+        #3f2577 98.67%
+      ),
+      #6a268a,
+    ),
+  ),
+  'events-post': (
+    color: #6a268a,
+    gradient: (
+      linear-gradient(
+        220.16deg,
+        rgba(228, 89, 89, 0.47) 0%,
+        rgba(245, 127, 60, 0) 60.1%
+      ),
+      linear-gradient(
+        270.67deg,
+        rgba(60, 65, 130, 0.74) 0.59%,
+        rgba(59, 50, 95, 0.655726) 19.4%,
+        rgba(59, 33, 80, 0.87) 68.62%,
+        #3f2577 98.67%
+      ),
+      #6a268a,
+    ),
+  ),
+  'transitions': (
+    color: #26858f,
+    gradient: (
+      linear-gradient(
+        220.16deg,
+        rgba(6, 166, 217, 0.75) 0%,
+        rgba(21, 167, 217, 0.1) 52.99%
+      ),
+      linear-gradient(
+        270.67deg,
+        #0ba4b9 0.35%,
+        #2cbfd3 28.54%,
+        rgba(13, 194, 204, 0.74) 61.5%,
+        rgba(17, 135, 152, 0.71) 99.22%
+      ),
+      #26858f,
+    ),
+  ),
+  'jti': (
+    color: #e2992b,
+    gradient: (
+      url('/wp-content/themes/csisjti/assets/img/headers/jti.png'),
+      linear-gradient(220.16deg, #e4d759 0%, rgba(245, 196, 60, 0) 60.1%),
+      linear-gradient(
+        270.44deg,
+        rgba(245, 196, 60, 0.74) 0.47%,
+        #f5c43c 19.35%,
+        rgba(255, 173, 15, 0.87) 68.75%,
+        #e2992b 98.91%
+      ),
+      #e2992b,
+    ),
+  ),
+  '404': (
+    color: #02bac6,
+    gradient: (
+      linear-gradient(220.16deg, rgba(56, 142, 209, 0.56) 0%, rgba(60, 134, 245, 0) 60.1%), linear-gradient(270.67deg, rgba(35, 111, 117, 0.74) 0.59%, rgba(21, 129, 159, 0.655726) 19.4%, rgba(9, 103, 128, 0.8) 68.62%, #00678a 98.67%), #02bac6
+    ),
+  ),
+);
+/* stylelint-enable function-parentheses-space-inside */

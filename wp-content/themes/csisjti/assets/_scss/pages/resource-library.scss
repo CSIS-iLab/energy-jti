@@ -1,0 +1,262 @@
+@use '../abstracts' as *;
+@use '../components/facets-tabs';
+@use '../components/filters-modal';
+@use '../components/filters-modal-grid';
+
+:root {
+  --top-bar-height: #{rem(72)};
+  --page-header-bg: var(--page-header-resource);
+}
+
+.post-type-archive-resource-library {
+  background: $color-gray-100;
+
+  .entry-header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  #classification-btn {
+    grid-area: date;
+    max-width: 150px;
+    margin-bottom: rem(24);
+    padding-left: 0;
+    @extend %font-ui-body-md;
+    color: $color-white-190;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-white-100;
+    }
+
+    @include breakpoint('small') {
+      margin-bottom: rem(40);
+    }
+
+    .icon {
+      position: relative;
+      top: 3px;
+      display: inline-block;
+      margin-right: rem(12);
+      color: $color-white-100;
+    }
+  }
+
+  .cta {
+    grid-area: secondary-content;
+
+    @include breakpoint(large) {
+      align-self: end;
+      justify-self: end;
+      margin-top: 0;
+      margin-bottom: rem(24);
+    }
+  }
+
+  .is-highlighted {
+    color: $color-black-190;
+    @extend %font-ui-text-md-bold-barlow;
+  }
+}
+
+.resource-library {
+  // This element exists solely to create the gray background behind the pagination & sort functions.
+  &__top-bar {
+    display: none;
+    @include breakpoint('large') {
+      position: sticky !important;
+      top: var(--header-height);
+      z-index: -1;
+      display: block;
+      width: 1px;
+      height: 0;
+      background: $color-gray-300;
+      @include full-width-background($color-gray-300);
+
+      &::before,
+      &::after {
+        height: var(--top-bar-height);
+      }
+
+      &::before {
+        right: calc(100% - 1px);
+      }
+    }
+  }
+
+  &__content {
+    margin-bottom: rem(56);
+
+    @include breakpoint('large') {
+      display: grid;
+      grid-template-columns: minmax(auto, 300px) minmax(auto, 795px);
+      grid-template-rows: max-content auto;
+      justify-content: space-between;
+      margin-bottom: rem(64);
+      column-gap: 8%;
+    }
+
+    @include breakpoint('xlarge') {
+      column-gap: 4%;
+    }
+  }
+
+  &__secondary {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 10;
+    margin-bottom: rem(12);
+
+    @include breakpoint('medium') {
+      margin-bottom: rem(24);
+    }
+
+    @include breakpoint('large') {
+      position: relative;
+      top: unset;
+      z-index: unset;
+      grid-row: 1 / span 2;
+    }
+  }
+
+  &__sticky {
+    @include breakpoint('large') {
+      position: sticky;
+      top: var(--header-height);
+    }
+  }
+
+  &__pagination {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include vw100;
+    margin-left: calc(50% - (50vw - var(--scrollbar)));
+    padding: rem(32) var(--container-padding) rem(12);
+    background: $color-gray-300;
+    box-shadow: 0 4px 5px rgba(2, 3, 3, 0.03), 0 1px 10px rgba(2, 3, 3, 0.02),
+      0 2px 4px rgba(2, 3, 3, 0.04);
+
+    @include breakpoint('large') {
+      align-items: center;
+      width: 100%;
+      height: var(--top-bar-height);
+      margin-bottom: rem(48);
+      margin-left: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+  }
+
+  &__inline-filters {
+    display: none;
+
+    @include breakpoint('large') {
+      display: block;
+    }
+  }
+
+  &__subheading {
+    margin: 0 0 rem(8);
+    color: $color-black-170;
+    @extend %font-ui-text-sm-bold-uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__results {
+    @include breakpoint('large') {
+      padding-top: rem(48);
+    }
+  }
+
+  &__disclaimer {
+    margin-top: rem(16);
+    color: $color-white-170;
+    @include font-size(16px);
+  }
+}
+
+.filters-overview {
+  margin-bottom: rem(24);
+  color: $color-black-155;
+  @extend %font-ui-text-md;
+
+  @include breakpoint('medium') {
+    display: flex;
+    align-items: center;
+  }
+
+  @include breakpoint('large') {
+    height: var(--top-bar-height);
+  }
+
+  &__totals {
+    display: flex;
+    margin-bottom: rem(8);
+    padding-bottom: rem(8);
+    border-bottom: 1px solid $color-gray-line;
+
+    @include breakpoint('medium') {
+      margin-right: rem(16);
+      margin-bottom: 0;
+      padding-right: rem(16);
+      padding-bottom: 0;
+      border-right: 1px solid $color-gray-line;
+      border-bottom: 0;
+    }
+
+    /* stylelint-disable-next-line */
+    .fp-num_filters_applied {
+      position: relative;
+      top: -1px;
+    }
+  }
+}
+
+.btn {
+  &--filters:not(#mobile-filters-btn) {
+    margin-top: rem(12);
+    margin-bottom: rem(12);
+  }
+
+  &--reset {
+    display: block;
+    padding: rem(8);
+    color: $color-black-155;
+    @extend %font-ui-text-sm;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    appearance: none;
+
+    &:hover {
+      color: $color-black-190;
+    }
+  }
+}
+
+#mobile-filters-btn {
+  @include breakpoint('large') {
+    display: none;
+  }
+}
+
+.no-results {
+  &__heading {
+    margin: rem(16) 0;
+    color: $color-black-170;
+    @extend %font-ui-section-heading-md;
+    text-align: center;
+  }
+
+  &__desc {
+    color: $color-black-170;
+    font-style: italic;
+    text-align: center;
+  }
+}

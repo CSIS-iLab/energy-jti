@@ -1,0 +1,141 @@
+@use 'abstracts' as *;
+
+[data-a11y-dialog-native] > :first-child {
+  display: none;
+}
+
+/* stylelint-disable-next-line */
+dialog[open] {
+  display: block;
+}
+
+.dialog-container[aria-hidden='true'] {
+  display: none;
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 11;
+  background-color: rgba(0, 0, 0, 0.66);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.66);
+}
+
+.dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 12;
+  width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  background: $color-white-100;
+  border: unset;
+  box-shadow: 0 6px 8px 0 rgba(44, 8, 8, 0.5);
+  transform: translate(-50%, -50%);
+
+  &[open] {
+    animation: appear 1s 0s 1 both;
+  }
+}
+
+.dialog-close {
+  display: flex;
+  margin-top: rem(24);
+  margin-left: auto;
+  padding-right: 20px;
+  color: $color-black-170;
+  background-color: transparent;
+  border: unset;
+  cursor: pointer;
+
+  @include breakpoint(large) {
+    padding-right: 0;
+  }
+
+  &:hover {
+    color: $color-primary-blue-400;
+  }
+
+  &:focus {
+    color: $color-black-170;
+  }
+}
+
+.classification-modal {
+  width: 100%;
+  margin: rem(24) 0;
+  padding: 0 6vw;
+
+  @include breakpoint(xxlarge) {
+    --container-padding: #{rem(80)};
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  * {
+    max-width: 680px;
+  }
+
+  &__heading {
+    @extend %font-ui-section-heading-lg;
+    margin: rem(12) 0 rem(40);
+  }
+
+  &__desc {
+    @extend %font-copy-body-long-lg;
+    margin-bottom: rem(40);
+  }
+}
+
+.list-items {
+  &__name {
+    margin-bottom: rem(6);
+    color: $color-gray-text;
+    @extend %font-copy-heading-5;
+  }
+
+  &__desc {
+    margin-bottom: rem(40);
+    color: $color-black-190;
+    @extend %font-copy-body-long-lg;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    transform: translate(-50%, -40%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+.dialog:not([aria-hidden='true']) > .dialog-overlay {
+  animation: fade-in 2s 1 both;
+}
+
+.dialog:not([aria-hidden='true']) > .dialog-content {
+  animation: appear 2s 1s 1 both;
+}

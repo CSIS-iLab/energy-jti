@@ -1,13 +1,46 @@
 @use 'abstracts' as *;
 
 .post-meta {
+  --meta-date: #{$color-black-155};
   @extend %font-ui-text-md;
+
   &__date {
-    color: $color-text-dark-170;
-    margin-bottom: rem(4px);
+    color: var(--meta-date);
   }
 
-  &__authors {
-    color: $color-primary-blue-200;
+  &__sponsored {
+    color: $color-black-155;
   }
+
+  &__categories {
+    margin-bottom: rem(4);
+    color: var(--meta-categories);
+    font-weight: bold;
+  }
+
+  &__pill {
+    width: fit-content;
+    padding: rem(4) rem(16);
+    line-height: 1.15;
+    background: $color-gray-200;
+    border-radius: 30px;
+  }
+
+  &__subvalue {
+    color: $color-black-155;
+    @extend %font-ui-body-sm;
+  }
+
+  &__related {
+    @extend %font-ui-text-sm-bold-uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* stylelint-disable */
+.no-flexbox-gap
+  .post-block--resource-library
+  .post-meta__pill:not(:last-child) {
+  margin-right: rem(6px);
+  margin-bottom: rem(6px);
 }

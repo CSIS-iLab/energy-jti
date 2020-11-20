@@ -1,17 +1,29 @@
 @use 'abstracts' as *;
+@use 'sass:map';
 
 :root {
   /* stylelint-disable-next-line*/
   --scrollbar: 0px;
+  --header-height: 72px;
+  --logo-height: 55px;
+  --event-block-height: 112px;
+
+  @each $page, $values in $page-colors {
+    --color-nav-#{$page}: #{map.get($values, 'color')};
+    --page-header-#{$page}: #{map.get($values, 'gradient')};
+  }
+
+  --nav-border-color: var(--color-nav-resource);
+  --page-header-bg: var(--color-nav-resource);
+
+  @include breakpoint('large') {
+    --header-height: 96px;
+    --logo-height: 76px;
+  }
 }
 
 *:focus {
-  outline: 1px solid #f00;
-}
-
-html,
-body {
-  overflow-x: hidden;
+  outline: 1px solid $color-primary-blue-500;
 }
 
 .container {
@@ -29,4 +41,8 @@ body {
   @include breakpoint(xxlarge) {
     --container-padding: #{rem(80)};
   }
+}
+
+#site-content {
+  padding-top: var(--header-height);
 }

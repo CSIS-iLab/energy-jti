@@ -1,1 +1,38 @@
 @use '../abstracts' as *;
+
+.blog {
+  --page-header-bg: var(--page-header-analysis);
+}
+
+.post-type-archive-event {
+  --page-header-bg: var(--page-header-events);
+}
+
+.blog,
+.post-type-archive-event {
+  .entry__content {
+    padding-bottom: rem(56px);
+
+    @include breakpoint('large') {
+      padding-bottom: rem(64px);
+    }
+  }
+}
+
+.page__section-heading {
+  margin: 0 0 rem(56);
+  @extend %font-ui-section-heading-lg;
+  text-align: center;
+
+  &:last-of-type {
+    margin-top: rem(56);
+    padding-top: rem(56);
+    border-top: 1px solid $color-gray-line;
+  }
+}
+
+.page__no-content {
+  color: $color-black-170;
+  font-style: italic;
+  text-align: center;
+}

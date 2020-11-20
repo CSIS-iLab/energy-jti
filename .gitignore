@@ -94,6 +94,7 @@ Thumbs.db
 !deploy-development.sh
 !deploy-staging.sh
 !csisjti_rsa.enc
+!MIGRATE_DB.md
 
 # track favicon files, if they exist
 !android-chrome-*.png
@@ -111,8 +112,10 @@ Thumbs.db
 !wp-content/themes/csisjti/.eslintignore
 !wp-content/themes/csisjti/.eslintrc.js
 !wp-content/themes/csisjti/.stylelintrc.json
+!wp-content/themes/csisjti/assets/static/
+!wp-content/themes/csisjti/assets/static/icons/*.svg
 
 wp-content/themes/*/**/*.css
-wp-content/themes/csisjti/assets/images
+wp-content/themes/csisjti/assets/img
 wp-content/themes/csisjti/assets/js
 

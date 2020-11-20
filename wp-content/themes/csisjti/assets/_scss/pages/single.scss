@@ -1,1 +1,94 @@
 @use '../abstracts' as *;
+@use '../components/explore-resource-widget';
+@use '../components/feedback';
+@use '../components/post-alignments';
+@use '../components/post-typography';
+@use '../blocks/download-button';
+@use '../blocks/gray-section';
+@use '../blocks/jti-team';
+
+.page {
+  &--about_jti {
+    --page-header-bg: var(--page-header-jti);
+
+    .entry-header__desc {
+      text-shadow: 0 1px 5px rgba(2, 3, 3, 0.19);
+    }
+  }
+
+  &--transitions {
+    --page-header-bg: var(--page-header-transitions);
+  }
+}
+
+.single {
+  &-post {
+    --page-header-bg: var(--page-header-analysis-post);
+  }
+
+  &-event {
+    --page-header-bg: var(--page-header-events-post);
+  }
+
+  &__content,
+  &__footer {
+    max-width: $size__content-max-width;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__footer {
+    clear: both;
+  }
+}
+
+.post {
+  &__authors {
+    padding: rem(40) 0 rem(48);
+    color: $color-black-100;
+
+    &-divider {
+      height: 1px;
+      margin-top: rem(32px);
+      margin-bottom: rem(40px);
+      background: $color-gray-line;
+      border: 0;
+    }
+
+    &-author {
+      + .post__authors-author {
+        margin-top: rem(32);
+      }
+
+      &-name {
+        @extend %font-ui-section-heading-md;
+        margin-bottom: rem(8px);
+      }
+
+      &-bio {
+        @extend %font-ui-body-md;
+      }
+
+      &-link {
+        @extend %font-ui-text-sm-uppercase;
+        display: block;
+        margin-top: rem(8px);
+        color: $color-primary-blue-400;
+      }
+    }
+  }
+
+  &__related {
+    padding-top: rem(40px);
+    padding-bottom: rem(72px);
+    @include full-width-background($color-gray-100);
+    background: $color-gray-100;
+
+    &-resource-lib {
+      @extend %font-ui-text-lg;
+      color: $color-black-190;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+  }
+}

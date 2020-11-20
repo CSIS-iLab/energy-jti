@@ -1,6 +1,7 @@
 @use 'variables' as *;
 @use 'functions' as *;
 @use 'sass:map';
+@use 'sass:list';
 
 /*=================================
 =            Mixins            =
@@ -48,14 +49,29 @@
   font-size: rem($size);
 }
 
-// Font scales in size with the smallest media query size allowed to the ideal and largest.  
+// Font scales in size with the smallest media query size allowed to the ideal and largest.
 // Parameters are the minimum and maximum font size(px) as dictated in Figma.
+// Taken from: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
 @mixin font-clamp($min, $max) {
-  $min-rem: rem($min);
-  $half-min-rem: calc(#{$min-rem} / 2);
+  $min-font-size: rem($min);
+  $max-font-size: rem($max);
+
+  $preferred-value: calc-preferred-font-value($min-font-size, $max-font-size);
+
+  $preferred-font-size: list.nth($preferred-value, 1);
+
+  $preferred-vw: list.nth($preferred-value, 2);
+
   font-size: $min; //Fallback in px
-  font-size: $min-rem;
-  font-size: clamp(#{$min-rem}, calc(#{$half-min-rem} + 0.666vw), #{rem($max)});
+  font-size: $min-font-size;
+
+  /* stylelint-disable */
+  font-size: clamp(
+    #{$min-font-size},
+    calc(#{$preferred-font-size} + #{$preferred-vw}),
+    #{$max-font-size}
+  );
+  /* stylelint-enable */
 }
 
 @mixin vw100() {
@@ -69,7 +85,7 @@
   $direction: '',
   $includeMargins: true
 ) {
-  $width_forumula: calc((100vw - 100%) / 2);
+  $width_formula: calc(((100vw - var(--scrollbar)) - 100%) / 2);
   position: relative;
 
   @if $includeMargins {
@@ -83,7 +99,7 @@
     position: absolute;
     top: 0;
     display: block;
-    width: $width_forumula;
+    width: $width_formula;
     height: 100%;
     background: $background;
   }
@@ -98,7 +114,7 @@
 
   @if $direction == left {
     &::before {
-      width: calc(#{$width_forumula} - 50%);
+      width: calc(#{$width_formula} - 50%);
     }
 
     &::after {
@@ -106,7 +122,7 @@
     }
   } @else if $direction == right {
     &::after {
-      width: calc(#{$width_forumula} - 50%);
+      width: calc(#{$width_formula} - 50%);
     }
 
     &::before {
@@ -124,4 +140,18 @@
       box-shadow: none;
     }
   }
+}
+
+@mixin csisjti-full-width-wrapper {
+  @include vw100;
+  margin-left: calc(50% - (50vw - var(--scrollbar)));
+}
+
+@mixin csisjti-full-width-content {
+  width: 100%;
+  max-width: $size__content-wide-max-width !important;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--container-padding);
+  padding-left: var(--container-padding);
 }

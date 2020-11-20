@@ -1,0 +1,479 @@
+@use '../abstracts' as *;
+$facet: '.facetwp-facet';
+
+.filters-modal {
+  .facetwp {
+    &-facet {
+      position: relative;
+      height: rem(60);
+      margin-bottom: rem(12) !important; // Override plugin default styles
+    }
+
+    // Hides counters next to items
+    &-counter {
+      display: none;
+    }
+  }
+
+  .facetwp-checkbox {
+    @extend %font-ui-text-md;
+    margin-bottom: rem(6);
+    color: $color-black-190;
+  }
+
+  @include breakpoint(xxlarge) {
+    padding: 0 rem(80);
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  &__title {
+    @extend %font-ui-section-heading-lg;
+    margin-bottom: rem(8);
+    color: $color-gray-dark;
+    white-space: nowrap !important;
+    
+    @include breakpoint(large) {
+      margin-bottom: rem(64);
+    }
+
+    @include breakpoint(large) {
+      &::before {
+        position: relative;
+        top: 64px;
+        display: block;
+        width: calc(200% + 48px);
+        border-bottom: 1px solid $color-gray-line;
+        content: '';
+      }
+    }
+  }
+
+  &__heading {
+    @extend %font-ui-section-heading-md;
+    margin: rem(40) 0 rem(24);
+
+    &::before {
+      position: relative;
+      top: -32px;
+      display: block;
+      width: 100%;
+      border-top: 1px solid $color-gray-line;
+      content: '';
+    }
+  }
+
+  &__subheading {
+    max-width: fit-content;
+    margin-bottom: rem(6);
+    color: $color-black-190;
+    @extend %font-ui-text-lg-bold;
+
+    .icon {
+      position: relative;
+      top: 3px;
+      display: inline-block;
+      margin-right: rem(12);
+      color: $color-gradient-jade;
+    }
+  }
+
+  &--analysis {
+    @include breakpoint(large) {
+      margin-top: rem(40);
+    }
+  }
+
+  &__btn-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: rem(40);
+
+    @include breakpoint(large) {
+      margin-bottom: unset;
+    }
+  }
+
+  .filters-modal__totals {
+    margin-right: rem(40);
+    margin-left: rem(20);
+    font-weight: bold;
+    pointer-events: none;
+  }
+
+  .btn--apply,
+  .btn--reset,
+  .filters-modal__totals {
+    display: inline-block;
+    max-width: 150px;
+    height: 32px;
+  }
+
+  .btn--apply {
+    @extend %font-ui-text-sm-uppercase;
+    position: relative;
+    padding: rem(8) rem(16);
+    border-radius: 2px;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 96px;
+      display: block;
+      height: 100%;
+      border-left: 1px solid $color-gray-line;
+      content: '';
+    }
+  }
+
+  #{$facet}-analysis_type_modal {
+    margin-bottom: rem(40) !important;
+  }
+
+  #{$facet}-analysis_type_modal,
+  #{$facet}-format_modal {
+    display: flex;
+    flex-wrap: wrap;
+    height: unset !important;
+
+    .facetwp-checkbox {
+      margin-right: rem(8);
+      padding: rem(8);
+      white-space: nowrap;
+      background-color: $color-gray-field !important;
+      background-image: unset !important;
+      border: 1px solid $color-gray-300;
+      border-radius: 4px;
+
+      &.checked {
+        color: $color-white-190;
+        background-color: $color-primary-blue-400 !important;
+        border-color: $color-primary-blue-300 !important;
+        /* stylelint-disable-next-line */
+        &:hover {
+          color: $color-primary-blue-400;
+        }
+      }
+
+      &:hover {
+        background-color: $color-primary-blue-800 !important;
+        border-color: $color-primary-blue-700 !important;
+      }
+    }
+
+    .fs-checkbox {
+      display: none;
+    }
+  }
+
+  #{$facet}-sectors_modal,
+  #{$facet}-publishing_organization_type_modal {
+    .facetwp-checkbox {
+      width: 100%;
+      padding-left: 0;
+      break-inside: avoid;
+      word-break: unset !important;
+    }
+  }
+
+  // The following z-indexes cover proceeding search bars
+  #{$facet}-geographic_focus {
+    .fs-wrap {
+      z-index: 505;
+    }
+  }
+
+  #{$facet}-keywords {
+    .fs-wrap {
+      z-index: 504;
+    }
+  }
+
+  #{$facet}-publishing_organization_modal {
+    margin-left: 0 !important;
+
+    .fs-wrap {
+      z-index: 503;
+    }
+  }
+
+  #{$facet}-author {
+    .fs-wrap {
+      z-index: 502;
+    }
+  }
+
+  /*----------  Facet: Checkbox  ----------*/
+
+  #{$facet}-sectors_modal,
+  #{$facet}-publishing_organization_type_modal,
+  #{$facet}-focus_areas_modal {
+    height: unset !important;
+    margin-bottom: rem(40) !important;
+
+    .facetwp-checkbox {
+      --checkbox-bg: #{$color-gray-field};
+      --checkbox-border: #{$color-gray-100};
+      position: relative;
+      display: flex;
+      gap: rem(12);
+      max-width: fit-content;
+      padding-left: 0 !important;
+      line-height: 1.15;
+      word-break: break-all;
+      background: unset !important;
+      cursor: pointer;
+
+      &:hover {
+        --checkbox-bg: #{$color-primary-blue-800};
+        --checkbox-border: #{$color-primary-blue-700};
+      }
+      /* stylelint-disable-next-line */
+      i {
+        border-width: 2px;
+      }
+
+      &.checked {
+        --checkbox-bg: #{$color-primary-blue-400};
+        --checkbox-border: #{$color-primary-blue-300};
+        /* stylelint-disable-next-line */
+        i::before {
+          --borderWidth: 2px;
+          --height: 10px;
+          --width: 5px;
+          --borderColor: #{$color-white-100};
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: block;
+          width: var(--width);
+          height: var(--height);
+          border-right: var(--borderWidth) solid var(--borderColor);
+          border-bottom: var(--borderWidth) solid var(--borderColor);
+          transform: translate(-50%, -60%) rotate(45deg);
+        }
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &.disabled {
+        cursor: default;
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .fs-checkbox {
+    display: block;
+
+    i {
+      position: relative;
+      display: block;
+      width: 1.2em;
+      height: 1.2em;
+      margin: auto;
+      background-color: var(--checkbox-bg);
+      border: 1px solid var(--checkbox-border);
+      border-radius: 4px;
+    }
+  }
+
+  /*----------  Facet: Expanding Checkbox  ----------*/
+
+  #{$facet}-focus_areas_modal {
+    .facetwp-checkbox {
+      padding-left: 32px !important;
+    }
+
+    .facetwp-expand {
+      visibility: hidden;
+    }
+
+    .icon-minus,
+    .icon-plus {
+      &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 4px;
+        display: block;
+        width: 16px;
+        height: 32px;
+        margin: auto;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-minus' viewBox='0 0 18 32'%3E%3Cpath d='M1.524 14.476h15.238c0.842 0 1.524 0.682 1.524 1.524s-0.682 1.524-1.524 1.524h-15.238c-0.842 0-1.524-0.682-1.524-1.524s0.682-1.524 1.524-1.524z'%3E%3C/path%3E%3C/svg%3E") !important;
+        visibility: visible;
+        content: '';
+      }
+    }
+
+    .icon-plus {
+      &::before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-plus' viewBox='0 0 16 32'%3E%3Cpath d='M6.667 22.667c0 0.736 0.597 1.333 1.333 1.333s1.333-0.597 1.333-1.333v-5.333h5.333c0.736 0 1.333-0.597 1.333-1.333s-0.597-1.333-1.333-1.333h-5.333v-5.333c0-0.736-0.597-1.333-1.333-1.333s-1.333 0.597-1.333 1.333v5.333h-5.333c-0.736 0-1.333 0.597-1.333 1.333s0.597 1.333 1.333 1.333h5.333v5.333z'%3E%3C/path%3E%3C/svg%3E") !important;
+      }
+    }
+  }
+
+  /*----------  Facet: Additional Dropdown Styling  ----------*/
+
+  .facetwp-type-fselect {
+    margin-bottom: rem(40) !important;
+
+    @include breakpoint (medium) {
+      max-width: 66%;
+    }
+  }
+
+  .fs-fselect-apply {
+    display: none;
+  }
+
+  // Keeps label from breaking out of its container
+  .fs-label {
+    max-width: 350px;
+  }
+
+  /*----------  Facet: Custom Date Range  ----------*/
+
+  #{$facet}-publish_date {
+    display: none;
+  }
+
+  &__date-range-start,
+  &__date-range-end {
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+  &__date-range {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
+    margin-bottom: rem(40);
+
+    @include breakpoint(large) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .select-hidden {
+      display: none;
+      visibility: hidden;
+    }
+
+    .select {
+      position: relative;
+      display: block;
+      width: 100%;
+      max-width: 120px;
+      height: 42px;
+      color: $color-black-140;
+      font-size: 16px;
+      background: $color-white-100;
+      border: $color-gray-200;
+      cursor: pointer;
+
+      // stylelint-disable-next-line
+      & + .select {
+        margin-left: rem(12);
+      }
+    }
+
+    .select-styled {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 10px 12px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+
+      &::after {
+        position: absolute;
+        top: 16px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-color: $color-black-100 transparent transparent transparent;
+        content: '';
+      }
+
+      &.active::after {
+        top: 10px;
+        transform: rotate(180deg);
+        transition: 0.15s ease-in-out;
+      }
+
+      &:hover {
+        box-shadow: 0 1px 2px $color-primary-blue-600,
+          0 3px 3px rgba(2, 3, 3, 0.02), 0 1px 8px rgba(2, 3, 3, 0.04);
+      }
+    }
+
+    .select-options {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      z-index: 400;
+      display: none;
+      max-height: 200px;
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+      list-style: none;
+      background-color: #fff;
+      border: 1px solid #ddd;
+
+      li {
+        margin: 0;
+        padding: 16px 0;
+        color: $color-black-100;
+        text-indent: 16px;
+        border-top: 1px solid $color-white-100;
+
+        /* stylelint-disable */
+        &:hover {
+          background: $color-primary-blue-800;
+        }
+
+        &[rel='hide'] {
+          display: none;
+        }
+      }
+
+      &[rel='placeholder'] {
+        display: none;
+      }
+      /* stylelint-enable */
+    }
+
+    &--text {
+      margin: rem(12) 0;
+      color: $color-black-190;
+      @extend %font-ui-text-md;
+
+      @include breakpoint('large') {
+        margin: 0 rem(12);
+      }
+    }
+  }
+}
+
+.no-flexbox-gap #{$facet}-sectors_modal,
+.no-flexbox-gap #{$facet}-publishing_organization_type_modal,
+.no-flexbox-gap #{$facet}-focus_areas_modal {
+  .fs-checkbox {
+    margin-right: rem(12px);
+  }
+}

@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+.cta {
+  --text-color: #{$color-primary-blue-300};
+  --icon-color: var(--text-color);
+  --icon-border-color: #{$color-primary-blue-600};
+  display: inline-flex;
+  align-items: center;
+  @extend %font-ui-text-lg-bold;
+  color: var(--text-color);
+
+  &:hover {
+    --icon-color: #{$color-white-190};
+    --icon-fill: #{$color-primary-blue-400};
+    --icon-border-color: var(--icon-fill);
+    color: var(--text-color);
+
+    .icon {
+      background: var(--icon-fill);
+    }
+  }
+
+  &--white {
+    --text-color: #{$color-white-190};
+    --icon-border-color: #{$color-white-155};
+
+    &:hover {
+      --text-color: #{$color-white-100};
+      --icon-color: #{$color-primary-blue-300};
+      --icon-fill: var(--text-color);
+      --icon-border-color: var(--text-color);
+    }
+  }
+
+  .icon {
+    margin-left: rem(12);
+    color: var(--icon-color);
+    font-size: 1.6em;
+    border: 2px solid var(--icon-border-color);
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+  }
+}

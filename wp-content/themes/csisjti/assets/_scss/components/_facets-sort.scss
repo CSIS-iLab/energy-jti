@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+.facetwp-sort {
+  color: $color-black-190;
+
+  &__label {
+    margin-right: rem(8);
+    @extend %font-ui-text-sm-bold-uppercase;
+  }
+
+  &-select {
+    padding: rem(4) rem(24) rem(4) rem(8);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-triangle-down' viewBox='0 0 30 32'%3E%3Cpath d='M14.612 22.984c0.142 0.178 0.376 0.285 0.626 0.285s0.485-0.106 0.626-0.285l6.857-8.584c0.162-0.202 0.18-0.465 0.048-0.682s-0.391-0.354-0.674-0.354h-13.714c-0.283 0-0.543 0.137-0.675 0.354s-0.113 0.48 0.049 0.682l6.857 8.584z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10%;
+    background-size: 24px 24px;
+    border: 0;
+    appearance: none;
+  }
+}

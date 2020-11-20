@@ -2,6 +2,7 @@
   display: inline-block;
   width: 1em;
   height: 1em;
+  transition: all 0.3s ease-in-out;
   fill: currentColor;
   stroke-width: 0;
   stroke: currentColor;
@@ -15,14 +16,74 @@ Single-colored icons can be modified like so:
 }
 ========================================== */
 
-.icon-arrow-left {
-  width: 1.1875em;
+.icon-download-outline {
+  width: 1.1171875em;
 }
 
-.icon-arrow-right {
-  width: 1.1875em;
+.icon-arrow-circle {
+  width: 0.9765625em;
 }
 
-.icon-expand {
-  width: 0.9736328125em;
+.icon-arrow-up {
+  width: 0.8095703125em;
+}
+
+.icon-arrow-down {
+  width: 0.8095703125em;
+}
+
+.icon-arrow-external {
+  width: 0.7138671875em;
+}
+
+.icon-triangle-down {
+  width: 0.9521484375em;
+}
+
+.icon-chevron-left {
+  width: 0.4765625em;
+}
+
+.icon-chevron-right {
+  width: 0.4765625em;
+}
+
+.icon-bookmark {
+  width: 0.75em;
+}
+
+.icon-filter {
+  width: 1.23046875em;
+}
+
+.icon-search {
+  width: 1.0498046875em;
+}
+
+.icon-x {
+  width: 1.0302734375em;
+}
+
+.icon-quotes {
+  width: 1.349609375em;
+}
+
+.icon-minus {
+  width: 0.5712890625em;
+}
+
+.icon-plus {
+  width: 0.5em;
+}
+
+.icon-linkedin-fill {
+  width: 0.9599609375em;
+}
+
+.icon-mail {
+  width: 1.375em;
+}
+
+.icon-twitter {
+  width: 1.111328125em;
 }

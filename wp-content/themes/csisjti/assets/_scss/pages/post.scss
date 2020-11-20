@@ -1,2 +1,8 @@
 @use '../abstracts' as *;
 @use '../components/footnotes';
+
+.single {
+  &__header {
+    background: $color-gradient-green;
+  }
+}

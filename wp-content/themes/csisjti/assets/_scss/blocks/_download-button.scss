@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-download-button {
+  text-align: center;
+
+  .csis-block__img {
+    display: block;
+    margin-bottom: rem(12);
+    border: 1px solid $color-gray-200;
+    filter: $shadow--3;
+  }
+
+  .btn {
+    line-height: 1;
+  }
+
+  .icon {
+    position: relative;
+    top: -2px;
+    font-size: 1.3em;
+  }
+}

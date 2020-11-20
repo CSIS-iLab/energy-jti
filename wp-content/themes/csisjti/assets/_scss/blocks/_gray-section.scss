@@ -1,0 +1,26 @@
+@use '../abstracts' as *;
+
+.wp-block-lazyblock-gray-section {
+  --section-bg: #{$color-gray-400};
+}
+
+.gray-section--dark {
+  --section-bg: #{$color-gray-300};
+}
+
+.csis-block--gray-section {
+  margin: rem(40) auto rem(56);
+  padding-top: rem(56px);
+  padding-bottom: rem(56px);
+  background: var(--section-bg);
+  @include full-width-background(var(--section-bg));
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &::before,
+  &::after {
+    z-index: -1;
+  }
+}

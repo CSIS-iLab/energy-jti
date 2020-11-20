@@ -9,18 +9,32 @@
   a {
     display: flex !important;
     align-items: center;
+    color: var(--icon-fill);
 
     &:first-of-type {
       margin-left: -4px;
     }
 
-    &:hover path {
-      // fill: $color-text-gray-05;
+    + a {
+      margin-left: 3px;
     }
 
-    path {
-      transition: fill 0.3s ease-in-out;
-      // fill: $color-text-gray-70;
+    &:hover {
+      --icon-fill: var(--icon-fill-hover);
+      color: var(--icon-fill-hover);
+
+      img {
+        opacity: 1 !important;
+      }
+    }
+
+    &:focus {
+      outline: 1px solid var(--icon-fill);
+    }
+
+    img {
+      filter: var(--icon-fill);
+      transition: filter 0.3s ease-in-out;
     }
   }
 
@@ -31,13 +45,36 @@
     transition: background 0.3s ease-in-out;
   }
 
-  /* stylelint-disable-next-line */
-  .a2a_button_youtube {
-    position: relative;
-    top: 3px;
+  /* stylelint-disable */
+  .a2a_button_twitter {
+    margin-left: rem(5px);
+  }
+  /* stylelint-enable */
+
+  /* stylelint-disable */
+  .a2a_button_print {
+    margin-left: rem(7px);
+  }
+  /* stylelint-enable */
+
+  /* stylelint-disable */
+  .a2a_button_linkedin,
+  .a2a_button_copy_link {
+    transform: scale(0.9);
+  }
+  /* stylelint-enable */
+
+  .single__header & {
+    --icon-fill: invert(100%) opacity(0.7);
+    --icon-fill-hover: invert(100%) opacity(1) #{$shadow--3};
   }
 
   .single__footer & {
+    --icon-fill: invert(36%) sepia(36%) saturate(1770%) hue-rotate(143deg)
+      brightness(95%) contrast(99%);
+    --icon-fill-hover: invert(22%) sepia(46%) saturate(1699%) hue-rotate(150deg)
+      brightness(98%) contrast(104%) #{$shadow--3};
+    margin-top: rem(48);
     margin-bottom: rem(16);
 
     @include breakpoint('small') {
@@ -46,38 +83,13 @@
       margin-left: auto;
     }
 
-    @include breakpoint('large') {
-      margin-top: rem(32);
-    }
-
-    // &::before {
-    //   content: 'Share';
-    //   margin-right: rem(12);
-    //   color: $color-text-gray-50;
-    //   @extend %font-label-lg;
-    //   font-weight: 600;
-    //   text-transform: uppercase;
-    // }
-  }
-
-  .footer & {
-    @include breakpoint($break: 'medium', $dir: 'max-width') {
-      justify-content: center;
-    }
-
-    a {
-      flex: 1 1 auto;
-      max-width: fit-content;
-
-      /* stylelint-disable-next-line */
-      path {
-        // fill: $color-text-gray-10;
-      }
-
-      /* stylelint-disable-next-line */
-      &:hover path {
-        // fill: $color-white-100;
-      }
+    &::before {
+      content: 'Share';
+      margin-right: rem(12);
+      color: $color-black-140;
+      @extend %font-ui-text-sm;
+      font-weight: 500;
+      text-transform: uppercase;
     }
   }
 }

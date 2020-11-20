@@ -1,7 +1,7 @@
 @use 'abstracts' as *;
 
 body {
-  font-family: $font-source-sans;
+  font-family: $font-roboto;
 }
 
 a {
@@ -13,11 +13,44 @@ a {
   &:focus,
   &:active {
     color: inherit;
-    border: 0;
   }
 
   &:hover,
   &:active {
     outline: 0;
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+.section__heading {
+  @extend %font-ui-section-heading-lg;
+  margin-bottom: rem(32px);
+  color: $color-black-100;
+
+  @include breakpoint('medium') {
+    margin-bottom: rem(24);
+  }
+
+  @include breakpoint('large') {
+    margin-bottom: rem(40);
+  }
+
+  &-sub {
+    color: $color-black-155;
+    font-family: $font-barlow;
+    font-weight: 400;
+    @include font-size(17px);
+    font-style: italic;
+    line-height: 1.15;
+
+    span {
+      color: $color-black-190;
+      @extend %font-ui-text-lg;
+      font-style: normal;
+      text-transform: uppercase;
+    }
   }
 }

@@ -55,6 +55,10 @@ $ npm run
 
 ## Contributing
 
+### Database Syncing
+
+See the [Database Migration](MIGRATE_DB.md) documentation to learn how to sync your local database with the development database.
+
 ### Branching
 
 When modifying the code base, always make a new branch. Unless it's necessary to do otherwise, all branches should be created off of `master`.

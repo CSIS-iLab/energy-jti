@@ -12,25 +12,28 @@
  */
 
 ?>
-			<footer id="site-footer" class="footer" role="contentinfo">
-				<a href="https://www.csis.org" class="footer__logo"><?php include( get_template_directory() . '/assets/static/csis-logo.svg'); ?></a>
+			<footer id="site-footer" class="site-footer" role="contentinfo">
+				<div class="site-footer__logos">
+					<a href="https://www.csis.org" class="site-footer__logo site-footer__logo--csis"><?php include( get_template_directory() . '/assets/static/csis-logo.svg'); ?></a>
+					<a href="https://www.climateinvestmentfunds.org/" class="site-footer__logo site-footer__logo--cif"><?php include( get_template_directory() . '/assets/static/cif-logo.svg'); ?></a>
+				</div>
 
 				<?php dynamic_sidebar( 'footer-1' ); ?>
 				<?php dynamic_sidebar( 'footer-2' ); ?>
 
-				<div class="footer__contact">
+				<div class="site-footer__contact">
 					<?php dynamic_sidebar( 'social-share' ); ?>
 				</div>
 
 
-				<p class="footer__copyright">Copyright &copy;
+				<p class="site-footer__copyright">Copyright &copy;
 					<?php
 					echo date_i18n(
 						/* translators: Copyright date format, see https://secure.php.net/date */
 						_x( 'Y', 'copyright date format', 'csisjti' )
 					);
 					?>
-					Center for Strategic and International Studies.<br />All rights reserved. <a href="https://www.csis.org/privacy-policy">Privacy Policy</a>
+					by the Center for Strategic and International Studies and the Climate Investment Funds. All rights reserved. <a href="https://www.csis.org/privacy-policy">Privacy Policy</a>
 				</p><!-- .footer-copyright -->
 
 			</footer><!-- #site-footer -->

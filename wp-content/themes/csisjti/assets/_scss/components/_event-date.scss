@@ -1,0 +1,37 @@
+@use 'abstracts' as *;
+
+.event-date {
+  --meta-date: #{$color-white-100};
+  --event-year: #{$color-purple-100};
+  width: 120px;
+  height: 120px;
+  padding: rem(12) rem(16);
+  text-align: center;
+  background: var(--event-bg, $color-gradient-purple);
+  box-shadow: $shadow--4;
+
+  @include breakpoint('medium') {
+    text-align: left;
+  }
+
+  .post-block--event & {
+    --meta-date: #{$color-primary-green-300};
+    --event-bg: #{$color-gray-400};
+    --event-year: #{$color-primary-green-600};
+  }
+
+  &__month {
+    @extend %font-ui-text-lg-bold;
+    text-transform: uppercase;
+  }
+
+  &__day {
+    @extend %font-ui-text-emphasis;
+    margin-bottom: rem(12);
+  }
+
+  &__year {
+    color: var(--event-year);
+    @extend %font-ui-text-md-bold;
+  }
+}
