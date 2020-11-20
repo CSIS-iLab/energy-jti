@@ -374,7 +374,14 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
 
     /* stylelint-disable-next-line */
     &:not(:first-of-type) .post-block__img img {
-      --img-size: 175px !important;
+      width: 100%;
+      height: auto;
+
+      @include breakpoint('small') {
+        --img-size: 175px !important;
+        width: var(--img-size);
+        height: var(--img-size);
+      }
     }
 
     // Featured Post
