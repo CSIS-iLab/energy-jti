@@ -374,9 +374,9 @@
 
   function modifyExpandCheckboxFacet() {
     console.log('hello')
-    $('.facetwp-facet-focus_areas_modal').next('.facetwp-depth').each(
+    $('.facetwp-facet-focus_areas_modal .facetwp-checkbox').siblings('.facetwp-depth').each(
       function () {
-        console.log('hi')
+        console.log(this)
       }
     )
   }
