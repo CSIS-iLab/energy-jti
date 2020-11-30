@@ -312,7 +312,11 @@
     }
 
     &.d1 .fs-option-label {
-      padding-left: 0 !important; // Do not indent children checkboxes.
+      padding-left: 0px !important;
+    }
+
+    &.d1 .fs-checkbox {
+      padding-left: 20px;
     }
 
     .fs-option-label {
