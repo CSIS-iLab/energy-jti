@@ -29,7 +29,7 @@
     connectFacets()
     hideExtraFacets()
     enableAutoRefreshSpecificFacets()
-    modifyExpandCheckboxFacet()
+    runExpandCheckboxFacet()
     hasRun = true
   })
 
@@ -372,11 +372,38 @@
     })
   }
 
-  function modifyExpandCheckboxFacet() {
-    console.log('hello')
-    $('.facetwp-facet-focus_areas_modal .facetwp-checkbox').siblings('.facetwp-depth').each(
+  function runExpandCheckboxFacet() {
+    $(document).on(
+      'click',
+      '.facetwp-facet-focus_areas_modal',
       function () {
-        console.log(this)
+        modifyExpandCheckboxFacet()
+      }
+    )
+  }
+
+  function modifyExpandCheckboxFacet() {
+    $('.facetwp-facet-focus_areas_modal').children('.facetwp-checkbox').each(
+      function () {
+        // grabs the checkboxes that have children checkboxes using the facetwp-depth class
+        if ($(this).next()[0].classList.contains('facetwp-depth')) {
+          // if parent checkbox is selected, check all children
+          if ($(this).context.classList.contains('checked')) {
+            $(this).next().children().each(function () {
+              this.classList.add('checked')
+            })
+          }
+          // check if all children checkboxes are checked if so check parent checkbox
+          let allChildrenChecked = true
+          $(this).next().children().each(function() {
+            if (!this.classList.contains('checked')) {
+              allChildrenChecked = false
+            }
+          })
+          if (allChildrenChecked) {
+            $(this).context.classList.add('checked')
+          }
+        }
       }
     )
   }
