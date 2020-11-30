@@ -296,6 +296,10 @@ $facet: '.facetwp-facet';
       visibility: hidden;
     }
 
+    .facetwp-depth {
+      padding-left: 8px;
+    }
+
     .icon-minus,
     .icon-plus {
       &::before {
