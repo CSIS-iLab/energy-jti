@@ -312,11 +312,11 @@
     }
 
     &.d1 .fs-option-label {
-      padding-left: 0px !important;
+      padding-left: 0 !important;
     }
 
     &.d1 .fs-checkbox {
-      padding-left: 20px;
+      padding-left: rem(20px);
     }
 
     .fs-option-label {
