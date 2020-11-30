@@ -46,3 +46,10 @@
 #site-content {
   padding-top: var(--header-height);
 }
+
+/* Hide scrollbar for chrome, IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  overflow-x: hidden; 
+}
