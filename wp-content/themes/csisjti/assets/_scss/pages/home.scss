@@ -478,6 +478,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
 
   &__event-block {
     $color-banner-bg: (
+      /* stylelint-disable */
       linear-gradient(
         220.16deg,
         rgba(228, 89, 89, 0.47) 0%,
@@ -491,6 +492,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
         #3f2577 98.67%
       ),
       #6a268a
+      /* style-lint-enable */
     );
     position: relative;
     display: flex;
@@ -500,11 +502,12 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
     @include breakpoint(large) {
       display: grid;
       grid-template-areas:
-        '. date .'
         'heading date name'
-        '. date time';
+        'heading date name'
+        'heading date time';
       grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
       justify-content: center;
+      text-align: left;
       column-gap: 40px;
     }
 
@@ -527,6 +530,8 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
       @include breakpoint(large) {
         grid-area: heading;
         grid-column: 1;
+        margin-top: 0;
+        align-self: center;
       }
     }
 
@@ -541,15 +546,18 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
         grid-column: 2;
         justify-content: center;
         margin: rem(40) 0;
-        padding-left: rem(18);
       }
     }
 
     .post-block__title {
-      grid-area: name;
-      grid-column: 3;
       color: $color-white-100;
       @extend %font-ui-headline-lg;
+
+      @include breakpoint(large) {
+        grid-area: name;
+        grid-column: 3;
+        align-self: end;
+      }
     }
 
     &--time {
@@ -558,6 +566,11 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
       margin: rem(12) 0 rem(40) 0;
       color: $color-white-190;
       @include font-size(16px);
+
+      @include breakpoint(large) {
+        grid-area: time;
+        grid-column: 3;
+      }
     }
   }
 }
