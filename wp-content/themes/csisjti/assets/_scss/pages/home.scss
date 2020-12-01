@@ -476,96 +476,88 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
 
   /** Styling for Event Banner **/
 
-  // &__event-block {
-  //   $color-banner-bg: (
-  //     linear-gradient(
-  //       220.16deg,
-  //       rgba(228, 89, 89, 0.47) 0%,
-  //       rgba(245, 127, 60, 0) 60.1%
-  //     ),
-  //     linear-gradient(
-  //       270.67deg,
-  //       rgba(60, 65, 130, 0.74) 0.59%,
-  //       rgba(59, 50, 95, 0.655726) 19.4%,
-  //       rgba(59, 33, 80, 0.87) 68.62%,
-  //       #3f2577 98.67%
-  //     ),
-  //     #6a268a
-  //   );
-  //   position: relative;
-  //   display: grid;
-  //   grid-template-columns: 3;
-  //   grid-template-areas:
-  //     '. date .'
-  //     'heading date name'
-  //     '. date time';
-  //   // grid-template-columns:
-  //   // max-content minmax(0, max-content) max-content minmax(0, max-content)
-  //   // auto;
-  //   height: var(--event-block-height);
-  //   column-gap: 40px;
-  //   height: 200px;
+  &__event-block {
+    $color-banner-bg: (
+      linear-gradient(
+        220.16deg,
+        rgba(228, 89, 89, 0.47) 0%,
+        rgba(245, 127, 60, 0) 60.1%
+      ),
+      linear-gradient(
+        270.67deg,
+        rgba(60, 65, 130, 0.74) 0.59%,
+        rgba(59, 50, 95, 0.655726) 19.4%,
+        rgba(59, 33, 80, 0.87) 68.62%,
+        #3f2577 98.67%
+      ),
+      #6a268a
+    );
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 
-  //   @include breakpoint(large) {
-  //     flex-direction: row;
-  //   }
+    @include breakpoint(large) {
+      display: grid;
+      grid-template-areas:
+        '. date .'
+        'heading date name'
+        '. date time';
+      grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
+      justify-content: center;
+      column-gap: 40px;
+    }
 
-  //   &::before {
-  //     content: '';
-  //     position: absolute;
-  //     top: 0;
-  //     bottom: 0;
-  //     z-index: -1;
-  //     @include vw100;
-  //     margin-left: calc(50% - (50vw - var(--scrollbar)));
-  //     background: $color-banner-bg;
-  //   }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+      @include vw100;
+      margin-left: calc(50% - (50vw - var(--scrollbar)));
+      background: $color-banner-bg;
+    }
 
-  //   &--heading {
-  //     grid-column: 1;
-  //     grid-area: heading;
-  //   }
+    &--heading {
+      margin-top: rem(40);
+      color: $color-white-100;
+      @extend %font-ui-text-xlg-bold;
 
-  //   &--date {
-  //     display: flex;
-  //     flex-direction: column;
-  //     grid-column: 2;
-  //     grid-area: date;
-  //     justify-content: center;
-  //     width: var(--event-block-height);
-  //     padding-left: rem(18);
-  //     @extend %font-ui-text-md;
-  //     background-color: $color-gradient-purple;
-  //     margin: rem(40) 0;
-  //   }
+      @include breakpoint(large) {
+        grid-area: heading;
+        grid-column: 1;
+      }
+    }
 
-  //   &--month {
-  //     @extend %font-ui-text-lg-bold;
-  //     text-transform: uppercase;
-  //   }
+    .event-date {
+      display: flex;
+      flex-direction: column;
+      margin: rem(32) auto;
 
-  //   &--day {
-  //     @extend %font-ui-text-emphasis;
-  //     padding: rem(2) 0;
-  //   }
 
-  //   &--year {
-  //     @extend %font-ui-text-md-bold;
-  //   }
+      @include breakpoint(large) {
+        grid-area: date;
+        grid-column: 2;
+        justify-content: center;
+        margin: rem(40) 0;
+        padding-left: rem(18);
+      }
+    }
 
-  //   &--loc {
-  //     display: none;
-  //   }
+    .post-block__title {
+      grid-area: name;
+      grid-column: 3;
+      color: $color-white-100;
+      @extend %font-ui-headline-lg;
+    }
 
-  //   &--time {
-  //     grid-column: 3;
-  //     grid-area: time;
-  //     @extend %font-ui-section-heading-md;
-  //   }
-
-  //   &--name {
-  //     grid-column: 3;
-  //     grid-area: name;
-  //   }
-  // }
+    &--time {
+      grid-area: time;
+      grid-column: 3;
+      margin: rem(12) 0 rem(40) 0;
+      color: $color-white-190;
+      @include font-size(16px);
+    }
+  }
 }

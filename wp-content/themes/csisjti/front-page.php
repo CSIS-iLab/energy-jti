@@ -62,12 +62,48 @@ get_header();
 		</aside>
 	</div>
 
-<!-- <div class="home__event-block">
-<div class="home__event-block--heading">Upcoming Event:</div>
-<div class="home__event-block--date">Date</div>
-<div class="home__event-block--name">Event Name</div>
-<div class="home__event-block--time">9am-3pm EST</div>
-</div> -->
+	<?php
+		$upcoming_args = array (
+			'post_type' => 'event',
+			'order' => 'DESC',
+			'posts_per_page'   => 1,
+			'meta_key'          => 'date_of_event',
+			'orderby'           => 'meta_value_num',
+			'order'             => 'ASC',
+			'meta_query' => array(
+				array(
+					'key' => 'date_of_event',
+					'compare' => '>=',
+					'value' => $today
+				)
+			)
+		);
+
+		$upcoming_query = new WP_Query( $upcoming_args );
+
+		if ( $upcoming_query->have_posts() ) {
+
+			while ( $upcoming_query->have_posts() ) {
+				$upcoming_query->the_post(); ?>
+				
+			<div class="home__event-block">
+				<div class="home__event-block--heading">Upcoming Event:</div>
+				<?php 
+				csisjti_event_date();
+				the_title( '<h2 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
+				csisjti_homepage_event_time(); 
+				?>
+			</div>
+
+			<?php }
+			wp_reset_postdata();
+		} else { ?>
+
+		<p class="page__no-content">Upcoming events will be posted here.</p>
+
+	<?php } ?>
+
+</div>
 
 	<section class="home__analysis">
 		<h2 class="home__analysis--subheading">Analysis<div class="home__analysis--byline"><span>by the</span> Just Transition Initiative</div></h2>
