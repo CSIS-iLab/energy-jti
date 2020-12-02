@@ -495,8 +495,13 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
       /* style-lint-enable */
     );
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas:
+      'heading'
+      'date'
+      'name'
+      'time';
+    grid-template-columns: 1;
     text-align: center;
 
     @include breakpoint(large) {
@@ -523,12 +528,12 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
     }
 
     &--heading {
+      grid-area: heading;
       margin-top: rem(40);
       color: $color-white-100;
       @extend %font-ui-text-xlg-bold;
 
       @include breakpoint(large) {
-        grid-area: heading;
         grid-column: 1;
         margin-top: 0;
         align-self: center;
@@ -536,13 +541,13 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
     }
 
     .event-date {
+      grid-area: date;
       display: flex;
       flex-direction: column;
       margin: rem(32) auto;
 
 
       @include breakpoint(large) {
-        grid-area: date;
         grid-column: 2;
         justify-content: center;
         margin: rem(40) 0;
@@ -550,11 +555,15 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
     }
 
     .post-block__title {
-      color: $color-white-100;
+      grid-area: name;
+      color: $color-white-190;
       @extend %font-ui-headline-lg;
 
+      a:hover {
+        color: $color-white-100;
+      }
+
       @include breakpoint(large) {
-        grid-area: name;
         grid-column: 3;
         align-self: end;
       }
@@ -562,13 +571,12 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
 
     &--time {
       grid-area: time;
-      grid-column: 3;
+      grid-column: 1;
       margin: rem(12) 0 rem(40) 0;
       color: $color-white-190;
       @include font-size(16px);
 
       @include breakpoint(large) {
-        grid-area: time;
         grid-column: 3;
       }
     }
