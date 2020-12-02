@@ -508,7 +508,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
       grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
       justify-content: center;
       text-align: left;
-      column-gap: 40px;
+      column-gap: rem(40px);
     }
 
     &::before {
