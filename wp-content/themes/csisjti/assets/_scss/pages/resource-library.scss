@@ -67,8 +67,8 @@
   &__top-bar {
     display: none;
     @include breakpoint('large') {
-      position: sticky !important;
-      top: var(--header-height);
+      // position: sticky !important;
+      // top: var(--header-height);
       z-index: -1;
       display: block;
       width: 1px;
@@ -111,6 +111,7 @@
     margin-bottom: rem(12);
 
     @include breakpoint('medium') {
+      position: relative;
       margin-bottom: rem(24);
     }
 
@@ -122,12 +123,12 @@
     }
   }
 
-  &__sticky {
+  &__side-panel {
     z-index: 10;
 
     @include breakpoint('large') {
-      position: sticky;
-      top: var(--header-height);
+      position: absolute;
+      top: 0;
     }
   }
 
@@ -171,7 +172,9 @@
 
   &__results {
     @include breakpoint('large') {
+      max-height: 100vh;
       padding-top: rem(48);
+      overflow: auto;
     }
   }
 

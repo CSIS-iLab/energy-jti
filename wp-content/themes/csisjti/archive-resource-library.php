@@ -19,7 +19,7 @@ get_header();
 	<div class="resource-library__top-bar"></div>
 	<div class="resource-library__content">
 		<div class="resource-library__secondary">
-			<div class="resource-library__sticky">
+			<div class="resource-library__side-panel">
 
 				<div class="resource-library__pagination">
 				<?php echo facetwp_display( 'facet', 'pagination' ); ?>
