@@ -62,12 +62,25 @@ get_header();
 		</aside>
 	</div>
 
-<!-- <div class="home__event-block">
-<div class="home__event-block--heading">Upcoming Event:</div>
-<div class="home__event-block--date">Date</div>
-<div class="home__event-block--name">Event Name</div>
-<div class="home__event-block--time">9am-3pm EST</div>
-</div> -->
+	<?php 
+		$featured_event = get_field( 'featured_event' ); 
+
+			if ( $featured_event ) :
+				$post = $featured_event;
+				setup_postdata( $post ); 
+	?> 
+				<div class="home__event-block">
+					<h2 class="home__event-block--heading">Upcoming Event:</h2>
+					<?php 
+						csisjti_event_date();
+						the_title( '<h3 class="post-block__title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+						csisjti_homepage_event_time(); 
+					?>
+				</div>
+	<?php 
+			wp_reset_postdata();
+		endif; 
+	?>	
 
 	<section class="home__analysis">
 		<h2 class="home__analysis--subheading">Analysis<div class="home__analysis--byline"><span>by the</span> Just Transition Initiative</div></h2>

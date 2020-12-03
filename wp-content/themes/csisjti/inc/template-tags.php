@@ -903,3 +903,22 @@ if (! function_exists('csisjti_event_register_link')) :
 
 	}
 endif;
+
+/**
+ * Displays Homepage Event Time.
+ *
+ *
+ * @return string $html The event time.
+ */
+if (! function_exists('csisjti_homepage_event_time')) :
+	function csisjti_homepage_event_time() {
+		$time = get_field( 'time' );
+
+		if ( !$time ) {
+			return;
+		}
+
+		printf( '<div class="home__event-block--time">' . esc_html__( '%1$s', 'csisjti' ) . '</div>', $time ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+	}
+endif;
