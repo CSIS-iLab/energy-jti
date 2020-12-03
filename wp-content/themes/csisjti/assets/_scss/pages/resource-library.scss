@@ -122,15 +122,6 @@
     }
   }
 
-  &__side-panel {
-    z-index: 10;
-
-    @include breakpoint('large') {
-      position: absolute;
-      top: 0;
-    }
-  }
-
   &__pagination {
     position: relative;
     display: flex;

@@ -19,7 +19,6 @@ get_header();
 	<div class="resource-library__top-bar"></div>
 	<div class="resource-library__content">
 		<div class="resource-library__secondary">
-			<div class="resource-library__side-panel">
 
 				<div class="resource-library__pagination">
 				<?php echo facetwp_display( 'facet', 'pagination' ); ?>
@@ -54,7 +53,6 @@ get_header();
 					</button>
 					<button id="filters-reset-btn" class="btn--reset" onclick="FWP.reset()">Clear All</button>
 				</div>
-			</div>
 		</div>
 
 		<div class="filters-overview">
