@@ -477,8 +477,8 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
   /** Styling for Event Banner **/
 
   &__event-block {
+    /* stylelint-disable */
     $color-banner-bg: (
-      /* stylelint-disable */
       linear-gradient(
         220.16deg,
         rgba(228, 89, 89, 0.47) 0%,
@@ -492,8 +492,8 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
         #3f2577 98.67%
       ),
       #6a268a
-      /* style-lint-enable */
     );
+    /* stylelint-enable */
     position: relative;
     display: grid;
     grid-template-areas:
@@ -535,15 +535,15 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
 
       @include breakpoint(large) {
         grid-column: 1;
-        margin-top: 0;
         align-self: center;
+        margin-top: 0;
       }
     }
 
     .event-date {
-      grid-area: date;
       display: flex;
       flex-direction: column;
+      grid-area: date;
       margin: rem(32) auto;
 
 

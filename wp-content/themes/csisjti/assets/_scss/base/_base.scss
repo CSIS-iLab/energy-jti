@@ -37,7 +37,6 @@
   padding-right: var(--container-padding);
   padding-left: 6vw;
   padding-left: var(--container-padding);
-  overflow-x: hidden;
 
   @include breakpoint(xxlarge) {
     --container-padding: #{rem(80)};
