@@ -128,7 +128,7 @@
     justify-content: space-between;
     align-items: center;
     @include vw100;
-    margin-left: calc(50% - (50vw - var(--scrollbar)));
+    margin-left: calc(50% - (50vw - var(--scrollbarHalf)));
     padding: rem(32) var(--container-padding) rem(12);
     background: $color-gray-300;
     box-shadow: 0 4px 5px rgba(2, 3, 3, 0.03), 0 1px 10px rgba(2, 3, 3, 0.02),

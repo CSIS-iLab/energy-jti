@@ -44,7 +44,7 @@
     bottom: 0;
     z-index: -1;
     @include vw100;
-    margin-left: calc(50% - (50vw - var(--scrollbar)));
+    margin-left: calc(50% - (50vw - var(--scrollbarHalf)));
     background: var(--page-header-bg);
     background-repeat: no-repeat;
     // Separate values for the Image, Gradient, and solid color, respectfully.
