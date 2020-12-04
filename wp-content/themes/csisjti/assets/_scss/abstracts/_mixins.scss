@@ -144,7 +144,7 @@
 
 @mixin csisjti-full-width-wrapper {
   @include vw100;
-  margin-left: calc(50% - (50vw - var(--scrollbar)));
+  margin-left: calc(50% - (50vw - var(--scrollbarHalf)));
 }
 
 @mixin csisjti-full-width-content {

@@ -143,7 +143,7 @@
     @include vw100;
     height: 1px;
     margin-bottom: rem(42);
-    margin-left: calc(50% - (50vw - var(--scrollbar)));
+    margin-left: calc(50% - (50vw - var(--scrollbarHalf)));
     background: $color-gray-line;
   }
 

@@ -80,7 +80,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
         bottom: 0;
         display: block;
         @include vw100;
-        margin-left: calc(50% - (50vw - var(--scrollbar)));
+        margin-left: calc(50% - (50vw - var(--scrollbarHalf)));
         overflow: hidden;
       }
 
@@ -91,7 +91,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
         bottom: 0;
         z-index: 1;
         @include vw100;
-        margin-left: calc(50% - (50vw - var(--scrollbar)));
+        margin-left: calc(50% - (50vw - var(--scrollbarHalf)));
         background: var(--page-header-home);
         mix-blend-mode: soft-light;
         pointer-events: none;
@@ -99,7 +99,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
 
       video {
         @include breakpoint('xlarge') {
-          width: 100vw;
+          @include vw100;
         }
       }
     }
@@ -132,7 +132,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
         bottom: 0;
         left: calc(100% - var(--filter-width));
         z-index: 1;
-        width: calc(50vw - var(--scrollbar) / 2 - 50% + var(--filter-width));
+        width: calc(50vw - var(--scrollbarHalf) - 50% + var(--filter-width));
         background: $tab-gradient;
       }
     }
@@ -179,7 +179,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
       bottom: 0;
       left: 0;
       z-index: -1;
-      width: calc(100vw - var(--scrollbar) - var(--container-padding));
+      width: calc(100vw - var(--scrollbarHalf) - var(--container-padding));
       background: $tab-gradient;
 
       @include breakpoint('large') {
@@ -250,7 +250,11 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
         bottom: 0;
         left: 100%;
         z-index: -1;
-        width: calc(100vw - var(--scrollbar) - 100% - var(--container-padding));
+        /* stylelint-disable */
+        width: calc(
+          100vw - var(--scrollbarHalf) - 100% - var(--container-padding)
+        );
+        /* stylelint-enable */
         height: 100%;
         background: $tab-solid;
 
@@ -329,7 +333,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
           top: 0;
           right: 100%;
           display: block;
-          width: calc(50vw - var(--scrollbar) / 2 - 50%);
+          width: calc(50vw - var(--scrollbarHalf) - 50%);
           height: 100%;
           background: $color-gray-400;
         }
@@ -523,7 +527,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
       bottom: 0;
       z-index: -1;
       @include vw100;
-      margin-left: calc(50% - (50vw - var(--scrollbar)));
+      margin-left: calc(50% - (50vw - var(--scrollbarHalf)));
       background: $color-banner-bg;
     }
 
@@ -545,7 +549,6 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
       flex-direction: column;
       grid-area: date;
       margin: rem(32) auto;
-
 
       @include breakpoint(large) {
         grid-column: 2;
