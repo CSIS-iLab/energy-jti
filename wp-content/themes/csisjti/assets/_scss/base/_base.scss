@@ -2,8 +2,8 @@
 @use 'sass:map';
 
 :root {
-  /* stylelint-disable-next-line*/
-  --scrollbar: 0px;
+  --scrollbar: var(--scrollbarX);
+  --scrollbarHalf: calc(var(--scrollbar) / 2);
   --header-height: 72px;
   --logo-height: 55px;
   --event-block-height: 112px;
@@ -28,7 +28,7 @@
 
 .container {
   --container-padding: 6vw;
-  
+
   position: relative;
   max-width: $size__container-max-width;
   margin-right: auto;

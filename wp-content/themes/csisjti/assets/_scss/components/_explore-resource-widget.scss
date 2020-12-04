@@ -2,7 +2,7 @@
 
 .explore-resource-library {
   @include vw100;
-  margin-left: calc(50% - (50vw - var(--scrollbar)));
+  margin-left: calc(50% - (50vw - var(--scrollbarHalf)));
   padding: rem(40) var(--container-padding);
   color: $color-white-190;
   /* stylelint-disable */
@@ -33,7 +33,7 @@
 
     &:hover {
       color: $color-white-100;
-      
+
       .icon {
         color: $color-primary-blue-400;
         background: $color-white-100;
@@ -41,7 +41,7 @@
       }
     }
   }
-  
+
   .icon {
     flex-shrink: 0;
     width: 2em;
