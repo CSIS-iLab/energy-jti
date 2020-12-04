@@ -28,7 +28,7 @@
 
 .container {
   --container-padding: 6vw;
-
+  
   position: relative;
   max-width: $size__container-max-width;
   margin-right: auto;
@@ -37,6 +37,7 @@
   padding-right: var(--container-padding);
   padding-left: 6vw;
   padding-left: var(--container-padding);
+  overflow-x: hidden;
 
   @include breakpoint(xxlarge) {
     --container-padding: #{rem(80)};

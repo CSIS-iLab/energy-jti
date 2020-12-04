@@ -2,6 +2,7 @@
 @use '../components/facets-tabs';
 @use '../components/filters-modal';
 @use '../components/filters-modal-grid';
+@use '../components/scrollbar';
 
 :root {
   --top-bar-height: #{rem(72)};
@@ -67,8 +68,6 @@
   &__top-bar {
     display: none;
     @include breakpoint('large') {
-      position: sticky !important;
-      top: var(--header-height);
       z-index: -1;
       display: block;
       width: 1px;
@@ -111,6 +110,7 @@
     margin-bottom: rem(12);
 
     @include breakpoint('medium') {
+      position: relative;
       margin-bottom: rem(24);
     }
 
@@ -119,15 +119,6 @@
       top: unset;
       z-index: unset;
       grid-row: 1 / span 2;
-    }
-  }
-
-  &__sticky {
-    z-index: 10;
-
-    @include breakpoint('large') {
-      position: sticky;
-      top: var(--header-height);
     }
   }
 
@@ -171,7 +162,9 @@
 
   &__results {
     @include breakpoint('large') {
-      padding-top: rem(48);
+      max-height: 100vh;
+      margin-top: rem(48);
+      overflow: auto;
     }
   }
 
