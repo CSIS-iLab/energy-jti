@@ -29,6 +29,7 @@
     connectFacets()
     hideExtraFacets()
     enableAutoRefreshSpecificFacets()
+    runExpandCheckboxFacet()
     hasRun = true
   })
 
@@ -225,9 +226,9 @@
 
   // Calculates the number of active filters applied.
   function setNumFilters() {
-    // We don't want the pagination or sort to imapct the count.
+    // We don't want the pagination or sort to impact the count.
 
-    const excludedFacets = ['pagination', 'sort', 'paged']
+    const excludedFacets = ['pagination', 'sort', 'paged', 'type_of_content']
 
     const numFilters = Object.keys(FWP.facets)
       .filter((f) => !excludedFacets.includes(f))
@@ -369,5 +370,43 @@
       let label = el.innerText.replace(' Modal', '')
       el.innerText = label
     })
+  }
+
+  function runExpandCheckboxFacet() {
+    $(document).on('click', '.facetwp-facet-focus_areas_modal', function () {
+      modifyExpandCheckboxFacet()
+    })
+  }
+
+  function modifyExpandCheckboxFacet() {
+    $('.facetwp-facet-focus_areas_modal')
+      .children('.facetwp-checkbox')
+      .each(function () {
+        // grabs the checkboxes that have children checkboxes using the facetwp-depth class
+        if ($(this).next()[0].classList.contains('facetwp-depth')) {
+          // if parent checkbox is selected, check all children
+          if ($(this).context.classList.contains('checked')) {
+            $(this)
+              .next()
+              .children()
+              .each(function () {
+                this.classList.add('checked')
+              })
+          }
+          // check if all children checkboxes are checked if so check parent checkbox
+          let allChildrenChecked = true
+          $(this)
+            .next()
+            .children()
+            .each(function () {
+              if (!this.classList.contains('checked')) {
+                allChildrenChecked = false
+              }
+            })
+          if (allChildrenChecked) {
+            $(this).context.classList.add('checked')
+          }
+        }
+      })
   }
 })(jQuery)
