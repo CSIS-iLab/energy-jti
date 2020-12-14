@@ -1,6 +1,6 @@
-# CSIS*Mag*
+# Just Transitions Initiative
 
-The website for the CSIS*Mag* study by CSIS iDeas Lab. It is based off of the TwentyTwenty WordPress theme and gulp, Sass, Autoprefixer, PostCSS, imagemin, and Browsersync to speed-up development.
+The website for the Just Transitions Initiative. It is based off of the TwentyTwenty WordPress theme and gulp, Sass, Autoprefixer, PostCSS, imagemin, and Browsersync to speed-up development.
 
 ## Table of Contents
 
