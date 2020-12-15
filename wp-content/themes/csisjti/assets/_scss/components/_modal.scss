@@ -83,11 +83,12 @@ dialog::backdrop {
 
   * {
     max-width: 680px;
+    margin: 0 auto;
   }
 
   &__heading {
     @extend %font-ui-section-heading-lg;
-    margin: rem(12) 0 rem(40);
+    margin: rem(12) auto rem(40);
   }
 
   &__desc {
