@@ -147,8 +147,13 @@
 
       // Add Number of Selected Options to Wrapper
       const numSelected = FWP.facets[facet_name].length
-      this.querySelector('.fs-label-wrap').setAttribute('data-num', numSelected)
+      const noResults = document.querySelector('.no-results__heading')
 
+      // Remove data attribute on no search results
+      if (!noResults) {
+        this.querySelector('.fs-label-wrap').setAttribute('data-num', numSelected)
+      }
+      
       // If these fields already exist, don't create them again.
       if (this.querySelector('.fs-label-field')) {
         return
