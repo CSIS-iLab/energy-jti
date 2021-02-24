@@ -883,7 +883,7 @@ if (! function_exists('csisjti_event_register_link')) :
 			return;
 		}
 
-		$registration_link = get_field( 'registration_link' );
+		$registration_link = preg_replace("(^https?://)", "", get_field( 'registration_link' ) );
 
 		if ( !$registration_link ) {
 			return;
