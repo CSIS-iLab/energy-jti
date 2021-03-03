@@ -215,15 +215,15 @@
   // Toggle plus and minus icons on user click
   function modifyExpandIcons() {
     $('.facetwp-expand').each(function () {
-      $(this).context.classList.add('icon-plus')
+      $(this)[0].classList.add('icon-plus')
 
       $(this).on('click', () => {
-        if ($(this).context.innerHTML.includes('-')) {
-          $(this).context.classList.remove('icon-minus')
-          $(this).context.classList.add('icon-plus')
+        if ($(this)[0].innerHTML.includes('-')) {
+          $(this)[0].classList.remove('icon-minus')
+          $(this)[0].classList.add('icon-plus')
         } else {
-          $(this).context.classList.remove('icon-plus')
-          $(this).context.classList.add('icon-minus')
+          $(this)[0].classList.remove('icon-plus')
+          $(this)[0].classList.add('icon-minus')
         }
       })
     })
@@ -390,7 +390,7 @@
         // grabs the checkboxes that have children checkboxes using the facetwp-depth class
         if ($(this).next()[0].classList.contains('facetwp-depth')) {
           // if parent checkbox is selected, check all children
-          if ($(this).context.classList.contains('checked')) {
+          if ($(this)[0].classList.contains('checked')) {
             $(this)
               .next()
               .children()
@@ -409,7 +409,7 @@
               }
             })
           if (allChildrenChecked) {
-            $(this).context.classList.add('checked')
+            $(this)[0].classList.add('checked')
           }
         }
       })
