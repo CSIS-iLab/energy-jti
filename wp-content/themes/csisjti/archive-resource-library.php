@@ -54,7 +54,7 @@ get_header();
 					<button id="apply-all-btn" class="btn btn--apply">
 						Apply
 					</button>
-					<button id="filters-reset-btn" class="btn--reset" onclick="FWP.reset()">Clear All</button>
+					<button id="filters-reset-btn" class="btn btn--outline btn--reset" onclick="FWP.reset()">Clear All</button>
 				</div>
 		</div>
 
