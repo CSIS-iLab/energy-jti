@@ -151,6 +151,12 @@
     @include breakpoint('large') {
       display: block;
     }
+
+    .btn--apply {
+      position: absolute;
+      right: 0;
+      margin-top: rem(12);
+    }
   }
 
   &__subheading {
@@ -219,7 +225,7 @@
 
   &--filters:not(#mobile-filters-btn)
   ,
-   
+
   &--apply {
     margin-bottom: rem(12);
 
@@ -227,10 +233,6 @@
       margin-top: rem(4) !important;
       margin-bottom: 0 !important;
     }
-  }
-
-  &--apply {
-    margin-left: rem(70);
   }
 
   &--reset {
