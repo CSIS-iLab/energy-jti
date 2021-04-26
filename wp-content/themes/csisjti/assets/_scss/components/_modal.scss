@@ -34,14 +34,17 @@
   width: 100%;
   max-width: 1000px;
   max-height: 95%;
-  padding-bottom: rem(80px);
   margin-bottom: rem(40px);
+  padding-bottom: rem(80px);
   overflow: auto;
   background: $color-white-100;
   border: unset;
   box-shadow: 0 6px 8px 0 rgba(44, 8, 8, 0.5);
   transform: translate(-50%, -50%);
+  perspective: 1000px;
+  filter: blur(0);
   animation: appear 1s 0s 1 both;
+  -webkit-font-smoothing: subpixel-antialised;
 }
 
 .dialog-close {
