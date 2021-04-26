@@ -51,7 +51,7 @@ get_header();
 						?>
 						More Filters
 					</button>
-					<button id="apply-all-btn" class="btn btn--outline btn--round btn--apply">
+					<button id="apply-all-btn" class="btn btn--apply">
 						Apply
 					</button>
 					<button id="filters-reset-btn" class="btn--reset" onclick="FWP.reset()">Clear All</button>
