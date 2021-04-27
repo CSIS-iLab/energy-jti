@@ -32,7 +32,6 @@ $facet: '.facetwp-facet';
   grid-template-columns: 1fr 1fr;
   margin: rem(12) 0 rem(40);
   padding: 0 6vw;
-  overflow: scroll;
 
   @include breakpoint(xsmall) {
     grid-template-areas:
