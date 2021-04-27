@@ -151,6 +151,12 @@
     @include breakpoint('large') {
       display: block;
     }
+
+    .btn--apply {
+      position: absolute;
+      right: 0;
+      margin-top: rem(12);
+    }
   }
 
   &__subheading {
@@ -215,6 +221,12 @@
 .btn {
   &--filters:not(#mobile-filters-btn) {
     margin-top: rem(12);
+  }
+
+  &--filters:not(#mobile-filters-btn)
+  ,
+
+  &--apply {
     margin-bottom: rem(12);
 
     @media all and (max-height: 800px) {
@@ -226,8 +238,6 @@
   &--reset {
     display: block;
     padding: rem(8);
-    color: $color-black-155;
-    @extend %font-ui-text-sm;
     background: transparent;
     border: 0;
     cursor: pointer;
@@ -235,7 +245,9 @@
     appearance: none;
 
     &:hover {
-      color: $color-black-190;
+      color: $color-primary-blue-100;
+      background: transparent;
+      border: 0;
     }
   }
 }
