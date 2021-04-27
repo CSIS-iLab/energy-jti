@@ -17,7 +17,6 @@ $facet: '.facetwp-facet';
 
   .facetwp-checkbox {
     @extend %font-ui-text-md;
-    margin-bottom: rem(6);
     color: $color-black-190;
   }
 
@@ -36,7 +35,7 @@ $facet: '.facetwp-facet';
     white-space: nowrap !important;
     
     @include breakpoint(large) {
-      margin-bottom: rem(64);
+      margin-bottom: rem(24);
     }
 
     @include breakpoint(large) {
@@ -53,11 +52,11 @@ $facet: '.facetwp-facet';
 
   &__heading {
     @extend %font-ui-section-heading-md;
-    margin: rem(40) 0 rem(24);
+    margin: rem(24) 0 rem(12);
 
     &::before {
       position: relative;
-      top: -32px;
+      top: -24px;
       display: block;
       width: 100%;
       border-top: 1px solid $color-gray-line;
@@ -82,7 +81,7 @@ $facet: '.facetwp-facet';
 
   &--analysis {
     @include breakpoint(large) {
-      margin-top: rem(40);
+      margin-top: rem(24);
     }
   }
 
@@ -131,7 +130,7 @@ $facet: '.facetwp-facet';
   }
 
   #{$facet}-analysis_type_modal {
-    margin-bottom: rem(40) !important;
+    margin-bottom: rem(24) !important;
   }
 
   #{$facet}-analysis_type_modal,

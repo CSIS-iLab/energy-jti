@@ -20,7 +20,7 @@
     fwpDisableAutoRefresh()
     modifyCheckboxes()
     modifySearchFacet()
-    fSelectFacetApply()
+    applyAllFilters()
     modifyFSelectFacet()
     modifyFSelectLabels()
     modifyExpandIcons()
@@ -168,31 +168,15 @@
     })
   }
 
-  function fSelectFacetApply() {
-    $('.resource-library__inline-filters .facetwp-type-fselect').each(
+  function applyAllFilters() {
+    $('.resource-library__inline-filters').each(
       function () {
-        // Check if apply button has been added
-        const applyBtn = this.querySelector('.fs-fselect-apply')
-        if (applyBtn) {
-          return
-        }
+        const applyBtn = this.querySelector('#apply-all-btn') 
 
-        const applyWrapper = document.createElement('div')
-        applyWrapper.classList.add('fs-fselect-apply')
-        applyWrapper.innerHTML =
-          '<button class="btn btn--filter-apply">Apply</button>'
-
-        const fsWrap = this.querySelector('.fs-wrap')
-        const dropdown = this.querySelector('.fs-dropdown')
-        dropdown.append(applyWrapper)
-
-        dropdown
-          .querySelector('.btn--filter-apply')
+        applyBtn
           .addEventListener('click', function () {
-            fsWrap.classList.toggle('fs-open')
-            dropdown.classList.toggle('hidden')
-            FWP.refresh()
-          })
+          FWP.refresh()
+        })
       }
     )
   }
