@@ -172,7 +172,6 @@
     $('.resource-library__inline-filters').each(
       function () {
         const applyBtn = this.querySelector('#apply-all-btn') 
-        console.log(applyBtn)
 
         applyBtn
           .addEventListener('click', function () {
