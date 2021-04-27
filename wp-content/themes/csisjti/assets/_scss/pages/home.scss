@@ -452,13 +452,19 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
     }
 
     .header__logo {
+      display: flex;
       margin-right: auto;
-      margin-bottom: rem(16);
+      margin-bottom: 0;
       margin-left: auto;
+      align-items: center;
 
       @include breakpoint('small') {
         margin-right: rem(24);
         margin-left: 0;
+      }
+
+      svg {
+        filter: grayscale(1);
       }
     }
 
