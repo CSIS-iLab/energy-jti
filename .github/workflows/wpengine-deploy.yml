@@ -2,8 +2,8 @@ name: WP Engine Git Deploy
 on:
   push:
     branches:
-			- main
-			- development
+      - main
+      - development
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,7 +33,7 @@ jobs:
       - name: Git fetch
         run: git fetch --prune --unshallow
 
-			- name: Set environment to production
+      - name: Set environment to production
         if: endsWith(github.ref, '/main') ## Production Branch name
         run: |
           echo "WPE_ENVIRONMENT_NAME=${{ secrets.WPE_PROD_ENV_NAME }}" >> $GITHUB_ENV
@@ -50,5 +50,5 @@ jobs:
         env:
           WPE_SSH_KEY_PRIVATE: ${{ secrets.WPE_SSH_KEY_PRIVATE }}
           WPE_SSH_KEY_PUBLIC: ${{ secrets.WPE_SSH_KEY_PUBLIC }}
-					WPE_GIT_INCLUDE: ".github/wpe-git-include.txt"
-					WPE_GIT_EXCLUDE: ".github/wpe-git-exclude.txt"
+          WPE_GIT_INCLUDE: ".github/wpe-git-include.txt"
+          WPE_GIT_EXCLUDE: ".github/wpe-git-exclude.txt"
