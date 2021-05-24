@@ -25,7 +25,7 @@ $object_name = $object->name;
   <h2 class="filters-modal__title">All Filters</h2>
 
   <div class="filters-modal__btn-wrapper">
-		<button id="filters-reset-btn" class="btn--reset" onclick="FWP.reset()">Clear All</button>
+		<button id="filters-reset-btn" class="btn btn--outline btn--reset" onclick="FWP.reset()">Clear All</button>
 		<div class="filters-modal__totals btn btn--round fp-num_filters_applied">0</div>
     <button id="filters-apply-btn" class="btn btn--apply">Apply</button>
   </div>
