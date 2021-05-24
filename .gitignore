@@ -119,3 +119,5 @@ wp-content/themes/*/**/*.css
 wp-content/themes/csisjti/assets/img
 wp-content/themes/csisjti/assets/js
 
+
+!.github
