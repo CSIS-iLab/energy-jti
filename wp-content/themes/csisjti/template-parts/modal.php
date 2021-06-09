@@ -16,11 +16,11 @@
  */
 
 ?>
-<div class="dialog-container" id="accessible-dialog" aria-hidden="true">
+<div class="dialog-container" id="accessible-dialog" aria-hidden="true" >
 
-  <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+  <div class="dialog-overlay" data-a11y-dialog-hide></div>
 
-  <dialog class="dialog-content" aria-labelledby="dialog-title">
+  <div role="document" class="dialog-content" aria-labelledby="dialog-title" aria-modal="true">
     
     <button class="dialog-close" type="button" data-a11y-dialog-hide aria-label="Close this dialog window">
       <?php echo csisjti_get_svg('close'); ?>
@@ -30,5 +30,5 @@
       get_template_part( 'template-parts/classification-modal' ); 
       get_template_part( 'template-parts/filters-modal' ); 
     ?>
-  </dialog>
+  </div>
 </div>
