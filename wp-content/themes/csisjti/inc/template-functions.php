@@ -584,4 +584,12 @@ function csisjti_dfi_posttype_post ( $dfi_id, $post_id ) {
 }
 add_filter( 'dfi_thumbnail_id', 'csisjti_dfi_posttype_post', 10, 2 );
 
+/**
+ * Override default maximum search returns of 200 results.
+ */
+add_filter( 'facetwp_search_query_args', function( $search_args, $params ) {
+    $search_args['posts_per_page'] = -1;
+    return $search_args;
+}, 10, 2 );
+
 
