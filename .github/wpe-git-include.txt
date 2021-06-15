@@ -1,0 +1,2 @@
+wp-content/themes/csisjti/*.css
+wp-content/themes/csisjti/assets
