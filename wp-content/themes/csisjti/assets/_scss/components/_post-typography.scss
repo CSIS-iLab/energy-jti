@@ -101,10 +101,12 @@
   ul {
     margin: rem(16px) 0 rem(32px) rem(56px);
     padding-left: 0;
+    line-height: 1.6;
     @extend %font-copy-body-list-lg;
 
     li {
       position: relative;
+      padding-left: 8px;
 
       /* stylelint-disable-next-line */
       + li {
