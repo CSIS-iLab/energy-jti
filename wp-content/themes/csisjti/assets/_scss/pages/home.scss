@@ -386,8 +386,6 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
       @include breakpoint('small') {
         --img-size: 175px !important;
         width: var(--img-size);
-
-        // height: var(--img-size);
       }
     }
 
