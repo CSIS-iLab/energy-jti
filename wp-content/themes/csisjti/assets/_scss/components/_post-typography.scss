@@ -106,7 +106,7 @@
 
     li {
       position: relative;
-      padding-left: 8px;
+      padding-left: rem(8);
 
       /* stylelint-disable-next-line */
       + li {
