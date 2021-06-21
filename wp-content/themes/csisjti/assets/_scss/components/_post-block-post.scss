@@ -56,13 +56,13 @@
     img {
       aspect-ratio: var(--aspect-ratio);
       --img-size: 150px;
-      width: var(--img-size, 200px);
       margin: 0 auto;
       object-fit: cover;
       object-position: center center;
 
       @include breakpoint('medium') {
         --img-size: 280px;
+        width: var(--img-size, 200px);
       }
     }
   }

@@ -387,6 +387,12 @@ function csisjti_sidebar_registration() {
 
 add_action( 'widgets_init', 'csisjti_sidebar_registration' );
 
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+
 /**
  * Enqueue supplemental block editor styles.
  */
