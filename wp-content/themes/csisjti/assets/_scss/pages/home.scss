@@ -363,6 +363,7 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
 
   .post-block {
     --margin-between: #{rem(32)};
+    --aspect-ratio: #{4/3};
     // Normal Posts
     &:not(:first-of-type) .post-block__excerpt {
       display: none;
@@ -380,11 +381,11 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
     &:not(:first-of-type) .post-block__img img {
       width: 100%;
       height: auto;
+      aspect-ratio: var(--aspect-ratio);
 
       @include breakpoint('small') {
         --img-size: 175px !important;
         width: var(--img-size);
-        height: var(--img-size);
       }
     }
 
@@ -416,9 +417,9 @@ $tab-gradient: linear-gradient(180deg, #018085 0%, #018576 100%);
 
       .post-block__img {
         margin-bottom: rem(24);
-
         /* stylelint-disable-next-line */
         img {
+          aspect-ratio: var(--aspect-ratio);
           width: 100%;
           max-width: 100%;
           height: auto;
