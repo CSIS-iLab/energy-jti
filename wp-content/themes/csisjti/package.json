@@ -13,7 +13,7 @@
     "@babel/preset-env": "^7.12.1",
     "@wordpress/eslint-plugin": "^7.3.0",
     "autoprefixer": "^9.8.6",
-    "browser-sync": "^2.26.13",
+    "browser-sync": "^3.0.3",
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "eslint": "^7.12.1",
